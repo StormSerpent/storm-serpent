@@ -1,0 +1,3 @@
+[*.json]
+# Use two spaces per indent like the Hytale Asset Editor.
+indent_size = 2

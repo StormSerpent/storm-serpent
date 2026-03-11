@@ -1,0 +1,13 @@
+{
+  "Group": "Nullicorn",
+  "Name": "Wip",
+  "Version": "0.1.0-SNAPSHOT",
+  "Description": "",
+  "Authors": [],
+  "Main": "me.nullicorn.hytale.wip.WipPlugin",
+  "ServerVersion": "2026.03.05-9fdc5985d",
+  "IncludesAssetPack": true,
+  "Dependencies": {
+    "Nullicorn:Serpent": "1.0.x-SNAPSHOT"
+  }
+}

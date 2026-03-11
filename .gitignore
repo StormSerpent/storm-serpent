@@ -1,0 +1,9 @@
+# Gradle cache
+/.gradle/
+
+# Gradle output
+/build/
+
+# Hytale asset schema
+/src/main/resources/.vscode/
+/src/main/resources/Schema/
