@@ -5,9 +5,10 @@
   "Description": "",
   "Authors": [],
   "Main": "me.nullicorn.hytale.wip.WipPlugin",
-  "ServerVersion": "2026.03.05-9fdc5985d",
+  "ServerVersion": "2026.03.12-b1f856309",
   "IncludesAssetPack": true,
   "Dependencies": {
-    "Nullicorn:Serpent": "1.0.x-SNAPSHOT"
+    "Nullicorn:Serpent": "0.1.x-SNAPSHOT",
+    "Hytale:NPC": "*"
   }
 }
