@@ -2,10 +2,11 @@ package me.nullicorn.hytale.wip;
 
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
-import org.checkerframework.checker.nullness.compatqual.NonNullDecl;
+
+import javax.annotation.Nonnull;
 
 public final class WipPlugin extends JavaPlugin {
-    public WipPlugin(@NonNullDecl final JavaPluginInit init) {
+    public WipPlugin(@Nonnull final JavaPluginInit init) {
         super(init);
     }
 
