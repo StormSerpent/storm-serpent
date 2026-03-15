@@ -21,7 +21,7 @@ repositories {
 
 dependencies {
     implementation("com.hypixel.hytale:Server:2026.03.05-9fdc5985d")
-    implementation("me.nullicorn:hytale-serpent:1.0.0-SNAPSHOT")
+    implementation("me.nullicorn:hytale-serpent:0.1.0-SNAPSHOT")
 }
 
 fun runServer(task: JavaExec, vararg extraArgs: String) {
