@@ -1,0 +1,49 @@
+{
+  "Type": "Generic",
+  "StartState": "Idle",
+  "MaxHealth": 200,
+  "Appearance": "Sheep",
+  "NameTranslationKey": "server.npcRoles.Serpent_Wip",
+  "SpawnLockTime": 0,
+  "MotionControllerList": [
+    {
+      "Type": "Fly",
+      "Acceleration": 100.0,
+      "MinAirSpeed": 1.0,
+      "MaxHorizontalSpeed": 24.0,
+      "MaxSinkSpeed": 20,
+      "MaxClimbSpeed": 20,
+      "MinHeightOverGround": 30,
+      "MaxHeightOverGround": 100
+    }
+  ],
+  "Instructions": [
+    {
+      "Continue": true,
+      "Sensor": {
+        "Type": "Any",
+        "Once": true
+      },
+      "Actions": [
+        {
+          "Type": "SerpentCreateBody",
+          "SerpentConfig": "Serpent_Wip"
+        }
+      ]
+    },
+    {
+      "Sensor": {
+        "Type": "State",
+        "State": "Idle"
+      },
+      "BodyMotion": {
+        "Type": "Wander",
+        "RelativeSpeed": 2.0,
+        "MinWalkTime": 0.01,
+        "MaxWalkTime": 0.5,
+        "MinHeadingChange": 1,
+        "MaxHeadingChange": 4
+      }
+    }
+  ]
+}

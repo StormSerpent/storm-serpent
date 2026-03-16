@@ -1,0 +1,57 @@
+{
+  "Layout": {
+    "Type": "Sequence",
+    "Sequence": [
+      {
+        "Type": "Bone",
+        "BoneConfig": "Serpent_Wip_Head",
+        "Scale": 10
+      },
+      {
+        "Type": "Repeat",
+        "Count": [4, 4],
+        "Node": {
+          "Type": "Bone",
+          "BoneConfig": "Serpent_Wip_Body",
+          "Scale": 15
+        }
+      },
+      {
+        "Type": "Repeat",
+        "Count": [4, 4],
+        "Node": {
+          "Type": "Bone",
+          "BoneConfig": "Serpent_Wip_Body",
+          "Scale": 12
+        }
+      },
+      {
+        "Type": "Repeat",
+        "Count": [4, 4],
+        "Node": {
+          "Type": "Bone",
+          "BoneConfig": "Serpent_Wip_Body",
+          "Scale": 10
+        }
+      },
+      {
+        "Type": "Repeat",
+        "Count": [8, 8],
+        "Node": {
+          "Type": "Bone",
+          "BoneConfig": "Serpent_Wip_Body",
+          "Scale": 9
+        }
+      },
+      {
+        "Type": "Repeat",
+        "Count": [16, 16],
+        "Node": {
+          "Type": "Bone",
+          "BoneConfig": "Serpent_Wip_Body",
+          "Scale": 8
+        }
+      }
+    ]
+  }
+}
