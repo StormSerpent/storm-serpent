@@ -1,0 +1,46 @@
+{
+  "Type": "NoiseRange",
+  "Biomes": [
+    {
+      "Biome": "Pillars",
+      "Min": -1,
+      "Max": -0.5
+    },
+    {
+      "Biome": "Dunes",
+      "Min": -0.5,
+      "Max": 0
+    },
+    {
+      "Biome": "Ocean",
+      "Min": 0,
+      "Max": 1
+    }
+  ],
+  "DefaultBiome": "Ocean",
+  "DefaultTransitionDistance": 32,
+  "MaxBiomeEdgeDistance": 32,
+  "Density": {
+    "Type": "Imported",
+    "Name": "Biome-Map-Islands"
+  },
+  "Framework": [
+    {
+      "Type": "DecimalConstants",
+      "Entries": [
+        {
+          "Name": "Base",
+          "Value": 100
+        },
+        {
+          "Name": "Water",
+          "Value": 100
+        },
+        {
+          "Name": "Bedrock",
+          "Value": 0
+        }
+      ]
+    }
+  ]
+}
