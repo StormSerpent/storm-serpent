@@ -21,7 +21,7 @@ repositories {
 
 dependencies {
     implementation("com.hypixel.hytale:Server:2026.03.12-b1f856309")
-    implementation("me.nullicorn:hytale-serpent:0.1.0-SNAPSHOT")
+    implementation("me.nullicorn:serpentine:0.1.0-SNAPSHOT")
 }
 
 fun runServer(task: JavaExec, vararg extraArgs: String) {
@@ -41,8 +41,8 @@ fun runServer(task: JavaExec, vararg extraArgs: String) {
     task.mainClass = "com.hypixel.hytale.Main"
     task.args = listOf(
         "--assets", hytaleAssetsZip.path,
-        // Load the hytale-serpent mod jar, which our mod depends on.
-        "--mods", layout.projectDirectory.dir("libs/hytale-serpent/build/libs/").asFile.path,
+        // Load the Serpentine mod jar, which our mod depends on.
+        "--mods", layout.projectDirectory.dir("libs/serpentine/build/libs/").asFile.path,
         // Load our asset pack folder so that the assets in it can be hot reloaded.
         "--mods", layout.projectDirectory.dir("src/main/").asFile.path,
         // Load our mod jar. This also has our assets, but they are ignored because we loaded the direct folder first.

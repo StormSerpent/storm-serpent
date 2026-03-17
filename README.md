@@ -8,7 +8,7 @@ Use `--recurse-submodules` when cloning the repository:
 ```shell
 git clone --recurse-submodules git@github.com:TheNullicorn/hytale-wip-mod.git
 ```
-This project uses git submodules to include the hytale-serpent plugin, found under `libs/hytale-serpent/`.
+This project uses git submodules to include the Serpentine plugin, found under `libs/serpentine/`.
 
 
 ### Running a local development server

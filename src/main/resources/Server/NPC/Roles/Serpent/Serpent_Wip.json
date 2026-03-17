@@ -9,10 +9,10 @@
     {
       "Type": "Fly",
       "Acceleration": 100.0,
-      "MinAirSpeed": 1.0,
-      "MaxHorizontalSpeed": 24.0,
-      "MaxSinkSpeed": 20,
-      "MaxClimbSpeed": 20,
+      "MinAirSpeed": 0.0,
+      "MaxHorizontalSpeed": 50.0,
+      "MaxSinkSpeed": 50,
+      "MaxClimbSpeed": 50,
       "MinHeightOverGround": 30,
       "MaxHeightOverGround": 100
     }
@@ -37,12 +37,7 @@
         "State": "Idle"
       },
       "BodyMotion": {
-        "Type": "Wander",
-        "RelativeSpeed": 2.0,
-        "MinWalkTime": 0.01,
-        "MaxWalkTime": 0.5,
-        "MinHeadingChange": 1,
-        "MaxHeadingChange": 4
+        "Type": "SerpentBobInPlace"
       }
     }
   ]

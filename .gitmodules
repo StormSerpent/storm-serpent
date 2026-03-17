@@ -1,3 +1,3 @@
-[submodule "libs/hytale-serpent"]
-	path = libs/hytale-serpent
-	url = git@github.com:TheNullicorn/hytale-serpent.git
+[submodule "libs/serpentine"]
+	path = libs/serpentine
+	url = git@github.com:TheNullicorn/serpentine.git

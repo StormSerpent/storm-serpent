@@ -7,10 +7,10 @@ import com.hypixel.hytale.server.npc.asset.builder.BuilderSupport;
 import com.hypixel.hytale.server.npc.asset.builder.holder.AssetHolder;
 import com.hypixel.hytale.server.npc.corecomponents.builders.BuilderActionBase;
 import com.hypixel.hytale.server.npc.instructions.Action;
-import me.nullicorn.hytale.serpent.asset.SerpentConfig;
 import me.nullicorn.hytale.wip.npc.SerpentConfigExistsValidator;
+import me.nullicorn.serpentine.asset.SerpentConfig;
 
-// TODO: Move to hytale-serpent plugin.
+// TODO: Move to Serpentine plugin.
 public final class BuilderActionSerpentCreateBody extends BuilderActionBase {
     private final AssetHolder serpentConfig = new AssetHolder();
 

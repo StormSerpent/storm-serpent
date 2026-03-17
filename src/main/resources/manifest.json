@@ -8,7 +8,7 @@
   "ServerVersion": "2026.03.12-b1f856309",
   "IncludesAssetPack": true,
   "Dependencies": {
-    "Nullicorn:Serpent": "0.1.x-SNAPSHOT",
+    "Nullicorn:Serpentine": "0.1.x-SNAPSHOT",
     "Hytale:NPC": "*"
   }
 }

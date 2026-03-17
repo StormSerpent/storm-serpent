@@ -9,12 +9,12 @@ import com.hypixel.hytale.server.npc.asset.builder.BuilderSupport;
 import com.hypixel.hytale.server.npc.corecomponents.ActionBase;
 import com.hypixel.hytale.server.npc.role.Role;
 import com.hypixel.hytale.server.npc.sensorinfo.InfoProvider;
-import me.nullicorn.hytale.serpent.asset.SerpentConfig;
-import me.nullicorn.hytale.serpent.component.Serpent;
+import me.nullicorn.serpentine.asset.SerpentConfig;
+import me.nullicorn.serpentine.component.Serpent;
 
 import javax.annotation.Nonnull;
 
-// TODO: Move to hytale-serpent plugin.
+// TODO: Move to Serpentine plugin.
 public final class ActionSerpentCreateBody extends ActionBase {
     private final SerpentConfig serpentConfig;
 

@@ -1,7 +1,7 @@
 package me.nullicorn.hytale.wip.npc;
 
 import com.hypixel.hytale.server.npc.asset.builder.validators.AssetValidator;
-import me.nullicorn.hytale.serpent.asset.SerpentConfig;
+import me.nullicorn.serpentine.asset.SerpentConfig;
 
 import javax.annotation.Nonnull;
 import java.util.EnumSet;
