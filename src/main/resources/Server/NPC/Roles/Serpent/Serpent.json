@@ -1,0 +1,44 @@
+{
+  "Type": "Generic",
+  "StartState": "Idle",
+  "MaxHealth": 200,
+  "Appearance": "Sheep",
+  "NameTranslationKey": "server.npcRoles.Serpent",
+  "SpawnLockTime": 0,
+  "MotionControllerList": [
+    {
+      "Type": "Fly",
+      "Acceleration": 100.0,
+      "MinAirSpeed": 0.0,
+      "MaxHorizontalSpeed": 50.0,
+      "MaxSinkSpeed": 50,
+      "MaxClimbSpeed": 50,
+      "MinHeightOverGround": 30,
+      "MaxHeightOverGround": 100
+    }
+  ],
+  "Instructions": [
+    {
+      "Continue": true,
+      "Sensor": {
+        "Type": "Any",
+        "Once": true
+      },
+      "Actions": [
+        {
+          "Type": "SerpentCreateBody",
+          "SerpentConfig": "Serpent"
+        }
+      ]
+    },
+    {
+      "Sensor": {
+        "Type": "State",
+        "State": "Idle"
+      },
+      "BodyMotion": {
+        "Type": "SerpentBobInPlace"
+      }
+    }
+  ]
+}

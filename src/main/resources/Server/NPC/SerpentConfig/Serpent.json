@@ -1,0 +1,53 @@
+{
+  "Layout": {
+    "Type": "Sequence",
+    "Sequence": [
+      {
+        "Type": "Bone",
+        "BoneConfig": "Serpent_Head",
+        "Scale": 2
+      },
+      {
+        "Type": "Repeat",
+        "Count": [
+          10,
+          10
+        ],
+        "Node": {
+          "Type": "Bone",
+          "BoneConfig": "Serpent_Body_1",
+          "Scale": 2
+        }
+      },
+      {
+        "Type": "Repeat",
+        "Count": [
+          20,
+          20
+        ],
+        "Node": {
+          "Type": "Bone",
+          "BoneConfig": "Serpent_Body_2",
+          "Scale": 2
+        }
+      },
+      {
+        "Type": "Repeat",
+        "Count": [
+          5,
+          5
+        ],
+        "Node": {
+          "Type": "Bone",
+          "BoneConfig": "Serpent_Body_2",
+          "Scale": 1.5
+        }
+      },
+      {
+        "Type": "Bone",
+        "BoneConfig": "Serpent_Tail",
+        "Scale": 2
+      }
+    ]
+  }
+}

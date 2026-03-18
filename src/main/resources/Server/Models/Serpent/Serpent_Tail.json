@@ -1,0 +1,16 @@
+{
+  "Model": "NPC/Serpent_Boss/Models/Serpent_Tail.blockymodel",
+  "Texture": "NPC/Serpent_Boss/Models/Serpent_Tail_Texture.png",
+  "HitBox": {
+    "Min": {
+      "X": -0.35,
+      "Y": -0.35,
+      "Z": -0.35
+    },
+    "Max": {
+      "X": 0.35,
+      "Y": 0.35,
+      "Z": 0.35
+    }
+  }
+}
