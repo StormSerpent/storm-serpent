@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.hypixel.hytale:Server:2026.03.19-c0865d17c")
+    implementation("com.hypixel.hytale:Server:2026.03.20-db226053c")
     implementation("me.nullicorn:serpentine:0.1.0-SNAPSHOT")
 }
 
