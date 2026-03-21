@@ -2,23 +2,17 @@
   "Type": "Generic",
   "StartState": "Idle",
   "MaxHealth": 200,
-  "Appearance": "Sheep",
+  "Appearance": "Serpent_Head",
   "NameTranslationKey": "server.npcRoles.Serpent",
   "SpawnLockTime": 0,
   "MotionControllerList": [
     {
-      "Type": "Fly",
-      "Acceleration": 100.0,
-      "MinAirSpeed": 0.0,
-      "MaxHorizontalSpeed": 50.0,
-      "MaxSinkSpeed": 50,
-      "MaxClimbSpeed": 50,
-      "MinHeightOverGround": 30,
-      "MaxHeightOverGround": 100
+      "Type": "SerpentFly"
     }
   ],
   "Instructions": [
     {
+      "$Comment": "Upon spawning, set up the serpent's bone simulation",
       "Continue": true,
       "Sensor": {
         "Type": "Any",
@@ -28,6 +22,10 @@
         {
           "Type": "SerpentCreateBody",
           "SerpentConfig": "Serpent"
+        },
+        {
+          "Type": "SetLeashPosition",
+          "ToCurrent": true
         }
       ]
     },
@@ -37,7 +35,7 @@
         "State": "Idle"
       },
       "BodyMotion": {
-        "Type": "SerpentBobInPlace"
+        "Type": "SerpentWander"
       }
     }
   ]
