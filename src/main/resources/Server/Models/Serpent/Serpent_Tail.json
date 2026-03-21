@@ -3,14 +3,14 @@
   "Texture": "NPC/Serpent_Boss/Models/Serpent_Tail_Texture.png",
   "HitBox": {
     "Min": {
-      "X": -0.35,
-      "Y": -0.35,
-      "Z": -0.35
+      "X": -1,
+      "Y": -1,
+      "Z": -1
     },
     "Max": {
-      "X": 0.35,
-      "Y": 0.35,
-      "Z": 0.35
+      "X": 1,
+      "Y": 1,
+      "Z": 1
     }
   }
 }

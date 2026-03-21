@@ -25,8 +25,8 @@ public final class BodyMotionSerpentWander extends BodyMotionBase {
      * Bounding volume for randomly choosing {@link #targetPosition} within, relative to the NPC's leash point.
      */
     private final Box wanderTargetZone = new Box(
-        /* min: */ new Vector3d().assign(-200.0),
-        /* max: */ new Vector3d(200.0, 50.0, 200.0)
+        /* min: */ new Vector3d(-100.0, -15, -100.0),
+        /* max: */ new Vector3d(100.0, 250.0, 100.0)
     );
     /**
      * Minimum amount of time to try reaching a given {@link #targetPosition} before choosing a new one.

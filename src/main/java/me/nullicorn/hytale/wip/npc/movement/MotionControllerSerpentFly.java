@@ -31,7 +31,7 @@ public final class MotionControllerSerpentFly implements MotionController {
      * <p>
      * Unit is meters per second.
      */
-    private final double maxMoveSpeed = 60.0;
+    private final double maxMoveSpeed = 40.0;
     /**
      * How fast the serpent can change direction.
      * <p>

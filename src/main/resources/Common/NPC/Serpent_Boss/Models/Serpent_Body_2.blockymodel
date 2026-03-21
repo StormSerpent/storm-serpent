@@ -3,7 +3,7 @@
     {
       "id": "1",
       "name": "Body_2",
-      "position": {"x": 0, "y": 68, "z": 6},
+      "position": {"x": 0, "y": 0, "z": -0.25},
       "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
       "shape": {
         "type": "none",

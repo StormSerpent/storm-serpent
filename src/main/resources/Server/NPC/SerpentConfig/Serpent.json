@@ -5,7 +5,7 @@
       {
         "Type": "Bone",
         "BoneConfig": "Serpent_Head",
-        "Scale": 2
+        "Scale": 6
       },
       {
         "Type": "Repeat",
@@ -16,7 +16,7 @@
         "Node": {
           "Type": "Bone",
           "BoneConfig": "Serpent_Body_1",
-          "Scale": 2
+          "Scale": 6
         }
       },
       {
@@ -28,7 +28,7 @@
         "Node": {
           "Type": "Bone",
           "BoneConfig": "Serpent_Body_2",
-          "Scale": 2
+          "Scale": 6
         }
       },
       {
@@ -40,13 +40,13 @@
         "Node": {
           "Type": "Bone",
           "BoneConfig": "Serpent_Body_2",
-          "Scale": 1.5
+          "Scale": 4.5
         }
       },
       {
         "Type": "Bone",
         "BoneConfig": "Serpent_Tail",
-        "Scale": 2
+        "Scale": 6
       }
     ]
   }
