@@ -63,6 +63,7 @@ tasks.register<JavaExec>("runServer") {
 }
 
 tasks.register<JavaExec>("generateAssetSchema") {
+    dependsOn("jar")
     group = "hytale"
 
     runServer(
