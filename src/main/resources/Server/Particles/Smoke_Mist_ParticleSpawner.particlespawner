@@ -1,0 +1,122 @@
+{
+  "RenderMode": "BlendAdd",
+  "ParticleRotationInfluence": "BillboardVelocity",
+  "MaxConcurrentParticles": 1,
+  "ParticleLifeSpan": {
+    "Min": 1,
+    "Max": 3
+  },
+  "SpawnRate": {
+    "Min": 0.1,
+    "Max": 1
+  },
+  "Particle": {
+    "Texture": "Particles/Textures/Smoke/Smoke.png",
+    "ScaleRatioConstraint": "None",
+    "Animation": {
+      "0": {
+        "Opacity": 0.0,
+        "Scale": {
+          "Y": {
+            "Min": 0.8,
+            "Max": 0.8
+          },
+          "X": {
+            "Min": 1.0,
+            "Max": 1.0
+          }
+        }
+      },
+      "20": {
+        "Opacity": 1,
+        "Scale": {
+          "X": {
+            "Min": 1.0,
+            "Max": 1.0
+          },
+          "Y": {
+            "Min": 1.0,
+            "Max": 1.0
+          }
+        }
+      },
+      "80": {
+        "Opacity": 0.752,
+        "Scale": {
+          "X": {
+            "Min": 1.0,
+            "Max": 1.0
+          },
+          "Y": {
+            "Max": 1.0,
+            "Min": 1.0
+          }
+        }
+      },
+      "100": {
+        "Opacity": 0.0,
+        "Scale": {
+          "X": {
+            "Min": 1.0,
+            "Max": 1.0
+          },
+          "Y": {
+            "Max": 0.8,
+            "Min": 0.8
+          }
+        }
+      }
+    },
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 1,
+          "Max": 1
+        },
+        "Y": {
+          "Min": 1,
+          "Max": 1
+        }
+      },
+      "Opacity": 0.208,
+      "Color": "#8baef0"
+    },
+    "UVOption": "FlipV"
+  },
+  "LinearFiltering": true,
+  "UVMotion": {
+    "Texture": "Particles/Textures/UVMotion/FlowMap.png",
+    "Scale": 1.48,
+    "SpeedY": -0.2,
+    "StrengthCurveType": "Constant",
+    "AddRandomUVOffset": true,
+    "Strength": 6.8,
+    "SpeedX": 0.05
+  },
+  "InitialVelocity": {
+    "Pitch": {
+      "Min": 90.0,
+      "Max": 90.0
+    },
+    "Speed": {
+      "Min": 0.3,
+      "Max": 0.5
+    }
+  },
+  "EmitOffset": {
+    "Y": {
+      "Max": 2,
+      "Min": 1
+    },
+    "X": {
+      "Max": 1,
+      "Min": 1
+    }
+  },
+  "SpawnBurst": true,
+  "CameraOffset": 0.56,
+  "WaveDelay": {
+    "Min": 0.2,
+    "Max": 0.7
+  }
+}

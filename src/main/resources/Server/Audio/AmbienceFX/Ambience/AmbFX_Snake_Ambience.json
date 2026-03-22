@@ -1,0 +1,21 @@
+{
+  "Conditions": {
+    "EnvironmentTagPattern": {
+      "Op": "And",
+      "Patterns": [
+        {
+          "Op": "Equals",
+          "Tag": "Deserts"
+        }
+      ]
+    },
+    "Walls": {
+      "Min": 0,
+      "Max": 3
+    }
+  },
+  "AmbientBed": {
+    "Track": "Sounds/Environments/Snake_Ambience_Loop.ogg",
+    "Volume": 1.0
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "Spawners": [
+    {
+      "SpawnerId": "Smoke_Mist_ParticleSpawner"
+    },
+    {
+      "SpawnerId": "Magical_Sparks_ParticleSpawner",
+      "PositionOffset": {
+        "Y": 1
+      }
+    }
+  ],
+  "IsImportant": false
+}

@@ -1,0 +1,73 @@
+{
+  "MaxFluidLevel": 1,
+  "Effect": [
+    "Water"
+  ],
+  "Opacity": "Transparent",
+  "Textures": [
+    {
+      "All": "BlockTextures/Fluid_Water.png"
+    }
+  ],
+  "BlockParticleSetId": "Water_Glowing_ParticleSet",
+  "BlockSoundSetId": "Water",
+  "FluidFXId": "Water_Glowing_FluidFX",
+  "Interactions": {
+    "Collision": {
+      "Cooldown": {
+        "Id": "ClearBurn",
+        "Cooldown": 1
+      },
+      "Interactions": [
+        {
+          "Type": "ClearEntityEffect",
+          "EntityEffectId": "Burn"
+        },
+        {
+          "Type": "ClearEntityEffect",
+          "EntityEffectId": "Lava_Burn"
+        },
+        {
+          "Type": "ClearEntityEffect",
+          "EntityEffectId": "Flame_Staff_Burn"
+        },
+        {
+          "Type": "Condition",
+          "RequiredGameMode": "Adventure",
+          "Next": {
+            "Type": "ApplyEffect",
+            "EffectId": "HealthRegen_Buff_T1"
+          }
+        }
+      ]
+    }
+  },
+  "Ticker": {
+    "CanDemote": false,
+    "SpreadFluid": "Water_Glowing_Fluid",
+    "Collisions": {
+      "Lava": {
+        "BlockToPlace": "Rock_Stone_Cobble",
+        "SoundEvent": "SFX_Flame_Break"
+      },
+      "Lava_Source": {
+        "BlockToPlace": "Rock_Magma_Cooled",
+        "SoundEvent": "SFX_Flame_Break"
+      }
+    }
+  },
+  "Tags": {
+    "Fluid": [
+      "Water"
+    ]
+  },
+  "ParticleColor": "#96c1e8",
+  "Light": {
+    "Color": "#458"
+  },
+  "Particles": [
+    {
+      "SystemId": "Magical_Mist_ParticleSystem"
+    }
+  ]
+}

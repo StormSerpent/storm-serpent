@@ -1,0 +1,9 @@
+{
+  "Spawners": [
+    {
+      "SpawnerId": "Azure_Sparks"
+    }
+  ],
+  "IsImportant": false,
+  "CullDistance": 40.0
+}

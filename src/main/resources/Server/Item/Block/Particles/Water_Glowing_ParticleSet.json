@@ -1,0 +1,13 @@
+{
+  "Particles": {
+    "SoftLand": "Water_Splash_Sofr_Ver4",
+    "MoveOut": "Water_Splash_Sofr_Ver4",
+    "HardLand": "Water_Splash",
+    "Hit": "Water_Splash_Sofr_Ver4",
+    "Break": "Water_Splash",
+    "Sprint": "Magical_Mist_ParticleSystem",
+    "Run": "Magical_Mist_ParticleSystem",
+    "Walk": "Magical_Mist_ParticleSystem",
+    "Build": "Magical_Sparks_ParticleSystem"
+  }
+}
