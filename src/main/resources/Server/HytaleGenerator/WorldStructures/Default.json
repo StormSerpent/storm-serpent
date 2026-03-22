@@ -4,11 +4,11 @@
     {
       "Biome": "Pillars",
       "Min": -1,
-      "Max": -0.5
+      "Max": -0.45
     },
     {
       "Biome": "Dunes",
-      "Min": -0.5,
+      "Min": -0.45,
       "Max": 0
     },
     {
@@ -39,6 +39,25 @@
         {
           "Name": "Bedrock",
           "Value": 0
+        }
+      ]
+    },
+    {
+      "Type": "Positions",
+      "Entries": [
+        {
+          "Name": "Spawns",
+          "Positions": {
+            "Type": "List",
+            "ExportAs": "Spawns",
+            "Positions": [
+              {
+                "X": 0,
+                "Y": 10,
+                "Z": 0
+              }
+            ]
+          }
         }
       ]
     }

@@ -22,50 +22,61 @@
 							"ScaleY":	1,
 							"ScaleZ":	1,
 							"Inputs":	[{
-									"$NodeId":	"FastGradientWarp.Density-cc233a5a-f324-4385-a6ce-d0fb59431459",
+									"$NodeId":	"FastGradientWarp.Density-80142aae-4bb6-487e-bce9-22bf0ed25007",
 									"Type":	"FastGradientWarp",
 									"Skip":	false,
-									"WarpScale":	150,
+									"WarpScale":	500,
 									"WarpPersistence":	0.5,
 									"WarpLacunarity":	2,
-									"WarpOctaves":	3,
-									"WarpFactor":	150,
+									"WarpOctaves":	1,
+									"WarpFactor":	250,
 									"Seed":	"A",
 									"Inputs":	[{
-											"$NodeId":	"PositionsCellNoiseDensityNode-9e4a0faa-4149-4f49-999a-7178ab61ac53",
-											"Type":	"PositionsCellNoise",
+											"$NodeId":	"FastGradientWarp.Density-cc233a5a-f324-4385-a6ce-d0fb59431459",
+											"Type":	"FastGradientWarp",
 											"Skip":	false,
-											"MaxDistance":	1000,
-											"Positions":	{
-												"$NodeId":	"Scaler.Positions-2a6894f6-6aea-4e8a-a8d5-03b249e468f9",
-												"Type":	"Scaler",
-												"Skip":	false,
-												"Scale":	{
-													"$NodeId":	"Point3D-b08bead8-da98-4e5d-887f-6b1d3c2a80c4",
-													"X":	2000,
-													"Y":	1,
-													"Z":	2000
-												},
-												"Positions":	{
-													"$NodeId":	"Jitter2d.Positions-221c1531-7baa-4659-9871-cda18b6b59fa",
-													"Type":	"Jitter2d",
+											"WarpScale":	150,
+											"WarpPersistence":	0.5,
+											"WarpLacunarity":	2,
+											"WarpOctaves":	3,
+											"WarpFactor":	150,
+											"Seed":	"A",
+											"Inputs":	[{
+													"$NodeId":	"PositionsCellNoiseDensityNode-9e4a0faa-4149-4f49-999a-7178ab61ac53",
+													"Type":	"PositionsCellNoise",
 													"Skip":	false,
-													"Magnitude":	0.2,
+													"MaxDistance":	1000,
 													"Positions":	{
-														"$NodeId":	"TriangularGrid2d.Positions-771ddd31-f752-478e-89b5-37ee283c0b26",
-														"Type":	"TriangularGrid2d",
-														"Skip":	false
+														"$NodeId":	"Scaler.Positions-2a6894f6-6aea-4e8a-a8d5-03b249e468f9",
+														"Type":	"Scaler",
+														"Skip":	false,
+														"Scale":	{
+															"$NodeId":	"Point3D-b08bead8-da98-4e5d-887f-6b1d3c2a80c4",
+															"X":	1500,
+															"Y":	1,
+															"Z":	1500
+														},
+														"Positions":	{
+															"$NodeId":	"Jitter2d.Positions-221c1531-7baa-4659-9871-cda18b6b59fa",
+															"Type":	"Jitter2d",
+															"Skip":	false,
+															"Magnitude":	0.1,
+															"Positions":	{
+																"$NodeId":	"TriangularGrid2d.Positions-771ddd31-f752-478e-89b5-37ee283c0b26",
+																"Type":	"TriangularGrid2d",
+																"Skip":	false
+															}
+														}
+													},
+													"ReturnType":	{
+														"$NodeId":	"DistancePCNReturnType-391ea2ab-b854-419d-8e54-ae76c1663d48",
+														"Type":	"Distance"
+													},
+													"DistanceFunction":	{
+														"$NodeId":	"PCNDistanceFunction-84402190-6baa-41dc-99c0-5348896913d5",
+														"Type":	"Euclidean"
 													}
-												}
-											},
-											"ReturnType":	{
-												"$NodeId":	"DistancePCNReturnType-391ea2ab-b854-419d-8e54-ae76c1663d48",
-												"Type":	"Distance"
-											},
-											"DistanceFunction":	{
-												"$NodeId":	"PCNDistanceFunction-84402190-6baa-41dc-99c0-5348896913d5",
-												"Type":	"Euclidean"
-											}
+												}]
 										}]
 								}]
 						}]
@@ -98,12 +109,6 @@
 					"$y":	-5972
 				}
 			},
-			"CurvePCNReturnType-e6409305-2b2b-4150-b028-643a7494114a":	{
-				"$Position":	{
-					"$x":	190,
-					"$y":	-5518
-				}
-			},
 			"FastGradientWarp.Density-cc233a5a-f324-4385-a6ce-d0fb59431459":	{
 				"$Position":	{
 					"$x":	-1194,
@@ -118,26 +123,26 @@
 			},
 			"Scaler.Positions-2a6894f6-6aea-4e8a-a8d5-03b249e468f9":	{
 				"$Position":	{
-					"$x":	166,
-					"$y":	-6239
+					"$x":	852,
+					"$y":	-6399
 				}
 			},
 			"Point3D-b08bead8-da98-4e5d-887f-6b1d3c2a80c4":	{
 				"$Position":	{
-					"$x":	825,
-					"$y":	-6086
+					"$x":	1511,
+					"$y":	-6246
 				}
 			},
 			"Jitter2d.Positions-221c1531-7baa-4659-9871-cda18b6b59fa":	{
 				"$Position":	{
-					"$x":	822,
-					"$y":	-6338
+					"$x":	1508,
+					"$y":	-6498
 				}
 			},
 			"TriangularGrid2d.Positions-771ddd31-f752-478e-89b5-37ee283c0b26":	{
 				"$Position":	{
-					"$x":	1477,
-					"$y":	-6341
+					"$x":	2163,
+					"$y":	-6501
 				}
 			},
 			"DistancePCNReturnType-391ea2ab-b854-419d-8e54-ae76c1663d48":	{
@@ -146,26 +151,30 @@
 					"$y":	-5738
 				}
 			},
-			"ManualCurve-21bc3842-667c-4463-ac55-0416cee89000":	{
-				"$Position":	{
-					"$x":	437,
-					"$y":	-5520
-				}
-			},
 			"PCNDistanceFunction-84402190-6baa-41dc-99c0-5348896913d5":	{
 				"$Position":	{
 					"$x":	172,
 					"$y":	-5940
 				}
+			},
+			"Anchor.Positions-32c0f1f0-3f4f-47e3-91e8-35d81a8c20c5":	{
+				"$Position":	{
+					"$x":	132,
+					"$y":	-6274
+				}
+			},
+			"FastGradientWarp.Density-80142aae-4bb6-487e-bce9-22bf0ed25007":	{
+				"$Position":	{
+					"$x":	-1534,
+					"$y":	-6360
+				}
 			}
 		},
 		"$FloatingNodes":	[{
-				"$NodeId":	"CurvePCNReturnType-e6409305-2b2b-4150-b028-643a7494114a",
-				"Type":	"Curve",
-				"Curve":	{
-					"$NodeId":	"ManualCurve-21bc3842-667c-4463-ac55-0416cee89000",
-					"Type":	"Manual"
-				}
+				"$NodeId":	"Anchor.Positions-32c0f1f0-3f4f-47e3-91e8-35d81a8c20c5",
+				"Type":	"Anchor",
+				"Skip":	false,
+				"Reversed":	false
 			}],
 		"$Links":	{
 		},
@@ -218,6 +227,15 @@
 				"$name":	"Comment",
 				"$text":	"Debug Scaler",
 				"$fontSize":	53
+			}, {
+				"$Position":	{
+					"$x":	106.8125,
+					"$y":	-6674.375
+				},
+				"$width":	250,
+				"$height":	150,
+				"$name":	"Comment",
+				"$text":	"TODO ensure players always spawn on the shore"
 			}],
 		"$WorkspaceID":	"HytaleGenerator - Density"
 	}
