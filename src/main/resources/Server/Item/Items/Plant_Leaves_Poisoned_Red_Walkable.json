@@ -1,0 +1,30 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Plant_Leaves_Poisoned_Red_Walkable.name"
+  },
+  "Parent": "Plant_Leaves_Oak",
+  "Icon": "Icons/ItemsGenerated/Plant_Leaves_Poisoned_Red_Walkable.png",
+  "BlockType": {
+    "CustomModel": "Blocks/Foliage/Leaves/UpShapeSoft.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/Foliage/Leaves/UpShapeSoft_Textures/Poisoned_Red.png",
+        "Weight": 1
+      }
+    ],
+    "ParticleColor": "#862d44",
+    "Material": "Solid"
+  },
+  "IconProperties": {
+    "Scale": 0.4,
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Translation": [
+      0,
+      -23
+    ]
+  }
+}

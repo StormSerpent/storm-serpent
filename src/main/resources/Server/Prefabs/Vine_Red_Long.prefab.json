@@ -1,0 +1,1073 @@
+{
+  "version": 8,
+  "blockIdVersion": 11,
+  "anchorX": 0,
+  "anchorY": 0,
+  "anchorZ": 0,
+  "blocks": [
+    {
+      "x": 0,
+      "y": 5,
+      "z": -26,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -25,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -24,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -23,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -22,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -21,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -21,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -20,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -20,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -19,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -18,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -18,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -17,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -17,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -16,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -15,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -14,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -13,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -13,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -12,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -12,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -11,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -10,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -10,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -9,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -8,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -8,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -7,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -6,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -6,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -5,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -4,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -4,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -3,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": -2,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -2,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": -1,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 1,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 1,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 2,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 3,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 4,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 4,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 5,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 6,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 6,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 7,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 8,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 8,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 9,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 10,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 10,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 11,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 12,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 12,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 13,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 13,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 14,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 15,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 16,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 17,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 17,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 18,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 18,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 19,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 20,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 20,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 21,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 21,
+      "name": "Plant_Moss_Rug_Red_Placeable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 22,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 23,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable",
+      "support": 15
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 24,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 25,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 26,
+      "name": "Plant_Leaves_Poisoned_Red_Walkable"
+    }
+  ],
+  "fluids": [
+    {
+      "x": 0,
+      "y": 5,
+      "z": -26,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -25,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -24,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -23,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -22,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -21,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -21,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -20,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -20,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -19,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -18,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -18,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -17,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -17,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -16,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -15,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -14,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -13,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -13,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -12,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -12,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -11,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -10,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -10,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -9,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -8,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -8,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -7,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -6,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -6,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 6,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 6,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 7,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 8,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 8,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 9,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 10,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 10,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 11,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 12,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 12,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 13,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 13,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 14,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 15,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 16,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 17,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 17,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 18,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 18,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 19,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 20,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 20,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 21,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 21,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 22,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 23,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 24,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 25,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 26,
+      "name": "Empty",
+      "level": 0
+    }
+  ]
+}
