@@ -1,4 +1,4 @@
-package me.nullicorn.hytale.wip.npc.action;
+package me.nullicorn.hytale.stormserpent.npc.action;
 
 import com.google.gson.JsonElement;
 import com.hypixel.hytale.server.npc.asset.builder.Builder;
@@ -7,7 +7,7 @@ import com.hypixel.hytale.server.npc.asset.builder.BuilderSupport;
 import com.hypixel.hytale.server.npc.asset.builder.holder.AssetHolder;
 import com.hypixel.hytale.server.npc.corecomponents.builders.BuilderActionBase;
 import com.hypixel.hytale.server.npc.instructions.Action;
-import me.nullicorn.hytale.wip.npc.SerpentConfigExistsValidator;
+import me.nullicorn.hytale.stormserpent.npc.SerpentConfigExistsValidator;
 import me.nullicorn.serpentine.asset.SerpentConfig;
 
 // TODO: Move to Serpentine plugin.

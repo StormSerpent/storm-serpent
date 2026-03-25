@@ -1,4 +1,4 @@
-package me.nullicorn.hytale.wip.npc.movement.builder;
+package me.nullicorn.hytale.stormserpent.npc.movement.builder;
 
 import com.google.gson.JsonElement;
 import com.hypixel.hytale.server.npc.asset.builder.Builder;
@@ -6,7 +6,7 @@ import com.hypixel.hytale.server.npc.asset.builder.BuilderDescriptorState;
 import com.hypixel.hytale.server.npc.asset.builder.BuilderSupport;
 import com.hypixel.hytale.server.npc.corecomponents.builders.BuilderBodyMotionBase;
 import com.hypixel.hytale.server.npc.instructions.BodyMotion;
-import me.nullicorn.hytale.wip.npc.movement.BodyMotionSerpentWander;
+import me.nullicorn.hytale.stormserpent.npc.movement.BodyMotionSerpentWander;
 
 public final class BuilderBodyMotionSerpentWander extends BuilderBodyMotionBase {
     @Override

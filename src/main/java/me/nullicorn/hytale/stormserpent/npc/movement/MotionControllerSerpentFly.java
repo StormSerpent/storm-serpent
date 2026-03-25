@@ -1,4 +1,4 @@
-package me.nullicorn.hytale.wip.npc.movement;
+package me.nullicorn.hytale.stormserpent.npc.movement;
 
 import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.component.Ref;

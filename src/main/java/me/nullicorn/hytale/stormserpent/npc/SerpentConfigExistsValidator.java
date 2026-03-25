@@ -1,4 +1,4 @@
-package me.nullicorn.hytale.wip.npc;
+package me.nullicorn.hytale.stormserpent.npc;
 
 import com.hypixel.hytale.server.npc.asset.builder.validators.AssetValidator;
 import me.nullicorn.serpentine.asset.SerpentConfig;

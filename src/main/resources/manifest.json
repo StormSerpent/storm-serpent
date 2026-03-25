@@ -4,7 +4,7 @@
   "Version": "0.1.0-SNAPSHOT",
   "Description": "",
   "Authors": [],
-  "Main": "me.nullicorn.hytale.wip.WipPlugin",
+  "Main": "me.nullicorn.hytale.stormserpent.StormSerpentPlugin",
   "ServerVersion": "2026.03.25-89796e57b",
   "IncludesAssetPack": true,
   "Dependencies": {

@@ -1,4 +1,4 @@
-package me.nullicorn.hytale.wip.npc.movement.builder;
+package me.nullicorn.hytale.stormserpent.npc.movement.builder;
 
 import com.google.gson.JsonElement;
 import com.hypixel.hytale.server.npc.asset.builder.Builder;
@@ -8,7 +8,7 @@ import com.hypixel.hytale.server.npc.movement.controllers.MotionController;
 import com.hypixel.hytale.server.npc.movement.controllers.builders.BuilderMotionControllerBase;
 import com.hypixel.hytale.server.spawning.SpawnTestResult;
 import com.hypixel.hytale.server.spawning.SpawningContext;
-import me.nullicorn.hytale.wip.npc.movement.MotionControllerSerpentFly;
+import me.nullicorn.hytale.stormserpent.npc.movement.MotionControllerSerpentFly;
 
 import javax.annotation.Nonnull;
 

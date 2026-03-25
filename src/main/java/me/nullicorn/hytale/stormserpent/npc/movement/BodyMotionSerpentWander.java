@@ -1,4 +1,4 @@
-package me.nullicorn.hytale.wip.npc.movement;
+package me.nullicorn.hytale.stormserpent.npc.movement;
 
 import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.component.Ref;
@@ -13,7 +13,7 @@ import com.hypixel.hytale.server.npc.entities.NPCEntity;
 import com.hypixel.hytale.server.npc.movement.Steering;
 import com.hypixel.hytale.server.npc.role.Role;
 import com.hypixel.hytale.server.npc.sensorinfo.InfoProvider;
-import me.nullicorn.hytale.wip.npc.movement.builder.BuilderBodyMotionSerpentWander;
+import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionSerpentWander;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

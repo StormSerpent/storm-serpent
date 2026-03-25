@@ -1,4 +1,4 @@
-package me.nullicorn.hytale.wip.npc.action;
+package me.nullicorn.hytale.stormserpent.npc.action;
 
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
