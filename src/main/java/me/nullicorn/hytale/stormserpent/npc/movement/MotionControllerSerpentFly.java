@@ -4,13 +4,17 @@ import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.math.matrix.Matrix4d;
 import com.hypixel.hytale.math.shape.Box;
+import com.hypixel.hytale.math.util.MathUtil;
 import com.hypixel.hytale.math.vector.Vector3dUtil;
 import com.hypixel.hytale.protocol.MovementStates;
 import com.hypixel.hytale.server.core.asset.type.model.config.Model;
+import com.hypixel.hytale.server.core.modules.entity.component.EntityScaleComponent;
 import com.hypixel.hytale.server.core.modules.entity.component.HeadRotation;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.modules.physics.component.PhysicsValues;
 import com.hypixel.hytale.server.core.modules.splitvelocity.VelocityConfig;
+import com.hypixel.hytale.server.core.universe.world.chunk.WorldChunk;
+import com.hypixel.hytale.server.core.universe.world.storage.ChunkStore;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.asset.builder.BuilderSupport;
 import com.hypixel.hytale.server.npc.movement.NavState;
@@ -55,7 +59,10 @@ public final class MotionControllerSerpentFly implements MotionController {
     private double targetDeltaSquared;
     private boolean relaxedMoveConstraints;
 
+    private final Box collisionBox = new Box();
+
     private Vector3d lastTranslation;
+    private double heightOverGround;
 
     public MotionControllerSerpentFly(
         @Nonnull BuilderSupport builderSupport,
@@ -103,10 +110,22 @@ public final class MotionControllerSerpentFly implements MotionController {
         @Nonnull final ComponentAccessor<EntityStore> componentAccessor
     ) {
         final TransformComponent transform = componentAccessor.getComponent(ref, TransformComponent.getComponentType());
-        assert transform != null;
-
         final HeadRotation headRotation = componentAccessor.getComponent(ref, HeadRotation.getComponentType());
+        assert transform != null;
         assert headRotation != null;
+
+        final Ref<ChunkStore> chunkRef = transform.getChunkRef();
+        if (chunkRef != null && chunkRef.isValid()) {
+            final WorldChunk chunk = chunkRef.getStore().getComponent(chunkRef, WorldChunk.getComponentType());
+            if (chunk != null) {
+                final double npcY = transform.getPosition().y + this.collisionBox.min.y;
+                final int x = MathUtil.floor(transform.getPosition().x);
+                final int z = MathUtil.floor(transform.getPosition().z);
+                // `1 +` gets us the y-value at the top of the block.
+                final int groundY = 1 + chunk.getHeight(x, z);
+                this.heightOverGround = npcY - groundY;
+            }
+        }
 
         // Fill in pitch and yaw for `headSteering` if none were given. Face in the direction the NPC is moving.
         if (bodySteering.hasTranslation() && (!headSteering.hasPitch() || !headSteering.hasYaw())) {
@@ -247,7 +266,17 @@ public final class MotionControllerSerpentFly implements MotionController {
         final Box boundingBox,
         @Nullable final ComponentAccessor<EntityStore> componentAccessor
     ) {
-        // TODO
+        this.collisionBox.assign(boundingBox);
+        if (ref != null && componentAccessor != null) {
+            final EntityScaleComponent entityScaleComponent = componentAccessor.getComponent(ref, EntityScaleComponent.getComponentType());
+            if (entityScaleComponent != null) {
+                this.collisionBox.scale(entityScaleComponent.getScale());
+            }
+        }
+    }
+
+    @Override
+    public void updatePhysicsValues(final PhysicsValues values) {
     }
 
     @Override
@@ -567,11 +596,6 @@ public final class MotionControllerSerpentFly implements MotionController {
 
     @Override
     public double getHeightOverGround() {
-        throw new UnsupportedOperationException("Not yet implemented"); // TODO
-    }
-
-    @Override
-    public void updatePhysicsValues(final PhysicsValues values) {
-
+        return this.heightOverGround;
     }
 }
