@@ -1,6 +1,6 @@
 {
-  "Model": "NPC/Serpent_Boss/Models/Serpent_Head.blockymodel",
-  "Texture": "NPC/Serpent_Boss/Models/Serpent_Head_Texture.png",
+  "Model": "NPC/Boss/Serpent_Storm/Models/Serpent_Storm_Head.blockymodel",
+  "Texture": "NPC/Boss/Serpent_Storm/Models/Serpent_Storm_Head_Texture.png",
   "HitBox": {
     "Min": {
       "X": -2,

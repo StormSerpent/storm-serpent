@@ -4,7 +4,7 @@
     "Sequence": [
       {
         "Type": "Bone",
-        "BoneConfig": "Serpent_Head",
+        "BoneConfig": "Serpent_Storm_Head",
         "Scale": 6
       },
       {
@@ -15,7 +15,7 @@
         ],
         "Node": {
           "Type": "Bone",
-          "BoneConfig": "Serpent_Body_1",
+          "BoneConfig": "Serpent_Storm_Body_1",
           "Scale": 6
         }
       },
@@ -27,7 +27,7 @@
         ],
         "Node": {
           "Type": "Bone",
-          "BoneConfig": "Serpent_Body_2",
+          "BoneConfig": "Serpent_Storm_Body_2",
           "Scale": 6
         }
       },
@@ -39,13 +39,13 @@
         ],
         "Node": {
           "Type": "Bone",
-          "BoneConfig": "Serpent_Body_2",
+          "BoneConfig": "Serpent_Storm_Body_2",
           "Scale": 4.5
         }
       },
       {
         "Type": "Bone",
-        "BoneConfig": "Serpent_Tail",
+        "BoneConfig": "Serpent_Storm_Tail",
         "Scale": 6
       }
     ]

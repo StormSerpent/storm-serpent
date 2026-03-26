@@ -2,8 +2,8 @@
   "Type": "Generic",
   "StartState": "Idle",
   "MaxHealth": 200,
-  "Appearance": "Serpent_Head",
-  "NameTranslationKey": "server.npcRoles.Serpent",
+  "Appearance": "Serpent_Storm_Head",
+  "NameTranslationKey": "server.npcRoles.Serpent_Storm",
   "SpawnLockTime": 0,
   "MotionControllerList": [
     {
@@ -21,7 +21,7 @@
       "Actions": [
         {
           "Type": "SerpentCreateBody",
-          "SerpentConfig": "Serpent"
+          "SerpentConfig": "Serpent_Storm"
         },
         {
           "Type": "SetLeashPosition",
