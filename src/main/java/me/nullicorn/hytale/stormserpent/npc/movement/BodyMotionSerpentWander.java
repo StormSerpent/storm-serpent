@@ -4,7 +4,6 @@ import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.math.shape.Box;
 import com.hypixel.hytale.math.util.MathUtil;
-import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.asset.builder.BuilderSupport;
@@ -14,6 +13,7 @@ import com.hypixel.hytale.server.npc.movement.Steering;
 import com.hypixel.hytale.server.npc.role.Role;
 import com.hypixel.hytale.server.npc.sensorinfo.InfoProvider;
 import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionSerpentWander;
+import org.joml.Vector3d;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -89,7 +89,7 @@ public final class BodyMotionSerpentWander extends BodyMotionBase {
         assert npc != null;
 
         final Vector3d target = this.tickTargetSelection(dt, transform, npc);
-        final Vector3d directionToTarget = target.clone().subtract(transform.getPosition()).normalize();
+        final Vector3d directionToTarget = new Vector3d(target).sub(transform.getPosition()).normalize();
         desiredSteering.setTranslation(directionToTarget);
 
         return true;
@@ -98,12 +98,12 @@ public final class BodyMotionSerpentWander extends BodyMotionBase {
     private Vector3d tickTargetSelection(final double dt, final TransformComponent transform, final NPCEntity npc) {
         this.targetReselectTimer -= dt;
 
-        if (this.targetPosition != null && transform.getPosition().distanceSquaredTo(this.targetPosition) < this.wanderTargetRadius * this.wanderTargetRadius) {
+        if (this.targetPosition != null && transform.getPosition().distanceSquared(this.targetPosition) < this.wanderTargetRadius * this.wanderTargetRadius) {
             this.targetPosition = null;
         }
 
         if (this.targetPosition == null || this.targetReselectTimer <= 0) {
-            this.targetPosition = npc.getLeashPoint().clone().add(
+            this.targetPosition = new Vector3d(npc.getLeashPoint()).add(
                 MathUtil.randomDouble(this.wanderTargetZone.min.x, this.wanderTargetZone.max.x),
                 MathUtil.randomDouble(this.wanderTargetZone.min.y, this.wanderTargetZone.max.y),
                 MathUtil.randomDouble(this.wanderTargetZone.min.z, this.wanderTargetZone.max.z)

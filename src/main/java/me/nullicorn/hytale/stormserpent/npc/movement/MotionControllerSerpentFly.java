@@ -4,7 +4,7 @@ import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.math.matrix.Matrix4d;
 import com.hypixel.hytale.math.shape.Box;
-import com.hypixel.hytale.math.vector.Vector3d;
+import com.hypixel.hytale.math.vector.Vector3dUtil;
 import com.hypixel.hytale.protocol.MovementStates;
 import com.hypixel.hytale.server.core.asset.type.model.config.Model;
 import com.hypixel.hytale.server.core.modules.entity.component.HeadRotation;
@@ -19,6 +19,8 @@ import com.hypixel.hytale.server.npc.movement.controllers.MotionController;
 import com.hypixel.hytale.server.npc.movement.controllers.ProbeMoveData;
 import com.hypixel.hytale.server.npc.movement.controllers.builders.BuilderMotionControllerBase;
 import com.hypixel.hytale.server.npc.role.Role;
+import org.joml.Vector3d;
+import org.joml.Vector3dc;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -109,7 +111,7 @@ public final class MotionControllerSerpentFly implements MotionController {
         // Fill in pitch and yaw for `headSteering` if none were given. Face in the direction the NPC is moving.
         if (bodySteering.hasTranslation() && (!headSteering.hasPitch() || !headSteering.hasYaw())) {
             // Steer the head in the direction the body is moving.
-            final Vector3d moveDirection = bodySteering.getTranslation().clone().normalize();
+            final Vector3d moveDirection = new Vector3d(bodySteering.getTranslation()).normalize();
             if (!headSteering.hasPitch()) {
                 headSteering.setPitch((float) Math.asin(moveDirection.y));
             }
@@ -129,9 +131,10 @@ public final class MotionControllerSerpentFly implements MotionController {
             );
         }
 
-        final Vector3d desiredLookDirection = new Vector3d(
-            headSteering.hasYaw() ? headSteering.getYaw() : headRotation.getRotation().getYaw(),
-            headSteering.hasPitch() ? headSteering.getPitch() : headRotation.getRotation().getPitch()
+        final Vector3d desiredLookDirection = Vector3dUtil.setYawPitch(
+            headSteering.hasYaw() ? headSteering.getYaw() : headRotation.getRotation().yaw(),
+            headSteering.hasPitch() ? headSteering.getPitch() : headRotation.getRotation().pitch(),
+            new Vector3d()
         );
         // Constrain how quickly the NPC's head can rotate.
         final Vector3d lookDirection = limitAngle(
@@ -142,8 +145,8 @@ public final class MotionControllerSerpentFly implements MotionController {
 
         // Move the entity to its new position.
         if (bodySteering.hasTranslation()) {
-            this.lastTranslation = bodySteering.getTranslation().clone();
-            transform.getPosition().add(bodySteering.getTranslation().clone().scale(this.maxMoveSpeed * interval));
+            this.lastTranslation = new Vector3d(bodySteering.getTranslation());
+            transform.getPosition().add(new Vector3d(bodySteering.getTranslation()).mul(this.maxMoveSpeed * interval));
         }
 
         // Rotate the entity's head to its new orientation.
@@ -174,11 +177,11 @@ public final class MotionControllerSerpentFly implements MotionController {
             throw new IllegalArgumentException("limit must be in the range 0..=π");
         }
 
-        final Vector3d limited = to.clone();
+        final Vector3d limited = new Vector3d(to);
 
         // Normalize both vectors to make dot and cross product work correctly.
-        final Vector3d fromNorm = from.clone().normalize();
-        final Vector3d toNorm = to.clone().normalize();
+        final Vector3d fromNorm = new Vector3d(from).normalize();
+        final Vector3d toNorm = new Vector3d(to).normalize();
 
         // Get the angle between the `from` and `to`, in radian.
         final double angle = Math.acos(Math.clamp(fromNorm.dot(toNorm), -1.0, 1.0));
@@ -264,8 +267,7 @@ public final class MotionControllerSerpentFly implements MotionController {
         @Nonnull final Vector3d velocity,
         @Nonnull final ComponentAccessor<EntityStore> componentAccessor
     ) {
-        movementStates.flying = true;
-        movementStates.onGround = false;
+
     }
 
     @Override
@@ -341,13 +343,13 @@ public final class MotionControllerSerpentFly implements MotionController {
     }
 
     @Override
-    public double waypointDistance(final Vector3d p, final Vector3d q) {
-        return p.distanceTo(q);
+    public double waypointDistance(final Vector3dc p, final Vector3dc q) {
+        return p.distance(q);
     }
 
     @Override
-    public double waypointDistanceSquared(final Vector3d p, final Vector3d q) {
-        return p.distanceSquaredTo(q);
+    public double waypointDistanceSquared(final Vector3dc p, final Vector3dc q) {
+        return p.distanceSquared(q);
     }
 
     @Override
@@ -358,7 +360,7 @@ public final class MotionControllerSerpentFly implements MotionController {
     ) {
         final TransformComponent transform = componentAccessor.getComponent(ref, TransformComponent.getComponentType());
         assert transform != null;
-        return transform.getPosition().distanceTo(p);
+        return transform.getPosition().distance(p);
     }
 
     @Override
@@ -369,7 +371,7 @@ public final class MotionControllerSerpentFly implements MotionController {
     ) {
         final TransformComponent transform = componentAccessor.getComponent(ref, TransformComponent.getComponentType());
         assert transform != null;
-        return transform.getPosition().distanceSquaredTo(p);
+        return transform.getPosition().distanceSquared(p);
     }
 
     @Override
@@ -405,7 +407,7 @@ public final class MotionControllerSerpentFly implements MotionController {
 
     @Override
     public void setComponentSelector(final Vector3d componentSelector) {
-        this.componentSelector.assign(componentSelector);
+        this.componentSelector.set(componentSelector);
     }
 
     @Override
@@ -417,16 +419,16 @@ public final class MotionControllerSerpentFly implements MotionController {
      * The direction considered "up" by the NPC.
      */
     @Override
-    public Vector3d getWorldNormal() {
-        return Vector3d.UP;
+    public Vector3dc getWorldNormal() {
+        return Vector3dUtil.UP;
     }
 
     /**
      * The direction considered "down" by the NPC.
      */
     @Override
-    public Vector3d getWorldAntiNormal() {
-        return Vector3d.DOWN;
+    public Vector3dc getWorldAntiNormal() {
+        return Vector3dUtil.DOWN;
     }
 
     @Override
@@ -441,7 +443,7 @@ public final class MotionControllerSerpentFly implements MotionController {
 
     @Override
     public void forceVelocity(
-        @Nonnull final Vector3d velocity,
+        @Nonnull final Vector3dc velocity,
         @Nullable final VelocityConfig velocityConfig,
         final boolean ignoreDamping
     ) {
@@ -455,7 +457,7 @@ public final class MotionControllerSerpentFly implements MotionController {
     ) {
         final TransformComponent transform = componentAccessor.getComponent(ref, TransformComponent.getComponentType());
         assert transform != null;
-        final double y = transform.getPosition().getY();
+        final double y = transform.getPosition().y;
         final VerticalRange range = new VerticalRange();
         range.assign(y, y, y); // TODO
         return range;
