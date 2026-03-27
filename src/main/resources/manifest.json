@@ -9,6 +9,7 @@
   "IncludesAssetPack": true,
   "Dependencies": {
     "Nullicorn:Serpentine": "0.1.x-SNAPSHOT",
-    "Hytale:NPC": "*"
+    "Hytale:NPC": "*",
+    "Hytale:HytaleGenerator": "*"
   }
 }
