@@ -34,9 +34,67 @@
         "Type": "State",
         "State": "Idle"
       },
-      "BodyMotion": {
-        "Type": "SerpentWander"
-      }
+      "Instructions": [
+        {
+          "Continue": true,
+          "Sensor": {
+            "Type": "Any"
+          },
+          "BodyMotion": {
+            "Type": "SerpentWander"
+          }
+        },
+        {
+          "Sensor": {
+            "Type": "Player",
+            "Range": 300.0,
+            "LockOnTarget": true,
+            "LockedTargetSlot": "EncircleTarget",
+            "Filters": [
+              {
+                "Type": "LineOfSight"
+              }
+            ]
+          },
+          "Actions": [
+            {
+              "Type": "State",
+              "State": "Encircle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Sensor": {
+        "Type": "State",
+        "State": "Encircle"
+      },
+      "Instructions": [
+        {
+          "Sensor": {
+            "Type": "Target",
+            "TargetSlot": "EncircleTarget"
+          },
+          "BodyMotion": {
+            "Type": "SerpentEncircle",
+            "RelativeAltitude": 20.0,
+            "RelativeSpeed": 1.0,
+            "Radius": 30.0
+          }
+        },
+        {
+          "Sensor": {
+            "Type": "Any"
+          },
+          "Actions": [
+            {
+              "Type": "State",
+              "State": "Idle"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

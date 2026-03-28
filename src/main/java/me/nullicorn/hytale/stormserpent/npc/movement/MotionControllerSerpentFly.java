@@ -145,7 +145,7 @@ public final class MotionControllerSerpentFly implements MotionController {
                 limitAngle(
                     /* from:  */ this.lastTranslation,
                     /* to:    */ bodySteering.getTranslation(),
-                    /* limit: */ this.maxSteerSpeed * interval
+                    /* limit: */ this.maxSteerSpeed * bodySteering.getRelativeTurnSpeed() * interval
                 )
             );
         }
@@ -159,7 +159,7 @@ public final class MotionControllerSerpentFly implements MotionController {
         final Vector3d lookDirection = limitAngle(
             /* from:  */ headRotation.getDirection(),
             /* to:    */ desiredLookDirection,
-            /* limit: */ this.maxLookSpeed * interval
+            /* limit: */ this.maxLookSpeed * bodySteering.getRelativeTurnSpeed() * interval
         );
 
         // Move the entity to its new position.

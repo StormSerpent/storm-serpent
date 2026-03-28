@@ -7,6 +7,7 @@ import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import com.hypixel.hytale.server.npc.NPCPlugin;
 import me.nullicorn.hytale.stormserpent.npc.action.BuilderActionSerpentCreateBody;
 import me.nullicorn.hytale.stormserpent.npc.movement.MotionControllerSerpentFly;
+import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionSerpentEncircle;
 import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionSerpentWander;
 import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderMotionControllerSerpentFly;
 import me.nullicorn.hytale.stormserpent.worldgen.HotfixRotatorDensityAsset;
@@ -32,6 +33,7 @@ public final class StormSerpentPlugin extends JavaPlugin {
 
         // NPC motions.
         NPCPlugin.get().registerCoreComponentType("SerpentWander", BuilderBodyMotionSerpentWander::new);
+        NPCPlugin.get().registerCoreComponentType("SerpentEncircle", BuilderBodyMotionSerpentEncircle::new);
 
         // NPC motion controllers.
         NPCPlugin.get().registerCoreComponentType(MotionControllerSerpentFly.NAME, BuilderMotionControllerSerpentFly::new);
