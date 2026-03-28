@@ -49,12 +49,13 @@
 													"Positions":	{
 														"$NodeId":	"Scaler.Positions-2a6894f6-6aea-4e8a-a8d5-03b249e468f9",
 														"Type":	"Scaler",
+														"ExportAs":	"AtollPositions",
 														"Skip":	false,
 														"Scale":	{
 															"$NodeId":	"Point3D-b08bead8-da98-4e5d-887f-6b1d3c2a80c4",
-															"X":	1500,
+															"X":	1800,
 															"Y":	1,
-															"Z":	1500
+															"Z":	1800
 														},
 														"Positions":	{
 															"$NodeId":	"Jitter2d.Positions-221c1531-7baa-4659-9871-cda18b6b59fa",
@@ -109,6 +110,12 @@
 					"$y":	-5972
 				}
 			},
+			"FastGradientWarp.Density-80142aae-4bb6-487e-bce9-22bf0ed25007":	{
+				"$Position":	{
+					"$x":	-1534,
+					"$y":	-6360
+				}
+			},
 			"FastGradientWarp.Density-cc233a5a-f324-4385-a6ce-d0fb59431459":	{
 				"$Position":	{
 					"$x":	-1194,
@@ -123,26 +130,26 @@
 			},
 			"Scaler.Positions-2a6894f6-6aea-4e8a-a8d5-03b249e468f9":	{
 				"$Position":	{
-					"$x":	852,
-					"$y":	-6399
+					"$x":	165,
+					"$y":	-6196
 				}
 			},
 			"Point3D-b08bead8-da98-4e5d-887f-6b1d3c2a80c4":	{
 				"$Position":	{
-					"$x":	1511,
-					"$y":	-6246
+					"$x":	824,
+					"$y":	-6043
 				}
 			},
 			"Jitter2d.Positions-221c1531-7baa-4659-9871-cda18b6b59fa":	{
 				"$Position":	{
-					"$x":	1508,
-					"$y":	-6498
+					"$x":	821,
+					"$y":	-6295
 				}
 			},
 			"TriangularGrid2d.Positions-771ddd31-f752-478e-89b5-37ee283c0b26":	{
 				"$Position":	{
-					"$x":	2163,
-					"$y":	-6501
+					"$x":	1476,
+					"$y":	-6298
 				}
 			},
 			"DistancePCNReturnType-391ea2ab-b854-419d-8e54-ae76c1663d48":	{
@@ -156,26 +163,9 @@
 					"$x":	172,
 					"$y":	-5940
 				}
-			},
-			"Anchor.Positions-32c0f1f0-3f4f-47e3-91e8-35d81a8c20c5":	{
-				"$Position":	{
-					"$x":	132,
-					"$y":	-6274
-				}
-			},
-			"FastGradientWarp.Density-80142aae-4bb6-487e-bce9-22bf0ed25007":	{
-				"$Position":	{
-					"$x":	-1534,
-					"$y":	-6360
-				}
 			}
 		},
-		"$FloatingNodes":	[{
-				"$NodeId":	"Anchor.Positions-32c0f1f0-3f4f-47e3-91e8-35d81a8c20c5",
-				"Type":	"Anchor",
-				"Skip":	false,
-				"Reversed":	false
-			}],
+		"$FloatingNodes":	[],
 		"$Links":	{
 		},
 		"$Groups":	[],
