@@ -2,7 +2,6 @@ package me.nullicorn.hytale.stormserpent.npc.movement;
 
 import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.component.Ref;
-import com.hypixel.hytale.math.matrix.Matrix4d;
 import com.hypixel.hytale.math.shape.Box;
 import com.hypixel.hytale.math.util.MathUtil;
 import com.hypixel.hytale.math.vector.Vector3dUtil;
@@ -19,15 +18,19 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.asset.builder.BuilderSupport;
 import com.hypixel.hytale.server.npc.movement.NavState;
 import com.hypixel.hytale.server.npc.movement.Steering;
+import com.hypixel.hytale.server.npc.movement.constraints.RelaxedConstraint;
 import com.hypixel.hytale.server.npc.movement.controllers.MotionController;
 import com.hypixel.hytale.server.npc.movement.controllers.ProbeMoveData;
 import com.hypixel.hytale.server.npc.movement.controllers.builders.BuilderMotionControllerBase;
 import com.hypixel.hytale.server.npc.role.Role;
+import org.joml.AxisAngle4d;
+import org.joml.Matrix4d;
 import org.joml.Vector3d;
 import org.joml.Vector3dc;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.EnumSet;
 
 public final class MotionControllerSerpentFly implements MotionController {
     public static final String NAME = "SerpentFly";
@@ -57,7 +60,7 @@ public final class MotionControllerSerpentFly implements MotionController {
     private NavState navState;
     private double throttleDuration;
     private double targetDeltaSquared;
-    private boolean relaxedMoveConstraints;
+    private EnumSet<RelaxedConstraint> relaxedMoveConstraints;
 
     private final Box collisionBox = new Box();
 
@@ -210,8 +213,8 @@ public final class MotionControllerSerpentFly implements MotionController {
             // Rotate `limited` (which is a clone of `to`) back toward `from` by however much the angle limit is
             // exceeded.
             new Matrix4d()
-                .setRotateAxis(angle - limit, axis.x, axis.y, axis.z)
-                .multiplyDirection(limited);
+                .rotate(new AxisAngle4d(-(angle - limit), axis))
+                .transformDirection(limited);
         }
 
         return limited;
@@ -305,7 +308,7 @@ public final class MotionControllerSerpentFly implements MotionController {
     }
 
     @Override
-    public boolean canAct(
+    public boolean canSteer(
         @Nonnull final Ref<EntityStore> ref,
         @Nonnull final ComponentAccessor<EntityStore> componentAccessor
     ) {
@@ -314,7 +317,7 @@ public final class MotionControllerSerpentFly implements MotionController {
 
     @Nullable
     @Override
-    public String canActFailReason(
+    public String canSteerFailReason(
         @Nonnull final Ref<EntityStore> ref,
         @Nonnull final ComponentAccessor<EntityStore> componentAccessor
     ) {
@@ -488,18 +491,13 @@ public final class MotionControllerSerpentFly implements MotionController {
         assert transform != null;
         final double y = transform.getPosition().y;
         final VerticalRange range = new VerticalRange();
-        range.assign(y, y, y); // TODO
+        range.set(y, y, y); // TODO
         return range;
     }
 
     @Override
     public double getWanderVerticalMovementRatio() {
         return 0;
-    }
-
-    @Override
-    public void setAvoidingBlockDamage(final boolean avoid) {
-
     }
 
     @Override
@@ -518,11 +516,6 @@ public final class MotionControllerSerpentFly implements MotionController {
     }
 
     @Override
-    public void requireDepthProbing() {
-
-    }
-
-    @Override
     public void enableHeadingBlending(final double heading, final Vector3d targetPosition, final double blendLevel) {
 
     }
@@ -533,12 +526,14 @@ public final class MotionControllerSerpentFly implements MotionController {
     }
 
     @Override
-    public void setRelaxedMoveConstraints(final boolean relax) {
-        this.relaxedMoveConstraints = relax;
+    public void setRelaxedMoveConstraints(@Nonnull final EnumSet<RelaxedConstraint> constraints) {
+        this.relaxedMoveConstraints.clear();
+        this.relaxedMoveConstraints.addAll(constraints);
     }
 
+    @Nonnull
     @Override
-    public boolean isRelaxedMoveConstraints() {
+    public EnumSet<RelaxedConstraint> getRelaxedConstraints() {
         return this.relaxedMoveConstraints;
     }
 

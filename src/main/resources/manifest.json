@@ -5,11 +5,10 @@
   "Description": "",
   "Authors": [],
   "Main": "me.nullicorn.hytale.stormserpent.StormSerpentPlugin",
-  "ServerVersion": "2026.03.26-92489d5e7",
+  "ServerVersion": "2026.04.02-51731a32a",
   "IncludesAssetPack": true,
   "Dependencies": {
     "Nullicorn:Serpentine": "0.1.x-SNAPSHOT",
-    "Hytale:NPC": "*",
-    "Hytale:HytaleGenerator": "*"
+    "Hytale:NPC": "*"
   }
 }

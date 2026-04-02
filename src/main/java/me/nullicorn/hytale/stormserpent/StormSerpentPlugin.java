@@ -1,7 +1,5 @@
 package me.nullicorn.hytale.stormserpent;
 
-import com.hypixel.hytale.builtin.hytalegenerator.assets.density.DensityAsset;
-import com.hypixel.hytale.builtin.hytalegenerator.assets.density.RotatorDensityAsset;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import com.hypixel.hytale.server.npc.NPCPlugin;
@@ -10,7 +8,6 @@ import me.nullicorn.hytale.stormserpent.npc.movement.MotionControllerSerpentFly;
 import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionSerpentEncircle;
 import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionSerpentWander;
 import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderMotionControllerSerpentFly;
-import me.nullicorn.hytale.stormserpent.worldgen.HotfixRotatorDensityAsset;
 
 import javax.annotation.Nonnull;
 
@@ -21,16 +18,6 @@ public final class StormSerpentPlugin extends JavaPlugin {
 
     @Override
     protected void setup() {
-        // Start of hotfix: {
-        // Replace RotatorDensity with a fixed version for 2026.03.26-92489d5e7.
-        // TODO: Delete me when this bug is patched!
-        final String rotatorCodecId = DensityAsset.CODEC.getIdFor(RotatorDensityAsset.class);
-        if (rotatorCodecId != null) {
-            DensityAsset.CODEC.getIdFor(RotatorDensityAsset.class);
-            DensityAsset.CODEC.register(rotatorCodecId, HotfixRotatorDensityAsset.class, HotfixRotatorDensityAsset.CODEC);
-        }
-        // } End of hotfix
-
         // NPC motions.
         NPCPlugin.get().registerCoreComponentType("SerpentWander", BuilderBodyMotionSerpentWander::new);
         NPCPlugin.get().registerCoreComponentType("SerpentEncircle", BuilderBodyMotionSerpentEncircle::new);

@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.hypixel.hytale:Server:2026.03.26-92489d5e7")
+    implementation("com.hypixel.hytale:Server:2026.04.02-51731a32a")
     implementation("me.nullicorn:serpentine:0.1.0-SNAPSHOT")
 }
 
@@ -54,8 +54,6 @@ tasks.register<JavaExec>("runServer") {
     dependsOn("jar")
     group = "hytale"
 
-    // Use JVM arguments in `run/jvm.options`, enabling assertions and remote debugging.
-    jvmArgs = listOf("@jvm.options")
     // Allow Hytale console commands to be input through this Gradle task's stdin.
     standardInput = System.`in`
 
