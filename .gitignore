@@ -7,3 +7,7 @@
 # Hytale asset schema
 /src/main/resources/.vscode/
 /src/main/resources/Schema/
+
+# Prefabs backups
+/src/main/resources/Server/Prefabs/*.lpf
+/src/main/resources/Server/Prefabs/*.bak
