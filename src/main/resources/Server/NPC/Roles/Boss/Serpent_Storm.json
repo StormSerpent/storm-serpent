@@ -1,10 +1,23 @@
 {
+  "Parameters": {
+    "IdleTargetScanRadius": {
+      "Value": 175
+    },
+    "IdleTargetHiddenWhenCrouched": {
+      "Description": "Ignore players that are crouching when scanning for targets while idle",
+      "Value": true
+    }
+  },
   "Type": "Generic",
-  "StartState": "Idle",
-  "MaxHealth": 200,
   "Appearance": "Serpent_Storm_Head",
   "NameTranslationKey": "server.npcRoles.Serpent_Storm",
+  "StartState": "Setup",
   "SpawnLockTime": 0,
+  "MaxHealth": 200,
+  "BreathesInAir": true,
+  "BreathesInWater": true,
+  "DefaultPlayerAttitude": "Hostile",
+  "DefaultNPCAttitude": "Ignore",
   "MotionControllerList": [
     {
       "Type": "SerpentFly"
@@ -12,11 +25,10 @@
   ],
   "Instructions": [
     {
-      "$Comment": "Upon spawning, set up the serpent's bone simulation",
       "Continue": true,
       "Sensor": {
-        "Type": "Any",
-        "Once": true
+        "Type": "State",
+        "State": "Setup"
       },
       "Actions": [
         {
@@ -24,8 +36,8 @@
           "SerpentConfig": "Serpent_Storm"
         },
         {
-          "Type": "SetLeashPosition",
-          "ToCurrent": true
+          "Type": "State",
+          "State": "Idle"
         }
       ]
     },
@@ -36,63 +48,71 @@
       },
       "Instructions": [
         {
+          "Reference": "Component_Instruction_Serpent_Storm_Idle",
+          "Modify": {
+            "_ExportStates": [
+              "Stalk",
+              "Combat.Engage"
+            ],
+            "TargetScanRadius": {
+              "Compute": "IdleTargetScanRadius"
+            },
+            "TargetHiddenWhenCrouched": {
+              "Compute": "IdleTargetHiddenWhenCrouched"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "$TODO": "Give the serpent light attacks in this state to try and engage the player into combat",
+      "Sensor": {
+        "Type": "State",
+        "State": "Stalk"
+      },
+      "Instructions": [
+        {
+          "$TODO": "Change this to SerpentWander once it supports a leash point. We want the serpent to wander around the position a player was last spotted at",
           "Continue": true,
           "Sensor": {
-            "Type": "Any"
+            "Type": "Target",
+            "TargetSlot": "Target_Stalk"
           },
           "BodyMotion": {
-            "Type": "SerpentWander"
+            "Type": "SerpentEncircle",
+            "RelativeAltitude": 30
           }
         },
         {
+          "$Comment": "If a player attacks, enter into combat",
           "Sensor": {
-            "Type": "Player",
-            "Range": 300.0,
-            "LockOnTarget": true,
-            "LockedTargetSlot": "EncircleTarget",
-            "Filters": [
-              {
-                "Type": "LineOfSight"
-              }
-            ]
+            "Type": "Damage",
+            "Combat": true,
+            "TargetSlot": "Target_Attacker"
           },
           "Actions": [
             {
               "Type": "State",
-              "State": "Encircle"
+              "State": "Combat.Engage"
             }
           ]
         }
       ]
     },
     {
+      "$TODO": "Implement Combat.Engage state. This is currently just a placeholder",
       "Sensor": {
         "Type": "State",
-        "State": "Encircle"
+        "State": "Combat.Engage"
       },
-      "Instructions": [
+      "BodyMotion": {
+        "Type": "SerpentWander"
+      },
+      "Actions": [
         {
-          "Sensor": {
-            "Type": "Target",
-            "TargetSlot": "EncircleTarget"
-          },
-          "BodyMotion": {
-            "Type": "SerpentEncircle",
-            "RelativeAltitude": 20.0,
-            "RelativeSpeed": 1.0,
-            "Radius": 30.0
-          }
-        },
-        {
-          "Sensor": {
-            "Type": "Any"
-          },
-          "Actions": [
-            {
-              "Type": "State",
-              "State": "Idle"
-            }
-          ]
+          "Type": "Log",
+          "Message": "Entering combat!",
+          "Once": true
         }
       ]
     }
