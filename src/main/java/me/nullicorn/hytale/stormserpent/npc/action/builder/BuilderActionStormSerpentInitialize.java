@@ -1,4 +1,4 @@
-package me.nullicorn.hytale.stormserpent.npc.action;
+package me.nullicorn.hytale.stormserpent.npc.action.builder;
 
 import com.google.gson.JsonElement;
 import com.hypixel.hytale.server.npc.asset.builder.Builder;
@@ -8,10 +8,12 @@ import com.hypixel.hytale.server.npc.asset.builder.holder.AssetHolder;
 import com.hypixel.hytale.server.npc.corecomponents.builders.BuilderActionBase;
 import com.hypixel.hytale.server.npc.instructions.Action;
 import me.nullicorn.hytale.stormserpent.npc.SerpentConfigExistsValidator;
+import me.nullicorn.hytale.stormserpent.npc.action.ActionStormSerpentInitialize;
 import me.nullicorn.serpentine.asset.SerpentConfig;
 
-// TODO: Move to Serpentine plugin.
-public final class BuilderActionSerpentCreateBody extends BuilderActionBase {
+public final class BuilderActionStormSerpentInitialize extends BuilderActionBase {
+    public static final String COMPONENT_ID = "StormSerpentInitialize";
+
     private final AssetHolder serpentConfig = new AssetHolder();
 
     @Override
@@ -45,7 +47,7 @@ public final class BuilderActionSerpentCreateBody extends BuilderActionBase {
 
     @Override
     public Action build(final BuilderSupport builderSupport) {
-        return new ActionSerpentCreateBody(this, builderSupport);
+        return new ActionStormSerpentInitialize(this, builderSupport);
     }
 
     public SerpentConfig serpentConfig(final BuilderSupport support) {

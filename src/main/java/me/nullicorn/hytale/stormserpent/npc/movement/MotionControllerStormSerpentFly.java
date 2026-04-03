@@ -23,6 +23,7 @@ import com.hypixel.hytale.server.npc.movement.controllers.MotionController;
 import com.hypixel.hytale.server.npc.movement.controllers.ProbeMoveData;
 import com.hypixel.hytale.server.npc.movement.controllers.builders.BuilderMotionControllerBase;
 import com.hypixel.hytale.server.npc.role.Role;
+import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderMotionControllerStormSerpentFly;
 import org.joml.AxisAngle4d;
 import org.joml.Matrix4d;
 import org.joml.Vector3d;
@@ -32,9 +33,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.EnumSet;
 
-public final class MotionControllerSerpentFly implements MotionController {
-    public static final String NAME = "SerpentFly";
-
+public final class MotionControllerStormSerpentFly implements MotionController {
     /**
      * How fast the serpent will normally move.
      * <p>
@@ -67,7 +66,7 @@ public final class MotionControllerSerpentFly implements MotionController {
     private Vector3d lastTranslation;
     private double heightOverGround;
 
-    public MotionControllerSerpentFly(
+    public MotionControllerStormSerpentFly(
         @Nonnull BuilderSupport builderSupport,
         @Nonnull BuilderMotionControllerBase builder
     ) {
@@ -75,7 +74,7 @@ public final class MotionControllerSerpentFly implements MotionController {
 
     @Override
     public String getType() {
-        return NAME;
+        return BuilderMotionControllerStormSerpentFly.COMPONENT_ID;
     }
 
     @Override

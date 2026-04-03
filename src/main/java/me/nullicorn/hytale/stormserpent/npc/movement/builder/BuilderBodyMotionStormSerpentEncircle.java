@@ -12,7 +12,9 @@ import me.nullicorn.hytale.stormserpent.npc.movement.BodyMotionSerpentEncircle;
 
 import javax.annotation.Nullable;
 
-public class BuilderBodyMotionSerpentEncircle extends BuilderBodyMotionBase {
+public class BuilderBodyMotionStormSerpentEncircle extends BuilderBodyMotionBase {
+    public static final String COMPONENT_ID = "StormSerpentEncircle";
+
     private final DoubleHolder relativeAltitude = new DoubleHolder();
     private final DoubleHolder relativeSpeed = new DoubleHolder();
     private final DoubleHolder radius = new DoubleHolder();

@@ -11,18 +11,21 @@ import com.hypixel.hytale.server.npc.movement.Steering;
 import com.hypixel.hytale.server.npc.role.Role;
 import com.hypixel.hytale.server.npc.sensorinfo.IPositionProvider;
 import com.hypixel.hytale.server.npc.sensorinfo.InfoProvider;
-import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionSerpentEncircle;
+import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionStormSerpentEncircle;
 import org.joml.Vector3d;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public class BodyMotionSerpentEncircle extends BodyMotionBase {
+public final class BodyMotionSerpentEncircle extends BodyMotionBase {
     private final double desiredRelativeAltitude;
     private final double desiredRelativeSpeed;
     private final double desiredRadius;
 
-    public BodyMotionSerpentEncircle(final BuilderBodyMotionSerpentEncircle builder, final BuilderSupport support) {
+    public BodyMotionSerpentEncircle(
+        final BuilderBodyMotionStormSerpentEncircle builder,
+        final BuilderSupport support
+    ) {
         super(builder);
         this.desiredRelativeAltitude = builder.getRelativeAltitude(support);
         this.desiredRelativeSpeed = builder.getRelativeSpeed(support);

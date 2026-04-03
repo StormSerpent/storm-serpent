@@ -19,8 +19,8 @@
       {
         "Continue": true,
         "BodyMotion": {
-          "Type": "SerpentWander",
-          "$TODO": "Stay toward the top of the world (around y=250..350). SerpentWander needs updated to support setting a desired altitude"
+          "$TODO": "Stay toward the top of the world (around y=250..350). StormSerpentWander needs updated to support setting a desired altitude",
+          "Type": "StormSerpentWander"
         },
         "Actions": [
           {

@@ -1,31 +1,59 @@
 package me.nullicorn.hytale.stormserpent;
 
+import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
+import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.NPCPlugin;
-import me.nullicorn.hytale.stormserpent.npc.action.BuilderActionSerpentCreateBody;
-import me.nullicorn.hytale.stormserpent.npc.movement.MotionControllerSerpentFly;
-import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionSerpentEncircle;
-import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionSerpentWander;
-import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderMotionControllerSerpentFly;
+import me.nullicorn.hytale.stormserpent.component.StormSerpent;
+import me.nullicorn.hytale.stormserpent.component.StormSerpentBone;
+import me.nullicorn.hytale.stormserpent.npc.action.builder.BuilderActionStormSerpentInitialize;
+import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionStormSerpentEncircle;
+import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionStormSerpentWander;
+import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderMotionControllerStormSerpentFly;
+import me.nullicorn.hytale.stormserpent.system.StormSerpentSpawnSystems;
 
 import javax.annotation.Nonnull;
 
 public final class StormSerpentPlugin extends JavaPlugin {
+    private static StormSerpentPlugin instance;
+
+    public static StormSerpentPlugin get() {
+        return instance;
+    }
+
+    private ComponentType<EntityStore, StormSerpent> stormSerpentComponentType;
+    private ComponentType<EntityStore, StormSerpentBone> stormSerpentBoneComponentType;
+
     public StormSerpentPlugin(@Nonnull final JavaPluginInit init) {
         super(init);
     }
 
     @Override
     protected void setup() {
+        instance = this;
+
+        this.stormSerpentComponentType = this.getEntityStoreRegistry().registerComponent(StormSerpent.class, StormSerpent.COMPONENT_ID, StormSerpent.CODEC);
+        this.stormSerpentBoneComponentType = this.getEntityStoreRegistry().registerComponent(StormSerpentBone.class, StormSerpentBone::new);
+
+        this.getEntityStoreRegistry().registerSystem(new StormSerpentSpawnSystems.BoneHolderSystem());
+
         // NPC motions.
-        NPCPlugin.get().registerCoreComponentType("SerpentWander", BuilderBodyMotionSerpentWander::new);
-        NPCPlugin.get().registerCoreComponentType("SerpentEncircle", BuilderBodyMotionSerpentEncircle::new);
+        NPCPlugin.get().registerCoreComponentType(BuilderBodyMotionStormSerpentWander.COMPONENT_ID, BuilderBodyMotionStormSerpentWander::new);
+        NPCPlugin.get().registerCoreComponentType(BuilderBodyMotionStormSerpentEncircle.COMPONENT_ID, BuilderBodyMotionStormSerpentEncircle::new);
 
         // NPC motion controllers.
-        NPCPlugin.get().registerCoreComponentType(MotionControllerSerpentFly.NAME, BuilderMotionControllerSerpentFly::new);
+        NPCPlugin.get().registerCoreComponentType(BuilderMotionControllerStormSerpentFly.COMPONENT_ID, BuilderMotionControllerStormSerpentFly::new);
 
         // NPC actions.
-        NPCPlugin.get().registerCoreComponentType("SerpentCreateBody", BuilderActionSerpentCreateBody::new);
+        NPCPlugin.get().registerCoreComponentType(BuilderActionStormSerpentInitialize.COMPONENT_ID, BuilderActionStormSerpentInitialize::new);
+    }
+
+    public ComponentType<EntityStore, StormSerpent> getStormSerpentComponentType() {
+        return this.stormSerpentComponentType;
+    }
+
+    public ComponentType<EntityStore, StormSerpentBone> getStormSerpentBoneComponentType() {
+        return this.stormSerpentBoneComponentType;
     }
 }

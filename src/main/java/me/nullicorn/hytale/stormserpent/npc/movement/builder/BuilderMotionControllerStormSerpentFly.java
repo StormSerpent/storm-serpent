@@ -8,14 +8,16 @@ import com.hypixel.hytale.server.npc.movement.controllers.MotionController;
 import com.hypixel.hytale.server.npc.movement.controllers.builders.BuilderMotionControllerBase;
 import com.hypixel.hytale.server.spawning.SpawnTestResult;
 import com.hypixel.hytale.server.spawning.SpawningContext;
-import me.nullicorn.hytale.stormserpent.npc.movement.MotionControllerSerpentFly;
+import me.nullicorn.hytale.stormserpent.npc.movement.MotionControllerStormSerpentFly;
 
 import javax.annotation.Nonnull;
 
-public final class BuilderMotionControllerSerpentFly extends BuilderMotionControllerBase {
+public final class BuilderMotionControllerStormSerpentFly extends BuilderMotionControllerBase {
+    public static final String COMPONENT_ID = "StormSerpentFly";
+
     @Override
     public Class<? extends MotionController> getClassType() {
-        return MotionControllerSerpentFly.class;
+        return MotionControllerStormSerpentFly.class;
     }
 
     @Override
@@ -51,6 +53,6 @@ public final class BuilderMotionControllerSerpentFly extends BuilderMotionContro
 
     @Override
     public MotionController build(final BuilderSupport builderSupport) {
-        return new MotionControllerSerpentFly(builderSupport, this); // TODO
+        return new MotionControllerStormSerpentFly(builderSupport, this); // TODO
     }
 }

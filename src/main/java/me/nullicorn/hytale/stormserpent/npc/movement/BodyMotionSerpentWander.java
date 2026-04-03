@@ -12,7 +12,7 @@ import com.hypixel.hytale.server.npc.entities.NPCEntity;
 import com.hypixel.hytale.server.npc.movement.Steering;
 import com.hypixel.hytale.server.npc.role.Role;
 import com.hypixel.hytale.server.npc.sensorinfo.InfoProvider;
-import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionSerpentWander;
+import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionStormSerpentWander;
 import org.joml.Vector3d;
 
 import javax.annotation.Nonnull;
@@ -66,7 +66,7 @@ public final class BodyMotionSerpentWander extends BodyMotionBase {
     private double targetReselectTimer;
 
     public BodyMotionSerpentWander(
-        @Nonnull final BuilderBodyMotionSerpentWander builder,
+        @Nonnull final BuilderBodyMotionStormSerpentWander builder,
         final BuilderSupport support
     ) {
         super(builder);

@@ -9,16 +9,20 @@ import com.hypixel.hytale.server.npc.asset.builder.BuilderSupport;
 import com.hypixel.hytale.server.npc.corecomponents.ActionBase;
 import com.hypixel.hytale.server.npc.role.Role;
 import com.hypixel.hytale.server.npc.sensorinfo.InfoProvider;
+import me.nullicorn.hytale.stormserpent.component.StormSerpent;
+import me.nullicorn.hytale.stormserpent.npc.action.builder.BuilderActionStormSerpentInitialize;
 import me.nullicorn.serpentine.asset.SerpentConfig;
 import me.nullicorn.serpentine.component.Serpent;
 
 import javax.annotation.Nonnull;
 
-// TODO: Move to Serpentine plugin.
-public final class ActionSerpentCreateBody extends ActionBase {
+public final class ActionStormSerpentInitialize extends ActionBase {
     private final SerpentConfig serpentConfig;
 
-    public ActionSerpentCreateBody(final BuilderActionSerpentCreateBody builder, final BuilderSupport support) {
+    public ActionStormSerpentInitialize(
+        final BuilderActionStormSerpentInitialize builder,
+        final BuilderSupport support
+    ) {
         super(builder);
         this.serpentConfig = builder.serpentConfig(support);
     }
@@ -49,6 +53,7 @@ public final class ActionSerpentCreateBody extends ActionBase {
 
         serpent = new Serpent(new Transform(transform.getPosition()), this.serpentConfig.layout().chooseBones());
         store.addComponent(ref, Serpent.getComponentType(), serpent);
+        store.addComponent(ref, StormSerpent.getComponentType());
 
         return true;
     }

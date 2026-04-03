@@ -20,7 +20,7 @@
   "DefaultNPCAttitude": "Ignore",
   "MotionControllerList": [
     {
-      "Type": "SerpentFly"
+      "Type": "StormSerpentFly"
     }
   ],
   "Instructions": [
@@ -32,7 +32,7 @@
       },
       "Actions": [
         {
-          "Type": "SerpentCreateBody",
+          "Type": "StormSerpentInitialize",
           "SerpentConfig": "Serpent_Storm"
         },
         {
@@ -79,7 +79,7 @@
             "TargetSlot": "Target_Stalk"
           },
           "BodyMotion": {
-            "Type": "SerpentEncircle",
+            "Type": "StormSerpentEncircle",
             "RelativeAltitude": 30
           }
         },
@@ -106,7 +106,7 @@
         "State": "Combat.Engage"
       },
       "BodyMotion": {
-        "Type": "SerpentWander"
+        "Type": "StormSerpentWander"
       },
       "Actions": [
         {
