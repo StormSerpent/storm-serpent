@@ -1,0 +1,40 @@
+{
+  "Container": {
+    "Type": "Multiple",
+    "Containers": [
+      {
+        "Type": "Choice",
+        "RollsMin": 1,
+        "RollsMax": 1,
+        "Containers": [
+          { "Type": "Single", "Weight": 100, "Item": { "ItemId": "Weapon_Shortbow_Adamantite", "QuantityMin": 1, "QuantityMax": 1 } }
+        ]
+      },
+      {
+        "Type": "Choice",
+        "RollsMin": 1,
+        "RollsMax": 1,
+        "Containers": [
+          { "Type": "Single", "Weight": 100, "Item": { "ItemId": "Weapon_Shield_Mithril", "QuantityMin": 1, "QuantityMax": 1 } }
+        ]
+      },
+      {
+        "Type": "Choice",
+        "RollsMin": 3,
+        "RollsMax": 5,
+        "Containers": [
+          { "Type": "Single", "Weight": 70,  "Item": { "ItemId": "Weapon_Arrow_Crude", "QuantityMin": 5, "QuantityMax": 30 } },
+          { "Type": "Empty", "Weight": 30 }
+        ]
+      },
+      {
+        "Type": "Choice",
+        "RollsMin": 1,
+        "RollsMax": 1,
+        "Containers": [
+          { "Type": "Single", "Weight": 100, "Item": { "ItemId": "Glider", "QuantityMin": 1, "QuantityMax": 1 } }
+        ]
+      }
+    ]
+  }
+}
