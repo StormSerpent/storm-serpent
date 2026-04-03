@@ -1,0 +1,10 @@
+{
+  "Animations": {
+    "Shoot_Electric":{
+      "ThirdPerson": "NPC/Boss/Serpent_Storm/Animations/Attacks/Shoot_Electric.blockyanim",
+      "Speed": 1.0,
+      "Looping": false
+    }
+  },
+  "WiggleWeights": {}
+}

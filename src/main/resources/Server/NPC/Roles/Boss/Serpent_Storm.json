@@ -105,14 +105,31 @@
         "Type": "State",
         "State": "Combat.Engage"
       },
-      "BodyMotion": {
-        "Type": "StormSerpentWander"
-      },
-      "Actions": [
+      "Instructions": [
         {
-          "Type": "Log",
-          "Message": "Entering combat!",
-          "Once": true
+          "Continue": true,
+          "BodyMotion": {
+            "Type": "StormSerpentWander"
+          }
+        },
+        {
+          "Continue": true,
+          "Sensor": {
+            "Type": "Target",
+            "TargetSlot": "Target_Attacker"
+          },
+          "HeadMotion": {
+            "Type": "Aim"
+          }
+        },
+        {
+          "Actions": [
+            {
+              "Type": "Attack",
+              "Attack": "Root_NPC_Serpent_Storm_Attack",
+              "AttackType": "Ability1"
+            }
+          ]
         }
       ]
     }

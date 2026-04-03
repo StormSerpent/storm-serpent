@@ -28,5 +28,14 @@
         "Head"
       ]
     }
+  },
+  "AnimationSets": {
+    "Shoot_Electric": {
+      "Animations": [
+        {
+          "Animation": "NPC/Boss/Serpent_Storm/Animations/Attacks/Shoot_Electric.blockyanim"
+        }
+      ]
+    }
   }
 }

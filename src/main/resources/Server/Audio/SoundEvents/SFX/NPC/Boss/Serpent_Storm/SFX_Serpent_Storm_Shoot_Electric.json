@@ -1,0 +1,11 @@
+{
+  "MaxDistance": 400,
+  "StartAttenuationDistance": 400,
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/NPC/Boss/Serpent_Storm/Shoot_Electric.ogg"
+      ]
+    }
+  ]
+}

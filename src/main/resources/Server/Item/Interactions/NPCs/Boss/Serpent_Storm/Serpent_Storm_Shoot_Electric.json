@@ -1,0 +1,9 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Serpent_Storm_Default",
+    "ItemAnimationId": "Shoot_Electric",
+    "WorldSoundEventId": "SFX_Serpent_Storm_Shoot_Electric"
+  },
+  "RunTime": 4.75
+}
