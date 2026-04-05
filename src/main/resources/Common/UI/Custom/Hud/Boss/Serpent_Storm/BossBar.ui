@@ -1,0 +1,10 @@
+@bossBarTextureWidth = 1920;
+@bossBarTextureHeight = 116;
+@bossBarWidth = 1070;
+@bossBarHeight = (@bossBarTextureHeight / @bossBarTextureWidth) * @bossBarWidth;
+
+ProgressBar #BossBar {
+    BarTexturePath: "BossBarFill.png";
+    Background: "BossBarBackground.png";
+    Anchor: (Height: @bossBarHeight, Width: @bossBarWidth, Top: 8);
+}

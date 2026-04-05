@@ -12,6 +12,7 @@ import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionSt
 import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionStormSerpentWander;
 import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderMotionControllerStormSerpentFly;
 import me.nullicorn.hytale.stormserpent.system.StormSerpentSpawnSystems;
+import me.nullicorn.hytale.stormserpent.ui.hud.StormSerpentBossBarHudSystem;
 
 import javax.annotation.Nonnull;
 
@@ -37,6 +38,7 @@ public final class StormSerpentPlugin extends JavaPlugin {
         this.stormSerpentBoneComponentType = this.getEntityStoreRegistry().registerComponent(StormSerpentBone.class, StormSerpentBone::new);
 
         this.getEntityStoreRegistry().registerSystem(new StormSerpentSpawnSystems.BoneHolderSystem());
+        this.getEntityStoreRegistry().registerSystem(new StormSerpentBossBarHudSystem());
 
         // NPC motions.
         NPCPlugin.get().registerCoreComponentType(BuilderBodyMotionStormSerpentWander.COMPONENT_ID, BuilderBodyMotionStormSerpentWander::new);
