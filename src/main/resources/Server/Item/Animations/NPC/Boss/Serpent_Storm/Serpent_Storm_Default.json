@@ -4,6 +4,11 @@
       "ThirdPerson": "NPC/Boss/Serpent_Storm/Animations/Attacks/Shoot_Electric.blockyanim",
       "Speed": 1.0,
       "Looping": false
+    },
+    "Shriek_Engaged": {
+      "ThirdPerson": "NPC/Boss/Serpent_Storm/Animations/Shriek_Engaged.blockyanim",
+      "Speed": 1.0,
+      "Looping": false
     }
   },
   "WiggleWeights": {}

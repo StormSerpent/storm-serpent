@@ -7,6 +7,8 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.NPCPlugin;
 import me.nullicorn.hytale.stormserpent.component.StormSerpent;
 import me.nullicorn.hytale.stormserpent.component.StormSerpentBone;
+import me.nullicorn.hytale.stormserpent.npc.action.builder.BuilderActionStormSerpentAddCombatants;
+import me.nullicorn.hytale.stormserpent.npc.action.builder.BuilderActionStormSerpentBeginFight;
 import me.nullicorn.hytale.stormserpent.npc.action.builder.BuilderActionStormSerpentInitialize;
 import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionStormSerpentEncircle;
 import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionStormSerpentWander;
@@ -49,6 +51,8 @@ public final class StormSerpentPlugin extends JavaPlugin {
 
         // NPC actions.
         NPCPlugin.get().registerCoreComponentType(BuilderActionStormSerpentInitialize.COMPONENT_ID, BuilderActionStormSerpentInitialize::new);
+        NPCPlugin.get().registerCoreComponentType(BuilderActionStormSerpentBeginFight.COMPONENT_ID, BuilderActionStormSerpentBeginFight::new);
+        NPCPlugin.get().registerCoreComponentType(BuilderActionStormSerpentAddCombatants.COMPONENT_ID, BuilderActionStormSerpentAddCombatants::new);
     }
 
     public ComponentType<EntityStore, StormSerpent> getStormSerpentComponentType() {

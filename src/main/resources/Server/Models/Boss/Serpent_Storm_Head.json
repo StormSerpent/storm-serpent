@@ -36,6 +36,26 @@
           "Animation": "NPC/Boss/Serpent_Storm/Animations/Attacks/Shoot_Electric.blockyanim"
         }
       ]
+    },
+    "Shriek_Engaged": {
+      "Animations": [
+        {
+          "Animation": "NPC/Boss/Serpent_Storm/Animations/Shriek_Engaged.blockyanim"
+        }
+      ]
     }
-  }
+  },
+  "IconProperties": {
+    "Scale": 0.07,
+    "Rotation": [
+      0,
+      311,
+      0
+    ],
+    "Translation": [
+      17,
+      -31
+    ]
+  },
+  "Icon": "Icons/ModelsGenerated/Serpent_Storm_Head.png"
 }

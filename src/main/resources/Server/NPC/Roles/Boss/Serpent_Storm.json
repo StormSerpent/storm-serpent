@@ -1,23 +1,16 @@
 {
-  "Parameters": {
-    "IdleTargetScanRadius": {
-      "Value": 175
-    },
-    "IdleTargetHiddenWhenCrouched": {
-      "Description": "Ignore players that are crouching when scanning for targets while idle",
-      "Value": true
-    }
-  },
   "Type": "Generic",
+  "StartState": "Idle",
   "Appearance": "Serpent_Storm_Head",
   "NameTranslationKey": "server.npcRoles.Serpent_Storm",
-  "StartState": "Setup",
-  "SpawnLockTime": 0,
-  "MaxHealth": 200,
+  "DefaultNPCAttitude": "Ignore",
+  "DefaultPlayerAttitude": "Neutral",
+  "MaxHealth": 2000,
   "BreathesInAir": true,
   "BreathesInWater": true,
-  "DefaultPlayerAttitude": "Hostile",
-  "DefaultNPCAttitude": "Ignore",
+  "IsMemory": true,
+  "MemoriesCategory": "Mythic",
+  "SpawnLockTime": 0,
   "MotionControllerList": [
     {
       "Type": "StormSerpentFly"
@@ -27,8 +20,9 @@
     {
       "Continue": true,
       "Sensor": {
-        "Type": "State",
-        "State": "Setup"
+        "Type": "Flag",
+        "Name": "Initialized",
+        "Set": false
       },
       "Actions": [
         {
@@ -36,8 +30,9 @@
           "SerpentConfig": "Serpent_Storm"
         },
         {
-          "Type": "State",
-          "State": "Idle"
+          "Type": "SetFlag",
+          "Name": "Initialized",
+          "SetTo": true
         }
       ]
     },
@@ -48,88 +43,269 @@
       },
       "Instructions": [
         {
-          "Reference": "Component_Instruction_Serpent_Storm_Idle",
-          "Modify": {
-            "_ExportStates": [
-              "Stalk",
-              "Combat.Engage"
-            ],
-            "TargetScanRadius": {
-              "Compute": "IdleTargetScanRadius"
-            },
-            "TargetHiddenWhenCrouched": {
-              "Compute": "IdleTargetHiddenWhenCrouched"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "$TODO": "Give the serpent light attacks in this state to try and engage the player into combat",
-      "Sensor": {
-        "Type": "State",
-        "State": "Stalk"
-      },
-      "Instructions": [
-        {
-          "$TODO": "Change this to SerpentWander once it supports a leash point. We want the serpent to wander around the position a player was last spotted at",
-          "Continue": true,
-          "Sensor": {
-            "Type": "Target",
-            "TargetSlot": "Target_Stalk"
-          },
-          "BodyMotion": {
-            "Type": "StormSerpentEncircle",
-            "RelativeAltitude": 30
-          }
-        },
-        {
-          "$Comment": "If a player attacks, enter into combat",
-          "Sensor": {
-            "Type": "Damage",
-            "Combat": true,
-            "TargetSlot": "Target_Attacker"
-          },
-          "Actions": [
-            {
-              "Type": "State",
-              "State": "Combat.Engage"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "$TODO": "Implement Combat.Engage state. This is currently just a placeholder",
-      "Sensor": {
-        "Type": "State",
-        "State": "Combat.Engage"
-      },
-      "Instructions": [
-        {
           "Continue": true,
           "BodyMotion": {
             "Type": "StormSerpentWander"
           }
         },
         {
-          "Continue": true,
           "Sensor": {
-            "Type": "Target",
-            "TargetSlot": "Target_Attacker"
+            "Type": "Damage",
+            "Combat": true
           },
-          "HeadMotion": {
-            "Type": "Aim"
-          }
+          "Actions": [
+            {
+              "Type": "AddToHostileTargetMemory"
+            },
+            {
+              "Type": "State",
+              "State": "Intro.Shriek"
+            }
+          ]
         },
         {
+          "Sensor": {
+            "Type": "Player",
+            "Range": 175,
+            "LockOnTarget": true,
+            "LockedTargetSlot": "Stalk_Target",
+            "Filters": [
+              {
+                "Type": "ViewSector",
+                "ViewSector": 180
+              },
+              {
+                "Type": "LineOfSight"
+              },
+              {
+                "Type": "Not",
+                "Filter": {
+                  "Type": "MovementState",
+                  "State": "Crouching"
+                }
+              }
+            ]
+          },
+          "Actions": [
+            {
+              "Type": "StorePosition",
+              "Slot": "Stalk_Target_Last_Seen"
+            },
+            {
+              "Type": "State",
+              "State": "Stalk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Sensor": {
+        "Type": "State",
+        "State": "Stalk"
+      },
+      "Instructions": [
+        {
+          "Continue": true,
+          "Sensor": {
+            "Type": "ReadPosition",
+            "Slot": "Stalk_Target_Last_Seen",
+            "Range": 1000
+          },
+          "BodyMotion": {
+            "Type": "StormSerpentWander"
+          },
+          "Actions": [
+            {
+              "Type": "TimerStart",
+              "Name": "Stalk_Forget",
+              "Repeating": false,
+              "StartValueRange": [
+                12,
+                16
+              ],
+              "RestartValueRange": [
+                12,
+                16
+              ]
+            }
+          ]
+        },
+        {
+          "Sensor": {
+            "Type": "Damage",
+            "Combat": true
+          },
+          "Actions": [
+            {
+              "Type": "AddToHostileTargetMemory"
+            },
+            {
+              "Type": "State",
+              "State": "Intro.Shriek"
+            }
+          ]
+        },
+        {
+          "Sensor": {
+            "Type": "Player",
+            "Range": 175,
+            "OnlyLockedTarget": true,
+            "LockedTargetSlot": "Stalk_Target",
+            "Filters": [
+              {
+                "Type": "LineOfSight"
+              }
+            ]
+          },
+          "Actions": [
+            {
+              "Type": "StorePosition",
+              "Slot": "Stalk_Target_Last_Seen"
+            },
+            {
+              "Type": "TimerRestart",
+              "Name": "Stalk_Forget"
+            }
+          ]
+        },
+        {
+          "Sensor": {
+            "Type": "Timer",
+            "Name": "Stalk_Forget",
+            "State": "Stopped"
+          },
+          "Actions": [
+            {
+              "Type": "State",
+              "State": "Idle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Sensor": {
+        "Type": "State",
+        "State": "Intro.Shriek"
+      },
+      "BodyMotion": {
+        "Type": "Nothing"
+      },
+      "Actions": [
+        {
+          "Type": "PlayAnimation",
+          "Animation": "Shriek_Engaged",
+          "Slot": "Status"
+        },
+        {
+          "Type": "State",
+          "State": "Intro.Buildup"
+        }
+      ]
+    },
+    {
+      "Sensor": {
+        "Type": "State",
+        "State": "Intro.Buildup"
+      },
+      "Instructions": [
+        {
+          "Continue": true,
+          "BodyMotion": {
+            "Type": "StormSerpentWander"
+          },
+          "Actions": [
+            {
+              "Type": "TimerStart",
+              "Name": "Intro_Buildup_Shoot",
+              "Repeating": false,
+              "StartValueRange": [2, 4],
+              "RestartValueRange": [2, 4]
+            },
+            {
+              "Type": "TimerStart",
+              "Name": "Intro_Buildup_Transition",
+              "Repeating": false,
+              "StartValueRange": [11, 12],
+              "RestartValueRange": [11, 12]
+            }
+          ]
+        },
+        {
+          "Sensor": {
+            "Type": "Timer",
+            "Name": "Intro_Buildup_Transition",
+            "State": "Stopped"
+          },
+          "Actions": [
+            {
+              "Type": "State",
+              "State": "Intro.Transition"
+            }
+          ]
+        },
+        {
+          "Sensor": {
+            "Type": "Timer",
+            "Name": "Intro_Buildup_Shoot",
+            "State": "Stopped"
+          },
           "Actions": [
             {
               "Type": "Attack",
               "Attack": "Root_NPC_Serpent_Storm_Attack",
               "AttackType": "Ability1"
+            },
+            {
+              "Type": "TimerRestart",
+              "Name": "Intro_Buildup_Shoot"
             }
           ]
+        }
+      ]
+    },
+    {
+      "Sensor": {
+        "Type": "State",
+        "State": "Intro.Transition"
+      },
+      "Instructions": [
+        {
+          "Continue": true,
+          "Sensor": {
+            "Type": "Player",
+            "Range": 500
+          },
+          "BodyMotion": {
+            "Type": "StormSerpentEncircle"
+          }
+        },
+        {
+          "ActionsBlocking": true,
+          "Actions": [
+            {
+              "Type": "Timeout",
+              "Delay": [18, 18]
+            },
+            {
+              "Type": "State",
+              "State": "Combat.Attack"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Sensor": {
+        "Type": "State",
+        "State": "Combat.Attack"
+      },
+      "Actions": [
+        {
+          "Once": true,
+          "Type": "Log",
+          "Message": "Combat.Attack"
         }
       ]
     }
