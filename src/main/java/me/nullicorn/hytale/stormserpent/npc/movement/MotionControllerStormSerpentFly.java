@@ -41,12 +41,6 @@ public final class MotionControllerStormSerpentFly implements MotionController {
      */
     private final double maxMoveSpeed = 40.0;
     /**
-     * How fast the serpent can change direction.
-     * <p>
-     * Unit is radians per second.
-     */
-    private final double maxSteerSpeed = Math.toRadians(65.0);
-    /**
      * How fast the serpent can pivot its head.
      * <p>
      * Unit is radians per second.
@@ -54,16 +48,13 @@ public final class MotionControllerStormSerpentFly implements MotionController {
     private final double maxLookSpeed = Math.toRadians(65.0);
 
     private Role role;
+    private final Box collisionBox = new Box();
     private final Vector3d componentSelector = new Vector3d(1.0, 1.0, 1.0);
     private final Vector3d planarComponentSelector = new Vector3d(1.0, 1.0, 1.0);
+    private final EnumSet<RelaxedConstraint> relaxedMoveConstraints = EnumSet.noneOf(RelaxedConstraint.class);
     private NavState navState;
     private double throttleDuration;
     private double targetDeltaSquared;
-    private EnumSet<RelaxedConstraint> relaxedMoveConstraints;
-
-    private final Box collisionBox = new Box();
-
-    private Vector3d lastTranslation;
     private double heightOverGround;
 
     public MotionControllerStormSerpentFly(
@@ -141,17 +132,6 @@ public final class MotionControllerStormSerpentFly implements MotionController {
             }
         }
 
-        // Constrain how fast the NPC can change travel direction.
-        if (bodySteering.hasTranslation() && this.lastTranslation != null) {
-            bodySteering.setTranslation(
-                limitAngle(
-                    /* from:  */ this.lastTranslation,
-                    /* to:    */ bodySteering.getTranslation(),
-                    /* limit: */ this.maxSteerSpeed * bodySteering.getRelativeTurnSpeed() * interval
-                )
-            );
-        }
-
         final Vector3d desiredLookDirection = Vector3dUtil.setYawPitch(
             headSteering.hasYaw() ? headSteering.getYaw() : headRotation.getRotation().yaw(),
             headSteering.hasPitch() ? headSteering.getPitch() : headRotation.getRotation().pitch(),
@@ -166,8 +146,9 @@ public final class MotionControllerStormSerpentFly implements MotionController {
 
         // Move the entity to its new position.
         if (bodySteering.hasTranslation()) {
-            this.lastTranslation = new Vector3d(bodySteering.getTranslation());
-            transform.getPosition().add(new Vector3d(bodySteering.getTranslation()).mul(this.maxMoveSpeed * interval));
+            // Move forward in whichever direction we're looking.
+            bodySteering.setTranslation(lookDirection);
+            transform.getPosition().add(bodySteering.getTranslation().mul(this.maxMoveSpeed * interval, new Vector3d()));
         }
 
         // Rotate the entity's head to its new orientation.
