@@ -3,6 +3,7 @@ package me.nullicorn.hytale.stormserpent.npc.movement;
 import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.math.util.MathUtil;
+import com.hypixel.hytale.math.util.TrigMathUtil;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.asset.builder.BuilderSupport;
@@ -21,6 +22,11 @@ public final class BodyMotionSerpentEncircle extends BodyMotionBase {
     private final double desiredRelativeAltitude;
     private final double desiredRelativeSpeed;
     private final double desiredRadius;
+    private final double oscillateRadiusFrequency;
+    private final double oscillateRadiusAmplitude;
+    private final double oscillateYFrequency;
+    private final double oscillateYAmplitude;
+    private double oscillationTime = 0;
 
     public BodyMotionSerpentEncircle(
         final BuilderBodyMotionStormSerpentEncircle builder,
@@ -30,6 +36,10 @@ public final class BodyMotionSerpentEncircle extends BodyMotionBase {
         this.desiredRelativeAltitude = builder.getRelativeAltitude(support);
         this.desiredRelativeSpeed = builder.getRelativeSpeed(support);
         this.desiredRadius = builder.getRadius(support);
+        this.oscillateRadiusFrequency = builder.getOscillateRadiusFrequency(support);
+        this.oscillateRadiusAmplitude = builder.getOscillateRadiusAmplitude(support);
+        this.oscillateYFrequency = builder.getOscillateYFrequency(support);
+        this.oscillateYAmplitude = builder.getOscillateYAmplitude(support);
     }
 
     @Override
@@ -51,17 +61,24 @@ public final class BodyMotionSerpentEncircle extends BodyMotionBase {
             return false;
         }
 
+        this.oscillationTime += dt;
+        final double targetRadius = this.desiredRadius + TrigMathUtil.sin(this.oscillationTime * this.oscillateRadiusFrequency) * this.oscillateRadiusAmplitude;
+        final double targetRelativeAltitude = this.desiredRelativeAltitude + TrigMathUtil.sin(this.oscillationTime * this.oscillateYFrequency) * this.oscillateYAmplitude;
+
         final TransformComponent transform = componentAccessor.getComponent(ref, TransformComponent.getComponentType());
         assert transform != null;
         final Vector3d currentPosition = transform.getPosition();
         final Vector3d relativePosition = new Vector3d(currentPosition).sub(targetPosition);
         final double currentHorizontalDistance = relativePosition.length();
 
-        final double maxRotationSpeed = role.getActiveMotionController().getMaximumSpeed() / this.desiredRadius;
-        //
-        final double currentRotationSpeed = MathUtil.lerp(0.0, maxRotationSpeed, Math.min(currentHorizontalDistance / this.desiredRadius, this.desiredRadius));
-        final Vector3d desiredPosition = new Vector3d(relativePosition.x, this.desiredRelativeAltitude, relativePosition.z)
-            .rotateY(currentRotationSpeed * dt)
+        // Get the length of the arc we want to travel along this tick.
+        final double maxRotationSpeed = role.getActiveMotionController().getMaximumSpeed() / targetRadius;
+        // Move faster the closer we are to the desired radius.
+        final double currentRotationSpeed = MathUtil.lerp(0.0, maxRotationSpeed, Math.min(currentHorizontalDistance, targetRadius) / targetRadius);
+        final Vector3d desiredPosition = new Vector3d(relativePosition.x, 0, relativePosition.z)
+            .normalize(targetRadius)
+            .add(0, targetRelativeAltitude, 0)
+            .rotateY(currentRotationSpeed * dt * (this.oscillationTime % 60 < 30 ? 1 : -1)) // Periodically flip directions.
             .add(targetPosition);
 
         desiredSteering.setTranslation(new Vector3d(desiredPosition).sub(currentPosition).normalize(this.desiredRelativeSpeed));

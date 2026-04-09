@@ -18,6 +18,10 @@ public class BuilderBodyMotionStormSerpentEncircle extends BuilderBodyMotionBase
     private final DoubleHolder relativeAltitude = new DoubleHolder();
     private final DoubleHolder relativeSpeed = new DoubleHolder();
     private final DoubleHolder radius = new DoubleHolder();
+    private final DoubleHolder oscillateRadiusFrequency = new DoubleHolder();
+    private final DoubleHolder oscillateRadiusAmplitude = new DoubleHolder();
+    private final DoubleHolder oscillateYFrequency = new DoubleHolder();
+    private final DoubleHolder oscillateYAmplitude = new DoubleHolder();
 
     @Nullable
     @Override
@@ -42,6 +46,10 @@ public class BuilderBodyMotionStormSerpentEncircle extends BuilderBodyMotionBase
         this.getDouble(data, "RelativeAltitude", this.relativeAltitude, 0.0, null, BuilderDescriptorState.WorkInProgress, "Altitude to maintain relative to the target", null);
         this.getDouble(data, "RelativeSpeed", this.relativeSpeed, 1.0, DoubleSingleValidator.greaterEqual0(), BuilderDescriptorState.WorkInProgress, "Movement speed multiplier", null);
         this.getDouble(data, "Radius", this.radius, 16.0, DoubleSingleValidator.greater0(), BuilderDescriptorState.WorkInProgress, "Distance to maintain from the target", null);
+        this.getDouble(data, "OscillateRadiusFrequency", this.oscillateRadiusFrequency, 1.0, DoubleSingleValidator.greaterEqual0(), BuilderDescriptorState.WorkInProgress, "Rate at which Radius is oscillated around its base value", null);
+        this.getDouble(data, "OscillateRadiusAmplitude", this.oscillateRadiusAmplitude, 0.0, DoubleSingleValidator.greaterEqual0(), BuilderDescriptorState.WorkInProgress, "Amount that Radius is oscillated around its base value", null);
+        this.getDouble(data, "OscillateYFrequency", this.oscillateYFrequency, 1.0, DoubleSingleValidator.greaterEqual0(), BuilderDescriptorState.WorkInProgress, "Rate at which Y position is oscillated around its base value", null);
+        this.getDouble(data, "OscillateYAmplitude", this.oscillateYAmplitude, 0.0, DoubleSingleValidator.greaterEqual0(), BuilderDescriptorState.WorkInProgress, "Amount that Y position is oscillated around its base value", null);
         return this;
     }
 
@@ -61,5 +69,21 @@ public class BuilderBodyMotionStormSerpentEncircle extends BuilderBodyMotionBase
 
     public double getRadius(final BuilderSupport support) {
         return this.radius.get(support.getExecutionContext());
+    }
+
+    public double getOscillateRadiusFrequency(final BuilderSupport support) {
+        return this.oscillateRadiusFrequency.get(support.getExecutionContext());
+    }
+
+    public double getOscillateRadiusAmplitude(final BuilderSupport support) {
+        return this.oscillateRadiusAmplitude.get(support.getExecutionContext());
+    }
+
+    public double getOscillateYFrequency(final BuilderSupport support) {
+        return this.oscillateYFrequency.get(support.getExecutionContext());
+    }
+
+    public double getOscillateYAmplitude(final BuilderSupport support) {
+        return this.oscillateYAmplitude.get(support.getExecutionContext());
     }
 }
