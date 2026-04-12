@@ -177,7 +177,7 @@
                     },
                     "textureLayout": {
                       "back": {
-                        "offset": {"x": 293, "y": 411},
+                        "offset": {"x": 408, "y": 388},
                         "mirror": {"x": false, "y": false},
                         "angle": 0
                       },
@@ -187,7 +187,7 @@
                         "angle": 0
                       },
                       "front": {
-                        "offset": {"x": 357, "y": 464},
+                        "offset": {"x": 491, "y": 335},
                         "mirror": {"x": false, "y": false},
                         "angle": 0
                       },
@@ -273,7 +273,7 @@
                             "angle": 0
                           },
                           "bottom": {
-                            "offset": {"x": 325, "y": 455},
+                            "offset": {"x": 459, "y": 335},
                             "mirror": {"x": true, "y": false},
                             "angle": 0
                           }
@@ -694,7 +694,7 @@
                     "angle": 0
                   },
                   "front": {
-                    "offset": {"x": 314, "y": 394},
+                    "offset": {"x": 429, "y": 371},
                     "mirror": {"x": false, "y": false},
                     "angle": 0
                   },
@@ -851,7 +851,7 @@
                             "angle": 0
                           },
                           "bottom": {
-                            "offset": {"x": 357, "y": 464},
+                            "offset": {"x": 491, "y": 335},
                             "mirror": {"x": true, "y": false},
                             "angle": 0
                           }
@@ -1386,7 +1386,7 @@
                     },
                     "textureLayout": {
                       "front": {
-                        "offset": {"x": 339, "y": 38},
+                        "offset": {"x": 345, "y": 33},
                         "mirror": {"x": false, "y": false},
                         "angle": 0
                       }
@@ -1550,7 +1550,7 @@
             },
             "textureLayout": {
               "front": {
-                "offset": {"x": 237, "y": 102},
+                "offset": {"x": 243, "y": 444},
                 "mirror": {"x": false, "y": false},
                 "angle": 0
               }
