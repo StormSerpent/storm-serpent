@@ -16,6 +16,7 @@ import com.hypixel.hytale.server.core.universe.world.chunk.WorldChunk;
 import com.hypixel.hytale.server.core.universe.world.storage.ChunkStore;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.asset.builder.BuilderSupport;
+import com.hypixel.hytale.server.npc.movement.MovementMode;
 import com.hypixel.hytale.server.npc.movement.NavState;
 import com.hypixel.hytale.server.npc.movement.Steering;
 import com.hypixel.hytale.server.npc.movement.constraints.RelaxedConstraint;
@@ -32,6 +33,7 @@ import org.joml.Vector3dc;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.EnumSet;
+import java.util.Set;
 
 public final class MotionControllerStormSerpentFly implements MotionController {
     /**
@@ -58,16 +60,30 @@ public final class MotionControllerStormSerpentFly implements MotionController {
     private double heightOverGround;
 
     public MotionControllerStormSerpentFly(
-        @Nonnull BuilderSupport builderSupport,
-        @Nonnull BuilderMotionControllerBase builder
+        @Nonnull final BuilderSupport builderSupport,
+        @Nonnull final BuilderMotionControllerBase builder
     ) {
     }
 
+    @Nonnull
     @Override
     public String getType() {
         return BuilderMotionControllerStormSerpentFly.COMPONENT_ID;
     }
 
+    @Nonnull
+    @Override
+    public Set<MovementMode> getSupportedMovementModes() {
+        return Set.of(MovementMode.FLY);
+    }
+
+    @Nonnull
+    @Override
+    public Set<MovementMode> getDefaultSpawnMovementModes() {
+        return Set.of(MovementMode.FLY);
+    }
+
+    @Nonnull
     @Override
     public Role getRole() {
         return this.role;

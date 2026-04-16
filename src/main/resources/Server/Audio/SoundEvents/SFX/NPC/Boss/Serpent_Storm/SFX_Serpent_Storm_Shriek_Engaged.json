@@ -1,0 +1,12 @@
+{
+  "MaxDistance": 400,
+  "StartAttenuationDistance": 400,
+  "Layers": [
+    {
+      "$TODO": "Placeholder!!! Point this to the correct .ogg once it is added",
+      "Files": [
+        "Sounds/NPC/Boss/Serpent_Storm/Shoot_Electric.ogg"
+      ]
+    }
+  ]
+}
