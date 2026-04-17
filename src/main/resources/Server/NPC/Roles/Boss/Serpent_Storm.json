@@ -13,7 +13,13 @@
   "SpawnLockTime": 0,
   "MotionControllerList": [
     {
-      "Type": "StormSerpentFly"
+      "Type": "StormSerpentFly",
+      "MaxHorizontalSpeed": 45,
+      "MaxClimbSpeed": 25.0,
+      "MaxSinkSpeed": 75.0,
+      "SpeedChangeDuration": 1.0,
+      "DirectionChangeDuration": 1.0,
+      "EpsilonSpeed": 0.01
     }
   ],
   "Instructions": [

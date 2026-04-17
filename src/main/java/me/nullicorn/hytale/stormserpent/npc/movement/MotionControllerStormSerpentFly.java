@@ -23,7 +23,6 @@ import com.hypixel.hytale.server.npc.movement.Steering;
 import com.hypixel.hytale.server.npc.movement.constraints.RelaxedConstraint;
 import com.hypixel.hytale.server.npc.movement.controllers.MotionController;
 import com.hypixel.hytale.server.npc.movement.controllers.ProbeMoveData;
-import com.hypixel.hytale.server.npc.movement.controllers.builders.BuilderMotionControllerBase;
 import com.hypixel.hytale.server.npc.role.Role;
 import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderMotionControllerStormSerpentFly;
 import org.joml.Vector3d;
@@ -36,44 +35,61 @@ import java.util.Set;
 
 public final class MotionControllerStormSerpentFly implements MotionController {
     /**
-     * How fast the serpent will normally move.
+     * How fast to move when travelling horizontally.
      * <p>
-     * Unit is meters per second.
+     * Unit: meters per second
      */
-    private final double maxMoveSpeed = 40.0;
+    private final double maxHorizontalSpeed;
     /**
-     * How fast the serpent can pivot its head.
+     * How fast to move when travelling upward.
      * <p>
-     * Unit is radians per second.
+     * Unit: meters per second
      */
-    private final double maxLookSpeed = Math.toRadians(65.0);
+    private final double maxClimbSpeed;
+    /**
+     * How fast to move when travelling downward.
+     * <p>
+     * Unit: meters per second
+     */
+    private final double maxSinkSpeed;
     /**
      * How long acceleration should take when changing movement speed.
+     * <p>
+     * Unit: seconds
      */
-    private final double moveAccelerateDuration = 1;
+    private final double moveSpeedChangeDuration;
     /**
      * How long turning should take when changing movement direction.
+     * <p>
+     * Unit: seconds
      */
-    private final double moveTurnDuration = 1;
+    private final double moveDirectionChangeDuration;
+    private final double epsilonSpeed;
 
     private Role role;
     private final Box collisionBox = new Box();
     private final Vector3d componentSelector = new Vector3d(1.0, 1.0, 1.0);
     private final Vector3d planarComponentSelector = new Vector3d(1.0, 1.0, 1.0);
     private final EnumSet<RelaxedConstraint> relaxedMoveConstraints = EnumSet.noneOf(RelaxedConstraint.class);
+    @Nullable
     private NavState navState;
     private double throttleDuration;
     private double targetDeltaSquared;
     private double heightOverGround;
-
     private double currentMoveSpeed = 0;
     private final Vector3d currentMoveDirection = new Vector3d();
     private final Rotation3f currentMoveAngles = new Rotation3f();
 
     public MotionControllerStormSerpentFly(
         @Nonnull final BuilderSupport builderSupport,
-        @Nonnull final BuilderMotionControllerBase builder
+        @Nonnull final BuilderMotionControllerStormSerpentFly builder
     ) {
+        this.maxHorizontalSpeed = builder.getMaxHorizontalSpeed(builderSupport);
+        this.maxClimbSpeed = builder.getMaxClimbSpeed(builderSupport);
+        this.maxSinkSpeed = builder.getMaxSinkSpeed(builderSupport);
+        this.moveSpeedChangeDuration = builder.getSpeedChangeDuration(builderSupport);
+        this.moveDirectionChangeDuration = builder.getDirectionChangeDuration(builderSupport);
+        this.epsilonSpeed = builder.getEpsilonSpeed();
     }
 
     @Nonnull
@@ -148,22 +164,35 @@ public final class MotionControllerStormSerpentFly implements MotionController {
         }
 
         if (bodySteering.hasTranslation()) {
-            if (this.currentMoveDirection.lengthSquared() < 0.0001) {
+            if (this.currentMoveDirection.length() < this.epsilonSpeed) {
                 this.currentMoveDirection.set(headRotation.getDirection());
             }
 
-            final double targetSpeedRel = bodySteering.getSpeed();
-            final double targetSpeed = targetSpeedRel * this.maxMoveSpeed;
-            final Vector3d targetDirection = targetSpeed >= 0.0001
-                ? new Vector3d(bodySteering.getTranslation()).div(targetSpeedRel) // Normalizing
+            final double targetSpeedMultiplier = bodySteering.getSpeed();
+            final Vector3d targetDirection = targetSpeedMultiplier >= this.epsilonSpeed
+                ? new Vector3d(bodySteering.getTranslation()).div(targetSpeedMultiplier) // Normalizing
                 : new Vector3d(this.currentMoveDirection);
 
+            // Accelerate our movement direction toward `targetDirection` using lerp.
             final Rotation3f targetAngles = Rotation3f.lookAt(targetDirection);
-            this.currentMoveAngles.set(Rotation3f.lerpAngle(this.currentMoveAngles, targetAngles, (float) (interval * this.moveTurnDuration)));
+            this.currentMoveAngles.set(Rotation3f.lerpAngle(this.currentMoveAngles, targetAngles, (float) (interval * this.moveDirectionChangeDuration)));
 
-            this.currentMoveSpeed = MathUtil.lerp(this.currentMoveSpeed, targetSpeed, interval * this.moveAccelerateDuration);
+            // Update `currentMoveDirection` to match the direction of `currentMoveAngles`.
             this.currentMoveDirection.set(Vector3dUtil.FORWARD);
             this.currentMoveAngles.transform(this.currentMoveDirection);
+
+            final double targetSpeed;
+            if (this.currentMoveAngles.pitch() > 0) {
+                targetSpeed = MathUtil.lerp(this.maxHorizontalSpeed, this.maxClimbSpeed, this.currentMoveAngles.pitch() / this.getMaxClimbAngle());
+            } else if (this.currentMoveAngles.pitch() < 0) {
+                // Note: For `getMaxSinkAngle()` positive means downward, so we negate it to match the negative
+                // `pitch()`.
+                targetSpeed = MathUtil.lerp(this.maxHorizontalSpeed, this.maxSinkSpeed, this.currentMoveAngles.pitch() / -this.getMaxSinkAngle());
+            } else {
+                targetSpeed = 0;
+            }
+            // Accelerate to `targetSpeed` using lerp.
+            this.currentMoveSpeed = MathUtil.lerp(this.currentMoveSpeed, targetSpeed, interval * this.moveSpeedChangeDuration);
 
             transform.getPosition().add(new Vector3d(this.currentMoveDirection).mul(this.currentMoveSpeed * interval));
         }
@@ -249,7 +278,7 @@ public final class MotionControllerStormSerpentFly implements MotionController {
 
     @Override
     public double getCurrentMaxBodyRotationSpeed() {
-        return this.maxLookSpeed;
+        return 0; // TODO
     }
 
     @Override
@@ -317,7 +346,7 @@ public final class MotionControllerStormSerpentFly implements MotionController {
 
     @Override
     public double getMaximumSpeed() {
-        return this.maxMoveSpeed;
+        return this.maxHorizontalSpeed;
     }
 
     @Override
