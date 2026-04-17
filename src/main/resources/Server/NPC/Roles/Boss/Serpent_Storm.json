@@ -68,12 +68,8 @@
       "Instructions": [
         {
           "Continue": true,
-          "BodyMotion": {
-            "Type": "StormSerpentWander"
-          },
-          "HeadMotion": {
-            "Type": "StormSerpentMatchBodyMotion"
-          }
+          "BodyMotion": { "Type": "StormSerpentWander" },
+          "HeadMotion": { "Type": "StormSerpentMatchBodyMotion" }
         },
         {
           "Sensor": {
@@ -81,12 +77,10 @@
             "Combat": true
           },
           "Actions": [
-            {
-              "Type": "AddToHostileTargetMemory"
-            },
+            { "Type": "AddToHostileTargetMemory" },
             {
               "Type": "State",
-              "State": "Intro.Shriek"
+              "State": "Intro"
             }
           ]
         },
@@ -97,12 +91,10 @@
             "LockOnTarget": true,
             "LockedTargetSlot": "Stalk_Target",
             "Filters": [
+              { "Type": "LineOfSight" },
               {
                 "Type": "ViewSector",
                 "ViewSector": 180
-              },
-              {
-                "Type": "LineOfSight"
               },
               {
                 "Type": "Not",
@@ -139,12 +131,8 @@
             "Slot": "Stalk_Target_Last_Seen",
             "Range": 1000
           },
-          "BodyMotion": {
-            "Type": "StormSerpentWander"
-          },
-          "HeadMotion": {
-            "Type": "StormSerpentMatchBodyMotion"
-          },
+          "BodyMotion": { "Type": "StormSerpentWander" },
+          "HeadMotion": { "Type": "StormSerpentMatchBodyMotion" },
           "Actions": [
             {
               "Type": "TimerStart",
@@ -161,12 +149,10 @@
             "Combat": true
           },
           "Actions": [
-            {
-              "Type": "AddToHostileTargetMemory"
-            },
+            { "Type": "AddToHostileTargetMemory" },
             {
               "Type": "State",
-              "State": "Intro.Shriek"
+              "State": "Intro"
             }
           ]
         },
@@ -176,11 +162,7 @@
             "Range": 175,
             "OnlyLockedTarget": true,
             "LockedTargetSlot": "Stalk_Target",
-            "Filters": [
-              {
-                "Type": "LineOfSight"
-              }
-            ]
+            "Filters": [ { "Type": "LineOfSight" } ]
           },
           "Actions": [
             {
@@ -209,14 +191,13 @@
       ]
     },
     {
+      "Continue": true,
       "Sensor": {
         "Type": "State",
-        "State": "Intro.Shriek"
-      },
-      "BodyMotion": {
-        "Type": "Nothing"
+        "State": "Intro.Default"
       },
       "Actions": [
+        { "Type": "StormSerpentBeginFight" },
         {
           "Type": "PlayAnimation",
           "Animation": "Shriek_Engaged",
@@ -236,12 +217,8 @@
       "Instructions": [
         {
           "Continue": true,
-          "BodyMotion": {
-            "Type": "StormSerpentWander"
-          },
-          "HeadMotion": {
-            "Type": "StormSerpentMatchBodyMotion"
-          },
+          "BodyMotion": { "Type": "StormSerpentWander" },
+          "HeadMotion": { "Type": "StormSerpentMatchBodyMotion" },
           "Actions": [
             {
               "Type": "TimerStart",
@@ -305,11 +282,17 @@
             "Range": 500
           },
           "BodyMotion": {
-            "Type": "StormSerpentEncircle"
+            "$Comment": "Encircle the player with an oscillating radius of 16..70 meters",
+            "Type": "StormSerpentEncircle",
+            "RelativeSpeed": 0.5,
+            "RelativeAltitude": 30,
+            "OscillateRadiusAmplitude": 27,
+            "OscillateRadiusFrequency": 0.5,
+            "OscillateYAmplitude": 16,
+            "OscillateYFrequency": 1,
+            "Radius": 43
           },
-          "HeadMotion": {
-            "Type": "StormSerpentMatchBodyMotion"
-          }
+          "HeadMotion": { "Type": "StormSerpentMatchBodyMotion" }
         },
         {
           "ActionsBlocking": true,
