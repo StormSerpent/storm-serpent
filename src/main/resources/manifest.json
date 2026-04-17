@@ -5,7 +5,7 @@
   "Description": "",
   "Authors": [],
   "Main": "me.nullicorn.hytale.stormserpent.StormSerpentPlugin",
-  "ServerVersion": "2026.04.16-5a18e075d",
+  "ServerVersion": "2026.04.17-c2d518cc9",
   "IncludesAssetPack": true,
   "Dependencies": {
     "Nullicorn:Serpentine": "0.1.x-SNAPSHOT",
