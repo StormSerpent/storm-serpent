@@ -4,6 +4,7 @@ import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.math.shape.Box;
 import com.hypixel.hytale.math.util.MathUtil;
+import com.hypixel.hytale.math.vector.Rotation3f;
 import com.hypixel.hytale.math.vector.Vector3dUtil;
 import com.hypixel.hytale.protocol.MovementStates;
 import com.hypixel.hytale.server.core.asset.type.model.config.Model;
@@ -25,8 +26,6 @@ import com.hypixel.hytale.server.npc.movement.controllers.ProbeMoveData;
 import com.hypixel.hytale.server.npc.movement.controllers.builders.BuilderMotionControllerBase;
 import com.hypixel.hytale.server.npc.role.Role;
 import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderMotionControllerStormSerpentFly;
-import org.joml.AxisAngle4d;
-import org.joml.Matrix4d;
 import org.joml.Vector3d;
 import org.joml.Vector3dc;
 
@@ -48,6 +47,14 @@ public final class MotionControllerStormSerpentFly implements MotionController {
      * Unit is radians per second.
      */
     private final double maxLookSpeed = Math.toRadians(65.0);
+    /**
+     * How long acceleration should take when changing movement speed.
+     */
+    private final double moveAccelerateDuration = 1;
+    /**
+     * How long turning should take when changing movement direction.
+     */
+    private final double moveTurnDuration = 1;
 
     private Role role;
     private final Box collisionBox = new Box();
@@ -58,6 +65,10 @@ public final class MotionControllerStormSerpentFly implements MotionController {
     private double throttleDuration;
     private double targetDeltaSquared;
     private double heightOverGround;
+
+    private double currentMoveSpeed = 0;
+    private final Vector3d currentMoveDirection = new Vector3d();
+    private final Rotation3f currentMoveAngles = new Rotation3f();
 
     public MotionControllerStormSerpentFly(
         @Nonnull final BuilderSupport builderSupport,
@@ -136,84 +147,38 @@ public final class MotionControllerStormSerpentFly implements MotionController {
             }
         }
 
-        // Fill in pitch and yaw for `headSteering` if none were given. Face in the direction the NPC is moving.
-        if (bodySteering.hasTranslation() && (!headSteering.hasPitch() || !headSteering.hasYaw())) {
-            // Steer the head in the direction the body is moving.
-            final Vector3d moveDirection = new Vector3d(bodySteering.getTranslation()).normalize();
-            if (!headSteering.hasPitch()) {
-                headSteering.setPitch((float) Math.asin(moveDirection.y));
-            }
-            if (!headSteering.hasYaw()) {
-                headSteering.setYaw((float) (Math.atan2(moveDirection.x, moveDirection.z) + Math.PI));
-            }
-        }
-
-        final Vector3d desiredLookDirection = Vector3dUtil.setYawPitch(
-            headSteering.hasYaw() ? headSteering.getYaw() : headRotation.getRotation().yaw(),
-            headSteering.hasPitch() ? headSteering.getPitch() : headRotation.getRotation().pitch(),
-            new Vector3d()
-        );
-        // Constrain how quickly the NPC's head can rotate.
-        final Vector3d lookDirection = limitAngle(
-            /* from:  */ headRotation.getDirection(),
-            /* to:    */ desiredLookDirection,
-            /* limit: */ this.maxLookSpeed * bodySteering.getRelativeTurnSpeed() * interval
-        );
-
-        // Move the entity to its new position.
         if (bodySteering.hasTranslation()) {
-            // Move forward in whichever direction we're looking.
-            bodySteering.setTranslation(lookDirection);
-            transform.getPosition().add(bodySteering.getTranslation().mul(this.maxMoveSpeed * interval, new Vector3d()));
+            if (this.currentMoveDirection.lengthSquared() < 0.0001) {
+                this.currentMoveDirection.set(headRotation.getDirection());
+            }
+
+            final double targetSpeedRel = bodySteering.getSpeed();
+            final double targetSpeed = targetSpeedRel * this.maxMoveSpeed;
+            final Vector3d targetDirection = targetSpeed >= 0.0001
+                ? new Vector3d(bodySteering.getTranslation()).div(targetSpeedRel) // Normalizing
+                : new Vector3d(this.currentMoveDirection);
+
+            final Rotation3f targetAngles = Rotation3f.lookAt(targetDirection);
+            this.currentMoveAngles.set(Rotation3f.lerpAngle(this.currentMoveAngles, targetAngles, (float) (interval * this.moveTurnDuration)));
+
+            this.currentMoveSpeed = MathUtil.lerp(this.currentMoveSpeed, targetSpeed, interval * this.moveAccelerateDuration);
+            this.currentMoveDirection.set(Vector3dUtil.FORWARD);
+            this.currentMoveAngles.transform(this.currentMoveDirection);
+
+            transform.getPosition().add(new Vector3d(this.currentMoveDirection).mul(this.currentMoveSpeed * interval));
         }
 
-        // Rotate the entity's head to its new orientation.
-        // TODO: Compute roll dynamically.
-        headRotation.getRotation().setRoll(headSteering.getRoll());
-        headRotation.getRotation().setPitch((float) Math.asin(lookDirection.y));
-        headRotation.getRotation().setYaw((float) (Math.atan2(lookDirection.x, lookDirection.z) + Math.PI));
+        if (headSteering.hasRollOrDirection()) {
+            headRotation.getRotation().setRoll(headSteering.getRollOrDirection());
+        }
+        if (headSteering.hasPitchOrDirection()) {
+            headRotation.getRotation().setPitch(headSteering.getPitchOrDirection());
+        }
+        if (headSteering.hasYawOrDirection()) {
+            headRotation.getRotation().setYaw(headSteering.getYawOrDirection());
+        }
 
         return interval;
-    }
-
-    /**
-     * Constrains the maximum angle between two vectors, returning the result as a new vector.
-     * <p>
-     * {@code limit} must be at least {@code >= 0}.
-     * {@code limit} must not exceed {@link Math#PI}.
-     * <p>
-     * {@code from} and {@code to} are not modified by this function.
-     *
-     * @param from  Reference vector for the angle.
-     * @param to    Target vector for the angle.
-     * @param limit Maximum angle, in radians, between {@code from} and the result.
-     * @return A new vector with the same length and axis of rotation as {@code to}, but constrained to be no more than
-     * {@code limit} radians from {@code from}.
-     */
-    private static Vector3d limitAngle(final Vector3d from, final Vector3d to, final double limit) {
-        if (limit < 0 || limit > Math.PI) {
-            throw new IllegalArgumentException("limit must be in the range 0..=π");
-        }
-
-        final Vector3d limited = new Vector3d(to);
-
-        // Normalize both vectors to make dot and cross product work correctly.
-        final Vector3d fromNorm = new Vector3d(from).normalize();
-        final Vector3d toNorm = new Vector3d(to).normalize();
-
-        // Get the angle between the `from` and `to`, in radian.
-        final double angle = Math.acos(Math.clamp(fromNorm.dot(toNorm), -1.0, 1.0));
-        if (angle > limit) {
-            // Get the rotation axis; perpendicular to the plane formed by `from` and `to`.
-            final Vector3d axis = fromNorm.cross(toNorm).normalize();
-            // Rotate `limited` (which is a clone of `to`) back toward `from` by however much the angle limit is
-            // exceeded.
-            new Matrix4d()
-                .rotate(new AxisAngle4d(-(angle - limit), axis))
-                .transformDirection(limited);
-        }
-
-        return limited;
     }
 
     @Override
@@ -357,11 +322,14 @@ public final class MotionControllerStormSerpentFly implements MotionController {
 
     @Override
     public double getCurrentSpeed() {
-        return this.maxMoveSpeed; // TODO
+        return this.currentMoveSpeed;
     }
 
     @Override
     public boolean estimateVelocity(final Steering steering, final Vector3d velocityOut) {
+        if (steering.hasTranslation()) {
+            velocityOut.set(steering.getTranslation()).mul(this.getCurrentSpeed());
+        }
         return false;
     }
 

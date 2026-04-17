@@ -8,7 +8,7 @@ import com.hypixel.hytale.server.npc.corecomponents.builders.BuilderBodyMotionBa
 import com.hypixel.hytale.server.npc.instructions.BodyMotion;
 import me.nullicorn.hytale.stormserpent.npc.movement.BodyMotionSerpentWander;
 
-public final class BuilderBodyMotionStormSerpentWander extends BuilderBodyMotionBase {
+public final class BuilderBodyMotionSerpentWander extends BuilderBodyMotionBase {
     public static final String COMPONENT_ID = "StormSerpentWander";
 
     @Override

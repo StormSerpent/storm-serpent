@@ -10,8 +10,9 @@ import me.nullicorn.hytale.stormserpent.component.StormSerpentBone;
 import me.nullicorn.hytale.stormserpent.npc.action.builder.BuilderActionStormSerpentAddCombatants;
 import me.nullicorn.hytale.stormserpent.npc.action.builder.BuilderActionStormSerpentBeginFight;
 import me.nullicorn.hytale.stormserpent.npc.action.builder.BuilderActionStormSerpentInitialize;
-import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionStormSerpentEncircle;
-import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionStormSerpentWander;
+import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionSerpentEncircle;
+import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionSerpentWander;
+import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderHeadMotionSerpentMatchBodyMotion;
 import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderMotionControllerStormSerpentFly;
 import me.nullicorn.hytale.stormserpent.system.StormSerpentSpawnSystems;
 import me.nullicorn.hytale.stormserpent.ui.hud.StormSerpentBossBarHudSystem;
@@ -43,8 +44,9 @@ public final class StormSerpentPlugin extends JavaPlugin {
         this.getEntityStoreRegistry().registerSystem(new StormSerpentBossBarHudSystem());
 
         // NPC motions.
-        NPCPlugin.get().registerCoreComponentType(BuilderBodyMotionStormSerpentWander.COMPONENT_ID, BuilderBodyMotionStormSerpentWander::new);
-        NPCPlugin.get().registerCoreComponentType(BuilderBodyMotionStormSerpentEncircle.COMPONENT_ID, BuilderBodyMotionStormSerpentEncircle::new);
+        NPCPlugin.get().registerCoreComponentType(BuilderBodyMotionSerpentWander.COMPONENT_ID, BuilderBodyMotionSerpentWander::new);
+        NPCPlugin.get().registerCoreComponentType(BuilderBodyMotionSerpentEncircle.COMPONENT_ID, BuilderBodyMotionSerpentEncircle::new);
+        NPCPlugin.get().registerCoreComponentType(BuilderHeadMotionSerpentMatchBodyMotion.COMPONENT_ID, BuilderHeadMotionSerpentMatchBodyMotion::new);
 
         // NPC motion controllers.
         NPCPlugin.get().registerCoreComponentType(BuilderMotionControllerStormSerpentFly.COMPONENT_ID, BuilderMotionControllerStormSerpentFly::new);
