@@ -11,6 +11,24 @@
   "IsMemory": true,
   "MemoriesCategory": "Mythic",
   "SpawnLockTime": 0,
+  "Parameters": {
+    "StalkForgetTimeout": {
+      "Value": [ 12, 16 ],
+      "Description": "How long to wait before switching from Stalk to Idle when no targets are visible"
+    },
+    "IntroBuildupShootInterval": {
+      "Value": [ 2, 4 ],
+      "Description": "Interval between shooting during the Intro Buildup state"
+    },
+    "IntroBuildupDuration": {
+      "Value": [ 12, 12 ],
+      "Description": "How long to stay in the Intro Buildup state before switching to Intro Transition"
+    },
+    "IntroTransitionDuration": {
+      "Value": [ 16, 20 ],
+      "Description": "How long to stay in the Intro Transition state before switching to Combat Attack"
+    }
+  },
   "MotionControllerList": [
     {
       "Type": "StormSerpentFly",
@@ -132,14 +150,8 @@
               "Type": "TimerStart",
               "Name": "Stalk_Forget",
               "Repeating": false,
-              "StartValueRange": [
-                12,
-                16
-              ],
-              "RestartValueRange": [
-                12,
-                16
-              ]
+              "StartValueRange": { "Compute": "StalkForgetTimeout" },
+              "RestartValueRange": { "Compute": "StalkForgetTimeout" }
             }
           ]
         },
@@ -235,15 +247,15 @@
               "Type": "TimerStart",
               "Name": "Intro_Buildup_Shoot",
               "Repeating": false,
-              "StartValueRange": [2, 4],
-              "RestartValueRange": [2, 4]
+              "StartValueRange": { "Compute": "IntroBuildupShootInterval" },
+              "RestartValueRange": { "Compute": "IntroBuildupShootInterval" }
             },
             {
               "Type": "TimerStart",
               "Name": "Intro_Buildup_Transition",
               "Repeating": false,
-              "StartValueRange": [11, 12],
-              "RestartValueRange": [11, 12]
+              "StartValueRange": { "Compute": "IntroBuildupDuration" },
+              "RestartValueRange": { "Compute": "IntroBuildupDuration" }
             }
           ]
         },
@@ -304,7 +316,7 @@
           "Actions": [
             {
               "Type": "Timeout",
-              "Delay": [18, 18]
+              "Delay": { "Compute": "IntroTransitionDuration" }
             },
             {
               "Type": "State",
