@@ -1,0 +1,13 @@
+This repository uses multiple licenses.
+
+Unless a folder contains its own license file, licensing is as follows:
+
+- Software source code and other non-audio non-visual content: MIT License (see LICENSE.md)
+- Serpentine submodule: MIT License (see libs/serpentine/LICENSE.md)
+- Sound effects (SFX): Creative Commons Attribution 4.0 International (CC BY 4.0)
+  (see [`src/main/resources/Common/Sounds/LICENSE`](src/main/resources/Common/Sounds/LICENSE))
+- Storm Serpent UI: Creative Commons Attribution 4.0 International (CC BY 4.0)
+  (see [`src/main/resources/Common/UI/LICENSE`](src/main/resources/Common/UI/LICENSE))
+
+Music is All Rights Reserved:
+Copyright © 2026 Samuel Mediani
