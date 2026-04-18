@@ -24,6 +24,33 @@ dependencies {
     implementation("me.nullicorn:serpentine:0.1.0-SNAPSHOT")
 }
 
+val pluginProcessResourcesTask = tasks.register<Copy>("pluginProcessResources") {
+    description = "Copy non-asset resources for the plugin"
+
+    copy {
+        from("src/main/resources/manifest.json")
+        into("build/resources/main/")
+        filter {
+            it.replace("\"IncludesAssetPack\": true,", "")
+        }
+    }
+}
+
+val pluginJarTask = tasks.register<Jar>("pluginJar") {
+    description = "Packages the plugin without any assets"
+
+    dependsOn("classes", "pluginProcessResources")
+    from("build/classes/java/main/", "build/resources/main/manifest.json")
+    archiveClassifier = "bin"
+}
+
+// Turn off 'processResources' if 'pluginProcessResources' is executing.
+gradle.taskGraph.whenReady {
+    if (this.hasTask(pluginProcessResourcesTask.get())) {
+        tasks.processResources.get().enabled = false
+    }
+}
+
 fun runServer(task: JavaExec, vararg extraArgs: String) {
     val hytaleServerArtifact =
         project.configurations.compileClasspath.get().resolvedConfiguration.resolvedArtifacts.find { it.moduleVersion.id.group == "com.hypixel.hytale" && it.moduleVersion.id.name == "Server" }
@@ -45,11 +72,13 @@ fun runServer(task: JavaExec, vararg extraArgs: String) {
         "--mods", layout.projectDirectory.dir("libs/serpentine/build/libs/").asFile.path,
         // Load our mod jar.
         "--mods", layout.buildDirectory.get().dir("libs/").asFile.path,
+        // Load our mod asset pack.
+        "--mods", layout.projectDirectory.dir("src/main/").asFile.path,
     ) + extraArgs
 }
 
 tasks.register<JavaExec>("runServer") {
-    dependsOn("jar")
+    dependsOn("pluginJar")
     group = "hytale"
 
     // Allow Hytale console commands to be input through this Gradle task's stdin.
@@ -59,7 +88,7 @@ tasks.register<JavaExec>("runServer") {
 }
 
 tasks.register<JavaExec>("generateAssetSchema") {
-    dependsOn("jar")
+    dependsOn("pluginJar")
     group = "hytale"
 
     runServer(
