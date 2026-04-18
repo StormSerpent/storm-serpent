@@ -54,6 +54,10 @@
           "SerpentConfig": "Serpent_Storm"
         },
         {
+          "Type": "SetLeashPosition",
+          "ToCurrent": true
+        },
+        {
           "Type": "SetFlag",
           "Name": "Initialized",
           "SetTo": true
@@ -68,7 +72,19 @@
       "Instructions": [
         {
           "Continue": true,
-          "BodyMotion": { "Type": "StormSerpentWander" },
+          "Sensor": {
+            "Type": "StormSerpentReadLeashPosition"
+          },
+          "BodyMotion": {
+            "Type": "StormSerpentWander",
+            "Radius": 200,
+            "AltitudeRange": [ 100, 320 ],
+            "UseRelativeAltitude": false,
+            "RelativeSpeed": 0.75
+          }
+        },
+        {
+          "Continue": true,
           "HeadMotion": { "Type": "StormSerpentMatchBodyMotion" }
         },
         {
@@ -131,7 +147,13 @@
             "Slot": "Stalk_Target_Last_Seen",
             "Range": 1000
           },
-          "BodyMotion": { "Type": "StormSerpentWander" },
+          "BodyMotion": {
+            "Type": "StormSerpentWander",
+            "Radius": 150,
+            "AltitudeRange": [ 16, 80 ],
+            "UseRelativeAltitude": true,
+            "RelativeSpeed": 1.25
+          },
           "HeadMotion": { "Type": "StormSerpentMatchBodyMotion" },
           "Actions": [
             {
@@ -217,8 +239,6 @@
       "Instructions": [
         {
           "Continue": true,
-          "BodyMotion": { "Type": "StormSerpentWander" },
-          "HeadMotion": { "Type": "StormSerpentMatchBodyMotion" },
           "Actions": [
             {
               "Type": "TimerStart",
@@ -237,6 +257,21 @@
           ]
         },
         {
+          "Continue": true,
+          "Sensor": {
+            "Type": "ReadPosition",
+            "Slot": "Stalk_Target_Last_Seen",
+            "Range": 1000
+          },
+          "BodyMotion": {
+            "Type": "StormSerpentWander",
+            "Radius": 100,
+            "AltitudeRange": [ 25, 100 ],
+            "UseRelativeAltitude": true,
+            "RelativeSpeed": 2.0
+          }
+        },
+        {
           "Sensor": {
             "Type": "Timer",
             "Name": "Intro_Buildup_Transition",
@@ -251,10 +286,23 @@
         },
         {
           "Sensor": {
-            "Type": "Timer",
-            "Name": "Intro_Buildup_Shoot",
-            "State": "Stopped"
+            "Type": "And",
+            "Sensors": [
+              {
+                "Type": "Timer",
+                "Name": "Intro_Buildup_Shoot",
+                "State": "Stopped"
+              },
+              {
+                "Type": "Target",
+                "TargetSlot": "Stalk_Target",
+                "Range": 200,
+                "Filters": [ { "Type": "LineOfSight" } ]
+              }
+            ]
           },
+          "HeadMotion": { "Type": "Watch" },
+          "ActionsBlocking": true,
           "Actions": [
             {
               "Type": "Attack",
@@ -262,10 +310,17 @@
               "AttackType": "Ability1"
             },
             {
+              "Type": "Timeout",
+              "Delay": [ 4.75, 4.75 ]
+            },
+            {
               "Type": "TimerRestart",
               "Name": "Intro_Buildup_Shoot"
             }
           ]
+        },
+        {
+          "HeadMotion": { "Type": "StormSerpentMatchBodyMotion" }
         }
       ]
     },

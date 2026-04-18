@@ -26,6 +26,7 @@ dependencies {
 
 val pluginProcessResourcesTask = tasks.register<Copy>("pluginProcessResources") {
     description = "Copy non-asset resources for the plugin"
+    group = "hytale"
 
     copy {
         from("src/main/resources/manifest.json")
@@ -38,6 +39,7 @@ val pluginProcessResourcesTask = tasks.register<Copy>("pluginProcessResources") 
 
 val pluginJarTask = tasks.register<Jar>("pluginJar") {
     description = "Packages the plugin without any assets"
+    group = "hytale"
 
     dependsOn("classes", "pluginProcessResources")
     from("build/classes/java/main/", "build/resources/main/manifest.json")
