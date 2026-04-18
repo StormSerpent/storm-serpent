@@ -146,6 +146,7 @@
     ]
   },
   "WaterTint": "#12566f",
+  "SpawnDensity": 0.5,
   "Tags": {
     "Zone2": [
       "Shores"
