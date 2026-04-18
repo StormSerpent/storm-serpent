@@ -14,6 +14,7 @@ import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionSe
 import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionSerpentWander;
 import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderHeadMotionSerpentMatchBodyMotion;
 import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderMotionControllerStormSerpentFly;
+import me.nullicorn.hytale.stormserpent.npc.sensor.builder.BuilderSensorReadLeashPosition;
 import me.nullicorn.hytale.stormserpent.system.StormSerpentSpawnSystems;
 import me.nullicorn.hytale.stormserpent.ui.hud.StormSerpentBossBarHudSystem;
 
@@ -50,6 +51,9 @@ public final class StormSerpentPlugin extends JavaPlugin {
 
         // NPC motion controllers.
         NPCPlugin.get().registerCoreComponentType(BuilderMotionControllerStormSerpentFly.COMPONENT_ID, BuilderMotionControllerStormSerpentFly::new);
+
+        // NPC sensors.
+        NPCPlugin.get().registerCoreComponentType(BuilderSensorReadLeashPosition.COMPONENT_ID, BuilderSensorReadLeashPosition::new);
 
         // NPC actions.
         NPCPlugin.get().registerCoreComponentType(BuilderActionStormSerpentInitialize.COMPONENT_ID, BuilderActionStormSerpentInitialize::new);

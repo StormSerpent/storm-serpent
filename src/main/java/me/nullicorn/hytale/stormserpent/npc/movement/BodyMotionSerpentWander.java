@@ -2,34 +2,31 @@ package me.nullicorn.hytale.stormserpent.npc.movement;
 
 import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.component.Ref;
-import com.hypixel.hytale.math.shape.Box;
+import com.hypixel.hytale.math.util.ChunkUtil;
 import com.hypixel.hytale.math.util.MathUtil;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.asset.builder.BuilderSupport;
 import com.hypixel.hytale.server.npc.corecomponents.BodyMotionBase;
-import com.hypixel.hytale.server.npc.entities.NPCEntity;
 import com.hypixel.hytale.server.npc.movement.Steering;
 import com.hypixel.hytale.server.npc.role.Role;
+import com.hypixel.hytale.server.npc.sensorinfo.IPositionProvider;
 import com.hypixel.hytale.server.npc.sensorinfo.InfoProvider;
 import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionSerpentWander;
 import org.joml.Vector3d;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 public final class BodyMotionSerpentWander extends BodyMotionBase {
+    private final double relativeSpeed;
+    private final double radius;
+    private final double[] relativeAltitudeRange;
+    private final boolean useRelativeAltitude;
+
     /**
-     * Bounding volume for randomly choosing {@link #targetPosition} within, relative to the NPC's leash point.
-     */
-    private final Box wanderTargetZone = new Box(
-        /* min: */ new Vector3d(-100.0, -15, -100.0),
-        /* max: */ new Vector3d(100.0, 250.0, 100.0)
-    );
-    /**
-     * Minimum amount of time to try reaching a given {@link #targetPosition} before choosing a new one.
+     * Minimum amount of time to try reaching a given {@link #destination} before choosing a new one.
      * <p>
      * Used as the lower bound for choosing a random time.
      * <p>
@@ -37,7 +34,7 @@ public final class BodyMotionSerpentWander extends BodyMotionBase {
      */
     private final double wanderMinTargetTimer = 0.5;
     /**
-     * Max amount of time to try reaching a given {@link #targetPosition} before choosing a new one.
+     * Max amount of time to try reaching a given {@link #destination} before choosing a new one.
      * <p>
      * Used as the upper bound for choosing a random time.
      * <p>
@@ -45,7 +42,7 @@ public final class BodyMotionSerpentWander extends BodyMotionBase {
      */
     private final double wanderMaxTargetTimer = 2.5;
     /**
-     * How close the NPC must be to {@link #targetPosition} to reach it and choose a new one.
+     * How close the NPC must be to {@link #destination} to reach it and choose a new one.
      * <p>
      * Unit is meters.
      */
@@ -57,19 +54,23 @@ public final class BodyMotionSerpentWander extends BodyMotionBase {
      * This is {@code null} before {@link #computeSteering} is first run.
      */
     @Nullable
-    private Vector3d targetPosition;
+    private Vector3d destination;
     /**
-     * Time left until {@link #targetPosition} is reselected if the NPC doesn't reach it.
+     * Time left until {@link #destination} is reselected if the NPC doesn't reach it.
      * <p>
      * Unit is seconds.
      */
-    private double targetReselectTimer;
+    private double destinationReselectTimer;
 
     public BodyMotionSerpentWander(
         @Nonnull final BuilderBodyMotionSerpentWander builder,
         final BuilderSupport support
     ) {
         super(builder);
+        this.relativeSpeed = builder.getRelativeSpeed(support);
+        this.radius = builder.getRadius(support);
+        this.relativeAltitudeRange = builder.getRelativeAltitudeRange(support);
+        this.useRelativeAltitude = builder.getUseRelativeAltitude(support);
     }
 
     @Override
@@ -83,34 +84,62 @@ public final class BodyMotionSerpentWander extends BodyMotionBase {
     ) {
         desiredSteering.clear();
 
-        final TransformComponent transform = componentAccessor.getComponent(ref, TransformComponent.getComponentType());
-        final NPCEntity npc = componentAccessor.getComponent(ref, Objects.requireNonNull(NPCEntity.getComponentType()));
-        assert transform != null;
-        assert npc != null;
+        final Vector3d target = readSensorPosition(sensorInfo);
+        if (target == null) {
+            return true;
+        }
 
-        final Vector3d target = this.tickTargetSelection(dt, transform, npc);
-        final Vector3d directionToTarget = new Vector3d(target).sub(transform.getPosition()).normalize();
-        desiredSteering.setTranslation(directionToTarget);
+        final TransformComponent transform = componentAccessor.getComponent(ref, TransformComponent.getComponentType());
+        assert transform != null;
+
+        final Vector3d destination = this.tickDestinationSelection(dt, target, transform);
+        final Vector3d directionToDestination = new Vector3d(destination).sub(transform.getPosition()).normalize();
+        desiredSteering.setTranslation(directionToDestination);
+        desiredSteering.setTranslationRelativeSpeed(this.relativeSpeed);
 
         return true;
     }
 
-    private Vector3d tickTargetSelection(final double dt, final TransformComponent transform, final NPCEntity npc) {
-        this.targetReselectTimer -= dt;
+    private Vector3d tickDestinationSelection(
+        final double dt,
+        final Vector3d target,
+        final TransformComponent transform
+    ) {
+        this.destinationReselectTimer -= dt;
 
-        if (this.targetPosition != null && transform.getPosition().distanceSquared(this.targetPosition) < this.wanderTargetRadius * this.wanderTargetRadius) {
-            this.targetPosition = null;
+        if (this.destination != null && transform.getPosition().distanceSquared(this.destination) < this.wanderTargetRadius * this.wanderTargetRadius) {
+            this.destination = null;
         }
 
-        if (this.targetPosition == null || this.targetReselectTimer <= 0) {
-            this.targetPosition = new Vector3d(npc.getLeashPoint()).add(
-                MathUtil.randomDouble(this.wanderTargetZone.min.x, this.wanderTargetZone.max.x),
-                MathUtil.randomDouble(this.wanderTargetZone.min.y, this.wanderTargetZone.max.y),
-                MathUtil.randomDouble(this.wanderTargetZone.min.z, this.wanderTargetZone.max.z)
+        if (this.destination == null || this.destinationReselectTimer <= 0) {
+            final double angle = MathUtil.randomDouble(0, Math.TAU);
+            final double distance = MathUtil.randomDouble(0, this.radius);
+            this.destination = new Vector3d(
+                Math.cos(angle) * distance,
+                MathUtil.randomDouble(this.relativeAltitudeRange[0], this.relativeAltitudeRange[1]),
+                Math.sin(angle) * distance
+            ).add(
+                target.x,
+                this.useRelativeAltitude ? target.y : 0,
+                target.z
             );
-            this.targetReselectTimer = ThreadLocalRandom.current().nextDouble(this.wanderMinTargetTimer, this.wanderMaxTargetTimer);
+            this.destination.y = Math.max(this.destination.y, ChunkUtil.MIN_ENTITY_Y);
+            this.destinationReselectTimer = ThreadLocalRandom.current().nextDouble(this.wanderMinTargetTimer, this.wanderMaxTargetTimer);
         }
 
-        return this.targetPosition;
+        return this.destination;
+    }
+
+    @Nullable
+    private static Vector3d readSensorPosition(@Nullable final InfoProvider sensorInfo) {
+        if (sensorInfo == null || !sensorInfo.hasPosition()) {
+            return null;
+        }
+        final IPositionProvider positionProvider = sensorInfo.getPositionProvider();
+        final Vector3d position = new Vector3d();
+        if (positionProvider == null || !positionProvider.hasPosition() || !positionProvider.providePosition(position)) {
+            return null;
+        }
+        return position;
     }
 }

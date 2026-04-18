@@ -183,11 +183,11 @@ public final class MotionControllerStormSerpentFly implements MotionController {
 
             final double targetSpeed;
             if (this.currentMoveAngles.pitch() > 0) {
-                targetSpeed = MathUtil.lerp(this.maxHorizontalSpeed, this.maxClimbSpeed, this.currentMoveAngles.pitch() / this.getMaxClimbAngle());
+                targetSpeed = targetSpeedMultiplier * MathUtil.lerp(this.maxHorizontalSpeed, this.maxClimbSpeed, this.currentMoveAngles.pitch() / this.getMaxClimbAngle());
             } else if (this.currentMoveAngles.pitch() < 0) {
                 // Note: For `getMaxSinkAngle()` positive means downward, so we negate it to match the negative
                 // `pitch()`.
-                targetSpeed = MathUtil.lerp(this.maxHorizontalSpeed, this.maxSinkSpeed, this.currentMoveAngles.pitch() / -this.getMaxSinkAngle());
+                targetSpeed = targetSpeedMultiplier * MathUtil.lerp(this.maxHorizontalSpeed, this.maxSinkSpeed, this.currentMoveAngles.pitch() / -this.getMaxSinkAngle());
             } else {
                 targetSpeed = 0;
             }
@@ -530,6 +530,7 @@ public final class MotionControllerStormSerpentFly implements MotionController {
         return this.relaxedMoveConstraints;
     }
 
+    @Nullable
     @Override
     public NavState getNavState() {
         return this.navState;
