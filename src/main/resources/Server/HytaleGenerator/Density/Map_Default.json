@@ -2,7 +2,7 @@
 	"$NodeId":	"Exported.Density-ed27c3c9-2416-4644-ac84-4e381c084b99",
 	"Type":	"Exported",
 	"ExportAs":	"Biome-Map-Islands",
-	"SingleInstance":	true,
+	"SingleInstance":	false,
 	"Skip":	false,
 	"Inputs":	[{
 			"$NodeId":	"YOverride.Density-b51e23ab-0333-450d-9677-22994170db28",
@@ -22,61 +22,70 @@
 							"ScaleY":	1,
 							"ScaleZ":	1,
 							"Inputs":	[{
-									"$NodeId":	"FastGradientWarp.Density-80142aae-4bb6-487e-bce9-22bf0ed25007",
-									"Type":	"FastGradientWarp",
+									"$NodeId":	"YSampled.Density-9a3fd09a-3b6f-4552-9aa3-3311742172db",
+									"$Comment":	"sample once per column (max height is 320 blocks)",
+									"Type":	"YSampled",
 									"Skip":	false,
-									"WarpScale":	500,
-									"WarpPersistence":	0.5,
-									"WarpLacunarity":	2,
-									"WarpOctaves":	1,
-									"WarpFactor":	250,
-									"Seed":	"A",
+									"SampleDistance":	320,
+									"SampleOffset":	0,
+									"Interpolate":	true,
 									"Inputs":	[{
-											"$NodeId":	"FastGradientWarp.Density-cc233a5a-f324-4385-a6ce-d0fb59431459",
+											"$NodeId":	"FastGradientWarp.Density-80142aae-4bb6-487e-bce9-22bf0ed25007",
 											"Type":	"FastGradientWarp",
 											"Skip":	false,
-											"WarpScale":	150,
+											"WarpScale":	500,
 											"WarpPersistence":	0.5,
 											"WarpLacunarity":	2,
-											"WarpOctaves":	3,
-											"WarpFactor":	150,
+											"WarpOctaves":	1,
+											"WarpFactor":	250,
 											"Seed":	"A",
 											"Inputs":	[{
-													"$NodeId":	"PositionsCellNoiseDensityNode-9e4a0faa-4149-4f49-999a-7178ab61ac53",
-													"Type":	"PositionsCellNoise",
+													"$NodeId":	"FastGradientWarp.Density-cc233a5a-f324-4385-a6ce-d0fb59431459",
+													"Type":	"FastGradientWarp",
 													"Skip":	false,
-													"MaxDistance":	1000,
-													"Positions":	{
-														"$NodeId":	"Scaler.Positions-2a6894f6-6aea-4e8a-a8d5-03b249e468f9",
-														"Type":	"Scaler",
-														"ExportAs":	"AtollPositions",
-														"Skip":	false,
-														"Scale":	{
-															"$NodeId":	"Point3D-b08bead8-da98-4e5d-887f-6b1d3c2a80c4",
-															"X":	1800,
-															"Y":	1,
-															"Z":	1800
-														},
-														"Positions":	{
-															"$NodeId":	"Jitter2d.Positions-221c1531-7baa-4659-9871-cda18b6b59fa",
-															"Type":	"Jitter2d",
+													"WarpScale":	150,
+													"WarpPersistence":	0.5,
+													"WarpLacunarity":	2,
+													"WarpOctaves":	3,
+													"WarpFactor":	150,
+													"Seed":	"A",
+													"Inputs":	[{
+															"$NodeId":	"PositionsCellNoiseDensityNode-9e4a0faa-4149-4f49-999a-7178ab61ac53",
+															"Type":	"PositionsCellNoise",
 															"Skip":	false,
-															"Magnitude":	0.1,
+															"MaxDistance":	1000,
 															"Positions":	{
-																"$NodeId":	"TriangularGrid2d.Positions-771ddd31-f752-478e-89b5-37ee283c0b26",
-																"Type":	"TriangularGrid2d",
-																"Skip":	false
+																"$NodeId":	"Scaler.Positions-2a6894f6-6aea-4e8a-a8d5-03b249e468f9",
+																"Type":	"Scaler",
+																"ExportAs":	"AtollPositions",
+																"Skip":	false,
+																"Scale":	{
+																	"$NodeId":	"Point3D-b08bead8-da98-4e5d-887f-6b1d3c2a80c4",
+																	"X":	1800,
+																	"Y":	1,
+																	"Z":	1800
+																},
+																"Positions":	{
+																	"$NodeId":	"Jitter2d.Positions-221c1531-7baa-4659-9871-cda18b6b59fa",
+																	"Type":	"Jitter2d",
+																	"Skip":	false,
+																	"Magnitude":	0.1,
+																	"Positions":	{
+																		"$NodeId":	"TriangularGrid2d.Positions-771ddd31-f752-478e-89b5-37ee283c0b26",
+																		"Type":	"TriangularGrid2d",
+																		"Skip":	false
+																	}
+																}
+															},
+															"ReturnType":	{
+																"$NodeId":	"DistancePCNReturnType-391ea2ab-b854-419d-8e54-ae76c1663d48",
+																"Type":	"Distance"
+															},
+															"DistanceFunction":	{
+																"$NodeId":	"PCNDistanceFunction-84402190-6baa-41dc-99c0-5348896913d5",
+																"Type":	"Euclidean"
 															}
-														}
-													},
-													"ReturnType":	{
-														"$NodeId":	"DistancePCNReturnType-391ea2ab-b854-419d-8e54-ae76c1663d48",
-														"Type":	"Distance"
-													},
-													"DistanceFunction":	{
-														"$NodeId":	"PCNDistanceFunction-84402190-6baa-41dc-99c0-5348896913d5",
-														"Type":	"Euclidean"
-													}
+														}]
 												}]
 										}]
 								}]
@@ -87,8 +96,8 @@
 		"$Nodes":	{
 			"Exported.Density-ed27c3c9-2416-4644-ac84-4e381c084b99":	{
 				"$Position":	{
-					"$x":	-4191,
-					"$y":	-5985
+					"$x":	-4196,
+					"$y":	-5982
 				},
 				"$Title":	"[ROOT] Exported Density"
 			},
@@ -100,26 +109,26 @@
 			},
 			"Cache.Density-ac158397-64c5-4c98-b278-7428b9ee50df":	{
 				"$Position":	{
-					"$x":	-2879,
-					"$y":	-5975
+					"$x":	-2906,
+					"$y":	-5977
 				}
 			},
 			"Scale.Density-4e5e3265-168b-4889-aa55-467bcbe3a4d9":	{
 				"$Position":	{
-					"$x":	-2274,
-					"$y":	-5972
+					"$x":	-2271,
+					"$y":	-5974
 				}
 			},
 			"FastGradientWarp.Density-80142aae-4bb6-487e-bce9-22bf0ed25007":	{
 				"$Position":	{
-					"$x":	-1534,
-					"$y":	-6360
+					"$x":	-1551,
+					"$y":	-6873
 				}
 			},
 			"FastGradientWarp.Density-cc233a5a-f324-4385-a6ce-d0fb59431459":	{
 				"$Position":	{
-					"$x":	-1194,
-					"$y":	-5969
+					"$x":	-1211,
+					"$y":	-6482
 				}
 			},
 			"PositionsCellNoiseDensityNode-9e4a0faa-4149-4f49-999a-7178ab61ac53":	{
@@ -163,9 +172,75 @@
 					"$x":	172,
 					"$y":	-5940
 				}
+			},
+			"GradientWarp.Density-7a5bd032-7bdc-4215-b3d3-8d3b3507ff9d":	{
+				"$Position":	{
+					"$x":	-1617,
+					"$y":	-5275
+				}
+			},
+			"SimplexNoise2DDensityNode-f44f8298-0731-4018-b518-464498a3d9a0":	{
+				"$Position":	{
+					"$x":	-969,
+					"$y":	-5116
+				}
+			},
+			"GradientWarp.Density-fc2f2468-16a2-4554-8d47-738ab3f3e570":	{
+				"$Position":	{
+					"$x":	-966,
+					"$y":	-5444
+				}
+			},
+			"SimplexNoise2DDensityNode-b7179339-26c6-4e50-8d4e-419b015029d8":	{
+				"$Position":	{
+					"$x":	-291,
+					"$y":	-5229
+				}
+			},
+			"YSampled.Density-9a3fd09a-3b6f-4552-9aa3-3311742172db":	{
+				"$Position":	{
+					"$x":	-2260,
+					"$y":	-6358
+				}
 			}
 		},
-		"$FloatingNodes":	[],
+		"$FloatingNodes":	[{
+				"$NodeId":	"GradientWarp.Density-7a5bd032-7bdc-4215-b3d3-8d3b3507ff9d",
+				"Type":	"GradientWarp",
+				"Skip":	false,
+				"SampleRange":	1,
+				"WarpFactor":	4000,
+				"2D":	true,
+				"YFor2D":	0,
+				"Inputs":	[{
+						"$NodeId":	"GradientWarp.Density-fc2f2468-16a2-4554-8d47-738ab3f3e570",
+						"Type":	"GradientWarp",
+						"Skip":	false,
+						"SampleRange":	1,
+						"WarpFactor":	2400,
+						"2D":	true,
+						"YFor2D":	0,
+						"Inputs":	[{
+								"$NodeId":	"SimplexNoise2DDensityNode-b7179339-26c6-4e50-8d4e-419b015029d8",
+								"Type":	"SimplexNoise2D",
+								"Skip":	false,
+								"Lacunarity":	2,
+								"Persistence":	0.5,
+								"Octaves":	3,
+								"Scale":	150,
+								"Seed":	"A"
+							}]
+					}, {
+						"$NodeId":	"SimplexNoise2DDensityNode-f44f8298-0731-4018-b518-464498a3d9a0",
+						"Type":	"SimplexNoise2D",
+						"Skip":	false,
+						"Lacunarity":	2,
+						"Persistence":	0.5,
+						"Octaves":	1,
+						"Scale":	500,
+						"Seed":	"A"
+					}]
+			}],
 		"$Links":	{
 		},
 		"$Groups":	[],
@@ -226,6 +301,24 @@
 				"$height":	150,
 				"$name":	"Comment",
 				"$text":	"TODO ensure players always spawn on the shore"
+			}, {
+				"$Position":	{
+					"$x":	-4048.4375,
+					"$y":	-5718.125
+				},
+				"$width":	250,
+				"$height":	150,
+				"$name":	"Comment",
+				"$text":	"SingleInstance disabled temporarily"
+			}, {
+				"$Position":	{
+					"$x":	-1121.25,
+					"$y":	-7078
+				},
+				"$width":	250,
+				"$height":	150,
+				"$name":	"Comment",
+				"$text":	"note: fastgradientwarp filed is 3D"
 			}],
 		"$WorkspaceID":	"HytaleGenerator - Density"
 	}
