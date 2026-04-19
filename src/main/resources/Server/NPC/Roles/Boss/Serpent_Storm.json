@@ -339,7 +339,7 @@
           "BodyMotion": {
             "$Comment": "Encircle the player with an oscillating radius of 16..70 meters",
             "Type": "StormSerpentEncircle",
-            "RelativeSpeed": 0.5,
+            "RelativeSpeed": 1.0,
             "RelativeAltitude": 30,
             "OscillateRadiusAmplitude": 27,
             "OscillateRadiusFrequency": 0.5,
@@ -375,7 +375,14 @@
           "Type": "Log",
           "Message": "Combat.Attack"
         }
-      ]
+      ],
+      "BodyMotion": {
+        "Type": "StormSerpentDive",
+        "RelativeSpeed": 2.0
+      },
+      "HeadMotion": {
+        "Type": "StormSerpentMatchBodyMotion"
+      }
     }
   ]
 }

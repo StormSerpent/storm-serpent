@@ -10,10 +10,7 @@ import me.nullicorn.hytale.stormserpent.component.StormSerpentBone;
 import me.nullicorn.hytale.stormserpent.npc.action.builder.BuilderActionStormSerpentAddCombatants;
 import me.nullicorn.hytale.stormserpent.npc.action.builder.BuilderActionStormSerpentBeginFight;
 import me.nullicorn.hytale.stormserpent.npc.action.builder.BuilderActionStormSerpentInitialize;
-import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionSerpentEncircle;
-import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderBodyMotionSerpentWander;
-import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderHeadMotionSerpentMatchBodyMotion;
-import me.nullicorn.hytale.stormserpent.npc.movement.builder.BuilderMotionControllerStormSerpentFly;
+import me.nullicorn.hytale.stormserpent.npc.movement.builder.*;
 import me.nullicorn.hytale.stormserpent.npc.sensor.builder.BuilderSensorReadLeashPosition;
 import me.nullicorn.hytale.stormserpent.system.StormSerpentSpawnSystems;
 import me.nullicorn.hytale.stormserpent.ui.hud.StormSerpentBossBarHudSystem;
@@ -47,6 +44,7 @@ public final class StormSerpentPlugin extends JavaPlugin {
         // NPC motions.
         NPCPlugin.get().registerCoreComponentType(BuilderBodyMotionSerpentWander.COMPONENT_ID, BuilderBodyMotionSerpentWander::new);
         NPCPlugin.get().registerCoreComponentType(BuilderBodyMotionSerpentEncircle.COMPONENT_ID, BuilderBodyMotionSerpentEncircle::new);
+        NPCPlugin.get().registerCoreComponentType(BuilderBodyMotionSerpentDive.COMPONENT_ID, BuilderBodyMotionSerpentDive::new);
         NPCPlugin.get().registerCoreComponentType(BuilderHeadMotionSerpentMatchBodyMotion.COMPONENT_ID, BuilderHeadMotionSerpentMatchBodyMotion::new);
 
         // NPC motion controllers.
