@@ -1,0 +1,140 @@
+{
+  "Spawners": [
+    {
+      "SpawnerId": "ForgottenTemple_Beam2",
+      "StartDelay": 0.3,
+      "PositionOffset": {
+        "X": -3.0
+      },
+      "LifeSpan": {
+        "Min": 1,
+        "Max": 1.5
+      }
+    },
+    {
+      "SpawnerId": "ForgottenTemple_Beam_Lightning",
+      "StartDelay": 0.3,
+      "PositionOffset": {
+        "X": -3.0
+      },
+      "SpawnRate": {
+        "Min": 1.5,
+        "Max": 2.1
+      }
+    },
+    {
+      "SpawnerId": "ForgottenTemple_Beam",
+      "StartDelay": 0.3,
+      "SpawnRate": {
+        "Min": 1.4,
+        "Max": 1.9
+      }
+    },
+    {
+      "SpawnerId": "ForgottenTemple_Beam_Static",
+      "StartDelay": 0.3
+    },
+    {
+      "SpawnerId": "Memory_ImplosionStart",
+      "LifeSpan": {
+        "Min": 2,
+        "Max": 2
+      },
+      "StartDelay": 0.0
+    },
+    {
+      "SpawnerId": "PlayerSpawn_Flash",
+      "StartDelay": 0.3
+    },
+    {
+      "SpawnerId": "PlayerSpawn_Distortion",
+      "PositionOffset": {
+        "Y": 0.0
+      },
+      "StartDelay": 0.3
+    },
+    {
+      "SpawnerId": "PlayerSpawn_SmokeOut",
+      "PositionOffset": {
+        "Y": 0.0
+      },
+      "StartDelay": 0.3
+    },
+    {
+      "SpawnerId": "ForgottenTemple_Bench_Distortion",
+      "StartDelay": 0.3
+    },
+    {
+      "SpawnerId": "ForgottenTemple_CenterWind",
+      "RotationOffset": {
+        "Roll": 90.0
+      },
+      "PositionOffset": {
+        "Z": -0.5,
+        "Y": -199.0
+      },
+      "StartDelay": 0.5
+    },
+    {
+      "SpawnerId": "Erosion_Test_Glow",
+      "LifeSpan": {
+        "Min": 1.8,
+        "Max": 1.8
+      },
+      "RotationOffset": {
+        "Roll": 90
+      }
+    },
+    {
+      "SpawnerId": "Erosion_Model_Erode",
+      "InitialVelocity": {
+        "Pitch": {
+          "Min": 90,
+          "Max": 90
+        },
+        "Speed": {
+          "Min": 0.3,
+          "Max": 1
+        }
+      },
+      "LifeSpan": {
+        "Min": 2,
+        "Max": 2
+      },
+      "StartDelay": 0.1,
+      "RotationOffset": {
+        "Roll": 90
+      }
+    },
+    {
+      "SpawnerId": "Erosion_Model_Erode_Dark",
+      "StartDelay": 0.1,
+      "LifeSpan": {
+        "Min": 2,
+        "Max": 2
+      },
+      "InitialVelocity": {
+        "Speed": {
+          "Min": 0.3,
+          "Max": 1
+        },
+        "Pitch": {
+          "Min": 90,
+          "Max": 90
+        }
+      },
+      "RotationOffset": {
+        "Roll": 90
+      }
+    },
+    {
+      "SpawnerId": "Beam_Lightning2",
+      "LifeSpan": {
+        "Min": 2,
+        "Max": 2
+      }
+    }
+  ],
+  "IsImportant": true,
+  "CullDistance": 16.0
+}
