@@ -77,8 +77,8 @@ public final class MotionControllerStormSerpentFly implements MotionController {
     private double targetDeltaSquared;
     private double heightOverGround;
     private double currentMoveSpeed = 0;
-    private final Vector3d currentMoveDirection = new Vector3d();
-    private final Rotation3f currentMoveAngles = new Rotation3f();
+    public final Vector3d currentMoveDirection = new Vector3d();
+    public final Rotation3f currentMoveAngles = new Rotation3f();
 
     public MotionControllerStormSerpentFly(
         @Nonnull final BuilderSupport builderSupport,
@@ -175,7 +175,7 @@ public final class MotionControllerStormSerpentFly implements MotionController {
 
             // Accelerate our movement direction toward `targetDirection` using lerp.
             final Rotation3f targetAngles = Rotation3f.lookAt(targetDirection);
-            this.currentMoveAngles.set(Rotation3f.lerpAngle(this.currentMoveAngles, targetAngles, (float) (interval * this.moveDirectionChangeDuration)));
+            this.currentMoveAngles.set(Rotation3f.lerpAngle(this.currentMoveAngles, targetAngles, (float) (interval * this.moveDirectionChangeDuration * bodySteering.getRelativeTurnSpeed())));
 
             // Update `currentMoveDirection` to match the direction of `currentMoveAngles`.
             this.currentMoveDirection.set(Vector3dUtil.FORWARD);

@@ -1,0 +1,243 @@
+{
+  "Type": "Component",
+  "Class": "Instruction",
+  "DefaultState": ".Default",
+  "Parameters": {
+    "_ImportStates": [ "NextState" ],
+    "MaxLaunches": {
+      "Value": [ 5, 5 ],
+      "Description": "Number of times to repeat the attack"
+    }
+  },
+  "Content": {
+    "Instructions": [
+      {
+        "$Comment": "Step 1: Start by diving until we hit terrain or the bottom of the world",
+        "Continue": true,
+        "Sensor": {
+          "Type": "State",
+          "State": ".Default"
+        },
+        "Instructions": [
+          {
+            "Sensor": {
+              "Type": "Or",
+              "Sensors": [
+                {
+                  "Type": "StormSerpentInBlocks",
+                  "Threshold": 0.6
+                },
+                {
+                  "Type": "StormSerpentBelowY",
+                  "Y": 10
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "Type": "StormSerpentCounterSet",
+                "Name": "Counter_Ballistic",
+                "Value": 0
+              },
+              {
+                "Type": "StormSerpentPlaceSound",
+                "SoundEventId": "SFX_Serpent_Storm_Impact_Long"
+              },
+              {
+                "Type": "Attack",
+                "Attack": "Root_NPC_Serpent_Storm_Impact_Ballistic"
+              },
+              {
+                "Type": "State",
+                "State": ".EnterBurrow"
+              }
+            ]
+          },
+          {
+            "BodyMotion": { "Type": "StormSerpentDive" },
+            "HeadMotion": { "Type": "StormSerpentMatchBodyMotion" }
+          }
+        ]
+      },
+      {
+        "$Comment": "Step 2: Collapse the body into the head where it hit the ground, creating the illusion of burrowing",
+        "Continue": true,
+        "Sensor": {
+          "Type": "State",
+          "State": ".EnterBurrow"
+        },
+        "Instructions": [
+          {
+            "Sensor": { "Type": "StormSerpentInBurrow" },
+            "Actions": [
+              {
+                "Type": "State",
+                "State": ".InBurrow"
+              }
+            ]
+          },
+          {
+            "Actions": [
+              {
+                "Type": "StormSerpentEnterBurrow",
+                "RelativeSpeed": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$Comment": "Step 3: Teleport to a new spot and exit the burrow",
+        "Continue": true,
+        "Sensor": {
+          "Type": "State",
+          "State": ".InBurrow"
+        },
+        "Instructions": [
+          {
+            "Sensor": {
+              "Type": "Player",
+              "Range": 300,
+              "LockOnTarget": true,
+              "LockedTargetSlot": "Target_Ballistic"
+            },
+            "Instructions": [
+              {
+                "Continue": true,
+                "Actions": [
+                  {
+                    "Type": "StormSerpentExitBurrow",
+                    "TargetSlot": "Target_Ballistic",
+                    "DistanceRange": [ 150, 200 ]
+                  }
+                ]
+              },
+              {
+                "Sensor": {
+                  "Type": "StormSerpentCounter",
+                  "Name": "Counter_Ballistic",
+                  "Range": { "Compute": "MaxLaunches" }
+                },
+                "Actions": [
+                  {
+                    "Type": "StormSerpentPlaceSound",
+                    "SoundEventId": "SFX_Serpent_Storm_Impact_Long"
+                  },
+                  {
+                    "Type": "Attack",
+                    "Attack": "Root_NPC_Serpent_Storm_Impact_Ballistic"
+                  },
+                  {
+                    "Type": "State",
+                    "State": ".ExitBurrow"
+                  }
+                ]
+              },
+              {
+                "Actions": [
+                  {
+                    "Type": "StormSerpentCounterAdd",
+                    "Name": "Counter_Ballistic",
+                    "Amount": 1
+                  },
+                  {
+                    "Type": "State",
+                    "State": ".Launch"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Continue": true,
+        "Sensor": {
+          "Type": "State",
+          "State": ".Launch"
+        },
+        "Instructions": [
+          {
+            "Sensor": {
+              "Type": "Or",
+              "Sensors": [
+                {
+                  "Type": "StormSerpentBelowY",
+                  "Y": 10
+                },
+                {
+                  "Type": "And",
+                  "Sensors": [
+                    {
+                      "Type": "StormSerpentInBlocks",
+                      "Threshold": 0.6
+                    },
+                    {
+                      "Type": "Target",
+                      "TargetSlot": "Target_Ballistic",
+                      "Range": 400,
+                      "Filters": [
+                        {
+                          "Type": "HeightDifference",
+                          "HeightDifference": [ 1, 400 ],
+                          "UseEyePosition": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "Type": "StormSerpentPlaceSound",
+                "SoundEventId": "SFX_Serpent_Storm_Impact_Long"
+              },
+              {
+                "Type": "Attack",
+                "Attack": "Root_NPC_Serpent_Storm_Impact_Ballistic"
+              },
+              {
+                "Type": "State",
+                "State": ".EnterBurrow"
+              }
+            ]
+          },
+          {
+            "BodyMotion": {
+              "Type": "StormSerpentBallistic",
+              "TargetSlot": "Target_Ballistic",
+              "ArcHeight": 150,
+              "ArcPathSpeed": 60,
+              "RelativeSpeed": 3,
+              "RelativeTurnSpeed": 8
+            },
+            "HeadMotion": { "Type": "StormSerpentMatchBodyMotion" }
+          }
+        ]
+      },
+      {
+        "Continue": true,
+        "Sensor": {
+          "Type": "State",
+          "State": ".ExitBurrow"
+        },
+        "Actions": [
+          {
+            "Type": "StormSerpentCounterSet",
+            "Name": "Counter_Ballistic",
+            "Value": 0
+          },
+          {
+            "Type": "State",
+            "State": ".Default"
+          },
+          {
+            "Type": "ParentState",
+            "State": "NextState"
+          }
+        ]
+      }
+    ]
+  }
+}

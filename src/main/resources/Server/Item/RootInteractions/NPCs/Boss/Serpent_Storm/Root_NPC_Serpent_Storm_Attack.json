@@ -6,8 +6,5 @@
   },
   "Interactions": [
     "Serpent_Storm_Shoot_Electric"
-  ],
-  "Cooldown": {
-    "Cooldown": 4.75
-  }
+  ]
 }

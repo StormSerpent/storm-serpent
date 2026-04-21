@@ -65,6 +65,7 @@
       ]
     },
     {
+      "Continue": true,
       "Sensor": {
         "Type": "State",
         "State": "Idle"
@@ -135,6 +136,7 @@
       ]
     },
     {
+      "Continue": true,
       "Sensor": {
         "Type": "State",
         "State": "Stalk"
@@ -232,6 +234,7 @@
       ]
     },
     {
+      "Continue": true,
       "Sensor": {
         "Type": "State",
         "State": "Intro.Buildup"
@@ -310,10 +313,6 @@
               "AttackType": "Ability1"
             },
             {
-              "Type": "Timeout",
-              "Delay": [ 4.75, 4.75 ]
-            },
-            {
               "Type": "TimerRestart",
               "Name": "Intro_Buildup_Shoot"
             }
@@ -325,6 +324,7 @@
       ]
     },
     {
+      "Continue": true,
       "Sensor": {
         "Type": "State",
         "State": "Intro.Transition"
@@ -358,31 +358,39 @@
             },
             {
               "Type": "State",
-              "State": "Combat.Attack"
+              "State": "Combat"
             }
           ]
         }
       ]
     },
     {
+      "Continue": true,
       "Sensor": {
         "Type": "State",
-        "State": "Combat.Attack"
+        "State": "Combat.Default"
       },
       "Actions": [
         {
-          "Once": true,
-          "Type": "Log",
-          "Message": "Combat.Attack"
+          "$TODO": "Cycle through attacks",
+          "Type": "State",
+          "State": "Combat.Ballistic"
         }
-      ],
-      "BodyMotion": {
-        "Type": "StormSerpentDive",
-        "RelativeSpeed": 2.0
+      ]
+    },
+    {
+      "Sensor": {
+        "Type": "State",
+        "State": "Combat.Ballistic"
       },
-      "HeadMotion": {
-        "Type": "StormSerpentMatchBodyMotion"
-      }
+      "Instructions": [
+        {
+          "Reference": "Component_Instruction_Attack_Sequence_Ballistic",
+          "Modify": {
+            "_ExportStates": [ "Combat.Default" ]
+          }
+        }
+      ]
     }
   ]
 }

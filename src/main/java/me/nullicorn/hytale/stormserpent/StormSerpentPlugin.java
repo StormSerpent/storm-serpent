@@ -7,13 +7,14 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.NPCPlugin;
 import me.nullicorn.hytale.stormserpent.component.StormSerpent;
 import me.nullicorn.hytale.stormserpent.component.StormSerpentBone;
-import me.nullicorn.hytale.stormserpent.npc.action.builder.BuilderActionStormSerpentAddCombatants;
-import me.nullicorn.hytale.stormserpent.npc.action.builder.BuilderActionStormSerpentBeginFight;
-import me.nullicorn.hytale.stormserpent.npc.action.builder.BuilderActionStormSerpentInitialize;
+import me.nullicorn.hytale.stormserpent.npc.action.builder.*;
 import me.nullicorn.hytale.stormserpent.npc.movement.builder.*;
-import me.nullicorn.hytale.stormserpent.npc.sensor.builder.BuilderSensorReadLeashPosition;
+import me.nullicorn.hytale.stormserpent.npc.sensor.builder.*;
+import me.nullicorn.hytale.stormserpent.solver.EnteringBurrowJointSolver;
+import me.nullicorn.hytale.stormserpent.system.StormSerpentBurrowSystems;
 import me.nullicorn.hytale.stormserpent.system.StormSerpentSpawnSystems;
 import me.nullicorn.hytale.stormserpent.ui.hud.StormSerpentBossBarHudSystem;
+import me.nullicorn.serpentine.solver.SerpentJointSolver;
 
 import javax.annotation.Nonnull;
 
@@ -40,11 +41,15 @@ public final class StormSerpentPlugin extends JavaPlugin {
 
         this.getEntityStoreRegistry().registerSystem(new StormSerpentSpawnSystems.BoneHolderSystem());
         this.getEntityStoreRegistry().registerSystem(new StormSerpentBossBarHudSystem());
+        this.getEntityStoreRegistry().registerSystem(new StormSerpentBurrowSystems.EnterBurrowBoneTickingSystem());
+
+        SerpentJointSolver.CODEC.register(EnteringBurrowJointSolver.COMPONENT_ID, EnteringBurrowJointSolver.class, EnteringBurrowJointSolver.CODEC);
 
         // NPC motions.
         NPCPlugin.get().registerCoreComponentType(BuilderBodyMotionSerpentWander.COMPONENT_ID, BuilderBodyMotionSerpentWander::new);
         NPCPlugin.get().registerCoreComponentType(BuilderBodyMotionSerpentEncircle.COMPONENT_ID, BuilderBodyMotionSerpentEncircle::new);
         NPCPlugin.get().registerCoreComponentType(BuilderBodyMotionSerpentDive.COMPONENT_ID, BuilderBodyMotionSerpentDive::new);
+        NPCPlugin.get().registerCoreComponentType(BuilderBodyMotionSerpentBallistic.COMPONENT_ID, BuilderBodyMotionSerpentBallistic::new);
         NPCPlugin.get().registerCoreComponentType(BuilderHeadMotionSerpentMatchBodyMotion.COMPONENT_ID, BuilderHeadMotionSerpentMatchBodyMotion::new);
 
         // NPC motion controllers.
@@ -52,11 +57,20 @@ public final class StormSerpentPlugin extends JavaPlugin {
 
         // NPC sensors.
         NPCPlugin.get().registerCoreComponentType(BuilderSensorReadLeashPosition.COMPONENT_ID, BuilderSensorReadLeashPosition::new);
+        NPCPlugin.get().registerCoreComponentType(BuilderSensorBelowY.COMPONENT_ID, BuilderSensorBelowY::new);
+        NPCPlugin.get().registerCoreComponentType(BuilderSensorInBlocks.COMPONENT_ID, BuilderSensorInBlocks::new);
+        NPCPlugin.get().registerCoreComponentType(BuilderSensorInBurrow.COMPONENT_ID, BuilderSensorInBurrow::new);
+        NPCPlugin.get().registerCoreComponentType(BuilderSensorCounter.COMPONENT_ID, BuilderSensorCounter::new);
 
         // NPC actions.
         NPCPlugin.get().registerCoreComponentType(BuilderActionStormSerpentInitialize.COMPONENT_ID, BuilderActionStormSerpentInitialize::new);
         NPCPlugin.get().registerCoreComponentType(BuilderActionStormSerpentBeginFight.COMPONENT_ID, BuilderActionStormSerpentBeginFight::new);
         NPCPlugin.get().registerCoreComponentType(BuilderActionStormSerpentAddCombatants.COMPONENT_ID, BuilderActionStormSerpentAddCombatants::new);
+        NPCPlugin.get().registerCoreComponentType(BuilderActionEnterBurrow.COMPONENT_ID, BuilderActionEnterBurrow::new);
+        NPCPlugin.get().registerCoreComponentType(BuilderActionExitBurrow.COMPONENT_ID, BuilderActionExitBurrow::new);
+        NPCPlugin.get().registerCoreComponentType(BuilderActionCounterSet.COMPONENT_ID, BuilderActionCounterSet::new);
+        NPCPlugin.get().registerCoreComponentType(BuilderActionCounterAdd.COMPONENT_ID, BuilderActionCounterAdd::new);
+        NPCPlugin.get().registerCoreComponentType(BuilderActionPlaceSound.COMPONENT_ID, BuilderActionPlaceSound::new);
     }
 
     public ComponentType<EntityStore, StormSerpent> getStormSerpentComponentType() {
