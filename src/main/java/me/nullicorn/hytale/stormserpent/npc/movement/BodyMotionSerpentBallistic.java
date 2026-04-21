@@ -3,7 +3,6 @@ package me.nullicorn.hytale.stormserpent.npc.movement;
 import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.math.vector.Vector3dUtil;
-import com.hypixel.hytale.server.core.modules.debug.DebugUtils;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.asset.builder.BuilderSupport;
@@ -117,8 +116,6 @@ public final class BodyMotionSerpentBallistic extends BodyMotionBase {
 
         final Vector3d destination = new Vector3d(this.horizontalDirection).mul(this.t).add(this.startPosition);
         destination.y = y;
-
-        DebugUtils.addSphere(componentAccessor.getExternalData().getWorld(), destination, DebugUtils.COLOR_RED, 5f, 0.3f);
 
         final Vector3d difference = new Vector3d(destination).sub(transform.getPosition());
         final double speed;
