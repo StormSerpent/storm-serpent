@@ -33,14 +33,16 @@
     "Shoot_Electric": {
       "Animations": [
         {
-          "Animation": "NPC/Boss/Serpent_Storm/Animations/Attacks/Shoot_Electric.blockyanim"
+          "Animation": "NPC/Boss/Serpent_Storm/Animations/Attacks/Shoot_Electric.blockyanim",
+          "SoundEventId": "SFX_Serpent_Storm_Shoot_Electric"
         }
       ]
     },
     "Shriek_Engaged": {
       "Animations": [
         {
-          "Animation": "NPC/Boss/Serpent_Storm/Animations/Shriek_Engaged.blockyanim"
+          "Animation": "NPC/Boss/Serpent_Storm/Animations/Shriek_Engaged.blockyanim",
+          "SoundEventId": "SFX_Serpent_Storm_Shriek"
         }
       ]
     }

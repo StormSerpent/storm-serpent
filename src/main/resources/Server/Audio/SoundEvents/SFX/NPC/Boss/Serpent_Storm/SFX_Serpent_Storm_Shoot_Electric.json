@@ -7,5 +7,6 @@
         "Sounds/NPC/Boss/Serpent_Storm/Shoot_Electric.ogg"
       ]
     }
-  ]
+  ],
+  "AudioCategory": "AudioCat_NPC_Serpent_Storm"
 }

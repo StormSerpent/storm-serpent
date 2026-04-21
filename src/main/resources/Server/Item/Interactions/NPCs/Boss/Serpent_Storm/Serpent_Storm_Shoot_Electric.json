@@ -5,5 +5,33 @@
     "ItemAnimationId": "Shoot_Electric",
     "WorldSoundEventId": "SFX_Serpent_Storm_Shoot_Electric"
   },
-  "RunTime": 4.75
+  "ViewDistance": 300,
+  "RunTime": 2.5,
+  "Next": {
+    "Type": "Simple",
+    "Effects": {
+      "Particles": [
+        {
+          "SystemId": "Storm_Serpent_Beam",
+          "TargetEntityPart": "Entity",
+          "TargetNodeName": "",
+          "RotationOffset": {
+            "Pitch": -90.0,
+            "Roll": 90.0,
+            "Yaw": 0.0
+          },
+          "PositionOffset": {
+            "Y": -0.5,
+            "Z": 2.5
+          }
+        }
+      ]
+    },
+    "ViewDistance": 300,
+    "RunTime": 0.25,
+    "Next": {
+      "Type": "Projectile",
+      "Config": "Projectile_Config_Serpent_Storm_Projectile"
+    }
+  }
 }

@@ -1,7 +1,7 @@
 {
-  "MaxDistance": 400,
-  "StartAttenuationDistance": 400,
-  "Volume": 9,
+  "MaxDistance": 300,
+  "StartAttenuationDistance": 80,
+  "Volume": 4,
   "Layers": [
     {
       "Files": [ "Sounds/NPC/Boss/Serpent_Storm/Shriek.ogg" ]

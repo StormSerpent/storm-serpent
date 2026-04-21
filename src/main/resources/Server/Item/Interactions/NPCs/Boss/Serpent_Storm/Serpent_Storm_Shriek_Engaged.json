@@ -1,9 +1,0 @@
-{
-  "Type": "Simple",
-  "Effects":{
-    "ItemPlayerAnimationsId": "Serpent_Storm_Default",
-    "ItemAnimationId": "Shriek_Engaged",
-    "WorldSoundEventId": "SFX_Serpent_Storm_Shriek_Engaged"
-  },
-  "RunTime": 4.0
-}

@@ -1,0 +1,17 @@
+{
+  "Volume": 5,
+  "MaxDistance": 100,
+  "StartAttenuationDistance": 20,
+  "MaxInstance": 1,
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/Weapons/Sword/Signature/Sword_Signature_Part_2_01.ogg",
+        "Sounds/Weapons/Sword/Signature/Sword_Signature_Part_2_02.ogg",
+        "Sounds/Weapons/Sword/Signature/Sword_Signature_Part_2_03.ogg",
+        "Sounds/Weapons/Sword/Signature/Sword_Signature_Part_2_04.ogg"
+      ]
+    }
+  ],
+  "AudioCategory": "AudioCat_NPC_Serpent_Storm"
+}

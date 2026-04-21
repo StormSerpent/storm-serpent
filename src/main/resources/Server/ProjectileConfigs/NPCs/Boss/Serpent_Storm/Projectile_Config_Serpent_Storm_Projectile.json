@@ -1,0 +1,101 @@
+{
+  "Model": "Serpent_Storm_Projectile",
+  "Physics": {
+    "Type": "Standard",
+    "Gravity": 5,
+    "TerminalVelocityAir": 150,
+    "TerminalVelocityWater": 15,
+    "RotationMode": "Velocity",
+    "Bounciness": 0.0,
+    "SticksVertically": true
+  },
+  "LaunchForce": 150,
+  "SpawnOffset": {
+    "X": 0.0,
+    "Y": -5.0,
+    "Z": 3.0
+  },
+  "Interactions": {
+    "ProjectileHit": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "DamageEntity",
+          "DamageCalculator": {
+            "Type": "Absolute",
+            "BaseDamage": {
+              "Elemental": 50
+            },
+            "RandomPercentageModifier": 0.1
+          },
+          "Effects": {
+            "WorldSoundEventId": "SFX_Serpent_Storm_Projectile_Hit",
+            "Particles": [
+              {
+                "SystemId": "Explosion_Big_Blue",
+                "TargetEntityPart": "Entity",
+                "Scale": 1
+              }
+            ]
+          }
+        },
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    },
+    "ProjectileMiss": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "Selector",
+          "Selector": {
+            "Id": "AOECircle",
+            "Range": 12
+          },
+          "HitEntity": {
+            "Interactions": [
+              {
+                "Type": "DamageEntity",
+                "DamageCalculator": {
+                  "Type": "Absolute",
+                  "BaseDamage": {
+                    "Elemental": 20
+                  },
+                  "RandomPercentageModifier": 0.1
+                }
+              }
+            ]
+          },
+          "Next": {
+            "Type": "Simple",
+            "RunTime": 0.1
+          }
+        },
+        {
+          "Type": "Simple",
+          "RunTime": 0,
+          "Effects": {
+            "WorldSoundEventId": "SFX_Serpent_Storm_Projectile_Hit",
+            "Particles": [
+              {
+                "SystemId": "Explosion_Big_Blue",
+                "TargetEntityPart": "Entity",
+                "Scale": 1
+              }
+            ]
+          }
+        },
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "Model": "NPC/Boss/Serpent_Storm/Models/Serpent_Storm_Projectile.blockymodel",
+  "Texture": "NPC/Boss/Serpent_Storm/Models/Serpent_Storm_Projectile_Texture.png",
+  "HitBox": {
+    "Max": {
+      "X": 1,
+      "Y": 1,
+      "Z": 1
+    },
+    "Min": {
+      "X": -1,
+      "Y": -1,
+      "Z": -1
+    }
+  },
+  "MinScale": 1,
+  "MaxScale": 1,
+  "Trails": []
+}

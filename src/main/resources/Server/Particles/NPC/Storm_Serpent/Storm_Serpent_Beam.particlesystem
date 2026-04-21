@@ -136,5 +136,5 @@
     }
   ],
   "IsImportant": true,
-  "CullDistance": 16.0
+  "CullDistance": 300.0
 }
