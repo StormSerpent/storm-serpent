@@ -12,8 +12,8 @@ import me.nullicorn.hytale.stormserpent.npc.movement.builder.*;
 import me.nullicorn.hytale.stormserpent.npc.sensor.builder.*;
 import me.nullicorn.hytale.stormserpent.solver.EnteringBurrowJointSolver;
 import me.nullicorn.hytale.stormserpent.system.StormSerpentBurrowSystems;
+import me.nullicorn.hytale.stormserpent.system.StormSerpentHealthSystems;
 import me.nullicorn.hytale.stormserpent.system.StormSerpentSpawnSystems;
-import me.nullicorn.hytale.stormserpent.ui.hud.StormSerpentBossBarHudSystem;
 import me.nullicorn.serpentine.solver.SerpentJointSolver;
 
 import javax.annotation.Nonnull;
@@ -40,8 +40,9 @@ public final class StormSerpentPlugin extends JavaPlugin {
         this.stormSerpentBoneComponentType = this.getEntityStoreRegistry().registerComponent(StormSerpentBone.class, StormSerpentBone::new);
 
         this.getEntityStoreRegistry().registerSystem(new StormSerpentSpawnSystems.BoneHolderSystem());
-        this.getEntityStoreRegistry().registerSystem(new StormSerpentBossBarHudSystem());
+//        this.getEntityStoreRegistry().registerSystem(new StormSerpentBossBarHudSystem());
         this.getEntityStoreRegistry().registerSystem(new StormSerpentBurrowSystems.EnterBurrowBoneTickingSystem());
+        this.getEntityStoreRegistry().registerSystem(new StormSerpentHealthSystems.DamageSystem());
 
         SerpentJointSolver.CODEC.register(EnteringBurrowJointSolver.COMPONENT_ID, EnteringBurrowJointSolver.class, EnteringBurrowJointSolver.CODEC);
 
