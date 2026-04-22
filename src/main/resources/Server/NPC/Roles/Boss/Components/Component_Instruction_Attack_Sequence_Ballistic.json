@@ -7,6 +7,12 @@
     "MaxLaunches": {
       "Value": [ 5, 5 ],
       "Description": "Number of times to repeat the attack"
+    },
+    "InitialDiveRelativeSpeed": {
+      "Value": 2
+    },
+    "EnterBurrowRelativeSpeed": {
+      "Value": 2.5
     }
   },
   "Content": {
@@ -44,6 +50,7 @@
                 "SoundEventId": "SFX_Serpent_Storm_Impact_Long"
               },
               {
+                "$Comment": "Perform AOE damage",
                 "Type": "Attack",
                 "Attack": "Root_NPC_Serpent_Storm_Impact_Ballistic"
               },
@@ -54,7 +61,10 @@
             ]
           },
           {
-            "BodyMotion": { "Type": "StormSerpentDive" },
+            "BodyMotion": {
+              "Type": "StormSerpentDive",
+              "RelativeSpeed": { "Compute": "InitialDiveRelativeSpeed" }
+            },
             "HeadMotion": { "Type": "StormSerpentMatchBodyMotion" }
           }
         ]
@@ -80,7 +90,7 @@
             "Actions": [
               {
                 "Type": "StormSerpentEnterBurrow",
-                "RelativeSpeed": 2
+                "RelativeSpeed": { "Compute": "EnterBurrowRelativeSpeed" }
               }
             ]
           }
@@ -120,10 +130,6 @@
                 },
                 "Actions": [
                   {
-                    "Type": "StormSerpentPlaceSound",
-                    "SoundEventId": "SFX_Serpent_Storm_Impact_Long"
-                  },
-                  {
                     "Type": "Attack",
                     "Attack": "Root_NPC_Serpent_Storm_Impact_Ballistic"
                   },
@@ -139,6 +145,14 @@
                     "Type": "StormSerpentCounterAdd",
                     "Name": "Counter_Ballistic",
                     "Amount": 1
+                  },
+                  {
+                    "Type": "PlaySound",
+                    "SoundEventId": "SFX_Serpent_Storm_Shriek"
+                  },
+                  {
+                    "Type": "PlaySound",
+                    "SoundEventId": "SFX_Serpent_Storm_Impact_Short"
                   },
                   {
                     "Type": "State",
@@ -207,8 +221,8 @@
             "BodyMotion": {
               "Type": "StormSerpentBallistic",
               "TargetSlot": "Target_Ballistic",
-              "ArcHeight": 150,
-              "ArcPathSpeed": 60,
+              "ArcHeight": 90,
+              "ArcPathSpeed": 100,
               "RelativeSpeed": 3,
               "RelativeTurnSpeed": 8
             },

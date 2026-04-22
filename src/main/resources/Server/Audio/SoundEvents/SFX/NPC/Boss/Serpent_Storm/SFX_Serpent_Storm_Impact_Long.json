@@ -3,10 +3,11 @@
   "StartAttenuationDistance": 150,
   "Layers": [
     {
-      "Files": [ "Sounds/NPC/Boss/Serpent_Storm/Impact_Long.ogg" ]
+      "Files": [
+        "Sounds/NPC/Boss/Serpent_Storm/Impact_Long.ogg"
+      ]
     }
   ],
   "Volume": 8,
-  "MaxInstance": 1,
   "AudioCategory": "AudioCat_NPC_Serpent_Storm"
 }

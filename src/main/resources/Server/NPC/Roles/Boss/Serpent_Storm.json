@@ -26,7 +26,23 @@
     },
     "IntroTransitionDuration": {
       "Value": [ 16, 20 ],
-      "Description": "How long to stay in the Intro Transition state before switching to Combat Attack"
+      "Description": "How long to stay in the Intro Transition state before switching to Combat"
+    },
+    "IdleRelativeSpeed": {
+      "Value": 0.75,
+      "Description": "Relative movement speed in the Idle state"
+    },
+    "StalkRelativeSpeed": {
+      "Value": 0.85,
+      "Description": "Relative movement speed in the Stalk state"
+    },
+    "IntroBuildupRelativeSpeed": {
+      "Value": 1.0,
+      "Description": "Relative movement speed in the Intro Buildup state"
+    },
+    "IntroBuildupShootRelativeSpeed": {
+      "Value": 0.1,
+      "Description": "Relative movement speed while shooting projectiles in the Intro Buildup state"
     }
   },
   "MotionControllerList": [
@@ -73,15 +89,13 @@
       "Instructions": [
         {
           "Continue": true,
-          "Sensor": {
-            "Type": "StormSerpentReadLeashPosition"
-          },
+          "Sensor": { "Type": "StormSerpentReadLeashPosition" },
           "BodyMotion": {
             "Type": "StormSerpentWander",
             "Radius": 200,
             "AltitudeRange": [ 100, 320 ],
             "UseRelativeAltitude": false,
-            "RelativeSpeed": 0.75
+            "RelativeSpeed": { "Compute": "IdleRelativeSpeed" }
           }
         },
         {
@@ -91,13 +105,14 @@
         {
           "Sensor": {
             "Type": "Damage",
-            "Combat": true
+            "Combat": true,
+            "TargetSlot": "Target_Combat_First_Attacker"
           },
           "Actions": [
             { "Type": "AddToHostileTargetMemory" },
             {
               "Type": "State",
-              "State": "Intro"
+              "State": "Intro.Default"
             }
           ]
         },
@@ -106,7 +121,7 @@
             "Type": "Player",
             "Range": 175,
             "LockOnTarget": true,
-            "LockedTargetSlot": "Stalk_Target",
+            "LockedTargetSlot": "Target_Stalk",
             "Filters": [
               { "Type": "LineOfSight" },
               {
@@ -125,11 +140,11 @@
           "Actions": [
             {
               "Type": "StorePosition",
-              "Slot": "Stalk_Target_Last_Seen"
+              "Slot": "Target_Stalk_Last_Seen"
             },
             {
               "Type": "State",
-              "State": "Stalk"
+              "State": "Stalk.Default"
             }
           ]
         }
@@ -146,21 +161,21 @@
           "Continue": true,
           "Sensor": {
             "Type": "ReadPosition",
-            "Slot": "Stalk_Target_Last_Seen",
-            "Range": 1000
+            "Slot": "Target_Stalk_Last_Seen",
+            "Range": 400
           },
           "BodyMotion": {
             "Type": "StormSerpentWander",
             "Radius": 150,
             "AltitudeRange": [ 16, 80 ],
             "UseRelativeAltitude": true,
-            "RelativeSpeed": 1.25
+            "RelativeSpeed": { "Compute": "StalkRelativeSpeed" }
           },
           "HeadMotion": { "Type": "StormSerpentMatchBodyMotion" },
           "Actions": [
             {
               "Type": "TimerStart",
-              "Name": "Stalk_Forget",
+              "Name": "Timer_Stalk_Forget",
               "Repeating": false,
               "StartValueRange": { "Compute": "StalkForgetTimeout" },
               "RestartValueRange": { "Compute": "StalkForgetTimeout" }
@@ -170,7 +185,8 @@
         {
           "Sensor": {
             "Type": "Damage",
-            "Combat": true
+            "Combat": true,
+            "TargetSlot": "Target_Combat_First_Attacker"
           },
           "Actions": [
             { "Type": "AddToHostileTargetMemory" },
@@ -185,24 +201,24 @@
             "Type": "Player",
             "Range": 175,
             "OnlyLockedTarget": true,
-            "LockedTargetSlot": "Stalk_Target",
+            "LockedTargetSlot": "Target_Stalk",
             "Filters": [ { "Type": "LineOfSight" } ]
           },
           "Actions": [
             {
               "Type": "StorePosition",
-              "Slot": "Stalk_Target_Last_Seen"
+              "Slot": "Target_Stalk_Last_Seen"
             },
             {
               "Type": "TimerRestart",
-              "Name": "Stalk_Forget"
+              "Name": "Timer_Stalk_Forget"
             }
           ]
         },
         {
           "Sensor": {
             "Type": "Timer",
-            "Name": "Stalk_Forget",
+            "Name": "Timer_Stalk_Forget",
             "State": "Stopped"
           },
           "Actions": [
@@ -260,25 +276,20 @@
           ]
         },
         {
-          "Continue": true,
           "Sensor": {
-            "Type": "ReadPosition",
-            "Slot": "Stalk_Target_Last_Seen",
-            "Range": 1000
-          },
-          "BodyMotion": {
-            "Type": "StormSerpentWander",
-            "Radius": 100,
-            "AltitudeRange": [ 25, 100 ],
-            "UseRelativeAltitude": true,
-            "RelativeSpeed": 2.0
-          }
-        },
-        {
-          "Sensor": {
-            "Type": "Timer",
-            "Name": "Intro_Buildup_Transition",
-            "State": "Stopped"
+            "Type": "And",
+            "Sensors": [
+              {
+                "Type": "Timer",
+                "Name": "Intro_Buildup_Transition",
+                "State": "Stopped"
+              },
+              {
+                "Type": "Timer",
+                "Name": "Intro_Buildup_Shoot",
+                "State": "Running"
+              }
+            ]
           },
           "Actions": [
             {
@@ -288,6 +299,7 @@
           ]
         },
         {
+          "$Comment": "Shoot projectiles at hostiles",
           "Sensor": {
             "Type": "And",
             "Sensors": [
@@ -297,14 +309,38 @@
                 "State": "Stopped"
               },
               {
-                "Type": "Target",
-                "TargetSlot": "Stalk_Target",
-                "Range": 200,
-                "Filters": [ { "Type": "LineOfSight" } ]
+                "Type": "Or",
+                "Sensors": [
+                  {
+                    "Type": "Target",
+                    "TargetSlot": "Target_Combat_First_Attacker",
+                    "Range": 300,
+                    "Filters": [ { "Type": "LineOfSight" } ]
+                  },
+                  {
+                    "Type": "Target",
+                    "TargetSlot": "Target_Combat_Last_Attacker",
+                    "Range": 300,
+                    "Filters": [ { "Type": "LineOfSight" } ]
+                  },
+                  {
+                    "Type": "Target",
+                    "TargetSlot": "Target_Stalk",
+                    "Range": 300,
+                    "Filters": [ { "Type": "LineOfSight" } ]
+                  }
+                ]
               }
             ]
           },
           "HeadMotion": { "Type": "Watch" },
+          "BodyMotion": {
+            "Type": "StormSerpentWander",
+            "Radius": 100,
+            "AltitudeRange": [ 25, 100 ],
+            "UseRelativeAltitude": true,
+            "RelativeSpeed": { "Compute": "IntroBuildupShootRelativeSpeed" }
+          },
           "ActionsBlocking": true,
           "Actions": [
             {
@@ -313,14 +349,52 @@
               "AttackType": "Ability1"
             },
             {
+              "Type": "Timeout",
+              "Delay": [ 3, 3 ]
+            },
+            {
               "Type": "TimerRestart",
               "Name": "Intro_Buildup_Shoot"
             }
           ]
         },
         {
-          "HeadMotion": { "Type": "StormSerpentMatchBodyMotion" }
-        }
+          "Continue": true,
+          "Sensor": {
+            "Type": "Or",
+            "Sensors": [
+              {
+                "Type": "Target",
+                "TargetSlot": "Target_Combat_First_Attacker",
+                "Range": 1000
+              },
+              {
+                "Type": "Target",
+                "TargetSlot": "Target_Combat_Last_Attacker",
+                "Range": 1000
+              },
+              {
+                "Type": "Target",
+                "TargetSlot": "Target_Stalk",
+                "Range": 1000
+              },
+              {
+                "Type": "ReadPosition",
+                "Slot": "Target_Stalk_Last_Seen",
+                "Range": 1000
+              },
+              { "Type": "StormSerpentReadLeashPosition" }
+            ]
+          },
+          "BodyMotion": {
+            "Type": "StormSerpentWander",
+            "Radius": 100,
+            "AltitudeRange": [ 25, 100 ],
+            "UseRelativeAltitude": true,
+            "RelativeSpeed": { "Compute": "IntroBuildupRelativeSpeed" }
+          }
+        },
+        { "HeadMotion": { "Type": "StormSerpentMatchBodyMotion" } }
       ]
     },
     {
@@ -333,8 +407,30 @@
         {
           "Continue": true,
           "Sensor": {
-            "Type": "Player",
-            "Range": 500
+            "Type": "Or",
+            "Sensors": [
+              {
+                "Type": "Target",
+                "TargetSlot": "Target_Combat_First_Attacker",
+                "Range": 1000
+              },
+              {
+                "Type": "Target",
+                "TargetSlot": "Target_Combat_Last_Attacker",
+                "Range": 1000
+              },
+              {
+                "Type": "Target",
+                "TargetSlot": "Target_Stalk",
+                "Range": 1000
+              },
+              {
+                "Type": "ReadPosition",
+                "Slot": "Target_Stalk_Last_Seen",
+                "Range": 1000
+              },
+              { "Type": "StormSerpentReadLeashPosition" }
+            ]
           },
           "BodyMotion": {
             "$Comment": "Encircle the player with an oscillating radius of 16..70 meters",
@@ -361,6 +457,22 @@
               "State": "Combat"
             }
           ]
+        }
+      ]
+    },
+    {
+      "Continue": true,
+      "Sensor": {
+        "Type": "State",
+        "State": "Combat"
+      },
+      "Instructions": [
+        {
+          "Sensor": {
+            "Type": "Damage",
+            "Combat": true,
+            "TargetSlot": "Target_Combat_Last_Attacker"
+          }
         }
       ]
     },
