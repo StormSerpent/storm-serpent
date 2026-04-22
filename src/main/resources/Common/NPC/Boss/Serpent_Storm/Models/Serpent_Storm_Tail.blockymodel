@@ -21,7 +21,7 @@
       "children": [
         {
           "id": "2",
-          "name": "Tail--C1",
+          "name": "Tail1--C1",
           "position": {"x": 0, "y": 0, "z": -82},
           "orientation": {"x": 0, "y": 0, "z": -0.38268, "w": 0.92388},
           "shape": {
@@ -35,34 +35,34 @@
             },
             "textureLayout": {
               "back": {
-                "offset": {"x": 84, "y": 512},
-                "mirror": {"x": false, "y": false},
+                "offset": {"x": 428, "y": 215},
+                "mirror": {"x": true, "y": false},
                 "angle": 0
               },
               "right": {
-                "offset": {"x": 0, "y": 448},
-                "mirror": {"x": false, "y": false},
+                "offset": {"x": 454, "y": 199},
+                "mirror": {"x": true, "y": true},
                 "angle": 0
               },
               "front": {
-                "offset": {"x": 148, "y": 512},
+                "offset": {"x": 364, "y": 215},
                 "mirror": {"x": false, "y": false},
                 "angle": 0
               },
               "left": {
-                "offset": {"x": 164, "y": 448},
-                "mirror": {"x": false, "y": false},
-                "angle": 0
+                "offset": {"x": 355, "y": 381},
+                "mirror": {"x": true, "y": false},
+                "angle": 90
               },
               "top": {
-                "offset": {"x": 392, "y": 612},
+                "offset": {"x": 355, "y": 381},
                 "mirror": {"x": true, "y": true},
                 "angle": 0
               },
               "bottom": {
-                "offset": {"x": 456, "y": 448},
+                "offset": {"x": 454, "y": 199},
                 "mirror": {"x": true, "y": false},
-                "angle": 0
+                "angle": 90
               }
             },
             "unwrapMode": "custom",
@@ -73,7 +73,7 @@
         },
         {
           "id": "3",
-          "name": "Tail--C2",
+          "name": "Tail2--C2",
           "position": {"x": 0, "y": 0, "z": -235},
           "orientation": {"x": 0, "y": 0, "z": -0.38268, "w": 0.92388},
           "shape": {
@@ -87,34 +87,34 @@
             },
             "textureLayout": {
               "back": {
-                "offset": {"x": 212, "y": 512},
+                "offset": {"x": 309, "y": 75},
                 "mirror": {"x": false, "y": false},
                 "angle": 0
               },
               "right": {
-                "offset": {"x": 456, "y": 448},
-                "mirror": {"x": false, "y": false},
+                "offset": {"x": 402, "y": 51},
+                "mirror": {"x": true, "y": true},
                 "angle": 0
               },
               "front": {
-                "offset": {"x": 254, "y": 512},
+                "offset": {"x": 351, "y": 75},
                 "mirror": {"x": false, "y": false},
                 "angle": 0
               },
               "left": {
-                "offset": {"x": 456, "y": 490},
-                "mirror": {"x": false, "y": false},
-                "angle": 0
+                "offset": {"x": 456, "y": 108},
+                "mirror": {"x": true, "y": false},
+                "angle": 90
               },
               "top": {
-                "offset": {"x": 42, "y": 612},
+                "offset": {"x": 456, "y": 108},
                 "mirror": {"x": true, "y": true},
                 "angle": 0
               },
               "bottom": {
-                "offset": {"x": 84, "y": 512},
+                "offset": {"x": 402, "y": 51},
                 "mirror": {"x": true, "y": false},
-                "angle": 0
+                "angle": 90
               }
             },
             "unwrapMode": "custom",
@@ -125,7 +125,7 @@
         },
         {
           "id": "4",
-          "name": "cube--C3",
+          "name": "Flap1--C3",
           "position": {"x": 0, "y": 0, "z": -81},
           "orientation": {"x": 0.69035, "y": -0.15305, "z": -0.15305, "w": 0.69035},
           "shape": {
@@ -153,7 +153,7 @@
         },
         {
           "id": "5",
-          "name": "cube--C4",
+          "name": "Flap2--C4",
           "position": {"x": 0, "y": 0, "z": -81},
           "orientation": {"x": 0.69035, "y": 0.15305, "z": 0.15305, "w": 0.69035},
           "shape": {
