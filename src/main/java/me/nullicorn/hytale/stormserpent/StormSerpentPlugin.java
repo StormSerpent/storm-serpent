@@ -43,6 +43,8 @@ public final class StormSerpentPlugin extends JavaPlugin {
 //        this.getEntityStoreRegistry().registerSystem(new StormSerpentBossBarHudSystem());
         this.getEntityStoreRegistry().registerSystem(new StormSerpentBurrowSystems.EnterBurrowBoneTickingSystem());
         this.getEntityStoreRegistry().registerSystem(new StormSerpentHealthSystems.DamageSystem());
+        this.getEntityStoreRegistry().registerSystem(new StormSerpentHealthSystems.CopyHealthPreRegenSystem());
+        this.getEntityStoreRegistry().registerSystem(new StormSerpentHealthSystems.RestoreHealthPostRegenSystem());
 
         SerpentJointSolver.CODEC.register(EnteringBurrowJointSolver.COMPONENT_ID, EnteringBurrowJointSolver.class, EnteringBurrowJointSolver.CODEC);
 
