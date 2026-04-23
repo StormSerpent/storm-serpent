@@ -64,7 +64,7 @@
                     "angle": 0
                   },
                   "front": {
-                    "offset": {"x": 892, "y": 824},
+                    "offset": {"x": 892, "y": 721},
                     "mirror": {"x": false, "y": false},
                     "angle": 0
                   },
@@ -187,11 +187,11 @@
                       "orientation": {"x": 0.30071, "y": 0, "z": 0, "w": 0.95371},
                       "shape": {
                         "type": "box",
-                        "offset": {"x": 0, "y": 1.62134, "z": 8.77281},
+                        "offset": {"x": 0, "y": 2.12134, "z": 8.27281},
                         "stretch": {"x": 1, "y": 1, "z": 1},
                         "settings": {
                           "isPiece": false,
-                          "size": {"x": 150, "y": 94, "z": 84},
+                          "size": {"x": 150, "y": 93, "z": 83},
                           "isStaticBox": true
                         },
                         "textureLayout": {
@@ -201,7 +201,7 @@
                             "angle": 0
                           },
                           "right": {
-                            "offset": {"x": 306, "y": 450},
+                            "offset": {"x": 307, "y": 450},
                             "mirror": {"x": false, "y": false},
                             "angle": 0
                           },
@@ -221,7 +221,7 @@
                             "angle": 0
                           },
                           "bottom": {
-                            "offset": {"x": 454, "y": 178},
+                            "offset": {"x": 454, "y": 179},
                             "mirror": {"x": true, "y": false},
                             "angle": 0
                           }
@@ -410,11 +410,11 @@
                         {
                           "id": "12",
                           "name": "Eye_Center--C3",
-                          "position": {"x": 65, "y": 5, "z": 78.5},
+                          "position": {"x": 66, "y": 11.28447, "z": 68.13711},
                           "orientation": {"x": 0.10887, "y": 0, "z": 0, "w": 0.99406},
                           "shape": {
                             "type": "box",
-                            "offset": {"x": 0, "y": 3.89256, "z": -11.47746},
+                            "offset": {"x": 0, "y": 0, "z": 0},
                             "stretch": {"x": 1, "y": 1, "z": 1},
                             "settings": {
                               "isPiece": false,
@@ -487,8 +487,8 @@
                             "angle": 0
                           },
                           "front": {
-                            "offset": {"x": 492, "y": 326},
-                            "mirror": {"x": false, "y": false},
+                            "offset": {"x": 596, "y": 500},
+                            "mirror": {"x": true, "y": false},
                             "angle": 0
                           },
                           "left": {
@@ -497,13 +497,13 @@
                             "angle": 0
                           },
                           "top": {
-                            "offset": {"x": 337, "y": 651},
-                            "mirror": {"x": true, "y": true},
+                            "offset": {"x": 59, "y": 651},
+                            "mirror": {"x": false, "y": true},
                             "angle": 0
                           },
                           "bottom": {
-                            "offset": {"x": 676, "y": 413},
-                            "mirror": {"x": true, "y": false},
+                            "offset": {"x": 139, "y": 592},
+                            "mirror": {"x": false, "y": false},
                             "angle": 0
                           }
                         },
@@ -648,7 +648,7 @@
                             "angle": 0
                           },
                           "left": {
-                            "offset": {"x": 507, "y": 900},
+                            "offset": {"x": 298, "y": 889},
                             "mirror": {"x": false, "y": false},
                             "angle": 0
                           },
