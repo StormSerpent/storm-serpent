@@ -5,7 +5,7 @@
   "Parameters": {
     "_ImportStates": [ "NextState" ],
     "MaxLaunches": {
-      "Value": [ 5, 5 ],
+      "Value": [ 3, 4 ],
       "Description": "Number of times to repeat the attack"
     },
     "InitialDiveRelativeSpeed": {
@@ -13,6 +13,9 @@
     },
     "EnterBurrowRelativeSpeed": {
       "Value": 2.5
+    },
+    "StayBurrowedDuration": {
+      "Value": [ 0.75, 1.25 ]
     }
   },
   "Content": {
@@ -82,7 +85,7 @@
             "Actions": [
               {
                 "Type": "State",
-                "State": ".InBurrow"
+                "State": ".InBurrowDelay"
               }
             ]
           },
@@ -97,7 +100,26 @@
         ]
       },
       {
-        "$Comment": "Step 3: Teleport to a new spot and exit the burrow",
+        "$Comment": "Step 3: Wait in the burrow for a random amount of time",
+        "Continue": true,
+        "Sensor": {
+          "Type": "State",
+          "State": ".InBurrowDelay"
+        },
+        "ActionsBlocking": true,
+        "Actions": [
+          {
+            "Type": "Timeout",
+            "Delay": { "Compute": "StayBurrowedDuration" }
+          },
+          {
+            "Type": "State",
+            "State": ".InBurrow"
+          }
+        ]
+      },
+      {
+        "$Comment": "Step 4: Teleport to a new spot and exit the burrow",
         "Continue": true,
         "Sensor": {
           "Type": "State",
@@ -165,6 +187,7 @@
         ]
       },
       {
+        "$Comment": "Step 5: Launch at the target in an arc, then burrow back into the ground",
         "Continue": true,
         "Sensor": {
           "Type": "State",
@@ -231,6 +254,7 @@
         ]
       },
       {
+        "$Comment": "Step 6: Reset our state and transfer control back to the role",
         "Continue": true,
         "Sensor": {
           "Type": "State",
