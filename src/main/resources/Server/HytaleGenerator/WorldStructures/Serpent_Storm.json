@@ -2,22 +2,22 @@
   "Type": "NoiseRange",
   "Biomes": [
     {
-      "Biome": "Pillars",
+      "Biome": "Serpent_Storm_Pillars",
       "Min": -1,
       "Max": -0.45
     },
     {
-      "Biome": "Dunes",
+      "Biome": "Serpent_Storm_Dunes",
       "Min": -0.45,
       "Max": 0
     },
     {
-      "Biome": "Ocean",
+      "Biome": "Serpent_Storm_Ocean",
       "Min": 0,
       "Max": 1
     }
   ],
-  "DefaultBiome": "Ocean",
+  "DefaultBiome": "Serpent_Storm_Ocean",
   "DefaultTransitionDistance": 32,
   "MaxBiomeEdgeDistance": 32,
   "Density": {

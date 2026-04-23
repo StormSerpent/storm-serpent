@@ -2674,7 +2674,7 @@
 	"EnvironmentProvider":	{
 		"$NodeId":	"Constant.EnvironmentProvider-d3210a34-91ec-44bf-9242-91b35044c913",
 		"Type":	"Constant",
-		"Environment":	"Env_Pillars"
+		"Environment":	"Env_Serpent_Storm_Pillars"
 	},
 	"TintProvider":	{
 		"$NodeId":	"Constant.TintProvider-42256c6d-e1f4-44ce-bbb4-f70ac95887d7",

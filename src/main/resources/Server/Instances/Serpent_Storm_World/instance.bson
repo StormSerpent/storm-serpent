@@ -21,7 +21,7 @@
   "IsSavingPlayers": true,
   "WorldGen": {
     "Type": "HytaleGenerator",
-    "WorldStructure": "Default"
+    "WorldStructure": "Serpent_Storm"
   },
   "IsSpawnMarkersEnabled": true,
   "DeleteOnRemove": false,

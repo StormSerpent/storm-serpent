@@ -1,13 +1,8 @@
 {
   "Conditions": {
     "EnvironmentTagPattern": {
-      "Op": "And",
-      "Patterns": [
-        {
-          "Op": "Equals",
-          "Tag": "Deserts"
-        }
-      ]
+      "Op": "Equals",
+      "Tag": "Serpent_Storm=Ambience"
     },
     "Walls": {
       "Min": 0,
@@ -16,6 +11,7 @@
   },
   "AmbientBed": {
     "Track": "Sounds/Environments/Snake_Ambience_Loop.ogg",
-    "Volume": 1.0
-  }
+    "Volume": -5
+  },
+  "Priority": 100
 }
