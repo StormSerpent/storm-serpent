@@ -15,11 +15,8 @@ import com.hypixel.hytale.server.core.universe.world.worldmap.WorldMapManager;
 import com.hypixel.hytale.server.core.universe.world.worldmap.markers.MarkersCollector;
 import com.hypixel.hytale.server.core.util.PositionUtil;
 import me.nullicorn.hytale.stormserpent.StormSerpentPlugin;
-import org.joml.Vector3d;
 
 import javax.annotation.Nonnull;
-import java.util.Map;
-import java.util.UUID;
 
 public final class StormSerpentMapMarkerProvider implements WorldMapManager.MarkerProvider {
     public static final String ID = "stormSerpent";
@@ -37,10 +34,10 @@ public final class StormSerpentMapMarkerProvider implements WorldMapManager.Mark
         @Nonnull final MarkersCollector collector
     ) {
         final var markersResource = world.getEntityStore().getStore().getResource(StormSerpentPlugin.get().getStormSerpentMapMarkersResourceType());
-        for (final Map.Entry<UUID, Vector3d> marker : markersResource.markers.entrySet()) {
-            final String id = MARKER_ID_PREFIX + marker.getKey();
-            final Transform transform = new Transform(PositionUtil.toPositionPacket(marker.getValue()), new Direction());
+        markersResource.forEachMarker((uuid, position) -> {
+            final String id = MARKER_ID_PREFIX + uuid;
+            final Transform transform = new Transform(PositionUtil.toPositionPacket(position), new Direction());
             collector.add(new MapMarker(id, MARKER_NAME, MARKER_ICON_NAME, transform, new ContextMenuItem[]{}, new MapMarkerComponent[]{new TintComponent(MARKER_ICON_TINT)}));
-        }
+        });
     }
 }

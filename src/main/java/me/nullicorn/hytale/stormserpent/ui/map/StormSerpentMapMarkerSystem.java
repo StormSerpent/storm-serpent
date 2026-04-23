@@ -10,12 +10,14 @@ import com.hypixel.hytale.component.spatial.SpatialResource;
 import com.hypixel.hytale.component.system.tick.TickingSystem;
 import com.hypixel.hytale.server.core.entity.UUIDComponent;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import me.nullicorn.hytale.stormserpent.StormSerpentPlugin;
 import me.nullicorn.hytale.stormserpent.system.StormSerpentSpatialSystem;
 import org.joml.Vector3d;
 
 import javax.annotation.Nonnull;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 public class StormSerpentMapMarkerSystem extends TickingSystem<EntityStore> {
     private final ResourceType<EntityStore, SpatialResource<Ref<EntityStore>, EntityStore>> spatialResourceType;
@@ -35,9 +37,10 @@ public class StormSerpentMapMarkerSystem extends TickingSystem<EntityStore> {
     @Override
     public void tick(final float dt, final int systemIndex, @Nonnull final Store<EntityStore> store) {
         final var spatialResource = store.getResource(this.spatialResourceType);
-        final var markersResource = store.getResource(StormSerpentPlugin.get().getStormSerpentMapMarkersResourceType());
-
         final var spatialData = spatialResource.getSpatialData();
+        final var markersResource = store.getResource(StormSerpentMapMarkersResource.getResourceType());
+
+        final Map<UUID, Vector3d> markers = new HashMap<>();
         for (int i = 0; i < spatialData.size(); i++) {
             final Ref<EntityStore> ref = spatialData.getData(i);
             final UUIDComponent uuidComponent = store.getComponent(ref, UUIDComponent.getComponentType());
@@ -46,7 +49,8 @@ public class StormSerpentMapMarkerSystem extends TickingSystem<EntityStore> {
             }
 
             final Vector3d position = spatialData.getVector(i);
-            markersResource.markers.put(uuidComponent.getUuid(), new Vector3d(position));
+            markers.put(uuidComponent.getUuid(), new Vector3d(position));
         }
+        markersResource.setMarkers(markers);
     }
 }
