@@ -36,8 +36,8 @@
             "textureLayout": {
               "back": {
                 "offset": {"x": 170, "y": 105},
-                "mirror": {"x": true, "y": true},
-                "angle": 90
+                "mirror": {"x": false, "y": false},
+                "angle": 270
               },
               "right": {
                 "offset": {"x": 135, "y": 102},
@@ -1558,7 +1558,7 @@
             "unwrapMode": "custom",
             "visible": true,
             "doubleSided": true,
-            "shadingMode": "flat"
+            "shadingMode": "fullbright"
           }
         },
         {
