@@ -17,11 +17,11 @@
       "Description": "How long to wait before switching from Stalk to Idle when no targets are visible"
     },
     "IntroBuildupShootInterval": {
-      "Value": [ 2, 4 ],
+      "Value": [ 1.25, 2.25 ],
       "Description": "Interval between shooting during the Intro Buildup state"
     },
     "IntroBuildupDuration": {
-      "Value": [ 12, 12 ],
+      "Value": [ 16, 18 ],
       "Description": "How long to stay in the Intro Buildup state before switching to Intro Transition"
     },
     "IntroTransitionDuration": {
@@ -350,7 +350,7 @@
             },
             {
               "Type": "Timeout",
-              "Delay": [ 3, 3 ]
+              "Delay": [ 4.75, 4.75 ]
             },
             {
               "Type": "TimerRestart",
