@@ -31,3 +31,10 @@ jobs:
 
       - name: Build with Gradle
         run: ./gradlew build
+
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: StormSerpent
+          path: build/libs
