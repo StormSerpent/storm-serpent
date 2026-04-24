@@ -17,6 +17,7 @@ import com.hypixel.hytale.server.core.modules.entitystats.asset.DefaultEntitySta
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import me.nullicorn.hytale.stormserpent.StormSerpentPlugin;
+import me.nullicorn.hytale.stormserpent.component.StormSerpent;
 import me.nullicorn.hytale.stormserpent.system.StormSerpentSpatialSystem;
 
 import javax.annotation.Nonnull;
@@ -47,25 +48,29 @@ public final class StormSerpentBossBarHudSystem extends EntityTickingSystem<Enti
         @Nonnull final Store<EntityStore> store,
         @Nonnull final CommandBuffer<EntityStore> commandBuffer
     ) {
-        final var spatialResource = commandBuffer.getResource(StormSerpentPlugin.get().getStormSerpentSpatialResourceType());
-        if (spatialResource.getSpatialData().size() == 0) {
+        final var serpentSpatialResource = commandBuffer.getResource(StormSerpentPlugin.get().getStormSerpentSpatialResourceType());
+        final var player = archetypeChunk.getComponent(index, Player.getComponentType());
+        final var playerRef = archetypeChunk.getComponent(index, PlayerRef.getComponentType());
+        final var playerTransform = archetypeChunk.getComponent(index, TransformComponent.getComponentType());
+        assert player != null && playerRef != null && playerTransform != null;
+        final var hudManager = player.getHudManager();
+
+        if (serpentSpatialResource.getSpatialData().size() == 0) {
+            removeBossBarHud(hudManager, playerRef);
             return;
         }
 
-        final Player player = archetypeChunk.getComponent(index, Player.getComponentType());
-        final PlayerRef playerRef = archetypeChunk.getComponent(index, PlayerRef.getComponentType());
-        final TransformComponent playerTransform = archetypeChunk.getComponent(index, TransformComponent.getComponentType());
-        assert player != null && playerRef != null && playerTransform != null;
-
-        final var hudManager = player.getHudManager();
-        final Ref<EntityStore> serpentRef = spatialResource.getSpatialStructure().closest(playerTransform.getPosition());
+        final Ref<EntityStore> serpentRef = serpentSpatialResource.getSpatialStructure().closest(playerTransform.getPosition());
         if (serpentRef != null && serpentRef.isValid()) {
-            final Float serpentHealth = tryGetHealthPercent(serpentRef, commandBuffer);
-            if (serpentHealth != null) {
-                final var bossBarHud = ensureBossBarHud(hudManager, playerRef);
-                bossBarHud.set(serpentHealth);
-                bossBarHud.tick(dt * INTERPOLATION_RATE);
-                return;
+            final var stormSerpent = store.getComponent(serpentRef, StormSerpent.getComponentType());
+            if (stormSerpent != null && stormSerpent.inCombat) {
+                final Float serpentHealth = tryGetHealthPercent(serpentRef, commandBuffer);
+                if (serpentHealth != null) {
+                    final var bossBarHud = ensureBossBarHud(hudManager, playerRef);
+                    bossBarHud.set(serpentHealth);
+                    bossBarHud.tick(dt * INTERPOLATION_RATE);
+                    return;
+                }
             }
         }
         removeBossBarHud(hudManager, playerRef);
