@@ -72,15 +72,15 @@ public final class StormSerpentPlugin extends JavaPlugin {
         this.mapMarkersResourceType = this.getEntityStoreRegistry().registerResource(StormSerpentMapMarkersResource.class, StormSerpentMapMarkersResource::new);
         this.getEventRegistry().registerGlobal(AddWorldEvent.class, this::onWorldLoaded);
 
-        this.getEntityStoreRegistry().registerSystem(new StormSerpentSpawnSystems.BoneHolderSystem());
+        this.getEntityStoreRegistry().registerSystem(new StormSerpentSpatialSystem(this.spatialResourceType));
+        this.getEntityStoreRegistry().registerSystem(new StormSerpentMapMarkerSystem(this.spatialResourceType));
         this.getEntityStoreRegistry().registerSystem(new StormSerpentBossBarHudSystem());
+        this.getEntityStoreRegistry().registerSystem(new StormSerpentMusicSystem());
+        this.getEntityStoreRegistry().registerSystem(new StormSerpentSpawnSystems.BoneHolderSystem());
         this.getEntityStoreRegistry().registerSystem(new StormSerpentBurrowSystems.EnterBurrowBoneTickingSystem());
         this.getEntityStoreRegistry().registerSystem(new StormSerpentHealthSystems.DamageSystem());
         this.getEntityStoreRegistry().registerSystem(new StormSerpentHealthSystems.CopyHealthPreRegenSystem());
         this.getEntityStoreRegistry().registerSystem(new StormSerpentHealthSystems.RestoreHealthPostRegenSystem());
-        this.getEntityStoreRegistry().registerSystem(new StormSerpentSpatialSystem(this.spatialResourceType));
-        this.getEntityStoreRegistry().registerSystem(new StormSerpentMapMarkerSystem(this.spatialResourceType));
-        this.getEntityStoreRegistry().registerSystem(new StormSerpentMusicSystem());
 
         SerpentJointSolver.CODEC.register(EnteringBurrowJointSolver.COMPONENT_ID, EnteringBurrowJointSolver.class, EnteringBurrowJointSolver.CODEC);
 
