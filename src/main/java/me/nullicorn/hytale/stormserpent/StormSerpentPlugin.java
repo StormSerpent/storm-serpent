@@ -76,7 +76,8 @@ public final class StormSerpentPlugin extends JavaPlugin {
         this.getEntityStoreRegistry().registerSystem(new StormSerpentMapMarkerSystem(this.spatialResourceType));
         this.getEntityStoreRegistry().registerSystem(new StormSerpentBossBarHudSystem());
         this.getEntityStoreRegistry().registerSystem(new StormSerpentMusicSystem());
-        this.getEntityStoreRegistry().registerSystem(new StormSerpentSpawnSystems.BoneHolderSystem());
+        this.getEntityStoreRegistry().registerSystem(new StormSerpentSpawnSystems.RoleReloadSystem());
+        this.getEntityStoreRegistry().registerSystem(new StormSerpentSpawnSystems.BoneSpawnSystem());
         this.getEntityStoreRegistry().registerSystem(new StormSerpentBurrowSystems.EnterBurrowBoneTickingSystem());
         this.getEntityStoreRegistry().registerSystem(new StormSerpentHealthSystems.DamageSystem());
         this.getEntityStoreRegistry().registerSystem(new StormSerpentHealthSystems.CopyHealthPreRegenSystem());
