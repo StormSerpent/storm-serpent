@@ -20,7 +20,10 @@ jobs:
         with:
           repository: StormSerpent/storm-serpent-music
           token: ${{ secrets.MUSIC_PAT }}
-          path: src/main/resources # Inject the external assets in resource directory
+          path: music-assets
+
+      - name: Copy music assets into src/main/resources/
+        run: cp -R music-assets/* src/main/resources/
 
       - name: Set up JDK
         uses: actions/setup-java@v5
@@ -31,7 +34,6 @@ jobs:
 
       - name: Build with Gradle
         run: ./gradlew build
-
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
