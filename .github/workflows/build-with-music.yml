@@ -19,6 +19,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: StormSerpent/storm-serpent-music
+          token: ${{ secrets.MUSIC_PAT }}
           path: src/main/resources # Inject the external assets in resource directory
 
       - name: Set up JDK
