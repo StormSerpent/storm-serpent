@@ -53,6 +53,7 @@
       "MaxSinkSpeed": 75.0,
       "SpeedChangeDuration": 1.0,
       "DirectionChangeDuration": 1.0,
+      "HeadTurnDuration": 5.0,
       "EpsilonSpeed": 0.01
     }
   ],
@@ -333,7 +334,10 @@
               }
             ]
           },
-          "HeadMotion": { "Type": "Watch" },
+          "HeadMotion": { 
+            "Type": "Watch",
+            "RelativeTurnSpeed": 0.5
+           },
           "BodyMotion": {
             "Type": "StormSerpentWander",
             "Radius": 100,

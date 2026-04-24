@@ -23,6 +23,7 @@ public final class BuilderMotionControllerStormSerpentFly extends BuilderMotionC
     private final DoubleHolder maxSinkSpeed = new DoubleHolder();
     private final DoubleHolder speedChangeDuration = new DoubleHolder();
     private final DoubleHolder directionChangeDuration = new DoubleHolder();
+    private final DoubleHolder headTurnDuration = new DoubleHolder();
 
     @Override
     public Class<? extends MotionController> getClassType() {
@@ -80,6 +81,7 @@ public final class BuilderMotionControllerStormSerpentFly extends BuilderMotionC
         this.getDouble(data, "MaxSinkSpeed", this.maxSinkSpeed, 75.0, DoubleSingleValidator.greaterEqual0(), BuilderDescriptorState.WorkInProgress, "Movement speed when travelling straight downward", null);
         this.getDouble(data, "SpeedChangeDuration", this.speedChangeDuration, 1.0, DoubleSingleValidator.greaterEqual0(), BuilderDescriptorState.WorkInProgress, "How fast to change movement speed", null);
         this.getDouble(data, "DirectionChangeDuration", this.directionChangeDuration, 1.0, DoubleSingleValidator.greaterEqual0(), BuilderDescriptorState.WorkInProgress, "How fast to change movement direction", null);
+        this.getDouble(data, "HeadTurnDuration", this.headTurnDuration, 1.0, DoubleSingleValidator.greaterEqual0(), BuilderDescriptorState.WorkInProgress, "How fast to rotate the head. For body turn speed, use DirectionChangeDuration", null);
         return this;
     }
 
@@ -102,5 +104,9 @@ public final class BuilderMotionControllerStormSerpentFly extends BuilderMotionC
 
     public double getDirectionChangeDuration(final BuilderSupport support) {
         return this.directionChangeDuration.get(support.getExecutionContext());
+    }
+
+    public double getHeadTurnDuration(final BuilderSupport support) {
+        return this.headTurnDuration.get(support.getExecutionContext());
     }
 }

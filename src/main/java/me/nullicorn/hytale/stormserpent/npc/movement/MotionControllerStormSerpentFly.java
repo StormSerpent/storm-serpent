@@ -64,6 +64,7 @@ public final class MotionControllerStormSerpentFly implements MotionController {
      * Unit: seconds
      */
     private final double moveDirectionChangeDuration;
+    private final double headTurnDuration;
     private final double epsilonSpeed;
 
     private Role role;
@@ -89,6 +90,7 @@ public final class MotionControllerStormSerpentFly implements MotionController {
         this.maxSinkSpeed = builder.getMaxSinkSpeed(builderSupport);
         this.moveSpeedChangeDuration = builder.getSpeedChangeDuration(builderSupport);
         this.moveDirectionChangeDuration = builder.getDirectionChangeDuration(builderSupport);
+        this.headTurnDuration = builder.getHeadTurnDuration(builderSupport);
         this.epsilonSpeed = builder.getEpsilonSpeed();
     }
 
@@ -198,13 +200,13 @@ public final class MotionControllerStormSerpentFly implements MotionController {
         }
 
         if (headSteering.hasRollOrDirection()) {
-            headRotation.getRotation().setRoll(headSteering.getRollOrDirection());
+            headRotation.getRotation().setRoll(MathUtil.lerpAngle(headRotation.getRotation().roll(), headSteering.getRollOrDirection(), (float) (interval * this.headTurnDuration * headSteering.getRelativeTurnSpeed())));
         }
         if (headSteering.hasPitchOrDirection()) {
-            headRotation.getRotation().setPitch(headSteering.getPitchOrDirection());
+            headRotation.getRotation().setPitch(MathUtil.lerpAngle(headRotation.getRotation().pitch(), headSteering.getPitchOrDirection(), (float) (interval * this.headTurnDuration * headSteering.getRelativeTurnSpeed())));
         }
         if (headSteering.hasYawOrDirection()) {
-            headRotation.getRotation().setYaw(headSteering.getYawOrDirection());
+            headRotation.getRotation().setYaw(MathUtil.lerpAngle(headRotation.getRotation().yaw(), headSteering.getYawOrDirection(), (float) (interval * this.headTurnDuration * headSteering.getRelativeTurnSpeed())));
         }
 
         return interval;
