@@ -1,6 +1,9 @@
 package me.nullicorn.hytale.stormserpent.ui.hud;
 
 import com.hypixel.hytale.component.*;
+import com.hypixel.hytale.component.dependency.Dependency;
+import com.hypixel.hytale.component.dependency.Order;
+import com.hypixel.hytale.component.dependency.SystemDependency;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.component.system.tick.EntityTickingSystem;
 import com.hypixel.hytale.math.util.MathUtil;
@@ -14,12 +17,22 @@ import com.hypixel.hytale.server.core.modules.entitystats.asset.DefaultEntitySta
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import me.nullicorn.hytale.stormserpent.StormSerpentPlugin;
+import me.nullicorn.hytale.stormserpent.system.StormSerpentSpatialSystem;
 
 import javax.annotation.Nonnull;
+import java.util.Set;
 
 public final class StormSerpentBossBarHudSystem extends EntityTickingSystem<EntityStore> {
     private static final String HUD_KEY = "stormSerpentBossBar";
     private static final float INTERPOLATION_RATE = 3.0f;
+
+    @Nonnull
+    @Override
+    public Set<Dependency<EntityStore>> getDependencies() {
+        return Set.of(
+            new SystemDependency<>(Order.AFTER, StormSerpentSpatialSystem.class)
+        );
+    }
 
     @Override
     public Query<EntityStore> getQuery() {
