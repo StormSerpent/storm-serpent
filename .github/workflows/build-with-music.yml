@@ -1,0 +1,32 @@
+name: Build Storm Serpent
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # Give the workflow permission to read other repos in the Org
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Checkout music assets
+        uses: actions/checkout@v6
+        with:
+          repository: StormSerpent/storm-serpent-music
+          path: src/main/resources # Inject the external assets in resource directory
+
+      - name: Set up JDK
+        uses: actions/setup-java@v5
+        with:
+          java-version: '25'
+          distribution: 'temurin'
+          cache: 'gradle'
+
+      - name: Build with Gradle
+        run: ./gradlew build
