@@ -21,7 +21,6 @@ repositories {
 
 dependencies {
     implementation("com.hypixel.hytale:Server:2026.04.23-3f4475f43")
-    implementation("me.nullicorn:serpentine:0.1.0-SNAPSHOT")
 }
 
 val pluginProcessResourcesTask = tasks.register<Copy>("pluginProcessResources") {
@@ -70,8 +69,6 @@ fun runServer(task: JavaExec, vararg extraArgs: String) {
     task.mainClass = "com.hypixel.hytale.Main"
     task.args = listOf(
         "--assets", hytaleAssetsZip.path,
-        // Load the Serpentine mod jar, which our mod depends on.
-        "--mods", layout.projectDirectory.dir("libs/serpentine/build/libs/").asFile.path,
         // Load our mod jar.
         "--mods", layout.buildDirectory.get().dir("libs/").asFile.path,
         // Load our mod asset pack.

@@ -1,16 +1,6 @@
-# hytale-wip-mod
+# Storm Serpent
 
 ## Development
-
-### Cloning
-
-Use `--recurse-submodules` when cloning the repository:
-
-```shell
-git clone --recurse-submodules git@github.com:TheNullicorn/hytale-wip-mod.git
-```
-
-This project uses git submodules to include the Serpentine plugin, found under `libs/serpentine/`.
 
 ### Running a local development server
 
@@ -32,7 +22,7 @@ used to validate and provide suggestions while you type in JSON assets.
 This repository uses multiple licenses. See NOTICE for the authoritative breakdown.
 
 - Code: MIT (see [LICENSE.md](LICENSE.md))
-- Serpentine submodule: MIT (see [libs/serpentine/LICENSE.md](libs/serpentine/LICENSE.md))
+- Serpentine submodule: MIT (see [TheNullicorn/serpentine/LICENSE.md](https://github.com/TheNullicorn/serpentine/blob/main/LICENSE.md))
 - Sound effects (SFX & Ambience): CC BY 4.0 (see [`src/main/resources/Common/Sounds/LICENSE`](src/main/resources/Common/Sounds/LICENSE))
 - Storm Serpent UI assets (map markers + boss healthbar): CC BY 4.0 (see [`src/main/resources/Common/UI/LICENSE`](src/main/resources/Common/UI/LICENSE))
 - Music: All Rights Reserved (not stored in this repo)

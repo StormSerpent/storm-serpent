@@ -1,6 +1,6 @@
 {
-  "Group": "Nullicorn",
-  "Name": "Wip",
+  "Group": "StormSerpent",
+  "Name": "StormSerpent",
   "Version": "0.1.0-SNAPSHOT",
   "Description": "",
   "Authors": [],
@@ -8,7 +8,7 @@
   "ServerVersion": "2026.04.23-3f4475f43",
   "IncludesAssetPack": true,
   "Dependencies": {
-    "Nullicorn:Serpentine": "0.1.x-SNAPSHOT",
+    "Hytale:EntityModule": "*",
     "Hytale:NPC": "*"
   }
 }
