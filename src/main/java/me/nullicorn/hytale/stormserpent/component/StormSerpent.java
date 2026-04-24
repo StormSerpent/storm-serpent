@@ -15,8 +15,8 @@ public final class StormSerpent implements Component<EntityStore> {
     public static final BuilderCodec<StormSerpent> CODEC = BuilderCodec.builder(StormSerpent.class, StormSerpent::new)
         .build();
 
+    public boolean inCombat;
     public BurrowStatus burrowStatus = BurrowStatus.NOT_IN_BURROW;
-
     /**
      * The serpent's most recent health value read from its {@link EntityStatMap}.
      * <p>

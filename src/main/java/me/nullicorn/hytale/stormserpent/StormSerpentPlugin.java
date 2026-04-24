@@ -23,6 +23,7 @@ import me.nullicorn.hytale.stormserpent.system.StormSerpentBurrowSystems;
 import me.nullicorn.hytale.stormserpent.system.StormSerpentHealthSystems;
 import me.nullicorn.hytale.stormserpent.system.StormSerpentSpatialSystem;
 import me.nullicorn.hytale.stormserpent.system.StormSerpentSpawnSystems;
+import me.nullicorn.hytale.stormserpent.ui.StormSerpentMusicSystem;
 import me.nullicorn.hytale.stormserpent.ui.hud.StormSerpentBossBarHudSystem;
 import me.nullicorn.hytale.stormserpent.ui.map.StormSerpentMapMarkerProvider;
 import me.nullicorn.hytale.stormserpent.ui.map.StormSerpentMapMarkerSystem;
@@ -79,6 +80,7 @@ public final class StormSerpentPlugin extends JavaPlugin {
         this.getEntityStoreRegistry().registerSystem(new StormSerpentHealthSystems.RestoreHealthPostRegenSystem());
         this.getEntityStoreRegistry().registerSystem(new StormSerpentSpatialSystem(this.spatialResourceType));
         this.getEntityStoreRegistry().registerSystem(new StormSerpentMapMarkerSystem(this.spatialResourceType));
+        this.getEntityStoreRegistry().registerSystem(new StormSerpentMusicSystem());
 
         SerpentJointSolver.CODEC.register(EnteringBurrowJointSolver.COMPONENT_ID, EnteringBurrowJointSolver.class, EnteringBurrowJointSolver.CODEC);
 

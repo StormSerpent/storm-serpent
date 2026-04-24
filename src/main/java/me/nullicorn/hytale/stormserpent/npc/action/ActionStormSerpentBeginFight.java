@@ -7,6 +7,7 @@ import com.hypixel.hytale.server.npc.asset.builder.BuilderSupport;
 import com.hypixel.hytale.server.npc.corecomponents.ActionBase;
 import com.hypixel.hytale.server.npc.role.Role;
 import com.hypixel.hytale.server.npc.sensorinfo.InfoProvider;
+import me.nullicorn.hytale.stormserpent.component.StormSerpent;
 import me.nullicorn.hytale.stormserpent.npc.action.builder.BuilderActionStormSerpentBeginFight;
 
 import javax.annotation.Nonnull;
@@ -32,8 +33,12 @@ public final class ActionStormSerpentBeginFight extends ActionBase {
             return false;
         }
 
-        // TODO: Not yet implemented
+        final StormSerpent stormSerpent = store.getComponent(ref, StormSerpent.getComponentType());
+        if (stormSerpent != null) {
+            stormSerpent.inCombat = true;
+            return true;
+        }
 
-        return true;
+        return false;
     }
 }
