@@ -11,6 +11,8 @@ import me.nullicorn.hytale.stormserpent.component.StormSerpent;
 import me.nullicorn.hytale.stormserpent.component.StormSerpentBone;
 import me.nullicorn.serpentine.component.Serpent;
 import me.nullicorn.serpentine.component.SerpentBone;
+import me.nullicorn.serpentine.solver.DefaultSerpentBoneSolver;
+import me.nullicorn.serpentine.solver.DefaultSerpentJointSolver;
 
 import javax.annotation.Nonnull;
 
@@ -30,10 +32,21 @@ public final class StormSerpentSpawnSystems {
             @Nonnull final AddReason reason,
             @Nonnull final Store<EntityStore> store
         ) {
-            holder.removeComponent(StormSerpent.getComponentType());
-            holder.tryRemoveComponent(StormSerpentBone.getComponentType());
-            holder.tryRemoveComponent(Serpent.getComponentType());
-            holder.tryRemoveComponent(SerpentBone.getComponentType());
+            final StormSerpent stormSerpent = holder.getComponent(StormSerpent.getComponentType());
+            assert stormSerpent != null;
+            if (stormSerpent.burrowStatus != StormSerpent.BurrowStatus.NOT_IN_BURROW) {
+                stormSerpent.burrowStatus = StormSerpent.BurrowStatus.NOT_IN_BURROW;
+
+                final Serpent serpent = holder.getComponent(Serpent.getComponentType());
+                if (serpent != null) {
+                    serpent.setBoneSolver(new DefaultSerpentBoneSolver());
+                    serpent.setJointSolver(new DefaultSerpentJointSolver());
+                    for (final Serpent.Bone bone : serpent.bones()) {
+                        bone.setRef(null);
+                        bone.setAutoSpawn(true);
+                    }
+                }
+            }
         }
 
         @Override
