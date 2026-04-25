@@ -4,6 +4,7 @@ import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.math.util.MathUtil;
 import com.hypixel.hytale.math.util.TrigMathUtil;
+import com.hypixel.hytale.math.vector.Vector3dUtil;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.asset.builder.BuilderSupport;
@@ -69,14 +70,21 @@ public final class BodyMotionSerpentEncircle extends BodyMotionBase {
         assert transform != null;
         final Vector3d currentPosition = transform.getPosition();
         final Vector3d relativePosition = new Vector3d(currentPosition).sub(targetPosition);
-        final double currentHorizontalDistance = relativePosition.length();
+        final double currentHorizontalDistance = new Vector3d(relativePosition.x, 0, relativePosition.z).length();
+
+        final Vector3d relativeDirection = new Vector3d(relativePosition.x, 0, relativePosition.z).normalize();
+        if (!relativeDirection.isFinite()) {
+            // `relativeDirection` can be NaN when the NPC and target are at the same coordinate (like when spawned via
+            // command). In this case we just pick an arbitrary direction.
+            relativeDirection.set(Vector3dUtil.NEG_Z);
+        }
 
         // Get the length of the arc we want to travel along this tick.
         final double maxRotationSpeed = role.getActiveMotionController().getMaximumSpeed() / targetRadius;
         // Move faster the closer we are to the desired radius.
         final double currentRotationSpeed = MathUtil.lerp(0.0, maxRotationSpeed, Math.min(currentHorizontalDistance, targetRadius) / targetRadius);
-        final Vector3d desiredPosition = new Vector3d(relativePosition.x, 0, relativePosition.z)
-            .normalize(targetRadius)
+        final Vector3d desiredPosition = new Vector3d(relativeDirection)
+            .mul(targetRadius)
             .add(0, targetRelativeAltitude, 0)
             .rotateY(currentRotationSpeed * dt * (this.oscillationTime % 60 < 30 ? 1 : -1)) // Periodically flip directions.
             .add(targetPosition);
