@@ -311,42 +311,46 @@
         {
           "$Comment": "Shoot projectiles at hostiles",
           "Sensor": {
-            "Type": "And",
-            "Sensors": [
-              {
-                "Type": "Timer",
-                "Name": "Intro_Buildup_Shoot",
-                "State": "Stopped"
-              },
-              {
-                "Type": "Or",
-                "Sensors": [
-                  {
-                    "Type": "Target",
-                    "TargetSlot": "Target_Combat_First_Attacker",
-                    "Range": 300,
-                    "Filters": [ { "Type": "LineOfSight" } ]
-                  },
-                  {
-                    "Type": "Target",
-                    "TargetSlot": "Target_Combat_Last_Attacker",
-                    "Range": 300,
-                    "Filters": [ { "Type": "LineOfSight" } ]
-                  },
-                  {
-                    "Type": "Target",
-                    "TargetSlot": "Target_Stalk",
-                    "Range": 300,
-                    "Filters": [ { "Type": "LineOfSight" } ]
-                  }
-                ]
-              }
-            ]
+            "Type": "AdjustPosition",
+            "Offset": [ 0, 8, 0 ],
+            "Sensor": {
+              "Type": "And",
+              "Sensors": [
+                {
+                  "Type": "Timer",
+                  "Name": "Intro_Buildup_Shoot",
+                  "State": "Stopped"
+                },
+                {
+                  "Type": "Or",
+                  "Sensors": [
+                    {
+                      "Type": "Target",
+                      "TargetSlot": "Target_Combat_First_Attacker",
+                      "Range": 300,
+                      "Filters": [ { "Type": "LineOfSight" } ]
+                    },
+                    {
+                      "Type": "Target",
+                      "TargetSlot": "Target_Combat_Last_Attacker",
+                      "Range": 300,
+                      "Filters": [ { "Type": "LineOfSight" } ]
+                    },
+                    {
+                      "Type": "Target",
+                      "TargetSlot": "Target_Stalk",
+                      "Range": 300,
+                      "Filters": [ { "Type": "LineOfSight" } ]
+                    }
+                  ]
+                }
+              ]
+            }
           },
-          "HeadMotion": { 
+          "HeadMotion": {
             "Type": "Watch",
             "RelativeTurnSpeed": 0.5
-           },
+          },
           "BodyMotion": {
             "Type": "StormSerpentWander",
             "Radius": 100,
