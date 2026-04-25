@@ -2,6 +2,7 @@
   "Type": "Component",
   "Class": "Instruction",
   "DefaultState": ".Default",
+  "ResetOnStateChange": true,
   "Parameters": {
     "_ImportStates": [ "NextState" ],
     "MaxLaunches": {

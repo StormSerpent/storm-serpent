@@ -1,0 +1,117 @@
+{
+  "Type": "Component",
+  "Class": "Instruction",
+  "ResetOnStateChange": true,
+  "Parameters": {
+    "_ImportStates": [ "NextState" ],
+    "Duration": {
+      "Value": [ 25.0, 35.0 ]
+    }
+  },
+  "Content": {
+    "Instructions": [
+      {
+        "Continue": true,
+        "Sensor": {
+          "Type": "Flag",
+          "Name": "Flag_Barrage_Started",
+          "Set": false
+        },
+        "Actions": [
+          {
+            "Type": "SetFlag",
+            "Name": "Flag_Barrage_Started",
+            "SetTo": true
+          },
+           {
+            "Type": "TimerStart",
+            "Name": "Timer_Barrage",
+            "Repeating": false,
+            "StartValueRange": { "Compute": "Duration" },
+            "RestartValueRange": { "Compute": "Duration" }
+          },
+          {
+            "Type": "TimerRestart",
+            "Name": "Timer_Barrage"
+          }
+        ]
+      },
+      {
+        "Sensor": {
+          "Type": "Timer",
+          "Name": "Timer_Barrage",
+          "State": "Stopped"
+        },
+        "Actions":[
+          {
+            "Type": "SetFlag",
+            "Name": "Flag_Barrage_Started",
+            "SetTo": false
+          },
+          {
+            "Type": "ParentState",
+            "State": "NextState"
+          }
+        ]
+      },
+      {
+        "Sensor": {
+          "Type": "AdjustPosition",
+          "Offset": [ 0, 8, 0 ],
+          "Sensor": {
+            "Type": "Player",
+            "Range": 80,
+            "MinRange": 20,
+            "Filters": [
+              { "Type": "LineOfSight" }
+            ]
+          }
+        },
+        "HeadMotion": {
+          "Type": "Watch",
+          "RelativeTurnSpeed": 2
+        },
+        "BodyMotion": {
+          "Type": "StormSerpentEncircle",
+          "Radius": 45,
+          "RelativeSpeed": 0.25,
+          "RelativeAltitude": 18,
+          "OscillateYAmplitude": 10,
+          "OscillateRadiusAmplitude": 20,
+          "OscillateRadiusFrequency": 0.25
+        },
+        "ActionsBlocking": true,
+        "Actions": [
+          {
+            "Type": "Attack",
+            "Attack": "Root_NPC_Serpent_Storm_Attack",
+            "AttackType": "Ability1"
+          },
+          {
+            "Type": "Timeout",
+            "Delay": [ 4.75, 4.75 ]
+          }
+        ]
+      },
+      {
+        "Sensor": {
+          "Type": "Player",
+          "Range": 300
+        },
+        "HeadMotion": {
+          "Type": "Watch",
+          "RelativeTurnSpeed": 2
+        },
+        "BodyMotion": {
+          "Type": "StormSerpentEncircle",
+          "Radius": 45,
+          "RelativeSpeed": 1.25,
+          "RelativeAltitude": 18,
+          "OscillateYAmplitude": 10,
+          "OscillateRadiusAmplitude": 20,
+          "OscillateRadiusFrequency": 0.25
+        }
+      }
+    ]
+  }
+}

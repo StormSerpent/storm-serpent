@@ -57,6 +57,15 @@
       "EpsilonSpeed": 0.01
     }
   ],
+  "DeathInstruction": {
+    "Actions": [
+      {
+        "Once": true,
+        "Type": "PlaySound",
+        "SoundEventId": "SFX_Serpent_Storm_Shriek"
+      }
+    ]
+  },
   "Instructions": [
     {
       "Continue": true,
@@ -490,7 +499,7 @@
         {
           "$TODO": "Cycle through attacks",
           "Type": "State",
-          "State": "Combat.Ballistic"
+          "State": "Combat.Barrage"
         }
       ]
     },
@@ -504,6 +513,20 @@
           "Reference": "Component_Instruction_Attack_Sequence_Ballistic",
           "Modify": {
             "_ExportStates": [ "Combat.Default" ]
+          }
+        }
+      ]
+    },
+    {
+      "Sensor": {
+        "Type": "State",
+        "State": "Combat.Barrage"
+      },
+      "Instructions": [
+        {
+          "Reference": "Component_Instruction_Attack_Sequence_Barrage",
+          "Modify": {
+            "_ExportStates": [ "Combat.Ballistic" ]
           }
         }
       ]
