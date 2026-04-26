@@ -3,7 +3,13 @@
   "Name": "StormSerpent",
   "Version": "0.1.0-SNAPSHOT",
   "Description": "",
-  "Authors": [],
+  "Authors": [
+    {
+      "Name": "SAMPL3R",
+      "Email": "",
+      "Url": "https://github.com/SamMed05"
+    }
+  ],
   "Main": "me.nullicorn.hytale.stormserpent.StormSerpentPlugin",
   "ServerVersion": "2026.04.23-3f4475f43",
   "IncludesAssetPack": true,
