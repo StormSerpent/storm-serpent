@@ -8,6 +8,11 @@
       "Name": "SAMPL3R",
       "Email": "",
       "Url": "https://github.com/SamMed05"
+    },
+    {
+      "Name": "Nullicorn",
+      "Email": "",
+      "Url": "https://github.com/TheNullicorn"
     }
   ],
   "Main": "me.nullicorn.hytale.stormserpent.StormSerpentPlugin",
