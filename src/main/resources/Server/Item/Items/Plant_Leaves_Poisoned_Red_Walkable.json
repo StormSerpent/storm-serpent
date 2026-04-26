@@ -1,6 +1,6 @@
 {
   "TranslationProperties": {
-    "Name": "server.items.Plant_Leaves_Poisoned_Red_Walkable.name"
+    "Name": "storm_serpent_server.items.Plant_Leaves_Poisoned_Red_Walkable.name"
   },
   "Parent": "Plant_Leaves_Oak",
   "Icon": "Icons/ItemsGenerated/Plant_Leaves_Poisoned_Red_Walkable.png",

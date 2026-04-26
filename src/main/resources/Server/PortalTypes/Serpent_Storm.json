@@ -1,0 +1,9 @@
+{
+  "InstanceId": "Serpent_Storm_World",
+  "Description": {
+    "DisplayName": "storm_serpent_server.portals.Serpent_Storm.name",
+    "FlavorText": "storm_serpent_server.portals.Serpent_Storm.description",
+    "ThemeColor": "#2314b89a",
+    "SplashImage": "DefaultArtwork.png"
+  }
+}

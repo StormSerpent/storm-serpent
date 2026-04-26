@@ -1,0 +1,58 @@
+{
+  "TranslationProperties": {
+    "Name": "storm_serpent_server.items.PortalKey_Serpent_Storm.name",
+    "Description": "storm_serpent_server.items.PortalKey_Serpent_Storm.description"
+  },
+  "Icon": "Icons/Items/PortalKey_Serpent_Storm.png",
+  "Categories": [
+    "Blocks.Portals"
+  ],
+  "PortalKey": {
+    "PortalType": "Serpent_Storm",
+    "TimeLimitSeconds": 600
+  },
+  "PlayerAnimationsId": "Item",
+  "Tags": {
+    "Type": [
+      "Portal",
+      "Temporary"
+    ]
+  },
+  "Quality": "Rare",
+  "ItemLevel": 51,
+  "IconProperties": {
+    "Scale": 1.4,
+    "Rotation": [
+      22.5,
+      137.0,
+      22.5
+    ],
+    "Translation": [
+      0.0,
+      1.0
+    ]
+  },
+  "Model": "Blocks/Miscellaneous/Portal_Shard.blockymodel",
+  "Texture": "Items/PortalKey_Serpent_Storm.png",
+  "Light": {
+    "Color": "#b7d",
+    "Radius": 2
+  },
+  "BlockType": {
+    "DrawType": "Model",
+    "Material": "Empty",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/Miscellaneous/Portal_Shard.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Items/PortalKey_Serpent_Storm.png",
+        "Weight": 1
+      }
+    ],
+    "Gathering": {
+      "Soft": {
+        "IsWeaponBreakable": false
+      }
+    }
+  }
+}

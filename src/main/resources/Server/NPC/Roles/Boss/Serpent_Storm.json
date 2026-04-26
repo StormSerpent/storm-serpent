@@ -2,7 +2,7 @@
   "Type": "Generic",
   "StartState": "Idle",
   "Appearance": "Serpent_Storm_Head",
-  "NameTranslationKey": "server.npcRoles.Serpent_Storm",
+  "NameTranslationKey": "storm_serpent_server.npcRoles.Serpent_Storm",
   "DefaultNPCAttitude": "Ignore",
   "DefaultPlayerAttitude": "Neutral",
   "MaxHealth": 2000,

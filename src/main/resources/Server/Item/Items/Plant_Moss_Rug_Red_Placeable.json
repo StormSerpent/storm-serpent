@@ -1,6 +1,6 @@
 {
   "TranslationProperties": {
-    "Name": "server.items.Plant_Moss_Rug_Red.name"
+    "Name": "storm_serpent_server.items.Plant_Moss_Rug_Red.name"
   },
   "Icon": "Icons/ItemsGenerated/Plant_Moss_Rug_Red_Placeable.png",
   "Parent": "Plant_Moss_Rug_Green",

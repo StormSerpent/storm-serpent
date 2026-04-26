@@ -75,7 +75,7 @@
           "Type": "StormSerpentEncircle",
           "Radius": 45,
           "RelativeSpeed": 0.25,
-          "RelativeAltitude": 18,
+          "RelativeAltitude": 24,
           "OscillateYAmplitude": 10,
           "OscillateRadiusAmplitude": 20,
           "OscillateRadiusFrequency": 0.25
@@ -106,7 +106,7 @@
           "Type": "StormSerpentEncircle",
           "Radius": 45,
           "RelativeSpeed": 1.25,
-          "RelativeAltitude": 18,
+          "RelativeAltitude": 24,
           "OscillateYAmplitude": 10,
           "OscillateRadiusAmplitude": 20,
           "OscillateRadiusFrequency": 0.25

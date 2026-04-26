@@ -1,0 +1,9 @@
+items.Fluid_Water_Glowing.name = Glowing Water
+items.Plant_Leaves_Poisoned_Red_Walkable.name = Poisoned Leaves Red Solid
+items.Plant_Moss_Rug_Red.name = Red Moss Rug Custom
+items.Prototype_Geyser_Custom.name = Prototype Geyser Spawner Custom
+items.PortalKey_Serpent_Storm.name = Fragment: Orbis - Storm Serpent's Atoll
+items.PortalKey_Serpent_Storm.description = <msg key="server.items.PortalKey.description"/>\n\n<i>An electric archipelago where the land stands on end, and a sentinel beast stalks its nest.</i>
+portals.Serpent_Storm.name = Storm Serpent's Atoll
+portals.Serpent_Storm.description = An electric archipelago where the land stands on end, and a sentinel beast stalks its nest.
+npcRoles.Serpent_Storm = Storm Serpent
