@@ -36,8 +36,8 @@
             "textureLayout": {
               "back": {
                 "offset": {"x": 170, "y": 105},
-                "mirror": {"x": false, "y": false},
-                "angle": 270
+                "mirror": {"x": true, "y": true},
+                "angle": 90
               },
               "right": {
                 "offset": {"x": 135, "y": 102},
@@ -73,7 +73,7 @@
         },
         {
           "id": "3",
-          "name": "bone16",
+          "name": "bead_r",
           "position": {"x": -22.48102, "y": 49.22673, "z": 0.21281},
           "orientation": {"x": 0.52586, "y": -0.06115, "z": 0.408, "w": 0.74382},
           "shape": {
@@ -144,7 +144,7 @@
             },
             {
               "id": "5",
-              "name": "bone17",
+              "name": "bead2_r",
               "position": {"x": -19.18176, "y": 22.76, "z": -28.20019},
               "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
               "shape": {
@@ -215,7 +215,7 @@
                 },
                 {
                   "id": "7",
-                  "name": "bone20",
+                  "name": "bone42",
                   "position": {"x": -30.13968, "y": 16.52904, "z": -7.30339},
                   "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
                   "shape": {
@@ -651,7 +651,7 @@
         },
         {
           "id": "22",
-          "name": "bone39",
+          "name": "bead_l",
           "position": {"x": 24.48102, "y": 50.22673, "z": 0.21281},
           "orientation": {"x": 0.52586, "y": 0.06115, "z": -0.408, "w": 0.74382},
           "shape": {
@@ -722,7 +722,7 @@
             },
             {
               "id": "24",
-              "name": "bone43",
+              "name": "bead2_l",
               "position": {"x": 19.06481, "y": 21.97472, "z": -27.02986},
               "orientation": {"x": 0.17071, "y": 0.17374, "z": -0.08752, "w": 0.96592},
               "shape": {
