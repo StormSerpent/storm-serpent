@@ -30,6 +30,22 @@
     }
   },
   "AnimationSets": {
+    "Idle": {
+      "Animations": [
+        {
+          "Animation": "NPC/Boss/Serpent_Storm/Animations/Idle.blockyanim",
+          "Looping": true
+        }
+      ]
+    },
+    "Hurt": {
+      "Animations": [
+        {
+          "Animation": "NPC/Boss/Serpent_Storm/Animations/Shake.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
     "Shoot_Electric": {
       "Animations": [
         {

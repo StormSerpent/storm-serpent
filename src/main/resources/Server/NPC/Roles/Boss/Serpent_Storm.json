@@ -251,7 +251,7 @@
         {
           "Type": "PlayAnimation",
           "Animation": "Shriek_Engaged",
-          "Slot": "Status"
+          "Slot": "Face"
         },
         {
           "Type": "State",
