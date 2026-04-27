@@ -33,6 +33,34 @@
       1.0
     ]
   },
+  "Recipe": {
+    "TimeSeconds": 1,
+    "KnowledgeRequired": false,
+    "Input": [
+      {
+        "ItemId": "Wood_Crystal_Trunk",
+        "Quantity": 30
+      },
+      {
+        "ItemId": "Ingredient_Crystal_Pink",
+        "Quantity": 75
+      },
+      {
+        "ItemId": "Plant_Moss_Red",
+        "Quantity": 30
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Arcanebench",
+        "Type": "Crafting",
+        "Categories": [
+          "Arcane_Portals"
+        ]
+      }
+    ],
+    "RequiredMemoriesLevel": 5
+  },
   "Model": "Blocks/Miscellaneous/Portal_Shard.blockymodel",
   "Texture": "Items/PortalKey_Serpent_Storm.png",
   "Light": {
