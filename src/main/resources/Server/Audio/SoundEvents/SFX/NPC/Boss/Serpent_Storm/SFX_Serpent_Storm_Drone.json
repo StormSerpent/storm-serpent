@@ -1,0 +1,14 @@
+{
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/NPC/Boss/Serpent_Storm/Drone_Loop.ogg"
+      ],
+      "Looping": true
+    }
+  ],
+  "MaxDistance": 80,
+  "StartAttenuationDistance": 20,
+  "MusicDuckingVolume": 0,
+  "Volume": -3
+}

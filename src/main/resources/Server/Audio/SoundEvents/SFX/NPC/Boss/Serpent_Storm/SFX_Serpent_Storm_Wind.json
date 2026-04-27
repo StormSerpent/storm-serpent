@@ -1,0 +1,15 @@
+{
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/Movement/Glider/Glider_Motion_Loop_01.ogg"
+      ],
+      "Looping": true
+    }
+  ],
+  "MaxDistance": 50,
+  "StartAttenuationDistance": 20,
+  "MusicDuckingVolume": 0,
+  "Volume": -10,
+  "SpatialBlend": 1
+}

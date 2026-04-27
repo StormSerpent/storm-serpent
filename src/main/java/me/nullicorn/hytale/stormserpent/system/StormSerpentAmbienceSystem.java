@@ -28,8 +28,9 @@ public class StormSerpentAmbienceSystem extends EntityTickingSystem<EntityStore>
         @Nonnull final Store<EntityStore> store,
         @Nonnull final CommandBuffer<EntityStore> commandBuffer
     ) {
-        final int soundEventIndex = SoundEvent.getAssetMap().getIndex("SFX_Serpent_Storm_Drone");
-        if (soundEventIndex == IndexedAssetMap.NOT_FOUND) {
+        final int droneSfxIndex = SoundEvent.getAssetMap().getIndex("SFX_Serpent_Storm_Drone");
+        final int windSfxIndex = SoundEvent.getAssetMap().getIndex("SFX_Serpent_Storm_Wind");
+        if (droneSfxIndex == IndexedAssetMap.NOT_FOUND || windSfxIndex == IndexedAssetMap.NOT_FOUND) {
             return;
         }
 
@@ -37,6 +38,7 @@ public class StormSerpentAmbienceSystem extends EntityTickingSystem<EntityStore>
         //       tick, for every bone. This is temporary, just to get things working.
         final var networkId = archetypeChunk.getComponent(index, NetworkId.getComponentType());
         assert networkId != null;
-        SoundUtil.playSoundEventEntity(soundEventIndex, networkId.getId(), commandBuffer);
+        SoundUtil.playSoundEventEntity(droneSfxIndex, networkId.getId(), commandBuffer);
+        SoundUtil.playSoundEventEntity(windSfxIndex, networkId.getId(), commandBuffer);
     }
 }
