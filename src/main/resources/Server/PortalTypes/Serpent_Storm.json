@@ -4,6 +4,13 @@
     "DisplayName": "storm_serpent_server.portals.Serpent_Storm.name",
     "FlavorText": "storm_serpent_server.portals.Serpent_Storm.description",
     "ThemeColor": "#2314b89a",
-    "SplashImage": "DefaultArtwork.png"
+    "SplashImage": "DefaultArtwork.png",
+    "Tips": [
+      "storm_serpent_server.portals.Serpent_Storm.tip_1",
+      "storm_serpent_server.portals.Serpent_Storm.tip_2"
+    ],
+    "Objectives": [
+      "storm_serpent_server.portals.Serpent_Storm.objective_1"
+    ]
   }
 }

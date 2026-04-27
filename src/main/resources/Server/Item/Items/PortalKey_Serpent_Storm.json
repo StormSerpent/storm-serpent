@@ -8,8 +8,9 @@
     "Blocks.Portals"
   ],
   "PortalKey": {
-    "PortalType": "Serpent_Storm",
-    "TimeLimitSeconds": 600
+    "$Comment": "This fragment lasts 18 minutes",
+    "TimeLimitSeconds": 1080,
+    "PortalType": "Serpent_Storm"
   },
   "PlayerAnimationsId": "Item",
   "Tags": {

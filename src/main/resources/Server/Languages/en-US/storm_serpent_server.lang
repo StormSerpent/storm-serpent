@@ -3,7 +3,10 @@ items.Plant_Leaves_Poisoned_Red_Walkable.name = Poisoned Leaves Red Solid
 items.Plant_Moss_Rug_Red.name = Red Moss Rug Custom
 items.Prototype_Geyser_Custom.name = Prototype Geyser Spawner Custom
 items.PortalKey_Serpent_Storm.name = Fragment: Orbis - Storm Serpent's Atoll
-items.PortalKey_Serpent_Storm.description = <msg key="server.items.PortalKey.description"/>\n\n<i>An electric archipelago where the land stands on end, and a sentinel beast stalks its nest.</i>
+items.PortalKey_Serpent_Storm.description = <msg key="server.items.PortalKey.description"/>\n\n<i>An electric archipelago where the land stands on end, and a slithering giant guards its nest.</i>
 portals.Serpent_Storm.name = Storm Serpent's Atoll
-portals.Serpent_Storm.description = An electric archipelago where the land stands on end, and a sentinel beast stalks its nest.
+portals.Serpent_Storm.description = The electric archipelago. Here the land stands on end, and a slithering giant guards its nest.
+portals.Serpent_Storm.objective_1 = <color is="#05c09a">Defeat <b>the beast</b> ensnaring its nest.</color>
+portals.Serpent_Storm.tip_1 = <color is="#05c09a"><b>Sunken vessels</b> litter the seafloor, remnants of a bygone age. <i>Their contents may be of value.</i></color>
+portals.Serpent_Storm.tip_2 = <color is="#05c09a"><b>The beast</b> rides the wind. <i>A ranged weapon is recommended.</i></color>
 npcRoles.Serpent_Storm = Storm Serpent
