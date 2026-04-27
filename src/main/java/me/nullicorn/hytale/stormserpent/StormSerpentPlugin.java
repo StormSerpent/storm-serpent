@@ -92,6 +92,7 @@ public final class StormSerpentPlugin extends JavaPlugin {
         this.getEntityStoreRegistry().registerSystem(new StormSerpentHealthSystems.CopyHealthPreRegenSystem());
         this.getEntityStoreRegistry().registerSystem(new StormSerpentHealthSystems.RestoreHealthPostRegenSystem());
         this.getEntityStoreRegistry().registerSystem(new StormSerpentWiggleSystem());
+        this.getEntityStoreRegistry().registerSystem(new StormSerpentAmbienceSystem());
         this.getEntityStoreRegistry().registerSystem(new PlayerOxygenDisableSystems.ChangeWorldSystem());
         this.getEntityStoreRegistry().registerSystem(new PlayerOxygenDisableSystems.RespawnSystem());
         this.getEntityStoreRegistry().registerSystem(new TransformNanHotfixSystem()); // TODO: Delete me once this bug is fixed in HytaleServer!! See docs for TransformNanHotfixSystem
