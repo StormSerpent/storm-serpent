@@ -2,17 +2,25 @@ package me.nullicorn.hytale.stormserpent;
 
 import com.hypixel.hytale.assetstore.map.DefaultAssetMap;
 import com.hypixel.hytale.component.ComponentType;
+import com.hypixel.hytale.component.Holder;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.ResourceType;
 import com.hypixel.hytale.component.spatial.KDTree;
 import com.hypixel.hytale.component.spatial.SpatialResource;
+import com.hypixel.hytale.math.util.ChunkUtil;
+import com.hypixel.hytale.math.util.MathUtil;
+import com.hypixel.hytale.math.vector.Rotation3f;
 import com.hypixel.hytale.server.core.asset.HytaleAssetStore;
 import com.hypixel.hytale.server.core.asset.type.model.config.ModelAsset;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
+import com.hypixel.hytale.server.core.universe.world.chunk.BlockChunk;
 import com.hypixel.hytale.server.core.universe.world.events.AddWorldEvent;
+import com.hypixel.hytale.server.core.universe.world.events.ChunkPreLoadProcessEvent;
+import com.hypixel.hytale.server.core.universe.world.storage.ChunkStore;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.NPCPlugin;
+import com.hypixel.hytale.server.npc.entities.NPCEntity;
 import me.nullicorn.hytale.stormserpent.component.StormSerpent;
 import me.nullicorn.hytale.stormserpent.component.StormSerpentBone;
 import me.nullicorn.hytale.stormserpent.npc.action.builder.*;
@@ -32,8 +40,11 @@ import me.nullicorn.serpentine.solver.DefaultSerpentJointSolver;
 import me.nullicorn.serpentine.solver.SerpentBoneSolver;
 import me.nullicorn.serpentine.solver.SerpentJointSolver;
 import me.nullicorn.serpentine.system.*;
+import org.joml.Vector2d;
+import org.joml.Vector3d;
 
 import javax.annotation.Nonnull;
+import java.util.List;
 
 public final class StormSerpentPlugin extends JavaPlugin {
     private static StormSerpentPlugin instance;
@@ -68,6 +79,7 @@ public final class StormSerpentPlugin extends JavaPlugin {
         this.spatialResourceType = this.getEntityStoreRegistry().registerSpatialResource(() -> new KDTree<>(Ref::isValid));
         this.mapMarkersResourceType = this.getEntityStoreRegistry().registerResource(StormSerpentMapMarkersResource.class, StormSerpentMapMarkersResource::new);
         this.getEventRegistry().registerGlobal(AddWorldEvent.class, this::onWorldLoaded);
+        this.getEventRegistry().registerGlobal(ChunkPreLoadProcessEvent.class, this::onChunkPreLoadProcess);
 
         this.getEntityStoreRegistry().registerSystem(new StormSerpentSpatialSystem(this.spatialResourceType));
         this.getEntityStoreRegistry().registerSystem(new StormSerpentMapMarkerSystem(this.spatialResourceType));
@@ -132,6 +144,38 @@ public final class StormSerpentPlugin extends JavaPlugin {
         event.getWorld()
             .getWorldMapManager()
             .addMarkerProvider(StormSerpentMapMarkerProvider.ID, StormSerpentMapMarkerProvider.INSTANCE);
+    }
+
+    private void onChunkPreLoadProcess(final ChunkPreLoadProcessEvent event) {
+        if (!event.isNewlyGenerated()) {
+            return;
+        }
+
+        final List<Vector2d> spawnpoints = StormSerpentSpawnSystems.getChunkSerpentSpawnpoints(event.getChunk());
+        if (spawnpoints.isEmpty()) {
+            return;
+        }
+
+        final Holder<ChunkStore> chunkHolder = event.getHolder();
+        final var blockChunk = chunkHolder.getComponent(BlockChunk.getComponentType());
+        final var world = event.getChunk().getWorld();
+
+        for (final var spawnpoint : spawnpoints) {
+            // Find the highest block's Y coordinate at the spawn's X and Z.
+            final int spawnAltitude;
+            if (blockChunk != null) {
+                spawnAltitude = blockChunk.getHeight(ChunkUtil.indexColumn(MathUtil.floor(spawnpoint.x), MathUtil.floor(spawnpoint.y))) + 8;
+            } else {
+                spawnAltitude = ChunkUtil.HEIGHT;
+            }
+
+            final NPCEntity npc = new NPCEntity();
+            npc.setRoleName("Serpent_Storm"); // TODO: Don't hardcode this.
+
+            world.execute(() ->
+                NPCPlugin.get().spawnEntity(world.getEntityStore().getStore(), NPCPlugin.get().getIndex("Serpent_Storm"), new Vector3d(spawnpoint.x, spawnAltitude, spawnpoint.y), new Rotation3f(), null, null, null)
+            );
+        }
     }
 
     // TODO: Temporarily copied from Serpentine since it's not published yet.

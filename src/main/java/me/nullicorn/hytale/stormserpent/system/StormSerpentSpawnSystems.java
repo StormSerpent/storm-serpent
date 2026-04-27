@@ -1,11 +1,20 @@
 package me.nullicorn.hytale.stormserpent.system;
 
+import com.hypixel.hytale.builtin.hytalegenerator.assets.positionproviders.PositionProviderAsset;
+import com.hypixel.hytale.builtin.hytalegenerator.bounds.Bounds3d;
+import com.hypixel.hytale.builtin.hytalegenerator.plugin.Handle;
+import com.hypixel.hytale.builtin.hytalegenerator.positionproviders.PositionProvider;
+import com.hypixel.hytale.builtin.hytalegenerator.referencebundle.ReferenceBundle;
+import com.hypixel.hytale.builtin.hytalegenerator.rng.SeedBox;
+import com.hypixel.hytale.builtin.hytalegenerator.workerindexer.WorkerIndexer;
 import com.hypixel.hytale.component.*;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.component.system.HolderSystem;
+import com.hypixel.hytale.math.util.ChunkUtil;
 import com.hypixel.hytale.server.core.modules.entity.component.SnapshotBuffer;
 import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
 import com.hypixel.hytale.server.core.modules.entityui.UIComponentList;
+import com.hypixel.hytale.server.core.universe.world.chunk.WorldChunk;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import me.nullicorn.hytale.stormserpent.component.StormSerpent;
 import me.nullicorn.hytale.stormserpent.component.StormSerpentBone;
@@ -13,11 +22,44 @@ import me.nullicorn.serpentine.component.Serpent;
 import me.nullicorn.serpentine.component.SerpentBone;
 import me.nullicorn.serpentine.solver.DefaultSerpentBoneSolver;
 import me.nullicorn.serpentine.solver.DefaultSerpentJointSolver;
+import org.joml.Vector2d;
+import org.joml.Vector3d;
 
 import javax.annotation.Nonnull;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public final class StormSerpentSpawnSystems {
-    private StormSerpentSpawnSystems() {
+    public static List<Vector2d> getChunkSerpentSpawnpoints(final WorldChunk chunk) {
+        if (!(chunk.getWorld().getChunkStore().getGenerator() instanceof final Handle worldGen)) {
+            return Collections.emptyList();
+        }
+        if (!worldGen.getProfile().worldStructureName().equals("Serpent_Storm")) {
+            return Collections.emptyList();
+        }
+        final var providerAsset = PositionProviderAsset.getExportedAsset("AtollPositions");
+        if (providerAsset == null) {
+            return Collections.emptyList();
+        }
+        final var providerArgs = new PositionProviderAsset.Argument(new SeedBox(worldGen.getProfile().seed()), new ReferenceBundle(), WorkerIndexer.Id.MAIN);
+        final PositionProvider provider = providerAsset.build(providerArgs);
+        final var bounds = new Bounds3d(
+            new Vector3d(
+                ChunkUtil.minBlock(chunk.getX()),
+                ChunkUtil.MIN_ENTITY_Y,
+                ChunkUtil.minBlock(chunk.getZ())
+            ),
+            new Vector3d(
+                ChunkUtil.maxBlock(chunk.getX()),
+                ChunkUtil.HEIGHT,
+                ChunkUtil.maxBlock(chunk.getZ())
+            )
+        );
+        final var spawnPositions = new ArrayList<Vector2d>();
+        final var context = new PositionProvider.Context(bounds, (position, _control) -> spawnPositions.add(new Vector2d(position.x, position.z)), null);
+        provider.generate(context);
+        return spawnPositions;
     }
 
     public static final class RoleReloadSystem extends HolderSystem<EntityStore> {
@@ -100,5 +142,8 @@ public final class StormSerpentSpawnSystems {
             @Nonnull final Store<EntityStore> store
         ) {
         }
+    }
+
+    private StormSerpentSpawnSystems() {
     }
 }
