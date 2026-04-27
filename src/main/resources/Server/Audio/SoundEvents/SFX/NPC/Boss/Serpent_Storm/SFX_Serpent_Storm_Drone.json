@@ -7,8 +7,8 @@
       "Looping": true
     }
   ],
-  "MaxDistance": 80,
-  "StartAttenuationDistance": 20,
+  "MaxDistance": 60,
+  "StartAttenuationDistance": 5,
   "MusicDuckingVolume": 0,
-  "Volume": -3
+  "Volume": 0
 }
