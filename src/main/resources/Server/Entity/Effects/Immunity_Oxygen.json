@@ -1,0 +1,17 @@
+{
+  "DamageResistance": {
+    "Suffocation": [
+      {
+        "CalculationType": "Multiplicative",
+        "Amount": 1
+      }
+    ],
+    "Drowning": [
+      {
+        "CalculationType": "Multiplicative",
+        "Amount": 1
+      }
+    ]
+  },
+  "Infinite": true
+}
