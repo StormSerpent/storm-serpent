@@ -13,5 +13,6 @@
     "Track": "Sounds/Environments/Snake_Ambience_Loop.ogg",
     "Volume": -5
   },
-  "Priority": 100
+  "Priority": 100,
+  "MusicContainer": "Track_Silence"
 }
