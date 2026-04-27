@@ -21,6 +21,8 @@ import com.hypixel.hytale.server.core.universe.world.storage.ChunkStore;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.NPCPlugin;
 import com.hypixel.hytale.server.npc.entities.NPCEntity;
+import me.nullicorn.hytale.stormserpent.command.StormSerpentCommand;
+import me.nullicorn.hytale.stormserpent.component.HideBossBar;
 import me.nullicorn.hytale.stormserpent.component.StormSerpent;
 import me.nullicorn.hytale.stormserpent.component.StormSerpentBone;
 import me.nullicorn.hytale.stormserpent.npc.action.builder.*;
@@ -48,6 +50,7 @@ import java.util.List;
 
 public final class StormSerpentPlugin extends JavaPlugin {
     private static StormSerpentPlugin instance;
+
     public static StormSerpentPlugin get() {
         return instance;
     }
@@ -61,6 +64,7 @@ public final class StormSerpentPlugin extends JavaPlugin {
 
     private ComponentType<EntityStore, StormSerpent> stormSerpentComponentType;
     private ComponentType<EntityStore, StormSerpentBone> stormSerpentBoneComponentType;
+    private ComponentType<EntityStore, HideBossBar> hideBossBarComponentType;
     private ResourceType<EntityStore, SpatialResource<Ref<EntityStore>, EntityStore>> spatialResourceType;
     private ResourceType<EntityStore, StormSerpentMapMarkersResource> mapMarkersResourceType;
 
@@ -76,6 +80,7 @@ public final class StormSerpentPlugin extends JavaPlugin {
 
         this.stormSerpentComponentType = this.getEntityStoreRegistry().registerComponent(StormSerpent.class, StormSerpent.COMPONENT_ID, StormSerpent.CODEC);
         this.stormSerpentBoneComponentType = this.getEntityStoreRegistry().registerComponent(StormSerpentBone.class, StormSerpentBone::new);
+        this.hideBossBarComponentType = this.getEntityStoreRegistry().registerComponent(HideBossBar.class, HideBossBar::get);
         this.spatialResourceType = this.getEntityStoreRegistry().registerSpatialResource(() -> new KDTree<>(Ref::isValid));
         this.mapMarkersResourceType = this.getEntityStoreRegistry().registerResource(StormSerpentMapMarkersResource.class, StormSerpentMapMarkersResource::new);
         this.getEventRegistry().registerGlobal(AddWorldEvent.class, this::onWorldLoaded);
@@ -96,6 +101,8 @@ public final class StormSerpentPlugin extends JavaPlugin {
         this.getEntityStoreRegistry().registerSystem(new PlayerOxygenDisableSystems.ChangeWorldSystem());
         this.getEntityStoreRegistry().registerSystem(new PlayerOxygenDisableSystems.RespawnSystem());
         this.getEntityStoreRegistry().registerSystem(new TransformNanHotfixSystem()); // TODO: Delete me once this bug is fixed in HytaleServer!! See docs for TransformNanHotfixSystem
+
+        this.getCommandRegistry().registerCommand(new StormSerpentCommand());
 
         SerpentJointSolver.CODEC.register(EnteringBurrowJointSolver.COMPONENT_ID, EnteringBurrowJointSolver.class, EnteringBurrowJointSolver.CODEC);
 
@@ -133,6 +140,10 @@ public final class StormSerpentPlugin extends JavaPlugin {
 
     public ComponentType<EntityStore, StormSerpentBone> getStormSerpentBoneComponentType() {
         return this.stormSerpentBoneComponentType;
+    }
+
+    public ComponentType<EntityStore, HideBossBar> getHideBossBarComponentType() {
+        return this.hideBossBarComponentType;
     }
 
     public ResourceType<EntityStore, SpatialResource<Ref<EntityStore>, EntityStore>> getStormSerpentSpatialResourceType() {

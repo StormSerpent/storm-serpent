@@ -10,3 +10,9 @@ portals.Serpent_Storm.objective_1 = <color is="#05c09a">Defeat <b>the beast</b> 
 portals.Serpent_Storm.tip_1 = <color is="#05c09a"><b>Sunken vessels</b> litter the seafloor, remnants of a bygone age. <i>Their contents may be of value.</i></color>
 portals.Serpent_Storm.tip_2 = <color is="#05c09a"><b>The beast</b> rides the wind. <i>A ranged weapon is recommended.</i></color>
 npcRoles.Serpent_Storm = Storm Serpent
+commands.storm-serpent.desc = Controls the Storm Serpent plugin
+commands.storm-serpent.boss-bar.desc = Enable or disable a player's boss bar HUD
+commands.storm-serpent.boss-bar.enable.desc = true (enable) or false (disable)
+commands.storm-serpent.boss-bar.enabled = Enabled the player's boss bar HUD
+commands.storm-serpent.boss-bar.disabled = Disabled the player's boss bar HUD
+

@@ -17,6 +17,7 @@ import com.hypixel.hytale.server.core.modules.entitystats.asset.DefaultEntitySta
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import me.nullicorn.hytale.stormserpent.StormSerpentPlugin;
+import me.nullicorn.hytale.stormserpent.component.HideBossBar;
 import me.nullicorn.hytale.stormserpent.component.StormSerpent;
 import me.nullicorn.hytale.stormserpent.system.StormSerpentSpatialSystem;
 
@@ -55,7 +56,7 @@ public final class StormSerpentBossBarHudSystem extends EntityTickingSystem<Enti
         assert player != null && playerRef != null && playerTransform != null;
         final var hudManager = player.getHudManager();
 
-        if (serpentSpatialResource.getSpatialData().size() == 0) {
+        if (serpentSpatialResource.getSpatialData().size() == 0 || archetypeChunk.getArchetype().contains(HideBossBar.getComponentType())) {
             removeBossBarHud(hudManager, playerRef);
             return;
         }
