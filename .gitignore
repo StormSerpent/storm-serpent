@@ -4,6 +4,9 @@
 # Gradle output
 /build/
 
+# Local/IDE generated output
+/bin/
+
 # Hytale asset schema
 /src/main/resources/.vscode/
 /src/main/resources/Schema/
