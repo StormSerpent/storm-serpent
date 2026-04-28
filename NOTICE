@@ -8,6 +8,8 @@ Unless a folder contains its own license file, licensing is as follows:
   (see [`src/main/resources/Common/Sounds/LICENSE`](src/main/resources/Common/Sounds/LICENSE))
 - Storm Serpent UI: Creative Commons Attribution 4.0 International (CC BY 4.0)
   (see [`src/main/resources/Common/UI/LICENSE`](src/main/resources/Common/UI/LICENSE))
+- Storm Serpent models & textures: Creative Commons Attribution 4.0 International (CC BY 4.0)
+  (see [`src/main/resources/Common/NPC/Boss/Serpent_Storm/Models/LICENSE`](src/main/resources/Common/NPC/Boss/Serpent_Storm/Models/LICENSE))
 
 Music is All Rights Reserved:
 Copyright © 2026 Samuel Mediani

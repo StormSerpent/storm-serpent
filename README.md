@@ -25,4 +25,5 @@ This repository uses multiple licenses. See NOTICE for the authoritative breakdo
 - Serpentine submodule: MIT (see [TheNullicorn/serpentine/LICENSE.md](https://github.com/TheNullicorn/serpentine/blob/main/LICENSE.md))
 - Sound effects (SFX & Ambience): CC BY 4.0 (see [`src/main/resources/Common/Sounds/LICENSE`](src/main/resources/Common/Sounds/LICENSE))
 - Storm Serpent UI assets (map markers + boss healthbar): CC BY 4.0 (see [`src/main/resources/Common/UI/LICENSE`](src/main/resources/Common/UI/LICENSE))
+- Storm Serpent models & textures: CC BY 4.0 (see [`src/main/resources/Common/NPC/Boss/Serpent_Storm/Models/LICENSE`](src/main/resources/Common/NPC/Boss/Serpent_Storm/Models/LICENSE))
 - Music: All Rights Reserved (not stored in this repo)
