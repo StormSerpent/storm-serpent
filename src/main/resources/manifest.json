@@ -16,7 +16,7 @@
     }
   ],
   "Main": "me.nullicorn.hytale.stormserpent.StormSerpentPlugin",
-  "ServerVersion": "2026.04.23-3f4475f43",
+  "ServerVersion": "2026.04.30-b4f6a911e",
   "IncludesAssetPack": true,
   "Dependencies": {
     "Hytale:EntityModule": "*",

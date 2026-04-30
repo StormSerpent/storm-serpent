@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.hypixel.hytale:Server:2026.04.23-3f4475f43")
+    implementation("com.hypixel.hytale:Server:2026.04.30-b4f6a911e")
 }
 
 val pluginProcessResourcesTask = tasks.register<Copy>("pluginProcessResources") {
