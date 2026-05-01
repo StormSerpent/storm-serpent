@@ -64,7 +64,7 @@ public final class BodyMotionSerpentBallistic extends BodyMotionBase {
         this.startPosition = new Vector3d(selfTransform.getPosition());
         this.targetPosition = new Vector3d(targetTransform.getPosition());
         this.targetHorizontalDistance = Vector2d.distance(this.startPosition.x, this.startPosition.z, this.targetPosition.x, this.targetPosition.z);
-        this.peakHorizontalDistance = this.targetHorizontalDistance * Math.sqrt(Math.abs(this.arcHeight)) / (Math.sqrt(Math.abs(this.arcHeight)) + Math.sqrt(Math.abs(this.startPosition.y + this.arcHeight - this.targetPosition.y)));
+        this.peakHorizontalDistance = this.targetHorizontalDistance * Math.sqrt(Math.abs(this.arcHeight)) / (Math.sqrt(Math.abs(this.arcHeight)) + Math.sqrt(Math.abs((this.targetPosition.y + this.arcHeight) - this.startPosition.y)));
         this.horizontalDirection = new Vector3d(this.targetPosition.x, 0, this.targetPosition.z).sub(this.startPosition.x, 0, this.startPosition.z).normalize();
         this.t = 0;
 
