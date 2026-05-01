@@ -74,6 +74,19 @@ public final class StormSerpentSpawnSystems {
             @Nonnull final AddReason reason,
             @Nonnull final Store<EntityStore> store
         ) {
+            resetBurrowStatus(holder);
+        }
+
+        @Override
+        public void onEntityRemoved(
+            @Nonnull final Holder<EntityStore> holder,
+            @Nonnull final RemoveReason reason,
+            @Nonnull final Store<EntityStore> store
+        ) {
+            resetBurrowStatus(holder);
+        }
+
+        private static void resetBurrowStatus(final Holder<EntityStore> holder) {
             final StormSerpent stormSerpent = holder.getComponent(StormSerpent.getComponentType());
             assert stormSerpent != null;
             if (stormSerpent.burrowStatus != StormSerpent.BurrowStatus.NOT_IN_BURROW) {
@@ -89,14 +102,6 @@ public final class StormSerpentSpawnSystems {
                     }
                 }
             }
-        }
-
-        @Override
-        public void onEntityRemoved(
-            @Nonnull final Holder<EntityStore> holder,
-            @Nonnull final RemoveReason reason,
-            @Nonnull final Store<EntityStore> store
-        ) {
         }
     }
 
