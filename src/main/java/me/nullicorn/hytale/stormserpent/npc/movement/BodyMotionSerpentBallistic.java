@@ -3,6 +3,7 @@ package me.nullicorn.hytale.stormserpent.npc.movement;
 import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.math.vector.Vector3dUtil;
+import com.hypixel.hytale.server.core.modules.debug.DebugUtils;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.asset.builder.BuilderSupport;
@@ -64,7 +65,7 @@ public final class BodyMotionSerpentBallistic extends BodyMotionBase {
         this.startPosition = new Vector3d(selfTransform.getPosition());
         this.targetPosition = new Vector3d(targetTransform.getPosition());
         this.targetHorizontalDistance = Vector2d.distance(this.startPosition.x, this.startPosition.z, this.targetPosition.x, this.targetPosition.z);
-        this.peakHorizontalDistance = this.targetHorizontalDistance * Math.sqrt(Math.abs(this.arcHeight)) / (Math.sqrt(Math.abs(this.arcHeight)) + Math.sqrt(Math.abs((this.targetPosition.y + this.arcHeight) - this.startPosition.y)));
+        this.peakHorizontalDistance = this.targetHorizontalDistance * Math.sqrt(Math.abs(this.arcHeight)) / (Math.sqrt(Math.abs(this.arcHeight)) + Math.sqrt(Math.abs(this.startPosition.y + this.arcHeight - this.targetPosition.y)));
         this.horizontalDirection = new Vector3d(this.targetPosition.x, 0, this.targetPosition.z).sub(this.startPosition.x, 0, this.startPosition.z).normalize();
         this.t = 0;
 
@@ -107,7 +108,7 @@ public final class BodyMotionSerpentBallistic extends BodyMotionBase {
         final double x1 = this.peakHorizontalDistance;
         final double x2 = this.targetHorizontalDistance;
         final double y0 = this.startPosition.y;
-        final double y1 = y0 + this.arcHeight;
+        final double y1 = this.targetPosition.y + this.arcHeight;
         final double y2 = this.targetPosition.y;
         final double l0 = ((x - x1) * (x - x2)) / ((x0 - x1) * (x0 - x2));
         final double l1 = ((x - x0) * (x - x2)) / ((x1 - x0) * (x1 - x2));
@@ -127,6 +128,7 @@ public final class BodyMotionSerpentBallistic extends BodyMotionBase {
         desiredSteering.setTranslation(new Vector3d(difference).normalize());
         desiredSteering.setTranslationRelativeSpeed(speed);
         desiredSteering.setRelativeTurnSpeed(this.relativeTurnSpeed);
+
         return true;
     }
 }
