@@ -25,7 +25,7 @@ public final class StormSerpentMapMarkerProvider implements WorldMapManager.Mark
     private static final String MARKER_ID_PREFIX = "StormSerpent-";
     private static final FormattedMessage MARKER_NAME = Message.translation("storm_serpent_server.npcRoles.Serpent_Storm").getFormattedMessage();
     private static final String MARKER_ICON_NAME = "Serpent_Storm_Head_64x64.png";
-    private static final Color MARKER_ICON_TINT = new Color((byte) 105, (byte) 165, (byte) 161);
+    private static final Color MARKER_ICON_TINT = new Color((byte) 114, (byte) 196, (byte) 191);
 
     @Override
     public void update(
