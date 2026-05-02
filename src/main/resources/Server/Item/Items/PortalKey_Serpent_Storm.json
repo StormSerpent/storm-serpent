@@ -69,7 +69,7 @@
   },
   "BlockType": {
     "DrawType": "Model",
-    "Material": "Empty",
+    "Material": "Solid",
     "Opacity": "Transparent",
     "CustomModel": "Blocks/Miscellaneous/Portal_Shard.blockymodel",
     "CustomModelTexture": [
@@ -78,9 +78,10 @@
         "Weight": 1
       }
     ],
+    "HitboxType": "Plant_Full",
     "Gathering": {
-      "Soft": {
-        "IsWeaponBreakable": false
+      "Breaking": {
+        "GatherType": "Rocks"
       }
     }
   }

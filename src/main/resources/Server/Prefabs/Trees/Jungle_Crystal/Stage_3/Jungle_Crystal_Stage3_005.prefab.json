@@ -11184,6 +11184,12 @@
     },
     {
       "x": -10,
+      "y": 26,
+      "z": 10,
+      "name": "PortalKey_Serpent_Storm"
+    },
+    {
+      "x": -10,
       "y": 28,
       "z": 10,
       "name": "Rock_Crystal_Pink_Medium",
@@ -23348,53 +23354,6 @@
       "y": 50,
       "z": 7,
       "name": "Plant_Leaves_Crystal"
-    }
-  ],
-  "entities": [
-    {
-      "Components": {
-        "PreventItemMerging": {},
-        "Prop": {},
-        "BlockEntity": {
-          "BlockTypeKey": "PortalKey_Serpent_Storm"
-        },
-        "Transform": {
-          "Position": {
-            "X": -9.402572631835938,
-            "Y": 26.043373107910156,
-            "Z": 10.371620178222656
-          },
-          "Rotation": {
-            "Pitch": 0.0,
-            "Yaw": 0.03450629860162735,
-            "Roll": 0.0
-          }
-        },
-        "UUID": {
-          "UUID": {
-            "$binary": "7uZxKX7JOLKGpb0AcIA/8g==",
-            "$type": "04"
-          }
-        },
-        "PreventPickup": {},
-        "EntityScale": {
-          "Scale": 2.0
-        },
-        "Item": {
-          "Item": {
-            "Id": "PortalKey_Serpent_Storm",
-            "Quantity": 1,
-            "Durability": 0.0,
-            "MaxDurability": 0.0,
-            "OverrideDroppedItemAnimation": true
-          },
-          "StackDelay": 1.5,
-          "PickupDelay": 0.5,
-          "PickupThrottle": 0.0,
-          "RemovedByPlayerPickup": false
-        },
-        "PrefabCopyable": {}
-      }
     }
   ]
 }
