@@ -108,7 +108,7 @@ public final class BodyMotionSerpentBallistic extends BodyMotionBase {
         final double x1 = this.peakHorizontalDistance;
         final double x2 = this.targetHorizontalDistance;
         final double y0 = this.startPosition.y;
-        final double y1 = this.targetPosition.y + this.arcHeight;
+        final double y1 = Math.max(this.startPosition.y, this.targetPosition.y) + this.arcHeight;
         final double y2 = this.targetPosition.y;
         final double l0 = ((x - x1) * (x - x2)) / ((x0 - x1) * (x0 - x2));
         final double l1 = ((x - x0) * (x - x2)) / ((x1 - x0) * (x1 - x2));

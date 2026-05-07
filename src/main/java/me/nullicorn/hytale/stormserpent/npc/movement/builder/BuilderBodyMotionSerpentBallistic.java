@@ -42,7 +42,7 @@ public final class BuilderBodyMotionSerpentBallistic extends BuilderBodyMotionBa
     @Override
     public Builder<BodyMotion> readConfig(final JsonElement data) {
         this.requireString(data, "TargetSlot", this.targetSlot, StringNotEmptyValidator.get(), BuilderDescriptorState.WorkInProgress, "Target to aim for", null);
-        this.requireDouble(data, "ArcHeight", this.arcHeight, null, BuilderDescriptorState.WorkInProgress, "Peak height of the arc relative to the target position", null);
+        this.requireDouble(data, "ArcHeight", this.arcHeight, null, BuilderDescriptorState.WorkInProgress, "Peak height of the arc relative to the starting OR target position, whichever is higher", null);
         this.requireDouble(data, "ArcPathSpeed", this.arcPathSpeed, DoubleSingleValidator.greaterEqual0(), BuilderDescriptorState.WorkInProgress, "Horizontal speed that the arc is followed at", null);
         this.getDouble(data, "RelativeSpeed", this.relativeSpeed, 1.0, DoubleSingleValidator.greaterEqual0(), BuilderDescriptorState.WorkInProgress, "Relative movement speed", null);
         this.getDouble(data, "RelativeTurnSpeed", this.relativeTurnSpeed, 1.0, DoubleSingleValidator.greaterEqual0(), BuilderDescriptorState.WorkInProgress, "Relative turning speed", null);
