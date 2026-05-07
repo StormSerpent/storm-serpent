@@ -2,13 +2,13 @@
   "DamageResistance": {
     "Suffocation": [
       {
-        "CalculationType": "Multiplicative",
+        "CalculationType": "Percent",
         "Amount": 1
       }
     ],
     "Drowning": [
       {
-        "CalculationType": "Multiplicative",
+        "CalculationType": "Percent",
         "Amount": 1
       }
     ]
