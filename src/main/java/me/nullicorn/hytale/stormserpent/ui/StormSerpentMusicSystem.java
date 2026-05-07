@@ -1,8 +1,8 @@
 package me.nullicorn.hytale.stormserpent.ui;
 
 import com.hypixel.hytale.assetstore.map.IndexedAssetMap;
-import com.hypixel.hytale.builtin.ambience.resources.AmbienceResource;
-import com.hypixel.hytale.builtin.ambience.systems.ForcedMusicSystems;
+import com.hypixel.hytale.builtin.audio.components.ForcedMusicTracker;
+import com.hypixel.hytale.builtin.audio.systems.ForcedMusicSystems;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.dependency.Dependency;
@@ -31,13 +31,12 @@ public final class StormSerpentMusicSystem extends TickingSystem<EntityStore> {
     }
 
     @Override
-    public void tick(final float dt, final int index, @Nonnull final Store<EntityStore> store) {
+    public void tick(final float dt, final int systemIndex, @Nonnull final Store<EntityStore> store) {
         final int fightMusicContainerIndex = MusicContainer.getAssetMap().getIndex(FIGHT_MUSIC_CONTAINER_KEY);
         if (fightMusicContainerIndex == IndexedAssetMap.NOT_FOUND) {
             return;
         }
 
-        final var ambienceResource = store.getResource(AmbienceResource.getResourceType());
         final var serpentSpatialResource = store.getResource(StormSerpentPlugin.get().getStormSerpentSpatialResourceType());
 
         // Check if a fight has been started with any serpent in the world.
@@ -47,15 +46,37 @@ public final class StormSerpentMusicSystem extends TickingSystem<EntityStore> {
                 final StormSerpent stormSerpent = store.getComponent(ref, StormSerpent.getComponentType());
                 if (stormSerpent != null && stormSerpent.inCombat) {
                     // Start fight music. Does nothing if it is already playing.
-                    ambienceResource.setForcedMusicContainerIndex(fightMusicContainerIndex);
+                    playTrackGlobally(store, fightMusicContainerIndex);
                     return;
                 }
             }
         }
 
         // No active fights, so stop any fight music already playing.
-        if (ambienceResource.getForcedMusicContainerIndex() == fightMusicContainerIndex) {
-            ambienceResource.setForcedMusicContainerIndex(MusicContainer.EMPTY_ID);
-        }
+        stopTrackGlobally(store, fightMusicContainerIndex);
+    }
+
+    /**
+     * Plays the music container with {@code containerIndex} to all recipients in the world.
+     */
+    private static void playTrackGlobally(final Store<EntityStore> store, final int containerIndex) {
+        store.forEachEntityParallel(ForcedMusicTracker.getComponentType(), (index, archetypeChunk, _commandBuffer) -> {
+            final var forcedMusicTracker = archetypeChunk.getComponent(index, ForcedMusicTracker.getComponentType());
+            assert forcedMusicTracker != null;
+            forcedMusicTracker.setCurrentContainerIndex(containerIndex);
+        });
+    }
+
+    /**
+     * Removes the forced music container with {@code containerIndex} from any recipients currently hearing it.
+     */
+    private static void stopTrackGlobally(final Store<EntityStore> store, final int containerIndex) {
+        store.forEachEntityParallel(ForcedMusicTracker.getComponentType(), (index, archetypeChunk, _commandBuffer) -> {
+            final var forcedMusicTracker = archetypeChunk.getComponent(index, ForcedMusicTracker.getComponentType());
+            assert forcedMusicTracker != null;
+            if (forcedMusicTracker.getCurrentContainerIndex() == containerIndex) {
+                forcedMusicTracker.setCurrentContainerIndex(MusicContainer.EMPTY_ID);
+            }
+        });
     }
 }
