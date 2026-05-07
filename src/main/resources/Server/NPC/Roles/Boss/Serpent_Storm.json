@@ -114,9 +114,19 @@
         },
         {
           "Sensor": {
-            "Type": "Damage",
-            "Combat": true,
-            "TargetSlot": "Target_Combat_First_Attacker"
+            "Type": "And",
+            "Sensors": [
+              {
+                "Type": "Damage",
+                "Combat": true,
+                "TargetSlot": "Target_Combat_First_Attacker"
+              },
+              {
+                "Type": "Target",
+                "TargetSlot": "Target_Combat_First_Attacker",
+                "Range": 1000
+              }
+            ]
           },
           "Actions": [
             { "Type": "AddToHostileTargetMemory" },
@@ -194,9 +204,19 @@
         },
         {
           "Sensor": {
-            "Type": "Damage",
-            "Combat": true,
-            "TargetSlot": "Target_Combat_First_Attacker"
+            "Type": "And",
+            "Sensors": [
+              {
+                "Type": "Damage",
+                "Combat": true,
+                "TargetSlot": "Target_Combat_First_Attacker"
+              },
+              {
+                "Type": "Target",
+                "TargetSlot": "Target_Combat_First_Attacker",
+                "Range": 1000
+              }
+            ]
           },
           "Actions": [
             { "Type": "AddToHostileTargetMemory" },
@@ -395,11 +415,6 @@
                 "TargetSlot": "Target_Stalk",
                 "Range": 1000
               },
-              {
-                "Type": "ReadPosition",
-                "Slot": "Target_Stalk_Last_Seen",
-                "Range": 1000
-              },
               { "Type": "StormSerpentReadLeashPosition" }
             ]
           },
@@ -439,11 +454,6 @@
               {
                 "Type": "Target",
                 "TargetSlot": "Target_Stalk",
-                "Range": 1000
-              },
-              {
-                "Type": "ReadPosition",
-                "Slot": "Target_Stalk_Last_Seen",
                 "Range": 1000
               },
               { "Type": "StormSerpentReadLeashPosition" }
