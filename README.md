@@ -1,5 +1,19 @@
 # Storm Serpent
 
+Download mod here: <https://www.curseforge.com/hytale/mods/storm-serpent-atoll>
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=hBVTgElljTk">
+    <img
+      src="https://img.youtube.com/vi/hBVTgElljTk/maxresdefault.jpg"
+      width="600"
+      alt="Storm Serpent's Atoll | Hytale Mod Trailer"
+    />
+  </a>
+  <br>
+  <sub><i>Click the image above to watch the trailer on YouTube</i></sub>
+</p>
+
 ## Development
 
 ### Running a local development server
