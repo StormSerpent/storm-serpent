@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "me.nullicorn"
-version = "0.1.1"
+version = "0.1.2-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.hypixel.hytale:Server:2026.05.07-5efa15f6d")
+    implementation("com.hypixel.hytale:Server:0.5.0-pre.8")
 }
 
 val pluginProcessResourcesTask = tasks.register<Copy>("pluginProcessResources") {

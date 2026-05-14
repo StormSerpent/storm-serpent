@@ -215,9 +215,9 @@ public final class MotionControllerStormSerpentFly implements MotionController {
     @Override
     public double probeMove(
         @Nonnull final Ref<EntityStore> ref,
-        final Vector3d position,
-        final Vector3d direction,
-        final ProbeMoveData probeMoveData,
+        @Nonnull final Vector3dc position,
+        @Nonnull final Vector3dc direction,
+        @Nonnull final ProbeMoveData probeMoveData,
         @Nonnull final ComponentAccessor<EntityStore> componentAccessor
     ) {
         probeMoveData.setPosition(position);
@@ -228,7 +228,7 @@ public final class MotionControllerStormSerpentFly implements MotionController {
     @Override
     public double probeMove(
         @Nonnull final Ref<EntityStore> ref,
-        final ProbeMoveData probeMoveData,
+        @Nonnull final ProbeMoveData probeMoveData,
         @Nonnull final ComponentAccessor<EntityStore> componentAccessor
     ) {
         return 0; // TODO (should return distance)
@@ -295,7 +295,10 @@ public final class MotionControllerStormSerpentFly implements MotionController {
     }
 
     @Override
-    public boolean isValidPosition(final Vector3d position, final ComponentAccessor<EntityStore> componentAccessor) {
+    public boolean isValidPosition(
+        @Nonnull final Vector3dc position,
+        final ComponentAccessor<EntityStore> componentAccessor
+    ) {
         return true;
     }
 
@@ -305,6 +308,11 @@ public final class MotionControllerStormSerpentFly implements MotionController {
         @Nonnull final ComponentAccessor<EntityStore> componentAccessor
     ) {
         return true;
+    }
+
+    @Override
+    public boolean isForcePushed() {
+        return false;
     }
 
     @Nullable
