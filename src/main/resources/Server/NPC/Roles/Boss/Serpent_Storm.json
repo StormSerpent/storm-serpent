@@ -129,7 +129,6 @@
             ]
           },
           "Actions": [
-            { "Type": "AddToHostileTargetMemory" },
             {
               "Type": "State",
               "State": "Intro.Default"
@@ -219,7 +218,6 @@
             ]
           },
           "Actions": [
-            { "Type": "AddToHostileTargetMemory" },
             {
               "Type": "State",
               "State": "Intro"

@@ -126,7 +126,6 @@ public final class StormSerpentPlugin extends JavaPlugin {
         // NPC actions.
         NPCPlugin.get().registerCoreComponentType(BuilderActionStormSerpentInitialize.COMPONENT_ID, BuilderActionStormSerpentInitialize::new);
         NPCPlugin.get().registerCoreComponentType(BuilderActionStormSerpentBeginFight.COMPONENT_ID, BuilderActionStormSerpentBeginFight::new);
-        NPCPlugin.get().registerCoreComponentType(BuilderActionStormSerpentAddCombatants.COMPONENT_ID, BuilderActionStormSerpentAddCombatants::new);
         NPCPlugin.get().registerCoreComponentType(BuilderActionEnterBurrow.COMPONENT_ID, BuilderActionEnterBurrow::new);
         NPCPlugin.get().registerCoreComponentType(BuilderActionExitBurrow.COMPONENT_ID, BuilderActionExitBurrow::new);
         NPCPlugin.get().registerCoreComponentType(BuilderActionCounterSet.COMPONENT_ID, BuilderActionCounterSet::new);
