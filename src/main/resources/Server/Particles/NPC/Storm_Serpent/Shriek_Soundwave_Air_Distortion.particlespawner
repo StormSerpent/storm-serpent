@@ -1,0 +1,59 @@
+{
+  "Particle": {
+    "Texture": "Particles/Textures/Normals/Spread_Normal.png",
+    "Animation": {
+      "0": {
+        "Scale": {
+          "X": {
+            "Max": 0,
+            "Min": 0
+          },
+          "Y": {
+            "Max": 0,
+            "Min": 0
+          }
+        },
+        "Opacity": 0.8
+      },
+      "50": {
+        "Opacity": 1
+      },
+      "100": {
+        "Scale": {
+          "X": {
+            "Max": 50,
+            "Min": 35
+          },
+          "Y": {
+            "Max": 50,
+            "Min": 35
+          }
+        },
+        "Opacity": 0.8
+      }
+    },
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 0.35
+        },
+        "Y": {
+          "Min": 0.35
+        }
+      }
+    }
+  },
+  "ParticleRotationInfluence": "Billboard",
+  "SpawnRate": {
+    "Max": 20,
+    "Min": 20
+  },
+  "RenderMode": "Distortion",
+  "ParticleLifeSpan": {
+    "Max": 0.3,
+    "Min": 0.2
+  },
+  "ParticleRotateWithSpawner": false,
+  "MaxConcurrentParticles": 15,
+  "SpawnBurst": true
+}

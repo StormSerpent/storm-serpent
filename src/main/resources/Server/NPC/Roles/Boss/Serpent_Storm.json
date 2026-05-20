@@ -272,6 +272,12 @@
           "Slot": "Face"
         },
         {
+          "Type": "SpawnParticles",
+          "ParticleSystem": "Shriek_Soundwave",
+          "DetachedFromModel": true,
+          "Range": 256
+        },
+        {
           "Type": "State",
           "State": "Intro.Buildup"
         }

@@ -1,0 +1,74 @@
+{
+  "Particle": {
+    "Texture": "Particles/Textures/Rnd/SwordImpact.png",
+    "Animation": {
+      "0": {
+        "Scale": {
+          "X": {
+            "Max": 6,
+            "Min": 4
+          },
+          "Y": {
+            "Max": 6,
+            "Min": 4
+          }
+        },
+        "Opacity": 0.3,
+        "Color": "#b2f7ff",
+        "Rotation": {
+          "Z": {
+            "Max": 360,
+            "Min": 0
+          }
+        }
+      },
+      "50": {
+        "Opacity": 1,
+        "Color": "#3667d1"
+      },
+      "100": {
+        "Scale": {
+          "X": {
+            "Max": 40,
+            "Min": 35
+          },
+          "Y": {
+            "Max": 40,
+            "Min": 35
+          }
+        },
+        "Opacity": 0,
+        "Color": "#073ab7"
+      }
+    },
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 0.35
+        },
+        "Y": {
+          "Min": 0.35
+        }
+      }
+    }
+  },
+  "ParticleRotationInfluence": "Billboard",
+  "SpawnRate": {
+    "Max": 12,
+    "Min": 7
+  },
+  "RenderMode": "Erosion",
+  "ParticleLifeSpan": {
+    "Max": 0.5,
+    "Min": 0.4
+  },
+  "UVMotion": {
+    "Texture": "Particles/Textures/UVMotion/FlowMapWave3.png",
+    "SpeedX": 1.12,
+    "SpeedY": -0.96,
+    "Strength": 2,
+    "Scale": 1,
+    "StrengthCurveType": "Constant"
+  },
+  "MaxConcurrentParticles": 20
+}

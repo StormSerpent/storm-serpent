@@ -1,0 +1,13 @@
+{
+  "Spawners": [
+    {
+      "SpawnerId": "Shriek_Soundwave_Circles"
+    },
+    {
+      "SpawnerId": "Shriek_Soundwave_Air_Distortion"
+    }
+  ],
+  "IsImportant": true,
+  "CullDistance": 256,
+  "LifeSpan": 2.5
+}
