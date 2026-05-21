@@ -467,17 +467,17 @@ public final class MotionControllerStormSerpentFly implements MotionController {
     }
 
     @Override
-    public void addForce(@Nonnull final Vector3d force, @Nullable final VelocityConfig velocityConfig) {
-
+    public void addVelocity(@Nonnull final Vector3d force, @Nullable final VelocityConfig velocityConfig) {
+        // TODO
     }
 
     @Override
-    public Vector3d getForce() {
-        return null;
+    public Vector3d getExternalVelocity() {
+        return new Vector3d();
     }
 
     @Override
-    public void forceVelocity(
+    public void setVelocity(
         @Nonnull final Vector3dc velocity,
         @Nullable final VelocityConfig velocityConfig,
         final boolean ignoreDamping
