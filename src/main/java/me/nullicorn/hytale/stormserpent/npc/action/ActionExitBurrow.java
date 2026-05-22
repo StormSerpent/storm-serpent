@@ -4,7 +4,9 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.math.util.ChunkUtil;
 import com.hypixel.hytale.math.util.MathUtil;
+import com.hypixel.hytale.server.core.modules.entity.component.EntityScaleComponent;
 import com.hypixel.hytale.server.core.modules.entity.component.HeadRotation;
+import com.hypixel.hytale.server.core.modules.entity.component.ModelComponent;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.chunk.BlockChunk;
@@ -18,7 +20,6 @@ import com.hypixel.hytale.server.npc.util.NPCPhysicsMath;
 import me.nullicorn.hytale.stormserpent.component.StormSerpent;
 import me.nullicorn.hytale.stormserpent.npc.action.builder.BuilderActionExitBurrow;
 import me.nullicorn.serpentine.component.Serpent;
-import me.nullicorn.serpentine.component.SerpentBoneAutoApplyScale;
 import me.nullicorn.serpentine.solver.DefaultSerpentJointSolver;
 
 import javax.annotation.Nonnull;
@@ -94,11 +95,18 @@ public final class ActionExitBurrow extends ActionBase {
         }
 
         for (final Serpent.Bone bone : serpent.bones()) {
-            final Ref<EntityStore> boneRef = bone.ref();
-            if (boneRef != null && boneRef.isValid()) {
-                store.ensureComponent(boneRef, SerpentBoneAutoApplyScale.getComponentType());
-            }
             bone.setAutoSpawn(true);
+        }
+
+        // Remove the override scale from when we entered the burrow.
+        store.tryRemoveComponent(ref, EntityScaleComponent.getComponentType());
+        // We also need to reset the model to apply its original scaling.
+        final var modelRef = serpent.bones().getFirst().model();
+        if (modelRef != null) {
+            final var model = modelRef.toModel();
+            if (model != null) {
+                store.putComponent(ref, ModelComponent.getComponentType(), new ModelComponent(model));
+            }
         }
 
         serpent.setJointSolver(new DefaultSerpentJointSolver());

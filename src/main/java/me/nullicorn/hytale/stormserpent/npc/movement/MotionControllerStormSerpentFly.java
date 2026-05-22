@@ -8,7 +8,6 @@ import com.hypixel.hytale.math.vector.Rotation3f;
 import com.hypixel.hytale.math.vector.Vector3dUtil;
 import com.hypixel.hytale.protocol.MovementStates;
 import com.hypixel.hytale.server.core.asset.type.model.config.Model;
-import com.hypixel.hytale.server.core.modules.entity.component.EntityScaleComponent;
 import com.hypixel.hytale.server.core.modules.entity.component.HeadRotation;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.modules.physics.component.PhysicsValues;
@@ -262,12 +261,6 @@ public final class MotionControllerStormSerpentFly implements MotionController {
         @Nullable final ComponentAccessor<EntityStore> componentAccessor
     ) {
         this.collisionBox.assign(boundingBox);
-        if (ref != null && componentAccessor != null) {
-            final EntityScaleComponent entityScaleComponent = componentAccessor.getComponent(ref, EntityScaleComponent.getComponentType());
-            if (entityScaleComponent != null) {
-                this.collisionBox.scale(entityScaleComponent.getScale());
-            }
-        }
     }
 
     @Override

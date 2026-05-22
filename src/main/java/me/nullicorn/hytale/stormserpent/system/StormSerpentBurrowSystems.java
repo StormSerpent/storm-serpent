@@ -14,7 +14,6 @@ import me.nullicorn.hytale.stormserpent.component.StormSerpentBone;
 import me.nullicorn.hytale.stormserpent.solver.EnteringBurrowJointSolver;
 import me.nullicorn.serpentine.component.Serpent;
 import me.nullicorn.serpentine.component.SerpentBone;
-import me.nullicorn.serpentine.component.SerpentBoneAutoApplyScale;
 import me.nullicorn.serpentine.system.SerpentSolverSystem;
 
 import javax.annotation.Nonnull;
@@ -69,7 +68,6 @@ public final class StormSerpentBurrowSystems {
                 final double boneLength = boneInfo.baseLength() * boneInfo.scale();
 
                 boneInfo.setAutoSpawn(false);
-                commandBuffer.tryRemoveComponent(boneRef, SerpentBoneAutoApplyScale.getComponentType());
 
                 if (distance <= 0 && archetypeChunk.getComponent(index, StormSerpent.getComponentType()) == null) {
                     commandBuffer.removeEntity(boneRef, RemoveReason.REMOVE);

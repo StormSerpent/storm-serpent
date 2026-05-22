@@ -7,7 +7,10 @@ import com.hypixel.hytale.component.system.RefSystem;
 import com.hypixel.hytale.server.core.modules.entity.component.HeadRotation;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import me.nullicorn.serpentine.component.*;
+import me.nullicorn.serpentine.component.Serpent;
+import me.nullicorn.serpentine.component.SerpentBone;
+import me.nullicorn.serpentine.component.SerpentBoneAutoApplyModel;
+import me.nullicorn.serpentine.component.SerpentBoneAutoApplyTransform;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -26,9 +29,8 @@ public final class SerpentHeadSpawnSystems {
         // Update the head bone inside the `Serpent` to have a ref to itself.
         serpent.bones().getFirst().setRef(serpentRef);
 
-        // Mark head bone to have its model and scale auto updated by default. Other plugins can remove these if needed.
+        // Mark head bone to have its model auto updated by default. Other plugins can remove this if needed.
         componentAccessor.putComponent(serpentRef, SerpentBoneAutoApplyModel.getComponentType(), SerpentBoneAutoApplyModel.get());
-        componentAccessor.putComponent(serpentRef, SerpentBoneAutoApplyScale.getComponentType(), SerpentBoneAutoApplyScale.get());
 
         // Add transform components if missing.
         componentAccessor.ensureAndGetComponent(serpentRef, TransformComponent.getComponentType());
@@ -111,7 +113,6 @@ public final class SerpentHeadSpawnSystems {
             // bone and delete it. Also remove any other serpent-related components while we're at it.
             commandBuffer.tryRemoveComponent(ref, SerpentBone.getComponentType());
             commandBuffer.tryRemoveComponent(ref, SerpentBoneAutoApplyModel.getComponentType());
-            commandBuffer.tryRemoveComponent(ref, SerpentBoneAutoApplyScale.getComponentType());
             commandBuffer.tryRemoveComponent(ref, SerpentBoneAutoApplyTransform.getComponentType());
         }
     }

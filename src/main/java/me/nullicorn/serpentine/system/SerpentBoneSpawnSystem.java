@@ -11,7 +11,10 @@ import com.hypixel.hytale.server.core.entity.UUIDComponent;
 import com.hypixel.hytale.server.core.modules.entity.tracker.NetworkId;
 import com.hypixel.hytale.server.core.universe.world.chunk.WorldChunk;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import me.nullicorn.serpentine.component.*;
+import me.nullicorn.serpentine.component.Serpent;
+import me.nullicorn.serpentine.component.SerpentBone;
+import me.nullicorn.serpentine.component.SerpentBoneAutoApplyModel;
+import me.nullicorn.serpentine.component.SerpentBoneAutoApplyTransform;
 import org.joml.Vector3d;
 
 import javax.annotation.Nonnull;
@@ -71,7 +74,6 @@ public final class SerpentBoneSpawnSystem extends EntityTickingSystem<EntityStor
             final Holder<EntityStore> holder = store.getRegistry().newHolder();
             holder.addComponent(SerpentBone.getComponentType(), new SerpentBone(serpentRef, i));
             holder.addComponent(SerpentBoneAutoApplyTransform.getComponentType(), SerpentBoneAutoApplyTransform.get());
-            holder.addComponent(SerpentBoneAutoApplyScale.getComponentType(), SerpentBoneAutoApplyScale.get());
             holder.addComponent(SerpentBoneAutoApplyModel.getComponentType(), SerpentBoneAutoApplyModel.get());
             holder.addComponent(NetworkId.getComponentType(), new NetworkId(store.getExternalData().takeNextNetworkId()));
             holder.addComponent(UUIDComponent.getComponentType(), UUIDComponent.randomUUID());

@@ -58,7 +58,6 @@ public final class StormSerpentPlugin extends JavaPlugin {
     // TODO: Temporarily copied from Serpentine since it's not published yet.
     private ComponentType<EntityStore, Serpent> serpentComponentType;
     private ComponentType<EntityStore, SerpentBone> serpentBoneComponentType;
-    private ComponentType<EntityStore, SerpentBoneAutoApplyScale> serpentBoneAutoApplyScaleComponentType;
     private ComponentType<EntityStore, SerpentBoneAutoApplyModel> serpentBoneAutoApplyModelComponentType;
     private ComponentType<EntityStore, SerpentBoneAutoApplyTransform> serpentBoneAutoApplyTransformComponentType;
 
@@ -219,7 +218,6 @@ public final class StormSerpentPlugin extends JavaPlugin {
         this.serpentBoneComponentType = this.getEntityStoreRegistry().registerComponent(SerpentBone.class, () -> {
             throw new UnsupportedOperationException("Not implemented");
         });
-        this.serpentBoneAutoApplyScaleComponentType = this.getEntityStoreRegistry().registerComponent(SerpentBoneAutoApplyScale.class, SerpentBoneAutoApplyScale::get);
         this.serpentBoneAutoApplyModelComponentType = this.getEntityStoreRegistry().registerComponent(SerpentBoneAutoApplyModel.class, SerpentBoneAutoApplyModel::get);
         this.serpentBoneAutoApplyTransformComponentType = this.getEntityStoreRegistry().registerComponent(SerpentBoneAutoApplyTransform.class, SerpentBoneAutoApplyTransform::get);
 
@@ -228,7 +226,6 @@ public final class StormSerpentPlugin extends JavaPlugin {
         this.getEntityStoreRegistry().registerSystem(new SerpentSolverSystem());
         this.getEntityStoreRegistry().registerSystem(new SerpentBoneSpawnSystem());
         this.getEntityStoreRegistry().registerSystem(new SerpentBoneDespawnSystem());
-        this.getEntityStoreRegistry().registerSystem(new SerpentBoneApplyScaleSystem());
         this.getEntityStoreRegistry().registerSystem(new SerpentBoneApplyModelSystem());
         this.getEntityStoreRegistry().registerSystem(new SerpentBoneApplyTransformSystem());
     }
@@ -239,10 +236,6 @@ public final class StormSerpentPlugin extends JavaPlugin {
 
     public ComponentType<EntityStore, SerpentBone> getSerpentBoneComponentType() {
         return this.serpentBoneComponentType;
-    }
-
-    public ComponentType<EntityStore, SerpentBoneAutoApplyScale> getSerpentBoneAutoApplyScaleComponentType() {
-        return this.serpentBoneAutoApplyScaleComponentType;
     }
 
     public ComponentType<EntityStore, SerpentBoneAutoApplyModel> getSerpentBoneAutoApplyModelComponentType() {

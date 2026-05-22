@@ -114,12 +114,12 @@ public final class Serpent implements Component<EntityStore> {
 
                 final ModelAsset modelAsset = boneConfig.model();
                 if (modelAsset != null) {
-                    modelRef = Model.createUnitScaleModel(modelAsset).toReference();
+                    modelRef = new Model.ModelReference(modelAsset.getId(), (float) layoutBone.scale(), modelAsset.generateRandomAttachmentIds());
                 }
             }
 
             this.joints.add(new Joint(jointPosition));
-            this.bones.add(new Bone(modelRef, new Transform(prevJointPosition.add(jointPosition).div(2)), boneConfig != null ? boneConfig.length() : 0.0, layoutBone.scale()));
+            this.bones.add(new Bone(modelRef, new Transform(prevJointPosition.add(jointPosition).div(2)), boneConfig != null ? boneConfig.length() : 0.0));
         }
 
         this.setJointSolver(new DefaultSerpentJointSolver());
@@ -235,13 +235,6 @@ public final class Serpent implements Component<EntityStore> {
             .addValidator(Validators.nonNull())
             .add()
             .append(
-                new KeyedCodec<>("Scale", Codec.DOUBLE, false),
-                (o, s) -> o.scale = s,
-                (o) -> o.scale
-            )
-            .addValidator(Validators.nonNull())
-            .add()
-            .append(
                 new KeyedCodec<>("AutoSpawn", Codec.BOOLEAN, false),
                 (o, s) -> o.autoSpawn = s,
                 (o) -> o.autoSpawn
@@ -255,19 +248,16 @@ public final class Serpent implements Component<EntityStore> {
         private Model.ModelReference model;
         private Transform transform = new Transform();
         private double baseLength;
-        private double scale = 1.0;
         private boolean autoSpawn = true;
 
         private Bone(
             @Nullable final Model.ModelReference model,
             final Transform transform,
-            final double baseLength,
-            final double scale
+            final double baseLength
         ) {
             this.model = model;
             this.transform = transform;
             this.baseLength = baseLength;
-            this.scale = scale;
         }
 
         private Bone() {
@@ -292,8 +282,10 @@ public final class Serpent implements Component<EntityStore> {
             return this.baseLength;
         }
 
-        public double scale() {
-            return this.scale;
+        public float scale() {
+            return this.model != null
+                ? this.model.getScale()
+                : 1.0f;
         }
 
         public boolean isAutoSpawn() {
@@ -312,10 +304,6 @@ public final class Serpent implements Component<EntityStore> {
             this.baseLength = baseLength;
         }
 
-        public void setScale(final double scale) {
-            this.scale = scale;
-        }
-
         public void setAutoSpawn(final boolean autoSpawn) {
             this.autoSpawn = autoSpawn;
         }
@@ -327,7 +315,6 @@ public final class Serpent implements Component<EntityStore> {
             clone.model = this.model;
             clone.transform = this.transform.clone();
             clone.baseLength = this.baseLength;
-            clone.scale = this.scale;
             clone.autoSpawn = this.autoSpawn;
             return clone;
         }
