@@ -1,6 +1,6 @@
 {
   "Particle": {
-    "Texture": "Particles/Textures/Rnd/SwordImpact.png",
+    "Texture": "Particles/Textures/Rnd/SwordImpactHighRes.png",
     "Animation": {
       "0": {
         "Scale": {
