@@ -1,5 +1,4 @@
 {
-  "RenderMode": "BlendLinear",
   "ParticleRotationInfluence": "Billboard",
   "ParticleRotateWithSpawner": true,
   "TrailSpawnerPositionMultiplier": 0,
@@ -14,7 +13,7 @@
     "Max": 9
   },
   "Particle": {
-    "Texture": "Particles/Textures/Smoke/Smoke_Smooth2.png",
+    "Texture": "Particles/Textures/Smoke/Smoke.png",
     "FrameSize": {
       "Width": 64,
       "Height": 64
@@ -49,13 +48,10 @@
             "Min": 0,
             "Max": 0
           }
-        },
-        "FrameIndex": {
-          "Max": 3
         }
       },
       "50": {
-        "Opacity": 0.3
+        "Opacity": 0.4
       },
       "100": {
         "Color": "#fbfcd3",
@@ -111,26 +107,23 @@
           "Max": 4
         }
       },
-      "Opacity": 1,
-      "FrameIndex": {
-        "Max": 3
-      }
+      "Opacity": 1
     }
   },
   "LinearFiltering": true,
   "SpawnBurst": false,
   "EmitOffset": {
     "X": {
-      "Max": 0.2,
-      "Min": 0
+      "Min": 0,
+      "Max": 0.3
     },
     "Y": {
       "Min": 0,
-      "Max": 0.2
+      "Max": 0.3
     },
     "Z": {
       "Min": 0,
-      "Max": 0.2
+      "Max": 0.3
     }
   },
   "InitialVelocity": {
@@ -169,5 +162,6 @@
         "Z": 0
       }
     }
-  ]
+  ],
+  "RenderMode": "BlendLinear"
 }

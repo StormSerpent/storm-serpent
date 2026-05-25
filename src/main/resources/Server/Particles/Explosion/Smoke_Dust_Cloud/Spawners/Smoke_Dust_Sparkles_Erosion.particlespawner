@@ -1,20 +1,20 @@
 {
-  "RenderMode": "BlendLinear",
+  "RenderMode": "Erosion",
   "ParticleRotationInfluence": "Billboard",
   "ParticleRotateWithSpawner": true,
   "TrailSpawnerPositionMultiplier": 0,
   "TrailSpawnerRotationMultiplier": 0,
   "MaxConcurrentParticles": 15,
   "ParticleLifeSpan": {
-    "Min": 2,
-    "Max": 3
+    "Min": 3,
+    "Max": 4
   },
   "SpawnRate": {
-    "Min": 4,
-    "Max": 9
+    "Min": 7,
+    "Max": 12
   },
   "Particle": {
-    "Texture": "Particles/Textures/Smoke/Smoke_Smooth2.png",
+    "Texture": "Particles/Textures/Smoke/SandCloud_erosion.png",
     "FrameSize": {
       "Width": 64,
       "Height": 64
@@ -25,7 +25,7 @@
     "Animation": {
       "0": {
         "Opacity": 0,
-        "Color": "#f6f4b4",
+        "Color": "#b79a5a",
         "Scale": {
           "X": {
             "Min": 1,
@@ -49,16 +49,14 @@
             "Min": 0,
             "Max": 0
           }
-        },
-        "FrameIndex": {
-          "Max": 3
         }
       },
       "50": {
-        "Opacity": 0.3
+        "Opacity": 0.4,
+        "Color": "#a16f3e"
       },
       "100": {
-        "Color": "#fbfcd3",
+        "Color": "#b79a5a",
         "Opacity": 0,
         "Scale": {
           "X": {
@@ -103,34 +101,29 @@
       },
       "Scale": {
         "X": {
-          "Min": 2,
-          "Max": 4
+          "Min": 1,
+          "Max": 1
         },
         "Y": {
-          "Min": 2,
-          "Max": 4
+          "Min": 1,
+          "Max": 1
         }
       },
-      "Opacity": 1,
-      "FrameIndex": {
-        "Max": 3
-      }
+      "Opacity": 1
     }
   },
-  "LinearFiltering": true,
-  "SpawnBurst": false,
   "EmitOffset": {
     "X": {
-      "Max": 0.2,
-      "Min": 0
+      "Min": 0,
+      "Max": 0.4
     },
     "Y": {
       "Min": 0,
-      "Max": 0.2
+      "Max": 0.4
     },
     "Z": {
       "Min": 0,
-      "Max": 0.2
+      "Max": 0.4
     }
   },
   "InitialVelocity": {
@@ -165,9 +158,10 @@
       "RadialAcceleration": 0,
       "LinearAcceleration": {
         "X": 0,
-        "Y": 2,
+        "Y": -1,
         "Z": 0
       }
     }
-  ]
+  ],
+  "SpawnBurst": false
 }
