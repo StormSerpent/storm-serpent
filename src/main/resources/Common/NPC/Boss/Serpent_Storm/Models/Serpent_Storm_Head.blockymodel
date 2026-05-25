@@ -1357,8 +1357,8 @@
                                   },
                                   "top": {
                                     "offset": {"x": 1023, "y": 202},
-                                    "mirror": {"x": true, "y": true},
-                                    "angle": 270
+                                    "mirror": {"x": false, "y": false},
+                                    "angle": 90
                                   },
                                   "bottom": {
                                     "offset": {"x": 1022, "y": 197},
@@ -1374,112 +1374,133 @@
                             },
                             {
                               "id": "36",
-                              "name": "cube--C2",
-                              "position": {"x": -1449.50163, "y": -3.58309, "z": 102.28695},
-                              "orientation": {"x": -0.01862, "y": 0.06494, "z": -0.00339, "w": 0.99771},
+                              "name": "tooth_top_r2",
+                              "position": {"x": -15.77865, "y": -9.3362, "z": 107.36464},
+                              "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
                               "shape": {
-                                "type": "box",
-                                "offset": {"x": 1414.87054, "y": -0.39023, "z": 209.15953},
+                                "type": "none",
+                                "offset": {"x": 0, "y": 0, "z": 0},
                                 "stretch": {"x": 1, "y": 1, "z": 1},
                                 "settings": {
-                                  "isPiece": false,
-                                  "size": {"x": 26, "y": 24, "z": 45},
-                                  "isStaticBox": true
+                                  "isPiece": false
                                 },
-                                "textureLayout": {
-                                  "back": {
-                                    "offset": {"x": 823, "y": 169},
-                                    "mirror": {"x": false, "y": false},
-                                    "angle": 0
-                                  },
-                                  "right": {
-                                    "offset": {"x": 879, "y": 528},
-                                    "mirror": {"x": false, "y": false},
-                                    "angle": 0
-                                  },
-                                  "front": {
-                                    "offset": {"x": 245, "y": 828},
-                                    "mirror": {"x": false, "y": false},
-                                    "angle": 0
-                                  },
-                                  "left": {
-                                    "offset": {"x": 779, "y": 528},
-                                    "mirror": {"x": false, "y": false},
-                                    "angle": 0
-                                  },
-                                  "top": {
-                                    "offset": {"x": 978, "y": 528},
-                                    "mirror": {"x": false, "y": true},
-                                    "angle": 90
-                                  },
-                                  "bottom": {
-                                    "offset": {"x": 824, "y": 523},
-                                    "mirror": {"x": true, "y": false},
-                                    "angle": 90
-                                  }
-                                },
+                                "textureLayout": {},
                                 "unwrapMode": "custom",
                                 "visible": true,
                                 "doubleSided": false,
                                 "shadingMode": "flat"
-                              }
-                            },
-                            {
-                              "id": "37",
-                              "name": "cube--C3",
-                              "position": {"x": -13.50163, "y": -3.58309, "z": 146.28695},
-                              "orientation": {"x": -0.01711, "y": 0.32096, "z": -0.00809, "w": 0.9469},
-                              "shape": {
-                                "type": "box",
-                                "offset": {"x": -2.40114, "y": -6.01096, "z": 5.50184},
-                                "stretch": {"x": 1, "y": 1, "z": 1},
-                                "settings": {
-                                  "isPiece": false,
-                                  "size": {"x": 13, "y": 14, "z": 27},
-                                  "isStaticBox": true
-                                },
-                                "textureLayout": {
-                                  "back": {
-                                    "offset": {"x": 792, "y": 270},
-                                    "mirror": {"x": false, "y": false},
-                                    "angle": 0
-                                  },
-                                  "right": {
-                                    "offset": {"x": 681, "y": 587},
-                                    "mirror": {"x": false, "y": false},
-                                    "angle": 0
-                                  },
-                                  "front": {
-                                    "offset": {"x": 149, "y": 786},
-                                    "mirror": {"x": false, "y": false},
-                                    "angle": 0
-                                  },
-                                  "left": {
-                                    "offset": {"x": 271, "y": 836},
-                                    "mirror": {"x": false, "y": false},
-                                    "angle": 0
-                                  },
-                                  "top": {
-                                    "offset": {"x": 58, "y": 769},
-                                    "mirror": {"x": true, "y": true},
-                                    "angle": 0
-                                  },
-                                  "bottom": {
-                                    "offset": {"x": 518, "y": 836},
-                                    "mirror": {"x": true, "y": false},
-                                    "angle": 0
+                              },
+                              "children": [
+                                {
+                                  "id": "37",
+                                  "name": "cube--C1",
+                                  "position": {"x": -3.69053, "y": 0.04068, "z": 19.02779},
+                                  "orientation": {"x": -0.01862, "y": 0.06494, "z": -0.00339, "w": 0.99771},
+                                  "shape": {
+                                    "type": "box",
+                                    "offset": {"x": 0, "y": 0, "z": 0},
+                                    "stretch": {"x": 1, "y": 1, "z": 1},
+                                    "settings": {
+                                      "isPiece": false,
+                                      "size": {"x": 26, "y": 24, "z": 45},
+                                      "isStaticBox": true
+                                    },
+                                    "textureLayout": {
+                                      "back": {
+                                        "offset": {"x": 823, "y": 169},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "right": {
+                                        "offset": {"x": 879, "y": 528},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "front": {
+                                        "offset": {"x": 245, "y": 828},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "left": {
+                                        "offset": {"x": 779, "y": 528},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "top": {
+                                        "offset": {"x": 978, "y": 528},
+                                        "mirror": {"x": false, "y": true},
+                                        "angle": 90
+                                      },
+                                      "bottom": {
+                                        "offset": {"x": 824, "y": 523},
+                                        "mirror": {"x": true, "y": false},
+                                        "angle": 90
+                                      }
+                                    },
+                                    "unwrapMode": "custom",
+                                    "visible": true,
+                                    "doubleSided": false,
+                                    "shadingMode": "flat"
                                   }
                                 },
-                                "unwrapMode": "custom",
-                                "visible": true,
-                                "doubleSided": false,
-                                "shadingMode": "flat"
-                              }
+                                {
+                                  "id": "38",
+                                  "name": "cube--C2",
+                                  "position": {"x": 2.27702, "y": 5.75311, "z": 38.92231},
+                                  "orientation": {"x": -0.01711, "y": 0.32096, "z": -0.00809, "w": 0.9469},
+                                  "shape": {
+                                    "type": "box",
+                                    "offset": {"x": -2.40114, "y": -6.01096, "z": 5.50184},
+                                    "stretch": {"x": 1, "y": 1, "z": 1},
+                                    "settings": {
+                                      "isPiece": false,
+                                      "size": {"x": 13, "y": 14, "z": 27},
+                                      "isStaticBox": true
+                                    },
+                                    "textureLayout": {
+                                      "back": {
+                                        "offset": {"x": 792, "y": 270},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "right": {
+                                        "offset": {"x": 681, "y": 587},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "front": {
+                                        "offset": {"x": 149, "y": 786},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "left": {
+                                        "offset": {"x": 271, "y": 836},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "top": {
+                                        "offset": {"x": 58, "y": 769},
+                                        "mirror": {"x": true, "y": true},
+                                        "angle": 0
+                                      },
+                                      "bottom": {
+                                        "offset": {"x": 518, "y": 836},
+                                        "mirror": {"x": true, "y": false},
+                                        "angle": 0
+                                      }
+                                    },
+                                    "unwrapMode": "custom",
+                                    "visible": true,
+                                    "doubleSided": false,
+                                    "shadingMode": "flat"
+                                  }
+                                }
+                              ]
                             }
                           ]
                         },
                         {
-                          "id": "38",
+                          "id": "39",
                           "name": "tooth_top_l",
                           "position": {"x": 120.74174, "y": 7, "z": 6},
                           "orientation": {"x": -0.02156, "y": 0.02314, "z": 0.15035, "w": 0.98813},
@@ -1498,7 +1519,7 @@
                           },
                           "children": [
                             {
-                              "id": "39",
+                              "id": "40",
                               "name": "cube--C1",
                               "position": {"x": 1.58434, "y": 2.58513, "z": -18.86285},
                               "orientation": {"x": 0.04345, "y": 0.08707, "z": 0.0038, "w": 0.99525},
@@ -1539,59 +1560,7 @@
                                   },
                                   "bottom": {
                                     "offset": {"x": 903, "y": 197},
-                                    "mirror": {"x": false, "y": false},
-                                    "angle": 270
-                                  }
-                                },
-                                "unwrapMode": "custom",
-                                "visible": true,
-                                "doubleSided": false,
-                                "shadingMode": "flat"
-                              }
-                            },
-                            {
-                              "id": "40",
-                              "name": "cube--C2",
-                              "position": {"x": 1449.50163, "y": -3.58309, "z": 102.28695},
-                              "orientation": {"x": -0.01862, "y": -0.06494, "z": 0.00339, "w": 0.99771},
-                              "shape": {
-                                "type": "box",
-                                "offset": {"x": -1414.87054, "y": -0.39023, "z": 209.15953},
-                                "stretch": {"x": 1, "y": 1, "z": 1},
-                                "settings": {
-                                  "isPiece": false,
-                                  "size": {"x": 26, "y": 24, "z": 45},
-                                  "isStaticBox": true
-                                },
-                                "textureLayout": {
-                                  "back": {
-                                    "offset": {"x": 849, "y": 169},
-                                    "mirror": {"x": true, "y": false},
-                                    "angle": 0
-                                  },
-                                  "right": {
-                                    "offset": {"x": 824, "y": 528},
-                                    "mirror": {"x": true, "y": false},
-                                    "angle": 0
-                                  },
-                                  "front": {
-                                    "offset": {"x": 271, "y": 828},
-                                    "mirror": {"x": true, "y": false},
-                                    "angle": 0
-                                  },
-                                  "left": {
-                                    "offset": {"x": 924, "y": 528},
-                                    "mirror": {"x": true, "y": false},
-                                    "angle": 0
-                                  },
-                                  "top": {
-                                    "offset": {"x": 978, "y": 528},
-                                    "mirror": {"x": false, "y": true},
-                                    "angle": 90
-                                  },
-                                  "bottom": {
-                                    "offset": {"x": 824, "y": 523},
-                                    "mirror": {"x": true, "y": false},
+                                    "mirror": {"x": true, "y": true},
                                     "angle": 90
                                   }
                                 },
@@ -1603,60 +1572,133 @@
                             },
                             {
                               "id": "41",
-                              "name": "cube--C3",
-                              "position": {"x": 13.50163, "y": -3.58309, "z": 146.28695},
-                              "orientation": {"x": -0.01711, "y": -0.32096, "z": 0.00809, "w": 0.9469},
+                              "name": "tooth_top_l2",
+                              "position": {"x": 15.77865, "y": -9.3362, "z": 107.36464},
+                              "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
                               "shape": {
-                                "type": "box",
-                                "offset": {"x": 2.40114, "y": -6.01096, "z": 5.50184},
+                                "type": "none",
+                                "offset": {"x": 0, "y": 0, "z": 0},
                                 "stretch": {"x": 1, "y": 1, "z": 1},
                                 "settings": {
-                                  "isPiece": false,
-                                  "size": {"x": 13, "y": 14, "z": 27},
-                                  "isStaticBox": true
+                                  "isPiece": false
                                 },
-                                "textureLayout": {
-                                  "back": {
-                                    "offset": {"x": 805, "y": 270},
-                                    "mirror": {"x": true, "y": false},
-                                    "angle": 0
-                                  },
-                                  "right": {
-                                    "offset": {"x": 298, "y": 836},
-                                    "mirror": {"x": true, "y": false},
-                                    "angle": 0
-                                  },
-                                  "front": {
-                                    "offset": {"x": 162, "y": 786},
-                                    "mirror": {"x": true, "y": false},
-                                    "angle": 0
-                                  },
-                                  "left": {
-                                    "offset": {"x": 708, "y": 587},
-                                    "mirror": {"x": true, "y": false},
-                                    "angle": 0
-                                  },
-                                  "top": {
-                                    "offset": {"x": 45, "y": 769},
-                                    "mirror": {"x": false, "y": true},
-                                    "angle": 0
-                                  },
-                                  "bottom": {
-                                    "offset": {"x": 505, "y": 836},
-                                    "mirror": {"x": false, "y": false},
-                                    "angle": 0
-                                  }
-                                },
+                                "textureLayout": {},
                                 "unwrapMode": "custom",
                                 "visible": true,
                                 "doubleSided": false,
                                 "shadingMode": "flat"
-                              }
+                              },
+                              "children": [
+                                {
+                                  "id": "42",
+                                  "name": "cube--C1",
+                                  "position": {"x": 3.69053, "y": 0.04068, "z": 19.02779},
+                                  "orientation": {"x": -0.01862, "y": -0.06494, "z": 0.00339, "w": 0.99771},
+                                  "shape": {
+                                    "type": "box",
+                                    "offset": {"x": 0, "y": 0, "z": 0},
+                                    "stretch": {"x": 1, "y": 1, "z": 1},
+                                    "settings": {
+                                      "isPiece": false,
+                                      "size": {"x": 26, "y": 24, "z": 45},
+                                      "isStaticBox": true
+                                    },
+                                    "textureLayout": {
+                                      "back": {
+                                        "offset": {"x": 849, "y": 169},
+                                        "mirror": {"x": true, "y": false},
+                                        "angle": 0
+                                      },
+                                      "right": {
+                                        "offset": {"x": 824, "y": 528},
+                                        "mirror": {"x": true, "y": false},
+                                        "angle": 0
+                                      },
+                                      "front": {
+                                        "offset": {"x": 271, "y": 828},
+                                        "mirror": {"x": true, "y": false},
+                                        "angle": 0
+                                      },
+                                      "left": {
+                                        "offset": {"x": 924, "y": 528},
+                                        "mirror": {"x": true, "y": false},
+                                        "angle": 0
+                                      },
+                                      "top": {
+                                        "offset": {"x": 978, "y": 528},
+                                        "mirror": {"x": false, "y": true},
+                                        "angle": 90
+                                      },
+                                      "bottom": {
+                                        "offset": {"x": 824, "y": 523},
+                                        "mirror": {"x": true, "y": false},
+                                        "angle": 90
+                                      }
+                                    },
+                                    "unwrapMode": "custom",
+                                    "visible": true,
+                                    "doubleSided": false,
+                                    "shadingMode": "flat"
+                                  }
+                                },
+                                {
+                                  "id": "43",
+                                  "name": "cube--C2",
+                                  "position": {"x": -2.27702, "y": 5.75311, "z": 38.92231},
+                                  "orientation": {"x": -0.01711, "y": -0.32096, "z": 0.00809, "w": 0.9469},
+                                  "shape": {
+                                    "type": "box",
+                                    "offset": {"x": 2.40114, "y": -6.01096, "z": 5.50184},
+                                    "stretch": {"x": 1, "y": 1, "z": 1},
+                                    "settings": {
+                                      "isPiece": false,
+                                      "size": {"x": 13, "y": 14, "z": 27},
+                                      "isStaticBox": true
+                                    },
+                                    "textureLayout": {
+                                      "back": {
+                                        "offset": {"x": 805, "y": 270},
+                                        "mirror": {"x": true, "y": false},
+                                        "angle": 0
+                                      },
+                                      "right": {
+                                        "offset": {"x": 298, "y": 836},
+                                        "mirror": {"x": true, "y": false},
+                                        "angle": 0
+                                      },
+                                      "front": {
+                                        "offset": {"x": 162, "y": 786},
+                                        "mirror": {"x": true, "y": false},
+                                        "angle": 0
+                                      },
+                                      "left": {
+                                        "offset": {"x": 708, "y": 587},
+                                        "mirror": {"x": true, "y": false},
+                                        "angle": 0
+                                      },
+                                      "top": {
+                                        "offset": {"x": 45, "y": 769},
+                                        "mirror": {"x": false, "y": true},
+                                        "angle": 0
+                                      },
+                                      "bottom": {
+                                        "offset": {"x": 505, "y": 836},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      }
+                                    },
+                                    "unwrapMode": "custom",
+                                    "visible": true,
+                                    "doubleSided": false,
+                                    "shadingMode": "flat"
+                                  }
+                                }
+                              ]
                             }
                           ]
                         },
                         {
-                          "id": "42",
+                          "id": "44",
                           "name": "tooth_middle_r",
                           "position": {"x": -21, "y": -11.16835, "z": -41.91259},
                           "orientation": {"x": 0.10886, "y": 0, "z": 0, "w": 0.99406},
@@ -1675,7 +1717,7 @@
                           },
                           "children": [
                             {
-                              "id": "43",
+                              "id": "45",
                               "name": "cube--C1",
                               "position": {"x": 0, "y": -0.8561, "z": -22.34429},
                               "orientation": {"x": 0.04336, "y": -0.10876, "z": -0.00475, "w": 0.99311},
@@ -1711,8 +1753,8 @@
                                   },
                                   "top": {
                                     "offset": {"x": 1022, "y": 319},
-                                    "mirror": {"x": true, "y": true},
-                                    "angle": 270
+                                    "mirror": {"x": false, "y": false},
+                                    "angle": 90
                                   },
                                   "bottom": {
                                     "offset": {"x": 1022, "y": 387},
@@ -1727,7 +1769,7 @@
                               }
                             },
                             {
-                              "id": "44",
+                              "id": "46",
                               "name": "tooth_middle2_r",
                               "position": {"x": -26.91729, "y": -7.02432, "z": 114.80551},
                               "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -1746,7 +1788,7 @@
                               },
                               "children": [
                                 {
-                                  "id": "45",
+                                  "id": "47",
                                   "name": "cube--C1",
                                   "position": {"x": 0, "y": 0, "z": 0},
                                   "orientation": {"x": -0.01846, "y": 0.1084, "z": -0.0042, "w": 0.99393},
@@ -1798,7 +1840,7 @@
                                   }
                                 },
                                 {
-                                  "id": "46",
+                                  "id": "48",
                                   "name": "cube--C2",
                                   "position": {"x": 21, "y": 4, "z": 103},
                                   "orientation": {"x": -0.01693, "y": 0.34154, "z": -0.00846, "w": 0.93968},
@@ -1850,7 +1892,7 @@
                                   }
                                 },
                                 {
-                                  "id": "47",
+                                  "id": "49",
                                   "name": "cube--C3",
                                   "position": {"x": 21, "y": 3, "z": 57},
                                   "orientation": {"x": -0.01634, "y": 0.40226, "z": -0.00955, "w": 0.91533},
@@ -1906,7 +1948,7 @@
                           ]
                         },
                         {
-                          "id": "48",
+                          "id": "50",
                           "name": "tooth_middle_l",
                           "position": {"x": 134.74174, "y": -11.16835, "z": -41.91259},
                           "orientation": {"x": 0.10886, "y": 0, "z": 0, "w": 0.99406},
@@ -1925,7 +1967,7 @@
                           },
                           "children": [
                             {
-                              "id": "49",
+                              "id": "51",
                               "name": "cube--C1",
                               "position": {"x": 0, "y": -0.8561, "z": -22.34429},
                               "orientation": {"x": 0.04336, "y": 0.10876, "z": 0.00475, "w": 0.99311},
@@ -1966,8 +2008,8 @@
                                   },
                                   "bottom": {
                                     "offset": {"x": 885, "y": 387},
-                                    "mirror": {"x": false, "y": false},
-                                    "angle": 270
+                                    "mirror": {"x": true, "y": true},
+                                    "angle": 90
                                   }
                                 },
                                 "unwrapMode": "custom",
@@ -1977,9 +2019,9 @@
                               }
                             },
                             {
-                              "id": "50",
+                              "id": "52",
                               "name": "tooth_middle2_l",
-                              "position": {"x": 26.91729, "y": -7.02432, "z": 114.80551},
+                              "position": {"x": 18.91729, "y": -7.02432, "z": 114.80551},
                               "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
                               "shape": {
                                 "type": "none",
@@ -1996,9 +2038,9 @@
                               },
                               "children": [
                                 {
-                                  "id": "51",
+                                  "id": "53",
                                   "name": "cube--C1",
-                                  "position": {"x": 0, "y": 0, "z": 0},
+                                  "position": {"x": 7.77321, "y": 0.13835, "z": 1.8863},
                                   "orientation": {"x": -0.01846, "y": -0.1084, "z": 0.0042, "w": 0.99393},
                                   "shape": {
                                     "type": "box",
@@ -2048,9 +2090,9 @@
                                   }
                                 },
                                 {
-                                  "id": "52",
+                                  "id": "54",
                                   "name": "cube--C2",
-                                  "position": {"x": -21, "y": 4, "z": 103},
+                                  "position": {"x": -13.22679, "y": 4.13835, "z": 104.8863},
                                   "orientation": {"x": -0.01693, "y": -0.34154, "z": 0.00846, "w": 0.93968},
                                   "shape": {
                                     "type": "box",
@@ -2100,9 +2142,9 @@
                                   }
                                 },
                                 {
-                                  "id": "53",
+                                  "id": "55",
                                   "name": "cube--C3",
-                                  "position": {"x": -21, "y": 3, "z": 57},
+                                  "position": {"x": -13.22679, "y": 3.13835, "z": 58.8863},
                                   "orientation": {"x": -0.01634, "y": -0.40226, "z": 0.00955, "w": 0.91533},
                                   "shape": {
                                     "type": "box",
@@ -2158,7 +2200,7 @@
                       ]
                     },
                     {
-                      "id": "54",
+                      "id": "56",
                       "name": "corner_tooth_r",
                       "position": {"x": -41, "y": -53.36869, "z": 140.31815},
                       "orientation": {"x": 0, "y": 0, "z": -0.02181, "w": 0.99976},
@@ -2177,7 +2219,7 @@
                       },
                       "children": [
                         {
-                          "id": "55",
+                          "id": "57",
                           "name": "cube--C1",
                           "position": {"x": -27, "y": 10, "z": -2},
                           "orientation": {"x": -0.02221, "y": -0.0048, "z": 0.08701, "w": 0.99595},
@@ -2229,7 +2271,7 @@
                           }
                         },
                         {
-                          "id": "56",
+                          "id": "58",
                           "name": "cube--C2",
                           "position": {"x": -20, "y": -27, "z": 3},
                           "orientation": {"x": 0.15156, "y": 0.0085, "z": 0.12975, "w": 0.97986},
@@ -2281,7 +2323,7 @@
                           }
                         },
                         {
-                          "id": "57",
+                          "id": "59",
                           "name": "cube--C3",
                           "position": {"x": -19.05024, "y": -48.76178, "z": -5.91757},
                           "orientation": {"x": 0.32046, "y": 0.01694, "z": 0.16713, "w": 0.93225},
@@ -2335,7 +2377,7 @@
                       ]
                     },
                     {
-                      "id": "58",
+                      "id": "60",
                       "name": "corner_tooth_l",
                       "position": {"x": 41, "y": -53.36869, "z": 140.31815},
                       "orientation": {"x": 0, "y": 0, "z": 0.02181, "w": 0.99976},
@@ -2354,7 +2396,7 @@
                       },
                       "children": [
                         {
-                          "id": "59",
+                          "id": "61",
                           "name": "cube--C1",
                           "position": {"x": 27, "y": 10, "z": -2},
                           "orientation": {"x": -0.02221, "y": 0.0048, "z": -0.08701, "w": 0.99595},
@@ -2406,7 +2448,7 @@
                           }
                         },
                         {
-                          "id": "60",
+                          "id": "62",
                           "name": "cube--C2",
                           "position": {"x": 20, "y": -27, "z": 3},
                           "orientation": {"x": 0.15156, "y": -0.0085, "z": -0.12975, "w": 0.97986},
@@ -2458,7 +2500,7 @@
                           }
                         },
                         {
-                          "id": "61",
+                          "id": "63",
                           "name": "cube--C3",
                           "position": {"x": 19.05024, "y": -48.76178, "z": -5.91757},
                           "orientation": {"x": 0.32046, "y": -0.01694, "z": -0.16713, "w": 0.93225},
@@ -2512,7 +2554,7 @@
                       ]
                     },
                     {
-                      "id": "62",
+                      "id": "64",
                       "name": "cube--C8",
                       "position": {"x": -74, "y": -57.27262, "z": 121.87115},
                       "orientation": {"x": 0.09229, "y": 0.70106, "z": 0.09229, "w": 0.70106},
@@ -2540,7 +2582,7 @@
                       }
                     },
                     {
-                      "id": "63",
+                      "id": "65",
                       "name": "cube--C9",
                       "position": {"x": 74, "y": -57.27262, "z": 121.87115},
                       "orientation": {"x": 0.09229, "y": -0.70106, "z": -0.09229, "w": 0.70106},
@@ -2568,7 +2610,7 @@
                       }
                     },
                     {
-                      "id": "64",
+                      "id": "66",
                       "name": "appendage4_r",
                       "position": {"x": -34.12263, "y": 4.63528, "z": 16.73522},
                       "orientation": {"x": -0.00747, "y": -0.0205, "z": -0.34194, "w": 0.93947},
@@ -2587,7 +2629,7 @@
                       },
                       "children": [
                         {
-                          "id": "65",
+                          "id": "67",
                           "name": "Electric_Bead--C1",
                           "position": {"x": -53.43433, "y": 50.56773, "z": -71.78074},
                           "orientation": {"x": -0.16451, "y": 0.29986, "z": -0.82385, "w": 0.45198},
@@ -2639,7 +2681,7 @@
                           }
                         },
                         {
-                          "id": "66",
+                          "id": "68",
                           "name": "cube--C2",
                           "position": {"x": 0, "y": 0, "z": 0},
                           "orientation": {"x": -0.16451, "y": 0.29986, "z": -0.82385, "w": 0.45198},
@@ -2660,8 +2702,8 @@
                               },
                               "right": {
                                 "offset": {"x": 165, "y": 471},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 270
+                                "mirror": {"x": true, "y": true},
+                                "angle": 90
                               },
                               "front": {
                                 "offset": {"x": 89, "y": 786},
@@ -2670,8 +2712,8 @@
                               },
                               "left": {
                                 "offset": {"x": 164, "y": 471},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 270
+                                "mirror": {"x": true, "y": true},
+                                "angle": 90
                               },
                               "top": {
                                 "offset": {"x": 177, "y": 354},
@@ -2691,7 +2733,7 @@
                           }
                         },
                         {
-                          "id": "67",
+                          "id": "69",
                           "name": "bone34",
                           "position": {"x": -54.0267, "y": 49.54792, "z": -71.72221},
                           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -2710,7 +2752,7 @@
                           },
                           "children": [
                             {
-                              "id": "68",
+                              "id": "70",
                               "name": "Electric_Bead_Quads9",
                               "position": {"x": 0, "y": 0, "z": 0},
                               "orientation": {"x": 0.07221, "y": 0.33782, "z": -0.2505, "w": 0.90439},
@@ -2737,7 +2779,7 @@
                               },
                               "children": [
                                 {
-                                  "id": "69",
+                                  "id": "71",
                                   "name": "Face_D--C1",
                                   "position": {"x": 0, "y": -19, "z": 19},
                                   "orientation": {"x": -0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -2765,7 +2807,7 @@
                                   }
                                 },
                                 {
-                                  "id": "70",
+                                  "id": "72",
                                   "name": "Face_U--C2",
                                   "position": {"x": 0, "y": 19, "z": 19},
                                   "orientation": {"x": 0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -2793,7 +2835,7 @@
                                   }
                                 },
                                 {
-                                  "id": "71",
+                                  "id": "73",
                                   "name": "Face_W--C3",
                                   "position": {"x": 19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": -0.70711, "z": 0, "w": 0.70711},
@@ -2821,7 +2863,7 @@
                                   }
                                 },
                                 {
-                                  "id": "72",
+                                  "id": "74",
                                   "name": "Face_S--C4",
                                   "position": {"x": 0, "y": 0, "z": 38},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -2849,7 +2891,7 @@
                                   }
                                 },
                                 {
-                                  "id": "73",
+                                  "id": "75",
                                   "name": "Face_E--C5",
                                   "position": {"x": -19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": 0.70711, "z": 0, "w": 0.70711},
@@ -2883,7 +2925,7 @@
                       ]
                     },
                     {
-                      "id": "74",
+                      "id": "76",
                       "name": "appendage4_l",
                       "position": {"x": 34.12263, "y": 4.63528, "z": 16.73522},
                       "orientation": {"x": -0.00747, "y": 0.0205, "z": 0.34194, "w": 0.93947},
@@ -2902,7 +2944,7 @@
                       },
                       "children": [
                         {
-                          "id": "75",
+                          "id": "77",
                           "name": "Electric_Bead--C1",
                           "position": {"x": 53.43433, "y": 50.56773, "z": -71.78074},
                           "orientation": {"x": -0.16451, "y": -0.29986, "z": 0.82385, "w": 0.45198},
@@ -2954,7 +2996,7 @@
                           }
                         },
                         {
-                          "id": "76",
+                          "id": "78",
                           "name": "cube--C2",
                           "position": {"x": 0, "y": 0, "z": 0},
                           "orientation": {"x": -0.16451, "y": -0.29986, "z": 0.82385, "w": 0.45198},
@@ -3006,7 +3048,7 @@
                           }
                         },
                         {
-                          "id": "77",
+                          "id": "79",
                           "name": "bone13",
                           "position": {"x": 54.0267, "y": 49.54792, "z": -71.72221},
                           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -3025,7 +3067,7 @@
                           },
                           "children": [
                             {
-                              "id": "78",
+                              "id": "80",
                               "name": "Electric_Bead_Quads3",
                               "position": {"x": 0, "y": 0, "z": 0},
                               "orientation": {"x": 0.07221, "y": -0.33782, "z": 0.2505, "w": 0.90439},
@@ -3052,7 +3094,7 @@
                               },
                               "children": [
                                 {
-                                  "id": "79",
+                                  "id": "81",
                                   "name": "Face_D--C1",
                                   "position": {"x": 0, "y": -19, "z": 19},
                                   "orientation": {"x": -0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -3080,7 +3122,7 @@
                                   }
                                 },
                                 {
-                                  "id": "80",
+                                  "id": "82",
                                   "name": "Face_U--C2",
                                   "position": {"x": 0, "y": 19, "z": 19},
                                   "orientation": {"x": 0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -3108,7 +3150,7 @@
                                   }
                                 },
                                 {
-                                  "id": "81",
+                                  "id": "83",
                                   "name": "Face_W--C3",
                                   "position": {"x": -19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": 0.70711, "z": 0, "w": 0.70711},
@@ -3136,7 +3178,7 @@
                                   }
                                 },
                                 {
-                                  "id": "82",
+                                  "id": "84",
                                   "name": "Face_S--C4",
                                   "position": {"x": 0, "y": 0, "z": 38},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -3164,7 +3206,7 @@
                                   }
                                 },
                                 {
-                                  "id": "83",
+                                  "id": "85",
                                   "name": "Face_E--C5",
                                   "position": {"x": 19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": -0.70711, "z": 0, "w": 0.70711},
@@ -3192,7 +3234,7 @@
                                   }
                                 },
                                 {
-                                  "id": "84",
+                                  "id": "86",
                                   "name": "Face_S--C6",
                                   "position": {"x": 0, "y": 0, "z": 38},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -3220,7 +3262,7 @@
                                   }
                                 },
                                 {
-                                  "id": "85",
+                                  "id": "87",
                                   "name": "Face_S--C7",
                                   "position": {"x": 0, "y": 0, "z": 38},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -3254,7 +3296,7 @@
                       ]
                     },
                     {
-                      "id": "86",
+                      "id": "88",
                       "name": "appendage3_r",
                       "position": {"x": -68.12263, "y": 4.63528, "z": 9.73522},
                       "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -3273,7 +3315,7 @@
                       },
                       "children": [
                         {
-                          "id": "87",
+                          "id": "89",
                           "name": "Electric_Bead--C1",
                           "position": {"x": -56.20446, "y": 33.88687, "z": -81.50023},
                           "orientation": {"x": -0.16451, "y": 0.29986, "z": -0.82385, "w": 0.45198},
@@ -3325,7 +3367,7 @@
                           }
                         },
                         {
-                          "id": "88",
+                          "id": "90",
                           "name": "cube--C2",
                           "position": {"x": 0, "y": 0, "z": 0},
                           "orientation": {"x": -0.16451, "y": 0.29986, "z": -0.82385, "w": 0.45198},
@@ -3346,8 +3388,8 @@
                               },
                               "right": {
                                 "offset": {"x": 162, "y": 467},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 270
+                                "mirror": {"x": true, "y": true},
+                                "angle": 90
                               },
                               "front": {
                                 "offset": {"x": 737, "y": 835},
@@ -3356,8 +3398,8 @@
                               },
                               "left": {
                                 "offset": {"x": 162, "y": 467},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 270
+                                "mirror": {"x": true, "y": true},
+                                "angle": 90
                               },
                               "top": {
                                 "offset": {"x": 183, "y": 354},
@@ -3377,7 +3419,7 @@
                           }
                         },
                         {
-                          "id": "89",
+                          "id": "91",
                           "name": "bone10",
                           "position": {"x": -56.58578, "y": 34.59355, "z": -82.43663},
                           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -3396,7 +3438,7 @@
                           },
                           "children": [
                             {
-                              "id": "90",
+                              "id": "92",
                               "name": "Electric_Bead_Quads17",
                               "position": {"x": 0, "y": 0, "z": 0},
                               "orientation": {"x": 0.08741, "y": 0.31854, "z": -0.27371, "w": 0.90331},
@@ -3423,7 +3465,7 @@
                               },
                               "children": [
                                 {
-                                  "id": "91",
+                                  "id": "93",
                                   "name": "Face_D--C1",
                                   "position": {"x": 0, "y": -19, "z": 19},
                                   "orientation": {"x": -0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -3451,7 +3493,7 @@
                                   }
                                 },
                                 {
-                                  "id": "92",
+                                  "id": "94",
                                   "name": "Face_U--C2",
                                   "position": {"x": 0, "y": 19, "z": 19},
                                   "orientation": {"x": 0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -3479,7 +3521,7 @@
                                   }
                                 },
                                 {
-                                  "id": "93",
+                                  "id": "95",
                                   "name": "Face_W--C3",
                                   "position": {"x": 19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": -0.70711, "z": 0, "w": 0.70711},
@@ -3507,7 +3549,7 @@
                                   }
                                 },
                                 {
-                                  "id": "94",
+                                  "id": "96",
                                   "name": "Face_S--C4",
                                   "position": {"x": 0, "y": 0, "z": 38},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -3535,7 +3577,7 @@
                                   }
                                 },
                                 {
-                                  "id": "95",
+                                  "id": "97",
                                   "name": "Face_E--C5",
                                   "position": {"x": -19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": 0.70711, "z": 0, "w": 0.70711},
@@ -3565,7 +3607,7 @@
                               ]
                             },
                             {
-                              "id": "96",
+                              "id": "98",
                               "name": "Electric_Bead_Quads18",
                               "position": {"x": 0, "y": 0, "z": 0},
                               "orientation": {"x": 0.13708, "y": 0.12227, "z": -0.48259, "w": 0.85637},
@@ -3592,7 +3634,7 @@
                               },
                               "children": [
                                 {
-                                  "id": "97",
+                                  "id": "99",
                                   "name": "Face_D--C1",
                                   "position": {"x": 0, "y": -19, "z": 19},
                                   "orientation": {"x": -0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -3620,7 +3662,7 @@
                                   }
                                 },
                                 {
-                                  "id": "98",
+                                  "id": "100",
                                   "name": "Face_U--C2",
                                   "position": {"x": 0, "y": 19, "z": 19},
                                   "orientation": {"x": 0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -3648,7 +3690,7 @@
                                   }
                                 },
                                 {
-                                  "id": "99",
+                                  "id": "101",
                                   "name": "Face_W--C3",
                                   "position": {"x": 19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": -0.70711, "z": 0, "w": 0.70711},
@@ -3676,7 +3718,7 @@
                                   }
                                 },
                                 {
-                                  "id": "100",
+                                  "id": "102",
                                   "name": "Face_S--C4",
                                   "position": {"x": 0, "y": 0, "z": 38},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -3704,7 +3746,7 @@
                                   }
                                 },
                                 {
-                                  "id": "101",
+                                  "id": "103",
                                   "name": "Face_E--C5",
                                   "position": {"x": -19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": 0.70711, "z": 0, "w": 0.70711},
@@ -3738,7 +3780,7 @@
                       ]
                     },
                     {
-                      "id": "102",
+                      "id": "104",
                       "name": "appendage2_r",
                       "position": {"x": -65.12263, "y": -31.32516, "z": -1.15552},
                       "orientation": {"x": 0, "y": 0, "z": 0.21644, "w": 0.9763},
@@ -3757,7 +3799,7 @@
                       },
                       "children": [
                         {
-                          "id": "103",
+                          "id": "105",
                           "name": "Electric_Bead--C1",
                           "position": {"x": -51.40724, "y": 35.1214, "z": -75.71514},
                           "orientation": {"x": -0.16451, "y": 0.29986, "z": -0.82385, "w": 0.45198},
@@ -3809,7 +3851,7 @@
                           }
                         },
                         {
-                          "id": "104",
+                          "id": "106",
                           "name": "bone32",
                           "position": {"x": -51.58578, "y": 34.11376, "z": -76.95211},
                           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -3828,7 +3870,7 @@
                           },
                           "children": [
                             {
-                              "id": "105",
+                              "id": "107",
                               "name": "Electric_Bead_Quads15",
                               "position": {"x": 0, "y": 0, "z": 0},
                               "orientation": {"x": 0.08741, "y": 0.31854, "z": -0.27371, "w": 0.90331},
@@ -3855,7 +3897,7 @@
                               },
                               "children": [
                                 {
-                                  "id": "106",
+                                  "id": "108",
                                   "name": "Face_D--C1",
                                   "position": {"x": 0, "y": -19, "z": 19},
                                   "orientation": {"x": -0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -3883,7 +3925,7 @@
                                   }
                                 },
                                 {
-                                  "id": "107",
+                                  "id": "109",
                                   "name": "Face_U--C2",
                                   "position": {"x": 0, "y": 19, "z": 19},
                                   "orientation": {"x": 0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -3911,7 +3953,7 @@
                                   }
                                 },
                                 {
-                                  "id": "108",
+                                  "id": "110",
                                   "name": "Face_W--C3",
                                   "position": {"x": 19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": -0.70711, "z": 0, "w": 0.70711},
@@ -3939,7 +3981,7 @@
                                   }
                                 },
                                 {
-                                  "id": "109",
+                                  "id": "111",
                                   "name": "Face_E--C4",
                                   "position": {"x": -19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": 0.70711, "z": 0, "w": 0.70711},
@@ -3967,7 +4009,7 @@
                                   }
                                 },
                                 {
-                                  "id": "110",
+                                  "id": "112",
                                   "name": "Face_S--C5",
                                   "position": {"x": 0, "y": 0, "z": 38},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -3995,7 +4037,7 @@
                                   }
                                 },
                                 {
-                                  "id": "111",
+                                  "id": "113",
                                   "name": "Face_S--C6",
                                   "position": {"x": 20, "y": 1.66329, "z": 30.17482},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -4023,7 +4065,7 @@
                                   }
                                 },
                                 {
-                                  "id": "112",
+                                  "id": "114",
                                   "name": "Face_S--C7",
                                   "position": {"x": 20, "y": 1.66329, "z": 30.17482},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -4051,7 +4093,7 @@
                                   }
                                 },
                                 {
-                                  "id": "113",
+                                  "id": "115",
                                   "name": "Face_S--C8",
                                   "position": {"x": 20, "y": 1.66329, "z": 30.17482},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -4083,7 +4125,7 @@
                           ]
                         },
                         {
-                          "id": "114",
+                          "id": "116",
                           "name": "cube--C2",
                           "position": {"x": 0, "y": 0, "z": 0},
                           "orientation": {"x": -0.16451, "y": 0.29986, "z": -0.82385, "w": 0.45198},
@@ -4104,8 +4146,8 @@
                               },
                               "right": {
                                 "offset": {"x": 164, "y": 467},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 270
+                                "mirror": {"x": true, "y": true},
+                                "angle": 90
                               },
                               "front": {
                                 "offset": {"x": 461, "y": 837},
@@ -4137,7 +4179,7 @@
                       ]
                     },
                     {
-                      "id": "115",
+                      "id": "117",
                       "name": "appendage2_l",
                       "position": {"x": 65.12263, "y": -31.32516, "z": -1.15552},
                       "orientation": {"x": 0, "y": 0, "z": -0.21644, "w": 0.9763},
@@ -4156,7 +4198,7 @@
                       },
                       "children": [
                         {
-                          "id": "116",
+                          "id": "118",
                           "name": "Electric_Bead--C1",
                           "position": {"x": 51.40724, "y": 35.1214, "z": -75.71514},
                           "orientation": {"x": -0.16451, "y": -0.29986, "z": 0.82385, "w": 0.45198},
@@ -4208,7 +4250,7 @@
                           }
                         },
                         {
-                          "id": "117",
+                          "id": "119",
                           "name": "bone24",
                           "position": {"x": 51.58578, "y": 34.11376, "z": -76.95211},
                           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -4227,7 +4269,7 @@
                           },
                           "children": [
                             {
-                              "id": "118",
+                              "id": "120",
                               "name": "Electric_Bead_Quads24",
                               "position": {"x": 0, "y": 0, "z": 0},
                               "orientation": {"x": 0.08741, "y": -0.31854, "z": 0.27371, "w": 0.90331},
@@ -4254,7 +4296,7 @@
                               },
                               "children": [
                                 {
-                                  "id": "119",
+                                  "id": "121",
                                   "name": "Face_D--C1",
                                   "position": {"x": 0, "y": -19, "z": 19},
                                   "orientation": {"x": -0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -4282,7 +4324,7 @@
                                   }
                                 },
                                 {
-                                  "id": "120",
+                                  "id": "122",
                                   "name": "Face_U--C2",
                                   "position": {"x": 0, "y": 19, "z": 19},
                                   "orientation": {"x": 0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -4310,7 +4352,7 @@
                                   }
                                 },
                                 {
-                                  "id": "121",
+                                  "id": "123",
                                   "name": "Face_W--C3",
                                   "position": {"x": -19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": 0.70711, "z": 0, "w": 0.70711},
@@ -4338,7 +4380,7 @@
                                   }
                                 },
                                 {
-                                  "id": "122",
+                                  "id": "124",
                                   "name": "Face_S--C4",
                                   "position": {"x": 0, "y": 0, "z": 38},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -4366,7 +4408,7 @@
                                   }
                                 },
                                 {
-                                  "id": "123",
+                                  "id": "125",
                                   "name": "Face_E--C5",
                                   "position": {"x": 19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": -0.70711, "z": 0, "w": 0.70711},
@@ -4394,7 +4436,7 @@
                                   }
                                 },
                                 {
-                                  "id": "124",
+                                  "id": "126",
                                   "name": "Face_S--C6",
                                   "position": {"x": 0, "y": 0, "z": 38},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -4422,7 +4464,7 @@
                                   }
                                 },
                                 {
-                                  "id": "125",
+                                  "id": "127",
                                   "name": "Face_S--C7",
                                   "position": {"x": 0, "y": 0, "z": 38},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -4452,7 +4494,7 @@
                               ]
                             },
                             {
-                              "id": "126",
+                              "id": "128",
                               "name": "Electric_Bead_Quads25",
                               "position": {"x": 0, "y": 0, "z": 0},
                               "orientation": {"x": 0.08741, "y": -0.31854, "z": 0.27371, "w": 0.90331},
@@ -4479,7 +4521,7 @@
                               },
                               "children": [
                                 {
-                                  "id": "127",
+                                  "id": "129",
                                   "name": "Face_D--C1",
                                   "position": {"x": 0, "y": -19, "z": 19},
                                   "orientation": {"x": -0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -4507,7 +4549,7 @@
                                   }
                                 },
                                 {
-                                  "id": "128",
+                                  "id": "130",
                                   "name": "Face_U--C2",
                                   "position": {"x": 0, "y": 19, "z": 19},
                                   "orientation": {"x": 0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -4535,7 +4577,7 @@
                                   }
                                 },
                                 {
-                                  "id": "129",
+                                  "id": "131",
                                   "name": "Face_W--C3",
                                   "position": {"x": -19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": 0.70711, "z": 0, "w": 0.70711},
@@ -4563,7 +4605,7 @@
                                   }
                                 },
                                 {
-                                  "id": "130",
+                                  "id": "132",
                                   "name": "Face_S--C4",
                                   "position": {"x": 0, "y": 0, "z": 38},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -4591,7 +4633,7 @@
                                   }
                                 },
                                 {
-                                  "id": "131",
+                                  "id": "133",
                                   "name": "Face_E--C5",
                                   "position": {"x": 19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": -0.70711, "z": 0, "w": 0.70711},
@@ -4623,7 +4665,7 @@
                           ]
                         },
                         {
-                          "id": "132",
+                          "id": "134",
                           "name": "cube--C2",
                           "position": {"x": 0, "y": 0, "z": 0},
                           "orientation": {"x": -0.16451, "y": -0.29986, "z": 0.82385, "w": 0.45198},
@@ -4654,8 +4696,8 @@
                               },
                               "left": {
                                 "offset": {"x": 182, "y": 354},
-                                "mirror": {"x": true, "y": true},
-                                "angle": 270
+                                "mirror": {"x": false, "y": false},
+                                "angle": 90
                               },
                               "top": {
                                 "offset": {"x": 162, "y": 354},
@@ -4677,7 +4719,7 @@
                       ]
                     },
                     {
-                      "id": "133",
+                      "id": "135",
                       "name": "appendage3_l",
                       "position": {"x": 68.12263, "y": 4.63528, "z": 9.73522},
                       "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -4696,7 +4738,7 @@
                       },
                       "children": [
                         {
-                          "id": "134",
+                          "id": "136",
                           "name": "cube--C1",
                           "position": {"x": 0, "y": 0, "z": 0},
                           "orientation": {"x": -0.16451, "y": -0.29986, "z": 0.82385, "w": 0.45198},
@@ -4748,7 +4790,7 @@
                           }
                         },
                         {
-                          "id": "135",
+                          "id": "137",
                           "name": "Electric_Bead--C2",
                           "position": {"x": 56.20446, "y": 33.88687, "z": -81.50023},
                           "orientation": {"x": -0.16451, "y": -0.29986, "z": 0.82385, "w": 0.45198},
@@ -4800,7 +4842,7 @@
                           }
                         },
                         {
-                          "id": "136",
+                          "id": "138",
                           "name": "bone11",
                           "position": {"x": 56.58578, "y": 34.59355, "z": -82.43663},
                           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -4819,7 +4861,7 @@
                           },
                           "children": [
                             {
-                              "id": "137",
+                              "id": "139",
                               "name": "Electric_Bead_Quads19",
                               "position": {"x": 0, "y": 0, "z": 0},
                               "orientation": {"x": 0.08741, "y": -0.31854, "z": 0.27371, "w": 0.90331},
@@ -4846,7 +4888,7 @@
                               },
                               "children": [
                                 {
-                                  "id": "138",
+                                  "id": "140",
                                   "name": "Face_D--C1",
                                   "position": {"x": 0, "y": -19, "z": 19},
                                   "orientation": {"x": -0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -4874,7 +4916,7 @@
                                   }
                                 },
                                 {
-                                  "id": "139",
+                                  "id": "141",
                                   "name": "Face_U--C2",
                                   "position": {"x": 0, "y": 19, "z": 19},
                                   "orientation": {"x": 0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -4902,7 +4944,7 @@
                                   }
                                 },
                                 {
-                                  "id": "140",
+                                  "id": "142",
                                   "name": "Face_W--C3",
                                   "position": {"x": -19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": 0.70711, "z": 0, "w": 0.70711},
@@ -4930,7 +4972,7 @@
                                   }
                                 },
                                 {
-                                  "id": "141",
+                                  "id": "143",
                                   "name": "Face_S--C4",
                                   "position": {"x": 0, "y": 0, "z": 38},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -4958,7 +5000,7 @@
                                   }
                                 },
                                 {
-                                  "id": "142",
+                                  "id": "144",
                                   "name": "Face_E--C5",
                                   "position": {"x": 19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": -0.70711, "z": 0, "w": 0.70711},
@@ -4988,7 +5030,7 @@
                               ]
                             },
                             {
-                              "id": "143",
+                              "id": "145",
                               "name": "Electric_Bead_Quads20",
                               "position": {"x": 0, "y": 0, "z": 0},
                               "orientation": {"x": 0.13708, "y": -0.12227, "z": 0.48259, "w": 0.85637},
@@ -5015,7 +5057,7 @@
                               },
                               "children": [
                                 {
-                                  "id": "144",
+                                  "id": "146",
                                   "name": "Face_D--C1",
                                   "position": {"x": 0, "y": -19, "z": 19},
                                   "orientation": {"x": -0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -5043,7 +5085,7 @@
                                   }
                                 },
                                 {
-                                  "id": "145",
+                                  "id": "147",
                                   "name": "Face_U--C2",
                                   "position": {"x": 0, "y": 19, "z": 19},
                                   "orientation": {"x": 0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -5071,7 +5113,7 @@
                                   }
                                 },
                                 {
-                                  "id": "146",
+                                  "id": "148",
                                   "name": "Face_W--C3",
                                   "position": {"x": -19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": 0.70711, "z": 0, "w": 0.70711},
@@ -5099,7 +5141,7 @@
                                   }
                                 },
                                 {
-                                  "id": "147",
+                                  "id": "149",
                                   "name": "Face_S--C4",
                                   "position": {"x": 0, "y": 0, "z": 38},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -5127,7 +5169,7 @@
                                   }
                                 },
                                 {
-                                  "id": "148",
+                                  "id": "150",
                                   "name": "Face_E--C5",
                                   "position": {"x": 19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": -0.70711, "z": 0, "w": 0.70711},
@@ -5161,7 +5203,7 @@
                       ]
                     },
                     {
-                      "id": "149",
+                      "id": "151",
                       "name": "mouth_corner_in1_r",
                       "position": {"x": -65, "y": -70.18047, "z": 42.70751},
                       "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -5180,7 +5222,7 @@
                       },
                       "children": [
                         {
-                          "id": "150",
+                          "id": "152",
                           "name": "cube--C1",
                           "position": {"x": 0, "y": 0, "z": 0},
                           "orientation": {"x": 0.24184, "y": 0.66448, "z": 0.24185, "w": 0.66445},
@@ -5210,7 +5252,7 @@
                       ]
                     },
                     {
-                      "id": "151",
+                      "id": "153",
                       "name": "mouth_corner_in1_l",
                       "position": {"x": 65, "y": -70.18047, "z": 42.70751},
                       "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -5229,7 +5271,7 @@
                       },
                       "children": [
                         {
-                          "id": "152",
+                          "id": "154",
                           "name": "cube--C1",
                           "position": {"x": 0, "y": 0, "z": 0},
                           "orientation": {"x": 0.24184, "y": -0.66448, "z": -0.24185, "w": 0.66445},
@@ -5259,7 +5301,7 @@
                       ]
                     },
                     {
-                      "id": "153",
+                      "id": "155",
                       "name": "mouth_corner_out1_r",
                       "position": {"x": -65, "y": -70.18047, "z": 42.70751},
                       "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -5278,7 +5320,7 @@
                       },
                       "children": [
                         {
-                          "id": "154",
+                          "id": "156",
                           "name": "cube--C1",
                           "position": {"x": 0, "y": 0, "z": 0},
                           "orientation": {"x": 0.24184, "y": 0.66448, "z": 0.24185, "w": 0.66445},
@@ -5308,7 +5350,7 @@
                       ]
                     },
                     {
-                      "id": "155",
+                      "id": "157",
                       "name": "mouth_corner_out1_l",
                       "position": {"x": 65, "y": -70.18047, "z": 42.70751},
                       "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -5327,7 +5369,7 @@
                       },
                       "children": [
                         {
-                          "id": "156",
+                          "id": "158",
                           "name": "cube--C1",
                           "position": {"x": 0, "y": 0, "z": 0},
                           "orientation": {"x": 0.24184, "y": -0.66448, "z": -0.24185, "w": 0.66445},
@@ -5359,7 +5401,7 @@
                   ]
                 },
                 {
-                  "id": "157",
+                  "id": "159",
                   "name": "Jaw_Lower",
                   "position": {"x": 0, "y": -54.36869, "z": 12.81815},
                   "orientation": {"x": -0.01745, "y": 0, "z": 0, "w": 0.99985},
@@ -5378,7 +5420,7 @@
                   },
                   "children": [
                     {
-                      "id": "158",
+                      "id": "160",
                       "name": "bone8",
                       "position": {"x": -51.12263, "y": 20.55395, "z": -140.01779},
                       "orientation": {"x": 0, "y": 0, "z": 0.42262, "w": 0.90631},
@@ -5397,7 +5439,7 @@
                       },
                       "children": [
                         {
-                          "id": "159",
+                          "id": "161",
                           "name": "bone19",
                           "position": {"x": -41.64278, "y": 26.87726, "z": -67.6076},
                           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -5418,7 +5460,7 @@
                       ]
                     },
                     {
-                      "id": "160",
+                      "id": "162",
                       "name": "cube--C1",
                       "position": {"x": 0, "y": 23.73865, "z": -172.01914},
                       "orientation": {"x": 0.04362, "y": 0, "z": 0, "w": 0.99905},
@@ -5470,7 +5512,7 @@
                       }
                     },
                     {
-                      "id": "161",
+                      "id": "163",
                       "name": "cube--C2",
                       "position": {"x": -28.73675, "y": 20.71369, "z": -30.811},
                       "orientation": {"x": 0.15371, "y": -0.03644, "z": -0.03644, "w": 0.98677},
@@ -5522,7 +5564,7 @@
                       }
                     },
                     {
-                      "id": "162",
+                      "id": "164",
                       "name": "cube--C3",
                       "position": {"x": -50.58938, "y": 18.10897, "z": -62.2476},
                       "orientation": {"x": 0.18453, "y": -0.3807, "z": -0.04459, "w": 0.905},
@@ -5574,7 +5616,7 @@
                       }
                     },
                     {
-                      "id": "163",
+                      "id": "165",
                       "name": "cube--C4",
                       "position": {"x": -48.58938, "y": 23.75429, "z": -97.44141},
                       "orientation": {"x": 0.06145, "y": -0.68186, "z": 0.03937, "w": 0.72784},
@@ -5626,7 +5668,7 @@
                       }
                     },
                     {
-                      "id": "164",
+                      "id": "166",
                       "name": "cube--C5",
                       "position": {"x": -49.58938, "y": 21.0039, "z": -72.58836},
                       "orientation": {"x": 0.08707, "y": -0.64034, "z": 0.0038, "w": 0.76313},
@@ -5678,7 +5720,7 @@
                       }
                     },
                     {
-                      "id": "165",
+                      "id": "167",
                       "name": "tooth_bottom_r",
                       "position": {"x": -51.68202, "y": -0.5991, "z": -74.33566},
                       "orientation": {"x": 0.02541, "y": -0.05847, "z": 0.31843, "w": 0.9458},
@@ -5697,7 +5739,7 @@
                       },
                       "children": [
                         {
-                          "id": "166",
+                          "id": "168",
                           "name": "cube--C1",
                           "position": {"x": -8.77975, "y": 6.19623, "z": 0.8261},
                           "orientation": {"x": 0.02173, "y": -0.08697, "z": -0.0057, "w": 0.99596},
@@ -5733,8 +5775,8 @@
                               },
                               "top": {
                                 "offset": {"x": 1023, "y": 33},
-                                "mirror": {"x": true, "y": true},
-                                "angle": 270
+                                "mirror": {"x": false, "y": false},
+                                "angle": 90
                               },
                               "bottom": {
                                 "offset": {"x": 1023, "y": 30},
@@ -5749,7 +5791,7 @@
                           }
                         },
                         {
-                          "id": "167",
+                          "id": "169",
                           "name": "cube--C2",
                           "position": {"x": -13.20445, "y": -4.17505, "z": 39.71305},
                           "orientation": {"x": -0.01862, "y": 0.06494, "z": -0.00339, "w": 0.99771},
@@ -5801,7 +5843,7 @@
                           }
                         },
                         {
-                          "id": "168",
+                          "id": "170",
                           "name": "cube--C3",
                           "position": {"x": -7.9478, "y": 6.99146, "z": 102.32723},
                           "orientation": {"x": -0.01693, "y": 0.34154, "z": -0.00846, "w": 0.93968},
@@ -5855,7 +5897,7 @@
                       ]
                     },
                     {
-                      "id": "169",
+                      "id": "171",
                       "name": "tooth_bottom_l",
                       "position": {"x": 51.68202, "y": -0.5991, "z": -74.33566},
                       "orientation": {"x": 0.02541, "y": 0.05847, "z": -0.31843, "w": 0.9458},
@@ -5874,7 +5916,7 @@
                       },
                       "children": [
                         {
-                          "id": "170",
+                          "id": "172",
                           "name": "cube--C1",
                           "position": {"x": 8.77975, "y": 6.19623, "z": 0.8261},
                           "orientation": {"x": 0.02173, "y": 0.08697, "z": 0.0057, "w": 0.99596},
@@ -5915,8 +5957,8 @@
                               },
                               "bottom": {
                                 "offset": {"x": 965, "y": 30},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 270
+                                "mirror": {"x": true, "y": true},
+                                "angle": 90
                               }
                             },
                             "unwrapMode": "custom",
@@ -5926,7 +5968,7 @@
                           }
                         },
                         {
-                          "id": "171",
+                          "id": "173",
                           "name": "cube--C2",
                           "position": {"x": 13.20445, "y": -4.17505, "z": 39.71305},
                           "orientation": {"x": -0.01862, "y": -0.06494, "z": 0.00339, "w": 0.99771},
@@ -5978,7 +6020,7 @@
                           }
                         },
                         {
-                          "id": "172",
+                          "id": "174",
                           "name": "cube--C3",
                           "position": {"x": 7.9478, "y": 6.99146, "z": 102.32723},
                           "orientation": {"x": -0.01693, "y": -0.34154, "z": 0.00846, "w": 0.93968},
@@ -6032,7 +6074,7 @@
                       ]
                     },
                     {
-                      "id": "173",
+                      "id": "175",
                       "name": "cube--C6",
                       "position": {"x": -65, "y": 23.83472, "z": -122.46614},
                       "orientation": {"x": -0.0923, "y": 0.70105, "z": -0.0923, "w": 0.70106},
@@ -6060,7 +6102,7 @@
                       }
                     },
                     {
-                      "id": "174",
+                      "id": "176",
                       "name": "cube--C7",
                       "position": {"x": -65, "y": 23.83472, "z": -122.46614},
                       "orientation": {"x": -0.0923, "y": 0.70105, "z": -0.0923, "w": 0.70106},
@@ -6088,7 +6130,7 @@
                       }
                     },
                     {
-                      "id": "175",
+                      "id": "177",
                       "name": "cube--C8",
                       "position": {"x": 65, "y": 23.83472, "z": -122.46614},
                       "orientation": {"x": -0.0923, "y": -0.70105, "z": 0.0923, "w": 0.70106},
@@ -6116,7 +6158,7 @@
                       }
                     },
                     {
-                      "id": "176",
+                      "id": "178",
                       "name": "cube--C9",
                       "position": {"x": 65, "y": 23.83472, "z": -122.46614},
                       "orientation": {"x": -0.0923, "y": -0.70105, "z": 0.0923, "w": 0.70106},
@@ -6144,7 +6186,7 @@
                       }
                     },
                     {
-                      "id": "177",
+                      "id": "179",
                       "name": "cube--C10",
                       "position": {"x": 28.73675, "y": 20.71369, "z": -30.811},
                       "orientation": {"x": 0.15371, "y": 0.03644, "z": 0.03644, "w": 0.98677},
@@ -6196,7 +6238,7 @@
                       }
                     },
                     {
-                      "id": "178",
+                      "id": "180",
                       "name": "cube--C11",
                       "position": {"x": 50.58938, "y": 18.10897, "z": -62.2476},
                       "orientation": {"x": 0.18453, "y": 0.3807, "z": 0.04459, "w": 0.905},
@@ -6248,7 +6290,7 @@
                       }
                     },
                     {
-                      "id": "179",
+                      "id": "181",
                       "name": "cube--C12",
                       "position": {"x": 49.58938, "y": 21.0039, "z": -72.58836},
                       "orientation": {"x": 0.08707, "y": 0.64034, "z": -0.0038, "w": 0.76313},
@@ -6300,7 +6342,7 @@
                       }
                     },
                     {
-                      "id": "180",
+                      "id": "182",
                       "name": "cube--C13",
                       "position": {"x": 48.58938, "y": 23.75429, "z": -97.44141},
                       "orientation": {"x": 0.06145, "y": 0.68186, "z": -0.03937, "w": 0.72784},
@@ -6352,7 +6394,7 @@
                       }
                     },
                     {
-                      "id": "181",
+                      "id": "183",
                       "name": "tooth_bottom_front_r",
                       "position": {"x": -27.946, "y": -8.54953, "z": -38.29772},
                       "orientation": {"x": 0.0666, "y": 0.01472, "z": 0.61122, "w": 0.78851},
@@ -6371,7 +6413,7 @@
                       },
                       "children": [
                         {
-                          "id": "182",
+                          "id": "184",
                           "name": "cube--C1",
                           "position": {"x": -1.99223, "y": 3.39436, "z": 17.22175},
                           "orientation": {"x": -0.06795, "y": 0.02091, "z": 0.01202, "w": 0.9974},
@@ -6423,7 +6465,7 @@
                           }
                         },
                         {
-                          "id": "183",
+                          "id": "185",
                           "name": "bone16",
                           "position": {"x": -1.99223, "y": 3.39436, "z": 17.22175},
                           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -6442,7 +6484,7 @@
                           },
                           "children": [
                             {
-                              "id": "184",
+                              "id": "186",
                               "name": "cube--C1",
                               "position": {"x": 2.72307, "y": 2.83136, "z": 24.41998},
                               "orientation": {"x": 0.01802, "y": 0.19462, "z": 0.00579, "w": 0.9807},
@@ -6498,7 +6540,7 @@
                       ]
                     },
                     {
-                      "id": "185",
+                      "id": "187",
                       "name": "tooth_bottom_front_l",
                       "position": {"x": 27.946, "y": -8.54953, "z": -38.29772},
                       "orientation": {"x": 0.0666, "y": -0.01472, "z": -0.61122, "w": 0.78851},
@@ -6517,7 +6559,7 @@
                       },
                       "children": [
                         {
-                          "id": "186",
+                          "id": "188",
                           "name": "cube--C1",
                           "position": {"x": 1.99223, "y": 3.39436, "z": 17.22175},
                           "orientation": {"x": -0.06795, "y": -0.02091, "z": -0.01202, "w": 0.9974},
@@ -6569,7 +6611,7 @@
                           }
                         },
                         {
-                          "id": "187",
+                          "id": "189",
                           "name": "bone47",
                           "position": {"x": 1.99223, "y": 3.39436, "z": 17.22175},
                           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -6588,7 +6630,7 @@
                           },
                           "children": [
                             {
-                              "id": "188",
+                              "id": "190",
                               "name": "cube--C1",
                               "position": {"x": -2.72307, "y": 2.83136, "z": 24.41998},
                               "orientation": {"x": 0.01802, "y": -0.19462, "z": -0.00579, "w": 0.9807},
@@ -6644,7 +6686,7 @@
                       ]
                     },
                     {
-                      "id": "189",
+                      "id": "191",
                       "name": "Tongue",
                       "position": {"x": 0, "y": 39.27092, "z": -129.36178},
                       "orientation": {"x": 0.02879, "y": 0, "z": 0, "w": 0.99959},
@@ -6663,7 +6705,7 @@
                       },
                       "children": [
                         {
-                          "id": "190",
+                          "id": "192",
                           "name": "cube--C1",
                           "position": {"x": 0, "y": -3.39267, "z": 118.34508},
                           "orientation": {"x": 0.04362, "y": 0, "z": 0, "w": 0.99905},
@@ -6715,7 +6757,7 @@
                           }
                         },
                         {
-                          "id": "191",
+                          "id": "193",
                           "name": "bone23",
                           "position": {"x": 0, "y": -2.39337, "z": 98.34505},
                           "orientation": {"x": -0.02181, "y": 0, "z": 0, "w": 0.99976},
@@ -6734,7 +6776,7 @@
                           },
                           "children": [
                             {
-                              "id": "192",
+                              "id": "194",
                               "name": "cube--C1",
                               "position": {"x": 0, "y": 1.39267, "z": -44.34508},
                               "orientation": {"x": 0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -6762,7 +6804,7 @@
                               }
                             },
                             {
-                              "id": "193",
+                              "id": "195",
                               "name": "bone25",
                               "position": {"x": 0, "y": 1.39267, "z": -44.34508},
                               "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -6781,7 +6823,7 @@
                               },
                               "children": [
                                 {
-                                  "id": "194",
+                                  "id": "196",
                                   "name": "cube--C1",
                                   "position": {"x": 0, "y": -1, "z": 45},
                                   "orientation": {"x": 0.77988, "y": 0, "z": 0, "w": 0.62592},
@@ -6815,7 +6857,7 @@
                       ]
                     },
                     {
-                      "id": "195",
+                      "id": "197",
                       "name": "appendage1_r",
                       "position": {"x": -51.12263, "y": 20.55395, "z": -140.01779},
                       "orientation": {"x": 0, "y": 0, "z": 0.42262, "w": 0.90631},
@@ -6834,7 +6876,7 @@
                       },
                       "children": [
                         {
-                          "id": "196",
+                          "id": "198",
                           "name": "cube--C1",
                           "position": {"x": 7.07066, "y": -8.42649, "z": 10},
                           "orientation": {"x": -0.16451, "y": 0.29986, "z": -0.82385, "w": 0.45198},
@@ -6855,8 +6897,8 @@
                               },
                               "right": {
                                 "offset": {"x": 165, "y": 442},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 270
+                                "mirror": {"x": true, "y": true},
+                                "angle": 90
                               },
                               "front": {
                                 "offset": {"x": 119, "y": 786},
@@ -6886,7 +6928,7 @@
                           }
                         },
                         {
-                          "id": "197",
+                          "id": "199",
                           "name": "Electric_Bead--C2",
                           "position": {"x": -41.86105, "y": 26.30351, "z": -67.6435},
                           "orientation": {"x": -0.16451, "y": 0.29986, "z": -0.82385, "w": 0.45198},
@@ -6938,7 +6980,7 @@
                           }
                         },
                         {
-                          "id": "198",
+                          "id": "200",
                           "name": "bone33",
                           "position": {"x": -41.64278, "y": 26.87726, "z": -67.6076},
                           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -6957,7 +6999,7 @@
                           },
                           "children": [
                             {
-                              "id": "199",
+                              "id": "201",
                               "name": "Electric_Bead_Quads13",
                               "position": {"x": 0, "y": 0, "z": 0},
                               "orientation": {"x": 0.13708, "y": 0.12227, "z": -0.48259, "w": 0.85637},
@@ -6984,7 +7026,7 @@
                               },
                               "children": [
                                 {
-                                  "id": "200",
+                                  "id": "202",
                                   "name": "Face_D--C1",
                                   "position": {"x": 0, "y": -19, "z": 19},
                                   "orientation": {"x": -0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -7012,7 +7054,7 @@
                                   }
                                 },
                                 {
-                                  "id": "201",
+                                  "id": "203",
                                   "name": "Face_U--C2",
                                   "position": {"x": 0, "y": 19, "z": 19},
                                   "orientation": {"x": 0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -7040,7 +7082,7 @@
                                   }
                                 },
                                 {
-                                  "id": "202",
+                                  "id": "204",
                                   "name": "Face_W--C3",
                                   "position": {"x": 19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": -0.70711, "z": 0, "w": 0.70711},
@@ -7068,7 +7110,7 @@
                                   }
                                 },
                                 {
-                                  "id": "203",
+                                  "id": "205",
                                   "name": "Face_E--C4",
                                   "position": {"x": -19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": 0.70711, "z": 0, "w": 0.70711},
@@ -7096,7 +7138,7 @@
                                   }
                                 },
                                 {
-                                  "id": "204",
+                                  "id": "206",
                                   "name": "Face_S--C5",
                                   "position": {"x": 0, "y": 0, "z": 38},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -7124,7 +7166,7 @@
                                   }
                                 },
                                 {
-                                  "id": "205",
+                                  "id": "207",
                                   "name": "Face_S--C6",
                                   "position": {"x": 0, "y": 0, "z": 38},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -7152,7 +7194,7 @@
                                   }
                                 },
                                 {
-                                  "id": "206",
+                                  "id": "208",
                                   "name": "Face_S--C7",
                                   "position": {"x": 0, "y": 0, "z": 38},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -7180,7 +7222,7 @@
                                   }
                                 },
                                 {
-                                  "id": "207",
+                                  "id": "209",
                                   "name": "Face_S--C8",
                                   "position": {"x": 0, "y": 0, "z": 38},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -7214,7 +7256,7 @@
                       ]
                     },
                     {
-                      "id": "208",
+                      "id": "210",
                       "name": "appendage1_l",
                       "position": {"x": 51.12263, "y": 20.55395, "z": -140.01779},
                       "orientation": {"x": 0, "y": 0, "z": -0.42262, "w": 0.90631},
@@ -7233,7 +7275,7 @@
                       },
                       "children": [
                         {
-                          "id": "209",
+                          "id": "211",
                           "name": "cube--C1",
                           "position": {"x": -7.07066, "y": -8.42649, "z": 10},
                           "orientation": {"x": -0.16451, "y": -0.29986, "z": 0.82385, "w": 0.45198},
@@ -7264,8 +7306,8 @@
                               },
                               "left": {
                                 "offset": {"x": 177, "y": 354},
-                                "mirror": {"x": true, "y": true},
-                                "angle": 270
+                                "mirror": {"x": false, "y": false},
+                                "angle": 90
                               },
                               "top": {
                                 "offset": {"x": 162, "y": 354},
@@ -7285,7 +7327,7 @@
                           }
                         },
                         {
-                          "id": "210",
+                          "id": "212",
                           "name": "Electric_Bead--C2",
                           "position": {"x": 41.86105, "y": 26.30351, "z": -67.6435},
                           "orientation": {"x": -0.16451, "y": -0.29986, "z": 0.82385, "w": 0.45198},
@@ -7337,7 +7379,7 @@
                           }
                         },
                         {
-                          "id": "211",
+                          "id": "213",
                           "name": "bone35",
                           "position": {"x": 41.64278, "y": 26.87726, "z": -67.6076},
                           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -7356,7 +7398,7 @@
                           },
                           "children": [
                             {
-                              "id": "212",
+                              "id": "214",
                               "name": "Electric_Bead_Quads26",
                               "position": {"x": 0, "y": 0, "z": 0},
                               "orientation": {"x": 0.13708, "y": -0.12227, "z": 0.48259, "w": 0.85637},
@@ -7383,7 +7425,7 @@
                               },
                               "children": [
                                 {
-                                  "id": "213",
+                                  "id": "215",
                                   "name": "Face_D--C1",
                                   "position": {"x": 0, "y": -19, "z": 19},
                                   "orientation": {"x": -0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -7411,7 +7453,7 @@
                                   }
                                 },
                                 {
-                                  "id": "214",
+                                  "id": "216",
                                   "name": "Face_U--C2",
                                   "position": {"x": 0, "y": 19, "z": 19},
                                   "orientation": {"x": 0.70711, "y": 0, "z": 0, "w": 0.70711},
@@ -7439,7 +7481,7 @@
                                   }
                                 },
                                 {
-                                  "id": "215",
+                                  "id": "217",
                                   "name": "Face_W--C3",
                                   "position": {"x": -19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": 0.70711, "z": 0, "w": 0.70711},
@@ -7467,7 +7509,7 @@
                                   }
                                 },
                                 {
-                                  "id": "216",
+                                  "id": "218",
                                   "name": "Face_S--C4",
                                   "position": {"x": 0, "y": 0, "z": 38},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -7495,7 +7537,7 @@
                                   }
                                 },
                                 {
-                                  "id": "217",
+                                  "id": "219",
                                   "name": "Face_E--C5",
                                   "position": {"x": 19, "y": 0, "z": 19},
                                   "orientation": {"x": 0, "y": -0.70711, "z": 0, "w": 0.70711},
@@ -7523,7 +7565,7 @@
                                   }
                                 },
                                 {
-                                  "id": "218",
+                                  "id": "220",
                                   "name": "Face_S--C6",
                                   "position": {"x": 0, "y": 0, "z": 38},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -7551,7 +7593,7 @@
                                   }
                                 },
                                 {
-                                  "id": "219",
+                                  "id": "221",
                                   "name": "Face_S--C7",
                                   "position": {"x": 0, "y": 0, "z": 38},
                                   "orientation": {"x": 0, "y": 1, "z": 0, "w": 0},
@@ -7585,7 +7627,7 @@
                       ]
                     },
                     {
-                      "id": "220",
+                      "id": "222",
                       "name": "bone17",
                       "position": {"x": -13.1, "y": 25.6465, "z": -52.8555},
                       "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -7604,7 +7646,7 @@
                       },
                       "children": [
                         {
-                          "id": "221",
+                          "id": "223",
                           "name": "cube--C1",
                           "position": {"x": 0, "y": 0.8, "z": 2},
                           "orientation": {"x": 0, "y": 0.5, "z": 0, "w": 0.86603},
@@ -7656,7 +7698,7 @@
                           }
                         },
                         {
-                          "id": "222",
+                          "id": "224",
                           "name": "cube--C2",
                           "position": {"x": 27.1, "y": 0.9, "z": 2},
                           "orientation": {"x": 0, "y": 0.25882, "z": 0, "w": 0.96593},
@@ -7714,7 +7756,7 @@
               ]
             },
             {
-              "id": "223",
+              "id": "225",
               "name": "Neck--C1",
               "position": {"x": 0, "y": 0, "z": 67},
               "orientation": {"x": 0, "y": 0, "z": 0.38268, "w": 0.92388},
@@ -7750,13 +7792,13 @@
                   },
                   "top": {
                     "offset": {"x": 893, "y": 789},
-                    "mirror": {"x": false, "y": false},
-                    "angle": 270
+                    "mirror": {"x": true, "y": true},
+                    "angle": 90
                   },
                   "bottom": {
                     "offset": {"x": 1013, "y": 580},
-                    "mirror": {"x": true, "y": true},
-                    "angle": 270
+                    "mirror": {"x": false, "y": false},
+                    "angle": 90
                   }
                 },
                 "unwrapMode": "custom",
