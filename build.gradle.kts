@@ -14,7 +14,6 @@ plugins {
 }
 
 val modVersion = providers.gradleProperty("mod.version").get()
-val pluginClass = providers.gradleProperty("mod.plugin_class").get()
 val hytaleVersion = providers.gradleProperty("hytale.version").get()
 val hytalePatchline = providers.gradleProperty("hytale.patchline").getOrElse("release")
 
