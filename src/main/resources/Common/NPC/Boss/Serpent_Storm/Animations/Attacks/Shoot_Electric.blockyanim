@@ -859,6 +859,29 @@
       "shapeStretch": [],
       "shapeVisible": [],
       "shapeUvOffset": []
+    },
+    "tooth_top_r2": {
+      "position": [],
+      "orientation": [
+        {
+          "time": 180,
+          "delta": {"x": 0, "y": -0.13053, "z": 0, "w": 0.99144},
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 187,
+          "delta": {"x": 0, "y": -0.23769, "z": 0, "w": 0.97134},
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 224,
+          "delta": {"x": 0, "y": 0.08716, "z": 0, "w": 0.99619},
+          "interpolationType": "smooth"
+        }
+      ],
+      "shapeStretch": [],
+      "shapeVisible": [],
+      "shapeUvOffset": []
     }
   }
 }
