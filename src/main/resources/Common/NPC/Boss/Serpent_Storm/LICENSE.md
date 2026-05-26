@@ -1,4 +1,4 @@
-Sound effects in this folder are licensed under:
+Files in this directory and its subdirectories are licensed under:
 
 Creative Commons Attribution 4.0 International (CC BY 4.0)
 https://creativecommons.org/licenses/by/4.0/
@@ -13,4 +13,4 @@ Under the following terms:
 - Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made.
 
 Suggested attribution:
-"Storm Serpent SFX" by Samuel Mediani, licensed CC BY 4.0
+"Storm Serpent Models & Textures" by Samuel Mediani, licensed CC BY 4.0

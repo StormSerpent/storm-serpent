@@ -1,15 +1,9 @@
-Storm Serpent UI assets listed below are licensed under:
+Files in this directory and its subdirectories are licensed under:
 
 Creative Commons Attribution 4.0 International (CC BY 4.0)
 https://creativecommons.org/licenses/by/4.0/
 
 Copyright © 2026 Samuel Mediani
-
-Scope (only these assets):
-- World map markers under Common/UI/WorldMap/MapMarkers (Serpent_Storm_*)
-- Boss healthbar UI under Common/UI/Custom/Hud/Boss/Serpent_Storm
-
-All other content in this repository remains under its respective license (see repository root NOTICE).
 
 You are free to:
 - Share — copy and redistribute the material in any medium or format
@@ -19,4 +13,4 @@ Under the following terms:
 - Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made.
 
 Suggested attribution:
-"Storm Serpent UI Assets" by Samuel Mediani, licensed CC BY 4.0
+"Storm Serpent SFX" by Samuel Mediani, licensed CC BY 4.0
