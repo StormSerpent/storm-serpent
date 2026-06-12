@@ -1,0 +1,56 @@
+{
+  "FirstPerson": {
+    "Duration": 2.5,
+    "EaseIn": {
+      "Time": 0.01,
+      "Type": "Linear"
+    },
+    "EaseOut": {
+      "Time": 0.15,
+      "Type": "Linear"
+    },
+    "Offset": {
+      "X": [],
+      "Y": [],
+      "Z": []
+    },
+    "Rotation": {
+      "Pitch": [],
+      "Yaw": [],
+      "Roll": [
+        {
+          "Frequency": 15,
+          "Amplitude": 0.3,
+          "Type": "Perlin_Linear"
+        }
+      ]
+    }
+  },
+  "ThirdPerson": {
+    "Duration": 2.5,
+    "EaseIn": {
+      "Time": 0.01,
+      "Type": "Linear"
+    },
+    "EaseOut": {
+      "Time": 0.15,
+      "Type": "Linear"
+    },
+    "Offset": {
+      "X": [],
+      "Y": [],
+      "Z": []
+    },
+    "Rotation": {
+      "Pitch": [],
+      "Yaw": [],
+      "Roll": [
+        {
+          "Frequency": 15,
+          "Amplitude": 0.3,
+          "Type": "Perlin_Linear"
+        }
+      ]
+    }
+  }
+}

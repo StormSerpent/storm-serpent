@@ -1,0 +1,42 @@
+{
+  "FirstPerson": {
+    "Duration": 0.1,
+    "EaseIn": {
+      "Time": 0.1,
+      "Type": "Linear"
+    },
+    "EaseOut": {
+      "Type": "QuadOut",
+      "Time": 0.2
+    },
+    "Rotation": {
+      "Pitch": [
+        {
+          "Frequency": 30,
+          "Amplitude": 0.1,
+          "Type": "Cos"
+        }
+      ]
+    }
+  },
+  "ThirdPerson": {
+    "Duration": 0.1,
+    "EaseIn": {
+      "Time": 0.1,
+      "Type": "Linear"
+    },
+    "EaseOut": {
+      "Type": "QuadOut",
+      "Time": 0.2
+    },
+    "Rotation": {
+      "Pitch": [
+        {
+          "Frequency": 30,
+          "Amplitude": 0.1,
+          "Type": "Cos"
+        }
+      ]
+    }
+  }
+}

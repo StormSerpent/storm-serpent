@@ -1,0 +1,7 @@
+{
+  "Type": "CameraShake",
+  "CameraShake": "Storm_Serpent_Shriek",
+  "Intensity": {
+    "Value": 0.1
+  }
+}
