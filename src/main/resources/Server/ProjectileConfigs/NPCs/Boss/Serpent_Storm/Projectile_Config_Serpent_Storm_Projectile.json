@@ -37,7 +37,9 @@
                 "TargetEntityPart": "Entity",
                 "Scale": 1
               }
-            ],
+            ]
+          },
+          "DamageEffects": {
             "CameraEffect": "Damage_Storm_Serpent_Blast"
           }
         },
@@ -121,6 +123,9 @@
                     "Physical": 20
                   },
                   "RandomPercentageModifier": 0.1
+                },
+                "DamageEffects": {
+                  "CameraEffect": "Damage_Storm_Serpent_Blast"
                 }
               }
             ]
