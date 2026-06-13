@@ -16,7 +16,7 @@
     }
   ],
   "Main": "me.nullicorn.hytale.stormserpent.StormSerpentPlugin",
-  "ServerVersion": "0.5.1",
+  "ServerVersion": ">=0.5.1",
   "IncludesAssetPack": true,
   "Dependencies": {
     "Hytale:EntityModule": "*",

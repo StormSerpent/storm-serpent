@@ -6,7 +6,6 @@
     "TerminalVelocityAir": 150,
     "TerminalVelocityWater": 15,
     "RotationMode": "Velocity",
-    "Bounciness": 0.0,
     "SticksVertically": true
   },
   "LaunchForce": 150,
@@ -37,6 +36,60 @@
                 "SystemId": "Explosion_Big_Blue",
                 "TargetEntityPart": "Entity",
                 "Scale": 1
+              }
+            ],
+            "CameraEffect": "Damage_Storm_Serpent_Blast"
+          }
+        },
+        {
+          "Type": "Explode",
+          "Config": {
+            "DamageEntities": true,
+            "DamageBlocks": true,
+            "BlockDamageRadius": 7,
+            "BlockDropChance": 0.1,
+            "EntityDamage": 60,
+            "EntityDamageRadius": 4,
+            "Knockback": {
+              "Type": "Point",
+              "VelocityConfig": {
+                "AirResistance": 0.97,
+                "AirResistanceMax": 0.96,
+                "GroundResistance": 0.94,
+                "GroundResistanceMax": 0.3,
+                "Threshold": 3.0,
+                "Style": "Exp"
+              },
+              "Force": 20,
+              "VelocityType": "Add"
+            },
+            "ItemTool": {
+              "Specs": [
+                {
+                  "Power": 2,
+                  "GatherType": "SoftBlocks"
+                },
+                {
+                  "Power": 2,
+                  "GatherType": "Soils"
+                },
+                {
+                  "Power": 2,
+                  "GatherType": "Woods"
+                },
+                {
+                  "Power": 2,
+                  "GatherType": "Rocks"
+                },
+                {
+                  "Power": 2,
+                  "GatherType": "Benches"
+                }
+              ]
+            },
+            "Particles": [
+              {
+                "SystemId": "Explosion_Big_Blue"
               }
             ]
           }
@@ -85,8 +138,62 @@
             "Particles": [
               {
                 "SystemId": "Explosion_Big_Blue",
+                "TargetEntityPart": "Entity"
+              }
+            ]
+          }
+        },
+        {
+          "Type": "Explode",
+          "Config": {
+            "DamageEntities": true,
+            "DamageBlocks": true,
+            "BlockDamageRadius": 7,
+            "BlockDropChance": 0.1,
+            "EntityDamage": 60,
+            "EntityDamageRadius": 4,
+            "Knockback": {
+              "Type": "Point",
+              "VelocityConfig": {
+                "AirResistance": 0.97,
+                "AirResistanceMax": 0.96,
+                "GroundResistance": 0.94,
+                "GroundResistanceMax": 0.3,
+                "Threshold": 3.0,
+                "Style": "Exp"
+              },
+              "Force": 20,
+              "VelocityType": "Add"
+            },
+            "ItemTool": {
+              "Specs": [
+                {
+                  "Power": 2,
+                  "GatherType": "SoftBlocks"
+                },
+                {
+                  "Power": 2,
+                  "GatherType": "Soils"
+                },
+                {
+                  "Power": 2,
+                  "GatherType": "Woods"
+                },
+                {
+                  "Power": 2,
+                  "GatherType": "Rocks"
+                },
+                {
+                  "Power": 2,
+                  "GatherType": "Benches"
+                }
+              ]
+            },
+            "Particles": [
+              {
+                "SystemId": "Explosion_Big_Blue",
                 "TargetEntityPart": "Entity",
-                "Scale": 1
+                "Scale": 10
               }
             ]
           }
