@@ -1,0 +1,150 @@
+{
+  "RenderMode": "Erosion",
+  "EmitOffset": {
+    "X": {
+      "Min": 0,
+      "Max": 0
+    },
+    "Y": {
+      "Min": 0,
+      "Max": 0
+    },
+    "Z": {
+      "Min": 0,
+      "Max": 0
+    }
+  },
+  "ParticleRotationInfluence": "Billboard",
+  "MaxConcurrentParticles": 1,
+  "ParticleLifeSpan": {
+    "Min": 4,
+    "Max": 4
+  },
+  "ParticleRotateWithSpawner": false,
+  "TrailSpawnerPositionMultiplier": 1,
+  "TrailSpawnerRotationMultiplier": 1,
+  "TotalParticles": {
+    "Min": 1,
+    "Max": 1
+  },
+  "InitialVelocity": {
+    "Speed": {
+      "Min": 0,
+      "Max": 0
+    },
+    "Pitch": {
+      "Min": 0,
+      "Max": 0
+    },
+    "Yaw": {
+      "Min": 180,
+      "Max": -180
+    }
+  },
+  "Particle": {
+    "Texture": "Particles/Textures/Circles/Death_Explosion_Tex_Yellow.png",
+    "FrameSize": {},
+    "ScaleRatioConstraint": "OneToOne",
+    "Animation": {
+      "0": {
+        "Rotation": {
+          "X": {
+            "Min": 0,
+            "Max": 0
+          },
+          "Y": {
+            "Min": 0,
+            "Max": 0
+          },
+          "Z": {
+            "Min": 0,
+            "Max": 0
+          }
+        },
+        "Scale": {
+          "X": {
+            "Min": 0,
+            "Max": 0
+          },
+          "Y": {
+            "Min": 1,
+            "Max": 1
+          }
+        },
+        "Opacity": 1.0,
+        "FrameIndex": {},
+        "Color": "#66ffc7"
+      },
+      "20": {
+        "Scale": {
+          "X": {
+            "Min": 0.6,
+            "Max": 0.6
+          }
+        },
+        "Color": "#63e2ff",
+        "Opacity": 1.0
+      },
+      "100": {
+        "Color": "#216dff",
+        "Opacity": 0,
+        "Scale": {
+          "X": {
+            "Min": 1.3,
+            "Max": 1.3
+          }
+        },
+        "FrameIndex": {}
+      }
+    },
+    "InitialAnimationFrame": {
+      "Rotation": {
+        "Z": {
+          "Min": 360,
+          "Max": -360
+        }
+      },
+      "Scale": {
+        "X": {
+          "Min": 50,
+          "Max": 60
+        },
+        "Y": {
+          "Min": 0,
+          "Max": 0
+        }
+      },
+      "Opacity": 1.0,
+      "FrameIndex": {
+        "Min": 0,
+        "Max": 0
+      }
+    },
+    "CollisionAnimationFrame": {
+      "FrameIndex": {},
+      "Scale": {
+        "X": {
+          "Min": 0,
+          "Max": 0
+        }
+      }
+    },
+    "UVOption": "RandomFlipU",
+    "SoftParticles": "Enable"
+  },
+  "LifeSpan": 5,
+  "IsLowRes": false,
+  "UVMotion": {
+    "Strength": 10,
+    "Scale": 1.36,
+    "Texture": "Particles/Textures/UVMotion/FlowMapExplosion.png",
+    "StrengthCurveType": "DecreaseQuartIn",
+    "SpeedY": 0.72,
+    "SpeedX": 0.19
+  },
+  "SpawnBurst": true,
+  "WaveDelay": {
+    "Min": 0,
+    "Max": 0
+  }
+}

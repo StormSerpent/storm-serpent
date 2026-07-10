@@ -1,0 +1,105 @@
+{
+  "RenderMode": "Erosion",
+  "LinearFiltering": false,
+  "ParticleLifeSpan": {
+    "Min": 2,
+    "Max": 2
+  },
+  "SpawnRate": {
+    "Min": 5,
+    "Max": 5
+  },
+  "Particle": {
+    "Texture": "Particles/Textures/Basic/Glow.png",
+    "ScaleRatioConstraint": "None",
+    "UVOption": "RandomFlipU",
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 5.7,
+          "Max": 6
+        },
+        "Y": {
+          "Min": 33.6,
+          "Max": 33.65
+        }
+      },
+      "Opacity": 1.0,
+      "Color": "#ffffff",
+      "FrameIndex": {
+        "Min": 0,
+        "Max": 0
+      }
+    },
+    "Animation": {
+      "10": {
+        "Color": "#9affdc",
+        "Opacity": 1.0,
+        "Scale": {
+          "X": {
+            "Min": 1.0,
+            "Max": 1.0
+          },
+          "Y": {
+            "Min": 20.0,
+            "Max": 20.0
+          }
+        }
+      },
+      "100": {
+        "Color": "#1be8e8",
+        "Opacity": 0.0,
+        "Scale": {
+          "X": {
+            "Min": 0.0,
+            "Max": 0.0
+          },
+          "Y": {
+            "Min": 0.0,
+            "Max": 0.0
+          }
+        }
+      },
+      "0": {
+        "Scale": {
+          "X": {
+            "Min": 0,
+            "Max": 0
+          },
+          "Y": {
+            "Max": 0,
+            "Min": 0
+          }
+        }
+      }
+    }
+  },
+  "Shape": "Sphere",
+  "Attractors": [
+    {
+      "DampingMultiplier": {
+        "X": 1,
+        "Y": 1,
+        "Z": 1
+      },
+      "Radius": 20,
+      "RadialAcceleration": -7
+    }
+  ],
+  "ParticleRotationInfluence": "BillboardVelocity",
+  "EmitOffset": {
+    "X": {
+      "Min": -5,
+      "Max": 5
+    },
+    "Y": {
+      "Max": 5,
+      "Min": -5
+    },
+    "Z": {
+      "Min": -5,
+      "Max": 5
+    }
+  },
+  "MaxConcurrentParticles": 50
+}

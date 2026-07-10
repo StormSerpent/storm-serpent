@@ -1,0 +1,23 @@
+{
+  "IsImportant": true,
+  "CullDistance": 256,
+  "LifeSpan": 7,
+  "Spawners": [
+    {
+      "SpawnerId": "Explosion_Death_Radial_Inward",
+      "LifeSpan": {
+        "Max": 4
+      }
+    },
+    {
+      "SpawnerId": "Pulsating_Glow",
+      "LifeSpan": {
+        "Max": 4
+      }
+    },
+    {
+      "StartDelay": 4,
+      "SpawnerId": "Explosion_Death_Shockwave"
+    }
+  ]
+}
